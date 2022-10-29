@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width" name="viewport"/>
+<link href="/8bitcc.ico" rel="icon" type="image/png"/>
+<link href="https://waylonwalker.com/parsing-rss-python/amp/" rel="amphtml"/>
+<meta content="$ilp.uphold.com/MGN2ni2YMXaQ" name="monetization" property="monetization"/>
+<!-- <link rel='stylesheet' href='/fonts.css' />
+  <link rel='stylesheet' href='/archive-styles.css' />
+  <link rel='stylesheet' href='/article.css' /> -->
+<link href="/main.min.css" rel="stylesheet"/>
+<link as="style" href="/one-dark.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<link as="style" href="/furo-purge.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<!-- <link rel="preload" href="/scroll.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
+<noscript>
+<!-- <link rel='stylesheet' href='/scroll.css' /> -->
+<link href="/one-dark.min.css" rel="stylesheet"/>
+<link href="/furo-purge.min.css" rel="stylesheet"/>
+</noscript>
+<link href="/8bitcc_48x48.png" rel="apple-touch-icon" sizes="48x48"/>
+<link href="/8bitcc_72x72.png" rel="apple-touch-icon" sizes="72x72"/>
+<link href="/8bitcc_96x96.png" rel="apple-touch-icon" sizes="96x96"/>
+<link href="/8bitcc_144x144.png" rel="apple-touch-icon" sizes="144x144"/>
+<link href="/8bitcc_192x192.png" rel="apple-touch-icon" sizes="192x192"/>
+<link href="/8bitcc_256x256.png" rel="apple-touch-icon" sizes="256x256"/>
+<link href="/8bitcc_384x384.png" rel="apple-touch-icon" sizes="384x384"/>
+<link href="/8bitcc_512x512.png" rel="apple-touch-icon" sizes="512x512"/>
+<script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js');
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+              console.log('new worker')
+              window.location.reload()
+      });
+    }
+
+    </script>
+<title>🐍 Parsing RSS feeds with Python</title>
+<meta content="🐍 Parsing RSS feeds with Python" name="twitter:title"/>
+<meta content="🐍 Parsing RSS feeds with Python" name="og:title"/>
+<meta content="I am looking into a way to replace my google reader experience that I had back This is how I used python to parse rss and setup my own custom feed. Install the " name="description"/>
+<meta content="I am looking into a way to replace my google reader experience that I had back This is how I used python to parse rss and setup my own custom feed. Install the " name="og:description"/>
+<meta content="I am looking into a way to replace my google reader experience that I had back This is how I used python to parse rss and setup my own custom feed. Install the " name="twitter:description"/>
+<meta content="article" name="og:type"/>
+<meta content="https://waylonwalker.com/parsing-rss-python/" name="og:url"/>
+<meta content="https://covers.waylonwalker.com/parsing-rss-python.jpg" name="og:image"/>
+<meta content="1200" name="og:image:width"/>
+<meta content="600" name="og:image:height"/>
+<meta content="@_waylonwalker" name="twitter:creator"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Waylon Walker" name="og:author"/>
+<meta content="Waylon Walker" name="og:site_name"/>
+<meta content="waylon@waylonwalker.com" name="og:author_email"/>
+<meta content="markata 0.5.2" name="generator"/>
+<meta content="$ilp.uphold.com/MGN2ni2YMXaQ" name="monetization"/>
+<meta content="#322D39" name="theme-color"/>
+<link href="https://waylonwalker.com/parsing-rss-python/" rel="canonical"/>
+<link href="https://waylonwalker.com/parsing-rss-python/amp/" rel="amphtml"/>
+<link href="https://images.waylonwalker.com" rel="preconnect"/>
+<link href="https://covers.waylonwalker.com" rel="preconnect"/>
+<link href="https://stable-diffusion.waylonwalker.com" rel="preconnect"/>
+<link href="https://screenshots.waylonwalker.com" rel="preconnect"/>
+<link href="/manifest.json" rel="manifest"/></head>
+<body>
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/archive/">Archive</a></li>
+<li>
+<a aria-label="RSS" href="/rss.xml">
+<svg class="icon" height="16" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M 4 4.44 v 2.83 c 7.03 0 12.73 5.7 12.73 12.73 h 2.83 c 0 -8.59 -6.97 -15.56 -15.56 -15.56 Z m 0 5.66 v 2.83 c 3.9 0 7.07 3.17 7.07 7.07 h 2.83 c 0 -5.47 -4.43 -9.9 -9.9 -9.9 Z M 6.18 15.64 A 2.18 2.18 0 0 1 6.18 20 A 2.18 2.18 0 0 1 6.18 15.64" fill="currentColor">
+</path>
+</svg>
+</a>
+</li>
+</ul>
+</nav>
+<article class="blog-post h-entry">
+<!-- <div id='cover-wrapper'>
+      <img src='/parsing-rss-python.webp' alt='cover image for article' />
+    </div> -->
+<div id="title-wrapper">
+<a class="u-url" href="https://waylonwalker.com/parsing-rss-python/">
+<h1 class="flair" id="title" style="text-align:right;z-index:2;padding-right:.2rem">🐍 Parsing RSS feeds with Python
+                </h1>
+</a>
+<p><time class="dt-published post-date" datetime="2020-07-13" style="text-align:right;z-index:2">2020-07-13</time>
+</p>
+<div class="h-card p-author" rel="author">
+<div class="content">
+<a class="p-name u-url" href="https://waylonwalker.com/">
+<p>
+<span class="p-given-name">Waylon</span>
+<span class="p-family-name">Walker</span>
+</p>
+</a>
+<p class="p-note">Learning in Public <a href="https://twitter.com/_WaylonWalker">@_WaylonWalker</a></p>
+</div>
+</div>
+<!-- edit -->
+<p><a alt="edit post url" href="https://github.com/WaylonWalker/waylonwalker.com/edit/main/pages/blog/parsing-rss-python.md" title="edit this post">edit<span aria-label="" role="img">✏️</span></a></p>
+</div>
+<!-- <h2 class='toc'>toc</h2> -->
+<!-- <div class="toc">
+<ul></ul>
+</div>
+ -->
+<div id="post-body">
+<p>I am looking into a way to replace my google reader experience that I had back
+in 2013 before google took it from us.  I am starting by learning how to parse
+feeds with python, and without much previous knowledge, it proved to be much
+easier than anticipated thanks to the <code>feedparser</code> library.</p>
+<p>This is how I used python to parse rss and setup my own custom feed.</p>
+<h2 id="install">Install<a alt="id" class="heading-permalink" href="#install" title="link to #install"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>Install the feedparser library.</p>
+<div class="highlight"><pre><span></span><code>conda create -n reader <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.8 -y
+<span class="nb">source</span> activate reader
+pip install feedparser
+</code></pre></div>
+<h2 id="get-the-content">Get the content<a alt="id" class="heading-permalink" href="#get-the-content" title="link to #get-the-content"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">feedparser</span>
+<span class="n">feed</span> <span class="o">=</span> <span class="n">feedparser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">'https://waylonwalker.com/rss.xml'</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="the-feed-object">The feed object<a alt="id" class="heading-permalink" href="#the-feed-object" title="link to #the-feed-object"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>The feed is a feedparser.FeedParserDict.  For all intents and purposes this
+seems to just behave like a dict with the following <code>keys()</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">feed</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="p">[</span><span class="s1">'feed'</span><span class="p">,</span> <span class="s1">'entries'</span><span class="p">,</span> <span class="s1">'bozo'</span><span class="p">,</span> <span class="s1">'headers'</span><span class="p">,</span> <span class="s1">'etag'</span><span class="p">,</span> <span class="s1">'href'</span><span class="p">,</span> <span class="s1">'status'</span><span class="p">,</span> <span class="s1">'encoding'</span><span class="p">,</span> <span class="s1">'version'</span><span class="p">,</span> <span class="s1">'namespaces'</span><span class="p">,</span> <span class="s1">'content'</span><span class="p">])</span>
+</code></pre></div>
+<p><strong>feed</strong> has some general information about the rss feed, but the meat of the
+feed is in <strong>entries</strong>.  The rest of the keys weren't all that useful for me at
+the moment.</p>
+<h2 id="pulling-multiple-feeds">pulling multiple feeds<a alt="id" class="heading-permalink" href="#pulling-multiple-feeds" title="link to #pulling-multiple-feeds"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>I grabbed a few popular RSS feeds that I was familiar with to get started.</p>
+<div class="highlight"><pre><span></span><code><span class="n">urls</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'https://waylonwalker.com/rss.xml'</span><span class="p">,</span>
+        <span class="s1">'https://joelhooks.com/rss.xml'</span><span class="p">,</span>
+        <span class="s1">'https://swyx.io/rss.xml'</span><span class="p">,</span>
+    <span class="p">]</span>
+<span class="n">feeds</span> <span class="o">=</span> <span class="p">[</span><span class="n">feedparser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">url</span><span class="p">)[</span><span class="s1">'entries'</span><span class="p">]</span> <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">urls</span><span class="p">]</span>
+</code></pre></div>
+<p>I checked out the keys, all three had the following keys.  Mine also had the
+full post under <code>'content'</code>, this is because I added an extra <code>custom_element</code>
+for publishing to <code>dev.to</code> from an RSS feed.</p>
+<div class="highlight"><pre><span></span><code><span class="n">feeds</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">dict_keys</span><span class="p">([</span><span class="s1">'title'</span><span class="p">,</span> <span class="s1">'title_detail'</span><span class="p">,</span> <span class="s1">'summary'</span><span class="p">,</span> <span class="s1">'summary_detail'</span><span class="p">,</span> <span class="s1">'links'</span><span class="p">,</span> <span class="s1">'link'</span><span class="p">,</span> <span class="s1">'id'</span><span class="p">,</span> <span class="s1">'guidislink'</span><span class="p">,</span> <span class="s1">'published'</span>
+<span class="p">,</span> <span class="s1">'published_parsed'</span><span class="p">])</span>
+</code></pre></div>
+<h2 id="note-devtofeed">NOTE: dev.to/feed<a alt="id" class="heading-permalink" href="#note-devtofeed" title="link to #note-devtofeed"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>I also pulled the <a href="https://dev.to/feed">dev.to/feed</a>.  Since is it setup for
+more Authors it had a few extra keys.</p>
+<div class="highlight"><pre><span></span><code><span class="n">feedparser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">'https://dev.to/feed'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">dict_keys</span><span class="p">([</span><span class="s1">'title'</span><span class="p">,</span> <span class="s1">'title_detail'</span><span class="p">,</span> <span class="s1">'authors'</span><span class="p">,</span> <span class="s1">'author'</span><span class="p">,</span> <span class="s1">'author_detail'</span><span class="p">,</span> <span class="s1">'published'</span><span class="p">,</span> <span class="s1">'published_parsed'</span><span class="p">,</span> <span class="s1">'links</span>
+<span class="s1">', '</span><span class="n">link</span><span class="s1">', '</span><span class="nb">id</span><span class="s1">', '</span><span class="n">guidislink</span><span class="s1">', '</span><span class="n">summary</span><span class="s1">', '</span><span class="n">summary_detail</span><span class="s1">', '</span><span class="n">tags</span><span class="s1">'])</span>
+</code></pre></div>
+<h2 id="combining-feeds">Combining Feeds<a alt="id" class="heading-permalink" href="#combining-feeds" title="link to #combining-feeds"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>Now that I have a list of feeds, I can create a single feed sorted by date with
+a list comprehension.  Note I did need to pull in <code>dateutil.parser</code> to convert
+the date strings to datetime objects to be sorted.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">dateutil.parser</span>
+
+<span class="n">feed</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">feed</span> <span class="ow">in</span> <span class="n">feeds</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">feed</span><span class="p">]</span>
+<span class="n">feed</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">dateutil</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">'published'</span><span class="p">]),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">ins</span><span class="p">]</span> <span class="n">In</span> <span class="p">[</span><span class="mi">115</span><span class="p">]:</span> <span class="p">[{</span><span class="s1">'title'</span><span class="p">:</span> <span class="n">i</span><span class="p">[</span><span class="s1">'title'</span><span class="p">],</span> <span class="s1">'date'</span><span class="p">:</span> <span class="n">i</span><span class="p">[</span><span class="s1">'published'</span><span class="p">],</span> <span class="s1">'link'</span><span class="p">:</span> <span class="n">i</span><span class="p">[</span><span class="s1">'link'</span><span class="p">]}</span>  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">feed</span><span class="p">[:</span><span class="mi">10</span><span class="p">]]</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="p">[{</span><span class="s1">'title'</span><span class="p">:</span> <span class="s1">'🙋</span><span class="se">\u200d</span><span class="s1">♂️ Can Anyone Explain Twitter Cards to me?'</span><span class="p">,</span>
+  <span class="s1">'date'</span><span class="p">:</span> <span class="s1">'Sat, 11 Jul 2020 03:00:00 GMT'</span><span class="p">,</span>
+  <span class="s1">'link'</span><span class="p">:</span> <span class="s1">'https://waylonwalker.com/explain-twitter-cards/'</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">'title'</span><span class="p">:</span> <span class="s1">'How I Built My GitHub Profile'</span><span class="p">,</span>
+  <span class="s1">'date'</span><span class="p">:</span> <span class="s1">'Fri, 10 Jul 2020 03:00:00 GMT'</span><span class="p">,</span>
+  <span class="s1">'link'</span><span class="p">:</span> <span class="s1">'https://waylonwalker.com/my-github-profile/'</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">'title'</span><span class="p">:</span> <span class="s1">'Lessons and Regrets from My $25000 Launch'</span><span class="p">,</span>
+  <span class="s1">'date'</span><span class="p">:</span> <span class="s1">'Fri, 03 Jul 2020 04:06:47 GMT'</span><span class="p">,</span>
+  <span class="s1">'link'</span><span class="p">:</span> <span class="s1">'https://swyx.io/writing/coding-career-launch'</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">'title'</span><span class="p">:</span> <span class="s1">'SLIDES - understanding python *args and **kwargs'</span><span class="p">,</span>
+  <span class="s1">'date'</span><span class="p">:</span> <span class="s1">'Thu, 02 Jul 2020 05:00:00 GMT'</span><span class="p">,</span>
+  <span class="s1">'link'</span><span class="p">:</span> <span class="s1">'https://waylonwalker.com/python-args-kwargs-slides/'</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">'title'</span><span class="p">:</span> <span class="s1">'Launching the Coding Career Handbook!'</span><span class="p">,</span>
+  <span class="s1">'date'</span><span class="p">:</span> <span class="s1">'Wed, 01 Jul 2020 13:08:37 GMT'</span><span class="p">,</span>
+  <span class="s1">'link'</span><span class="p">:</span> <span class="s1">'https://swyx.io/writing/launching-coding-career'</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">'title'</span><span class="p">:</span> <span class="s1">'Gracefully adopt kedro, the catalog'</span><span class="p">,</span>
+  <span class="s1">'date'</span><span class="p">:</span> <span class="s1">'Mon, 29 Jun 2020 03:00:00 GMT'</span><span class="p">,</span>
+  <span class="s1">'link'</span><span class="p">:</span> <span class="s1">'https://waylonwalker.com/graceful-kedro-catalog/'</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">'title'</span><span class="p">:</span> <span class="s2">"🤓 What's on your GitHub Profile"</span><span class="p">,</span>
+  <span class="s1">'date'</span><span class="p">:</span> <span class="s1">'Mon, 29 Jun 2020 03:00:00 GMT'</span><span class="p">,</span>
+  <span class="s1">'link'</span><span class="p">:</span> <span class="s1">'https://waylonwalker.com/whats-on-your-github-profile/'</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">'title'</span><span class="p">:</span> <span class="s2">"Versioned Docs in 30 Seconds with Amplify Console's Branch Subdomains"</span><span class="p">,</span>
+  <span class="s1">'date'</span><span class="p">:</span> <span class="s1">'Fri, 26 Jun 2020 16:34:09 GMT'</span><span class="p">,</span>
+  <span class="s1">'link'</span><span class="p">:</span> <span class="s1">'https://swyx.io/writing/amplify-console-branch-subdomains'</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">'title'</span><span class="p">:</span> <span class="s2">"What's New in React"</span><span class="p">,</span>
+  <span class="s1">'date'</span><span class="p">:</span> <span class="s1">'Wed, 24 Jun 2020 00:00:00 GMT'</span><span class="p">,</span>
+  <span class="s1">'link'</span><span class="p">:</span> <span class="s1">'https://swyx.io/speaking/react-whats-new'</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">'title'</span><span class="p">:</span> <span class="s1">'Coding Careers - Vincit'</span><span class="p">,</span>
+  <span class="s1">'date'</span><span class="p">:</span> <span class="s1">'Wed, 24 Jun 2020 00:00:00 GMT'</span><span class="p">,</span>
+  <span class="s1">'link'</span><span class="p">:</span> <span class="s1">'https://swyx.io/speaking/coding-careers-vincit'</span><span class="p">}]</span>
+</code></pre></div>
+<h2 id="decentralized-feed">Decentralized Feed<a alt="id" class="heading-permalink" href="#decentralized-feed" title="link to #decentralized-feed"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>I think the idea of RSS is super cool, and the idea that I can potentially
+create my own custom platform-agnostic decentralized feed is pretty cool.  I
+would love to have a google reader like experience back.</p>
+<p>This post was super fun to explore.  I used an external library (<code>feedparser</code>)
+to pull in the feeds, but other than that It was all vanilla python 3.8.  In
+DataScience we tend to get very <code>DataFrame</code> heavy and I miss working with
+vanilla datatypes sometimes.</p>
+<h2 id="trying-to-step-up-your-python-game">Trying to step up your python game<a alt="id" class="heading-permalink" href="#trying-to-step-up-your-python-game" title="link to #trying-to-step-up-your-python-game"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>While trying to step up your skills you will need lots of practice.  Its good
+to have several options to try out ideas quickly.  I often use replit.com,
+check out this post to see how I use it.</p>
+<div class="onelinelink-wrapper">
+<a class="onelinelink" href="https://waylonwalker.com/practice-python-online/">
+<img align="right" alt="article cover for 🐍 Practice Python Online" src="https://covers.waylonwalker.com/practice-python-online.jpg" style="float: right;"/>
+<p><strong>🐍 Practice Python Online</strong></p>
+</a>
+</div>
+<blockquote>
+<p>Not a sponsor REPL.it is a great way to practice.</p>
+</blockquote>
+<div class="prevnext">
+<style type="text/css">
+
+    :root {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="light"] {
+      --prevnext-color-text: #1f2022;
+      --prevnext-color-angle: #ffeb00;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="dark"] {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    .prevnext {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
+    }
+    .prevnext a {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      text-decoration: none;
+    }
+    a.next {
+      justify-content: flex-end;
+    }
+    .prevnext a:hover {
+      background: #00000006;
+    }
+    .prevnext-subtitle {
+      color: var(--prevnext-color-text);
+      filter: brightness(var(--prevnext-subtitle-brightness));
+      font-size: .8rem;
+    }
+    .prevnext-title {
+      color: var(--prevnext-color-text);
+      font-size: 1rem;
+    }
+    .prevnext-text {
+      max-width: 30vw;
+    }
+    </style>
+<a class="prev" href="/personal-url-shortener">
+<svg fill="none" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.5 8.25L9.75 12L13.5 15.75" stroke="var(--prevnext-color-angle)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"> </path>
+</svg>
+<div class="prevnext-text">
+<p class="prevnext-subtitle">prev</p>
+<p class="prevnext-title">Personal URL shortener with Netlify Redirects</p>
+</div>
+</a>
+<a class="next" href="/pariss-athena-on-black-tech-pipeline">
+<div class="prevnext-text">
+<p class="prevnext-subtitle">next</p>
+<p class="prevnext-title">Black Tech Pipeline</p>
+</div>
+<svg fill="none" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.5 15.75L14.25 12L10.5 8.25" stroke="var(--prevnext-color-angle)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+</svg>
+</a>
+</div>
+</div>
+<hr/>
+<div id="show">
+</div>
+</article>
+<footer>
+<ul class="social">
+<li>
+<a href="https://twitter.com/_WaylonWalker">twitter</a>
+</li>
+<li>
+<a href="https://www.linkedin.com/in/waylonwalker/">LinkedIn</a>
+</li>
+<li>
+<a href="https://github.com/WaylonWalker">GitHub</a>
+</li>
+<li>
+<a href="https://dev.to/waylonwalker">Dev.to</a>
+</li>
+<li>
+<a href="https://www.twitch.tv/waylonwalker">twitch</a>
+</li>
+</ul>
+<p>
+      © 2020 - 2022
+    </p>
+</footer>
+</body>
+</html>

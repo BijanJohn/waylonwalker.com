@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width" name="viewport"/>
+<link href="/8bitcc.ico" rel="icon" type="image/png"/>
+<link href="https://waylonwalker.com/open-ssh-setup/amp/" rel="amphtml"/>
+<meta content="$ilp.uphold.com/MGN2ni2YMXaQ" name="monetization" property="monetization"/>
+<!-- <link rel='stylesheet' href='/fonts.css' />
+  <link rel='stylesheet' href='/archive-styles.css' />
+  <link rel='stylesheet' href='/article.css' /> -->
+<link href="/main.min.css" rel="stylesheet"/>
+<link as="style" href="/one-dark.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<link as="style" href="/furo-purge.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<!-- <link rel="preload" href="/scroll.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
+<noscript>
+<!-- <link rel='stylesheet' href='/scroll.css' /> -->
+<link href="/one-dark.min.css" rel="stylesheet"/>
+<link href="/furo-purge.min.css" rel="stylesheet"/>
+</noscript>
+<link href="/8bitcc_48x48.png" rel="apple-touch-icon" sizes="48x48"/>
+<link href="/8bitcc_72x72.png" rel="apple-touch-icon" sizes="72x72"/>
+<link href="/8bitcc_96x96.png" rel="apple-touch-icon" sizes="96x96"/>
+<link href="/8bitcc_144x144.png" rel="apple-touch-icon" sizes="144x144"/>
+<link href="/8bitcc_192x192.png" rel="apple-touch-icon" sizes="192x192"/>
+<link href="/8bitcc_256x256.png" rel="apple-touch-icon" sizes="256x256"/>
+<link href="/8bitcc_384x384.png" rel="apple-touch-icon" sizes="384x384"/>
+<link href="/8bitcc_512x512.png" rel="apple-touch-icon" sizes="512x512"/>
+<script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js');
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+              console.log('new worker')
+              window.location.reload()
+      });
+    }
+
+    </script>
+<title>Setup SSH from chromebook to home desktop</title>
+<meta content="Setup SSH from chromebook to home desktop" name="twitter:title"/>
+<meta content="Setup SSH from chromebook to home desktop" name="og:title"/>
+<meta content="I write many of these posts from a 10 year old desktop that sits in my I Today I am giving it a second try, but this time with ssh. Before doing anything I chec" name="description"/>
+<meta content="I write many of these posts from a 10 year old desktop that sits in my I Today I am giving it a second try, but this time with ssh. Before doing anything I chec" name="og:description"/>
+<meta content="I write many of these posts from a 10 year old desktop that sits in my I Today I am giving it a second try, but this time with ssh. Before doing anything I chec" name="twitter:description"/>
+<meta content="article" name="og:type"/>
+<meta content="https://waylonwalker.com/open-ssh-setup/" name="og:url"/>
+<meta content="https://covers.waylonwalker.com/open-ssh-setup.jpg" name="og:image"/>
+<meta content="1200" name="og:image:width"/>
+<meta content="600" name="og:image:height"/>
+<meta content="@_waylonwalker" name="twitter:creator"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Waylon Walker" name="og:author"/>
+<meta content="Waylon Walker" name="og:site_name"/>
+<meta content="waylon@waylonwalker.com" name="og:author_email"/>
+<meta content="markata 0.5.2" name="generator"/>
+<meta content="$ilp.uphold.com/MGN2ni2YMXaQ" name="monetization"/>
+<meta content="#322D39" name="theme-color"/>
+<link href="https://waylonwalker.com/open-ssh-setup/" rel="canonical"/>
+<link href="https://waylonwalker.com/open-ssh-setup/amp/" rel="amphtml"/>
+<link href="https://images.waylonwalker.com" rel="preconnect"/>
+<link href="https://covers.waylonwalker.com" rel="preconnect"/>
+<link href="https://stable-diffusion.waylonwalker.com" rel="preconnect"/>
+<link href="https://screenshots.waylonwalker.com" rel="preconnect"/>
+<link href="/manifest.json" rel="manifest"/></head>
+<body>
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/archive/">Archive</a></li>
+<li>
+<a aria-label="RSS" href="/rss.xml">
+<svg class="icon" height="16" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M 4 4.44 v 2.83 c 7.03 0 12.73 5.7 12.73 12.73 h 2.83 c 0 -8.59 -6.97 -15.56 -15.56 -15.56 Z m 0 5.66 v 2.83 c 3.9 0 7.07 3.17 7.07 7.07 h 2.83 c 0 -5.47 -4.43 -9.9 -9.9 -9.9 Z M 6.18 15.64 A 2.18 2.18 0 0 1 6.18 20 A 2.18 2.18 0 0 1 6.18 15.64" fill="currentColor">
+</path>
+</svg>
+</a>
+</li>
+</ul>
+</nav>
+<article class="blog-post h-entry">
+<!-- <div id='cover-wrapper'>
+      <img src='/open-ssh-setup.webp' alt='cover image for article' />
+    </div> -->
+<div id="title-wrapper">
+<a class="u-url" href="https://waylonwalker.com/open-ssh-setup/">
+<h1 class="flair" id="title" style="text-align:right;z-index:2;padding-right:.2rem">Setup SSH from chromebook to home desktop
+                </h1>
+</a>
+<p><time class="dt-published post-date" datetime="2022-03-08" style="text-align:right;z-index:2">2022-03-08</time>
+</p>
+<div class="h-card p-author" rel="author">
+<div class="content">
+<a class="p-name u-url" href="https://waylonwalker.com/">
+<p>
+<span class="p-given-name">Waylon</span>
+<span class="p-family-name">Walker</span>
+</p>
+</a>
+<p class="p-note">Learning in Public <a href="https://twitter.com/_WaylonWalker">@_WaylonWalker</a></p>
+</div>
+</div>
+<!-- edit -->
+<p><a alt="edit post url" href="https://github.com/WaylonWalker/waylonwalker.com/edit/main/pages/blog/open-ssh-setup.md" title="edit this post">edit<span aria-label="" role="img">✏️</span></a></p>
+</div>
+<!-- <h2 class='toc'>toc</h2> -->
+<!-- <div class="toc">
+<ul></ul>
+</div>
+ -->
+<div id="post-body">
+<p>I write many of these posts from a 10 year old desktop that sits in my
+office these days.  It does a very fine job running all of the things I
+need it to for my side work, but sometimes I want a mobile setup.  I
+don't really want to spend the $$ on a new laptop just for the few times
+I want to be somewhere else in the house.  What I do have though is a
+chromebook.</p>
+<p>I've tried to get the chromebook into my workflow in the past, but have
+failed.  Much because by the time I got all of my tools up and running
+in the linux vm it was taking up quite a bit of space on the device and
+made it harder for others to use as a chromebook.</p>
+<p>Today I am giving it a second try, but this time with ssh.</p>
+<h2 id="checking-for-existing-sshd">Checking for existing sshd<a alt="id" class="heading-permalink" href="#checking-for-existing-sshd" title="link to #checking-for-existing-sshd"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>Before doing anything I checked to see if sshd is already running. Using
+the following command.</p>
+<div class="highlight"><pre><span></span><code>sudo service ssh status
+<span class="c1"># or</span>
+pgrep -l sshd
+</code></pre></div>
+<p>Both returned nothing so I know that its not running.</p>
+<h2 id="setting-up-sshd">setting up sshd<a alt="id" class="heading-permalink" href="#setting-up-sshd" title="link to #setting-up-sshd"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p><em>just apt install it</em></p>
+<p>Next install the openssh-client and openssh-server</p>
+<div class="highlight"><pre><span></span><code>sudo apt install openssh-client -y
+sudo apt install openssh-server -y
+</code></pre></div>
+<p>After this I can see that its now running by checking its status once
+again.</p>
+<div class="highlight"><pre><span></span><code>sudo service ssh status
+</code></pre></div>
+<p>Gives me the result.</p>
+<div class="highlight"><pre><span></span><code>● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded <span class="o">(</span>/lib/systemd/system/ssh.service<span class="p">;</span> enabled<span class="p">;</span> vendor preset: enabled<span class="o">)</span>
+     Active: active <span class="o">(</span>running<span class="o">)</span> since Tue <span class="m">2022</span>-03-08 <span class="m">08</span>:17:05 CST<span class="p">;</span> 12min ago
+       Docs: man:sshd<span class="o">(</span><span class="m">8</span><span class="o">)</span>
+             man:sshd_config<span class="o">(</span><span class="m">5</span><span class="o">)</span>
+    Process: <span class="m">181185</span> <span class="nv">ExecStartPre</span><span class="o">=</span>/usr/sbin/sshd -t <span class="o">(</span><span class="nv">code</span><span class="o">=</span>exited, <span class="nv">status</span><span class="o">=</span><span class="m">0</span>/SUCCESS<span class="o">)</span>
+   Main PID: <span class="m">181189</span> <span class="o">(</span>sshd<span class="o">)</span>
+      Tasks: <span class="m">1</span> <span class="o">(</span>limit: <span class="m">19119</span><span class="o">)</span>
+     Memory: <span class="m">2</span>.8M
+        CPU: 96ms
+     CGroup: /system.slice/ssh.service
+             └─181189 sshd: /usr/sbin/sshd -D <span class="o">[</span>listener<span class="o">]</span> <span class="m">0</span> of <span class="m">10</span>-100 startups
+</code></pre></div>
+<h2 id="accessing-the-desktop">Accessing the desktop<a alt="id" class="heading-permalink" href="#accessing-the-desktop" title="link to #accessing-the-desktop"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>I have already enabled the Linux terminal on my chromebook, so I just
+opened the terminal, and ran the following.</p>
+<div class="highlight"><pre><span></span><code>ssh &lt;username&gt;@&lt;ip-address&gt;
+</code></pre></div>
+<p>It prompted for my password and I was in.  I had all of my vim, tmux,
+and zsh comforts that I enjoy without installing anything.  It worked so
+well that this whole post was written from my chromebook.</p>
+<h2 id="limitations">Limitations<a alt="id" class="heading-permalink" href="#limitations" title="link to #limitations"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>This does limit me to being on the same network as my desktop, which
+these days is almost always true.</p>
+<h2 id="ssh-keys">ssh keys<a alt="id" class="heading-permalink" href="#ssh-keys" title="link to #ssh-keys"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>Out of the box I am just using passwords to get in, but if this were
+public I would lock down to requiring an ssh key to enter.  I'll likey
+do this in a future post.</p>
+<div class="prevnext">
+<style type="text/css">
+
+    :root {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="light"] {
+      --prevnext-color-text: #1f2022;
+      --prevnext-color-angle: #ffeb00;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="dark"] {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    .prevnext {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
+    }
+    .prevnext a {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      text-decoration: none;
+    }
+    a.next {
+      justify-content: flex-end;
+    }
+    .prevnext a:hover {
+      background: #00000006;
+    }
+    .prevnext-subtitle {
+      color: var(--prevnext-color-text);
+      filter: brightness(var(--prevnext-subtitle-brightness));
+      font-size: .8rem;
+    }
+    .prevnext-title {
+      color: var(--prevnext-color-text);
+      font-size: 1rem;
+    }
+    .prevnext-text {
+      max-width: 30vw;
+    }
+    </style>
+<a class="prev" href="/out-of-space">
+<svg fill="none" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.5 8.25L9.75 12L13.5 15.75" stroke="var(--prevnext-color-angle)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"> </path>
+</svg>
+<div class="prevnext-text">
+<p class="prevnext-subtitle">prev</p>
+<p class="prevnext-title">Out of Space</p>
+</div>
+</a>
+<a class="next" href="/obs-virtual-camera-on-boot">
+<div class="prevnext-text">
+<p class="prevnext-subtitle">next</p>
+<p class="prevnext-title">obs virtual camera on boot</p>
+</div>
+<svg fill="none" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.5 15.75L14.25 12L10.5 8.25" stroke="var(--prevnext-color-angle)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+</svg>
+</a>
+</div>
+</div>
+<hr/>
+<div id="show">
+</div>
+</article>
+<footer>
+<ul class="social">
+<li>
+<a href="https://twitter.com/_WaylonWalker">twitter</a>
+</li>
+<li>
+<a href="https://www.linkedin.com/in/waylonwalker/">LinkedIn</a>
+</li>
+<li>
+<a href="https://github.com/WaylonWalker">GitHub</a>
+</li>
+<li>
+<a href="https://dev.to/waylonwalker">Dev.to</a>
+</li>
+<li>
+<a href="https://www.twitch.tv/waylonwalker">twitch</a>
+</li>
+</ul>
+<p>
+      © 2022 - 2022
+    </p>
+</footer>
+</body>
+</html>

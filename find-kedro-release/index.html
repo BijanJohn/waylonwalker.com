@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width" name="viewport"/>
+<link href="/8bitcc.ico" rel="icon" type="image/png"/>
+<link href="https://waylonwalker.com/find-kedro-release/amp/" rel="amphtml"/>
+<meta content="$ilp.uphold.com/MGN2ni2YMXaQ" name="monetization" property="monetization"/>
+<!-- <link rel='stylesheet' href='/fonts.css' />
+  <link rel='stylesheet' href='/archive-styles.css' />
+  <link rel='stylesheet' href='/article.css' /> -->
+<link href="/main.min.css" rel="stylesheet"/>
+<link as="style" href="/one-dark.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<link as="style" href="/furo-purge.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<!-- <link rel="preload" href="/scroll.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
+<noscript>
+<!-- <link rel='stylesheet' href='/scroll.css' /> -->
+<link href="/one-dark.min.css" rel="stylesheet"/>
+<link href="/furo-purge.min.css" rel="stylesheet"/>
+</noscript>
+<link href="/8bitcc_48x48.png" rel="apple-touch-icon" sizes="48x48"/>
+<link href="/8bitcc_72x72.png" rel="apple-touch-icon" sizes="72x72"/>
+<link href="/8bitcc_96x96.png" rel="apple-touch-icon" sizes="96x96"/>
+<link href="/8bitcc_144x144.png" rel="apple-touch-icon" sizes="144x144"/>
+<link href="/8bitcc_192x192.png" rel="apple-touch-icon" sizes="192x192"/>
+<link href="/8bitcc_256x256.png" rel="apple-touch-icon" sizes="256x256"/>
+<link href="/8bitcc_384x384.png" rel="apple-touch-icon" sizes="384x384"/>
+<link href="/8bitcc_512x512.png" rel="apple-touch-icon" sizes="512x512"/>
+<script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js');
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+              console.log('new worker')
+              window.location.reload()
+      });
+    }
+
+    </script>
+<title>📢 Announcing find-kedro</title>
+<meta content="📢 Announcing find-kedro" name="twitter:title"/>
+<meta content="📢 Announcing find-kedro" name="og:title"/>
+<meta content="kedro is an amazing project that allows for super-fast prototyping of data pipelines, yet yielding production-ready pipelines. find-kedro enhances this experience by adding a pytest-like node discovery eliminating the need to bubble up pipelines through modules." name="description"/>
+<meta content="kedro is an amazing project that allows for super-fast prototyping of data pipelines, yet yielding production-ready pipelines. find-kedro enhances this experience by adding a pytest-like node discovery eliminating the need to bubble up pipelines through modules." name="og:description"/>
+<meta content="kedro is an amazing project that allows for super-fast prototyping of data pipelines, yet yielding production-ready pipelines. find-kedro enhances this experience by adding a pytest-like node discovery eliminating the need to bubble up pipelines through modules." name="twitter:description"/>
+<meta content="article" name="og:type"/>
+<meta content="https://waylonwalker.com/find-kedro-release/" name="og:url"/>
+<meta content="https://covers.waylonwalker.com/find-kedro-release.jpg" name="og:image"/>
+<meta content="1200" name="og:image:width"/>
+<meta content="600" name="og:image:height"/>
+<meta content="@_waylonwalker" name="twitter:creator"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Waylon Walker" name="og:author"/>
+<meta content="Waylon Walker" name="og:site_name"/>
+<meta content="waylon@waylonwalker.com" name="og:author_email"/>
+<meta content="markata 0.5.2" name="generator"/>
+<meta content="$ilp.uphold.com/MGN2ni2YMXaQ" name="monetization"/>
+<meta content="#322D39" name="theme-color"/>
+<link href="https://waylonwalker.com/find-kedro-release/" rel="canonical"/>
+<link href="https://waylonwalker.com/find-kedro-release/amp/" rel="amphtml"/>
+<link href="https://images.waylonwalker.com" rel="preconnect"/>
+<link href="https://covers.waylonwalker.com" rel="preconnect"/>
+<link href="https://stable-diffusion.waylonwalker.com" rel="preconnect"/>
+<link href="https://screenshots.waylonwalker.com" rel="preconnect"/>
+<link href="/manifest.json" rel="manifest"/></head>
+<body>
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/archive/">Archive</a></li>
+<li>
+<a aria-label="RSS" href="/rss.xml">
+<svg class="icon" height="16" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M 4 4.44 v 2.83 c 7.03 0 12.73 5.7 12.73 12.73 h 2.83 c 0 -8.59 -6.97 -15.56 -15.56 -15.56 Z m 0 5.66 v 2.83 c 3.9 0 7.07 3.17 7.07 7.07 h 2.83 c 0 -5.47 -4.43 -9.9 -9.9 -9.9 Z M 6.18 15.64 A 2.18 2.18 0 0 1 6.18 20 A 2.18 2.18 0 0 1 6.18 15.64" fill="currentColor">
+</path>
+</svg>
+</a>
+</li>
+</ul>
+</nav>
+<article class="blog-post h-entry">
+<!-- <div id='cover-wrapper'>
+      <img src='/find-kedro-release.webp' alt='cover image for article' />
+    </div> -->
+<div id="title-wrapper">
+<a class="u-url" href="https://waylonwalker.com/find-kedro-release/">
+<h1 class="flair" id="title" style="text-align:right;z-index:2;padding-right:.2rem">📢 Announcing find-kedro
+                </h1>
+</a>
+<p><time class="dt-published post-date" datetime="2020-05-04" style="text-align:right;z-index:2">2020-05-04</time>
+</p>
+<div class="h-card p-author" rel="author">
+<div class="content">
+<a class="p-name u-url" href="https://waylonwalker.com/">
+<p>
+<span class="p-given-name">Waylon</span>
+<span class="p-family-name">Walker</span>
+</p>
+</a>
+<p class="p-note">Learning in Public <a href="https://twitter.com/_WaylonWalker">@_WaylonWalker</a></p>
+</div>
+</div>
+<!-- edit -->
+<p><a alt="edit post url" href="https://github.com/WaylonWalker/waylonwalker.com/edit/main/pages/blog/find-kedro-release.md" title="edit this post">edit<span aria-label="" role="img">✏️</span></a></p>
+</div>
+<!-- <h2 class='toc'>toc</h2> -->
+<!-- <div class="toc">
+<ul></ul>
+</div>
+ -->
+<div id="post-body">
+<p><code>find-kedro</code> is a small library to enhance your kedro experience.  It looks through your modules to find kedro pipelines, nodes, and iterables (lists, sets, tuples) of nodes.  It then assembles them into a dictionary of pipelines, each module will create a separate pipeline, and <code>__default__</code> being a combination of all pipelines.  This format is compatible with the kedro <code>_create_pipelines</code> format.</p>
+<p><img alt="Python package" src="https://github.com/WaylonWalker/find-kedro/workflows/Python%20package/badge.svg"/></p>
+<p><img alt="Test" src="https://github.com/WaylonWalker/find-kedro/workflows/Test/badge.svg"/></p>
+<p><a href="https://find-kedro.waylonwalker.com"><img alt="Build-Docs" src="https://github.com/WaylonWalker/find-kedro/workflows/Build-Docs/badge.svg?branch=master"/></a></p>
+<h2 id="_1"><img alt="Motivation" src="https://images.waylonwalker.com/find-kedro-release-1.png"/><a alt="id" class="heading-permalink" href="#_1" title="link to #_1"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p><code>kedro</code> is a ✨ fantastic project that allows for super-fast prototyping of data pipelines, while yielding production-ready pipelines. <code>find-kedro</code> enhances this experience by adding a pytest like node/pipeline discovery eliminating the need to bubble up pipelines through modules.</p>
+<p>When working on larger pipeline projects, it is advisable to break your project down into different sub-modules which requires knowledge of building python libraries, and knowing how to import each module correctly.  While this is not too difficult, in some cases, it can trip up even the most senior engineers, losing precious feature development time to debugging a library.</p>
+<h2 id="_2"><img alt="Installation" src="https://images.waylonwalker.com/find-kedro-release-2.png"/><a alt="id" class="heading-permalink" href="#_2" title="link to #_2"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p><code>find-kedro</code> is deployed to pypi and can easily be <code>pip</code> installed.</p>
+<div class="highlight"><pre><span></span><code>pip install find-kedro
+</code></pre></div>
+<h2 id="_3"><img alt="Python Usage" src="https://images.waylonwalker.com/find-kedro-release-3.png"/><a alt="id" class="heading-permalink" href="#_3" title="link to #_3"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>The recommended usage of <code>find-kedro</code> is to implement it directly into your projects <code>run.py</code> module</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">kedro.context</span> <span class="kn">import</span> <span class="n">KedroContext</span>
+<span class="kn">from</span> <span class="nn">find_kedro</span> <span class="kn">import</span> <span class="n">find_kedro</span>
+
+<span class="k">class</span> <span class="nc">ProjectContext</span><span class="p">(</span><span class="n">KedroContext</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_get_pipelines</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Pipeline</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">find_kedro</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="creating-nodes">Creating nodes<a alt="id" class="heading-permalink" href="#creating-nodes" title="link to #creating-nodes"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h3>
+<p><code>find-kedro</code> will not execute any functions.  It will simply look for variables that match the <code>pattern</code> and identify if they are a <code>kedro.pipeline.Pipeline</code>, <code>kedro.pipeline.nodes.Node</code>, or a list of <code>kedro.pipeline.nodes.  Node</code>'s.  If so, it will collect them into the dictionary of pipelines.</p>
+<p>There are typically <strong>three</strong> ways that pipelines are constructed with <code>find-kedro</code>; <strong>lists</strong>, <strong>single-nodes</strong>, and <strong>pipelines</strong>.</p>
+<h4 id="lists">Lists<a alt="id" class="heading-permalink" href="#lists" title="link to #lists"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h4>
+<p>Any pattern matched list will be flattened and collected into the pipeline.  Nodes can be created all at once in the list definition.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># my-proj/pipelinies/data_engineering/pipeline</span>
+<span class="kn">from</span> <span class="nn">kedro.pipeline</span> <span class="kn">import</span> <span class="n">node</span>
+<span class="kn">from</span> <span class="nn">.nodes</span> <span class="kn">import</span> <span class="n">split_data</span>
+
+<span class="n">pipeline</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">node</span><span class="p">(</span>
+        <span class="n">split_data</span><span class="p">,</span>
+        <span class="p">[</span><span class="s2">"example_iris_data"</span><span class="p">,</span> <span class="s2">"params:example_test_data_ratio"</span><span class="p">],</span>
+        <span class="nb">dict</span><span class="p">(</span>
+            <span class="n">train_x</span><span class="o">=</span><span class="s2">"example_train_x"</span><span class="p">,</span>
+            <span class="n">train_y</span><span class="o">=</span><span class="s2">"example_train_y"</span><span class="p">,</span>
+            <span class="n">test_x</span><span class="o">=</span><span class="s2">"example_test_x"</span><span class="p">,</span>
+            <span class="n">test_y</span><span class="o">=</span><span class="s2">"example_test_y"</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>It is also convenient many times to keep the node definition close to the function definition.  Many times I define the list at the top of the file, then append to it as I go.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># my-proj/pipelinies/data_engineering/pipeline</span>
+<span class="kn">from</span> <span class="nn">kedro.pipeline</span> <span class="kn">import</span> <span class="n">node</span>
+<span class="kn">from</span> <span class="nn">.nodes</span> <span class="kn">import</span> <span class="n">split_data</span>
+
+<span class="n">nodes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+    <span class="n">node</span><span class="p">(</span>
+        <span class="n">split_data</span><span class="p">,</span>
+        <span class="p">[</span><span class="s2">"example_iris_data"</span><span class="p">,</span> <span class="s2">"params:example_test_data_ratio"</span><span class="p">],</span>
+        <span class="nb">dict</span><span class="p">(</span>
+            <span class="n">train_x</span><span class="o">=</span><span class="s2">"example_train_x"</span><span class="p">,</span>
+            <span class="n">train_y</span><span class="o">=</span><span class="s2">"example_train_y"</span><span class="p">,</span>
+            <span class="n">test_x</span><span class="o">=</span><span class="s2">"example_test_x"</span><span class="p">,</span>
+            <span class="n">test_y</span><span class="o">=</span><span class="s2">"example_test_y"</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div>
+<h4 id="nodes">Nodes<a alt="id" class="heading-permalink" href="#nodes" title="link to #nodes"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h4>
+<p>All pattern matched <code>kedro.pipeline.node.Node</code> objects will get collected into the pipeline.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># my-proj/pipelinies/data_engineering/pipeline</span>
+<span class="kn">from</span> <span class="nn">kedro.pipeline</span> <span class="kn">import</span> <span class="n">node</span>
+<span class="kn">from</span> <span class="nn">.nodes</span> <span class="kn">import</span> <span class="n">split_data</span>
+
+<span class="n">split_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span>
+        <span class="n">split_data</span><span class="p">,</span>
+        <span class="p">[</span><span class="s2">"example_iris_data"</span><span class="p">,</span> <span class="s2">"params:example_test_data_ratio"</span><span class="p">],</span>
+        <span class="nb">dict</span><span class="p">(</span>
+            <span class="n">train_x</span><span class="o">=</span><span class="s2">"example_train_x"</span><span class="p">,</span>
+            <span class="n">train_y</span><span class="o">=</span><span class="s2">"example_train_y"</span><span class="p">,</span>
+            <span class="n">test_x</span><span class="o">=</span><span class="s2">"example_test_x"</span><span class="p">,</span>
+            <span class="n">test_y</span><span class="o">=</span><span class="s2">"example_test_y"</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+</code></pre></div>
+<h4 id="pipeline">Pipeline<a alt="id" class="heading-permalink" href="#pipeline" title="link to #pipeline"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h4>
+<p>All pattern matched <code>kedro.pipeline.Pipeline</code> objects will get collected into the pipeline.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># my-project/pipelinies/data_engineering/pipeline</span>
+<span class="kn">from</span> <span class="nn">kedro.pipeline</span> <span class="kn">import</span> <span class="n">node</span><span class="p">,</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">.nodes</span> <span class="kn">import</span> <span class="n">split_data</span>
+
+<span class="n">split_node</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">node</span><span class="p">(</span>
+            <span class="n">split_data</span><span class="p">,</span>
+            <span class="p">[</span><span class="s2">"example_iris_data"</span><span class="p">,</span> <span class="s2">"params:example_test_data_ratio"</span><span class="p">],</span>
+            <span class="nb">dict</span><span class="p">(</span>
+                <span class="n">train_x</span><span class="o">=</span><span class="s2">"example_train_x"</span><span class="p">,</span>
+                <span class="n">train_y</span><span class="o">=</span><span class="s2">"example_train_y"</span><span class="p">,</span>
+                <span class="n">test_x</span><span class="o">=</span><span class="s2">"example_test_x"</span><span class="p">,</span>
+                <span class="n">test_y</span><span class="o">=</span><span class="s2">"example_test_y"</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</code></pre></div>
+<h3 id="fully-qualified-imports">Fully Qualified imports<a alt="id" class="heading-permalink" href="#fully-qualified-imports" title="link to #fully-qualified-imports"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h3>
+<p>When using fully qualified imports <code>from my_proj.pipelines.data_science.nodes import split_data</code> instead of
+relative imports <code>from .nodes split_data</code> you will need to make sure that your project is installed, in your current path, or you set the directory</p>
+<h3 id="_4"><img alt="CLI Usage" src="https://images.waylonwalker.com/find-kedro-release-4.png"/><a alt="id" class="heading-permalink" href="#_4" title="link to #_4"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h3>
+<p>The CLI provides a handy interface to search your project for nodes</p>
+<div class="highlight"><pre><span></span><code>Usage: find-kedro [OPTIONS]
+
+Options:
+  --file-patterns TEXT       glob-style file patterns for Python node module
+                             discovery
+
+  --patterns TEXT            prefixes or glob names for Python pipeline, node,
+                             or list object discovery
+
+  -d, --directory DIRECTORY  Path to save the static site to
+  --version                  Prints version and exits
+  -v, --verbose              Prints extra information for debugging
+  --help                     Show this message and exit.
+</code></pre></div>
+<p>Example ran with a slightly modified default <code>kedro new</code> project.</p>
+<div class="highlight"><pre><span></span><code>❯ find-kedro
+<span class="o">{</span>
+  <span class="s2">"__default__"</span>: <span class="o">[</span>
+    <span class="s2">"split_data([example_iris_data,params:example_test_data_ratio]) -&gt; [example_test_x,example_test_y,example_train_x,example_train_y]"</span>,
+    <span class="s2">"train_model([example_train_x,example_train_y,parameters]) -&gt; [example_model]"</span>,
+    <span class="s2">"predict([example_model,example_test_x]) -&gt; [example_predictions]"</span>,
+    <span class="s2">"report_accuracy([example_predictions,example_test_y]) -&gt; None"</span>
+  <span class="o">]</span>,
+  <span class="s2">"src.default_kedro_159.pipelines.data_engineering.pipeline"</span>: <span class="o">[</span>
+    <span class="s2">"split_data([example_iris_data,params:example_test_data_ratio]) -&gt; [example_test_x,example_test_y,example_train_x,example_train_y]"</span>
+  <span class="o">]</span>,
+  <span class="s2">"src.default_kedro_159.pipelines.data_science.pipeline"</span>: <span class="o">[</span>
+    <span class="s2">"train_model([example_train_x,example_train_y,parameters]) -&gt; [example_model]"</span>,
+    <span class="s2">"predict([example_model,example_test_x]) -&gt; [example_predictions]"</span>,
+    <span class="s2">"report_accuracy([example_predictions,example_test_y]) -&gt; None"</span>
+  <span class="o">]</span>
+<span class="o">}</span>
+</code></pre></div>
+<h2 id="_5"><img alt="Contributing" src="https://images.waylonwalker.com/find-kedro-release-5.png"/><a alt="id" class="heading-permalink" href="#_5" title="link to #_5"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p><strong>You're Awesome</strong> for considering a contribution!  Contributions are welcome, please check out the <a href="https://github.com/WaylonWalker/find-kedro/blob/master/contributing.md">Contributing Guide</a> for more information.  Please be a positive member of the community and embrace feedback</p>
+<h2 id="_6"><img alt="Versioning" src="https://images.waylonwalker.com/find-kedro-release-6.png"/><a alt="id" class="heading-permalink" href="#_6" title="link to #_6"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>We use <a href="https://semver.org/">SemVer</a> for versioning. For the versions available, see the <a href="https://github.com/WaylonWalker/find-kedro/releases">tags on this repository</a>.</p>
+<h2 id="_7"><img alt="Authors" src="https://images.waylonwalker.com/find-kedro-release-7.png"/><a alt="id" class="heading-permalink" href="#_7" title="link to #_7"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p><a href="https://github.com/WaylonWalker"><img alt="Waylon Walker" src="https://avatars1.githubusercontent.com/u/22648375?s=120&amp;v=4"/></a> - Waylon Walker - <em>Original Author</em></p>
+<p><a href="https://github.com/mzjp2"><img alt="Zain Patel" src="https://avatars3.githubusercontent.com/u/30357972?s=120&amp;v=4"/></a> - Zain Patel</p>
+<h2 id="_8"><img alt="License" src="https://images.waylonwalker.com/find-kedro-release-8.png"/><a alt="id" class="heading-permalink" href="#_8" title="link to #_8"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>This project is licensed under the MIT License - see the LICENSE.md file for details</p>
+<div class="prevnext">
+<style type="text/css">
+
+    :root {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="light"] {
+      --prevnext-color-text: #1f2022;
+      --prevnext-color-angle: #ffeb00;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="dark"] {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    .prevnext {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
+    }
+    .prevnext a {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      text-decoration: none;
+    }
+    a.next {
+      justify-content: flex-end;
+    }
+    .prevnext a:hover {
+      background: #00000006;
+    }
+    .prevnext-subtitle {
+      color: var(--prevnext-color-text);
+      filter: brightness(var(--prevnext-subtitle-brightness));
+      font-size: .8rem;
+    }
+    .prevnext-title {
+      color: var(--prevnext-color-text);
+      font-size: 1rem;
+    }
+    .prevnext-text {
+      max-width: 30vw;
+    }
+    </style>
+<a class="prev" href="/find-replace">
+<svg fill="none" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.5 8.25L9.75 12L13.5 15.75" stroke="var(--prevnext-color-angle)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"> </path>
+</svg>
+<div class="prevnext-text">
+<p class="prevnext-subtitle">prev</p>
+<p class="prevnext-title">Find and Replace in the Terminal.</p>
+</div>
+</a>
+<a class="next" href="/filtering-pandas">
+<div class="prevnext-text">
+<p class="prevnext-subtitle">next</p>
+<p class="prevnext-title">Filtering Pandas</p>
+</div>
+<svg fill="none" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.5 15.75L14.25 12L10.5 8.25" stroke="var(--prevnext-color-angle)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+</svg>
+</a>
+</div>
+</div>
+<hr/>
+<div id="show">
+</div>
+</article>
+<footer>
+<ul class="social">
+<li>
+<a href="https://twitter.com/_WaylonWalker">twitter</a>
+</li>
+<li>
+<a href="https://www.linkedin.com/in/waylonwalker/">LinkedIn</a>
+</li>
+<li>
+<a href="https://github.com/WaylonWalker">GitHub</a>
+</li>
+<li>
+<a href="https://dev.to/waylonwalker">Dev.to</a>
+</li>
+<li>
+<a href="https://www.twitch.tv/waylonwalker">twitch</a>
+</li>
+</ul>
+<p>
+      © 2020 - 2022
+    </p>
+</footer>
+</body>
+</html>

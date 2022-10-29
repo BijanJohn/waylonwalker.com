@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width" name="viewport"/>
+<link href="/8bitcc.ico" rel="icon" type="image/png"/>
+<link href="https://waylonwalker.com/cherry-pick/amp/" rel="amphtml"/>
+<meta content="$ilp.uphold.com/MGN2ni2YMXaQ" name="monetization" property="monetization"/>
+<!-- <link rel='stylesheet' href='/fonts.css' />
+  <link rel='stylesheet' href='/archive-styles.css' />
+  <link rel='stylesheet' href='/article.css' /> -->
+<link href="/main.min.css" rel="stylesheet"/>
+<link as="style" href="/one-dark.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<link as="style" href="/furo-purge.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<!-- <link rel="preload" href="/scroll.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
+<noscript>
+<!-- <link rel='stylesheet' href='/scroll.css' /> -->
+<link href="/one-dark.min.css" rel="stylesheet"/>
+<link href="/furo-purge.min.css" rel="stylesheet"/>
+</noscript>
+<link href="/8bitcc_48x48.png" rel="apple-touch-icon" sizes="48x48"/>
+<link href="/8bitcc_72x72.png" rel="apple-touch-icon" sizes="72x72"/>
+<link href="/8bitcc_96x96.png" rel="apple-touch-icon" sizes="96x96"/>
+<link href="/8bitcc_144x144.png" rel="apple-touch-icon" sizes="144x144"/>
+<link href="/8bitcc_192x192.png" rel="apple-touch-icon" sizes="192x192"/>
+<link href="/8bitcc_256x256.png" rel="apple-touch-icon" sizes="256x256"/>
+<link href="/8bitcc_384x384.png" rel="apple-touch-icon" sizes="384x384"/>
+<link href="/8bitcc_512x512.png" rel="apple-touch-icon" sizes="512x512"/>
+<script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js');
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+              console.log('new worker')
+              window.location.reload()
+      });
+    }
+
+    </script>
+<title>How to use git cherry pick</title>
+<meta content="How to use git cherry pick" name="twitter:title"/>
+<meta content="How to use git cherry pick" name="og:title"/>
+<meta content="" name="description"/>
+<meta content="" name="og:description"/>
+<meta content="" name="twitter:description"/>
+<meta content="article" name="og:type"/>
+<meta content="https://waylonwalker.com/cherry-pick/" name="og:url"/>
+<meta content="https://covers.waylonwalker.com/cherry-pick.jpg" name="og:image"/>
+<meta content="1200" name="og:image:width"/>
+<meta content="600" name="og:image:height"/>
+<meta content="@_waylonwalker" name="twitter:creator"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Waylon Walker" name="og:author"/>
+<meta content="Waylon Walker" name="og:site_name"/>
+<meta content="waylon@waylonwalker.com" name="og:author_email"/>
+<meta content="markata 0.5.2" name="generator"/>
+<meta content="$ilp.uphold.com/MGN2ni2YMXaQ" name="monetization"/>
+<meta content="#322D39" name="theme-color"/>
+<link href="https://waylonwalker.com/cherry-pick/" rel="canonical"/>
+<link href="https://waylonwalker.com/cherry-pick/amp/" rel="amphtml"/>
+<link href="https://images.waylonwalker.com" rel="preconnect"/>
+<link href="https://covers.waylonwalker.com" rel="preconnect"/>
+<link href="https://stable-diffusion.waylonwalker.com" rel="preconnect"/>
+<link href="https://screenshots.waylonwalker.com" rel="preconnect"/>
+<link href="/manifest.json" rel="manifest"/></head>
+<body>
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/archive/">Archive</a></li>
+<li>
+<a aria-label="RSS" href="/rss.xml">
+<svg class="icon" height="16" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M 4 4.44 v 2.83 c 7.03 0 12.73 5.7 12.73 12.73 h 2.83 c 0 -8.59 -6.97 -15.56 -15.56 -15.56 Z m 0 5.66 v 2.83 c 3.9 0 7.07 3.17 7.07 7.07 h 2.83 c 0 -5.47 -4.43 -9.9 -9.9 -9.9 Z M 6.18 15.64 A 2.18 2.18 0 0 1 6.18 20 A 2.18 2.18 0 0 1 6.18 15.64" fill="currentColor">
+</path>
+</svg>
+</a>
+</li>
+</ul>
+</nav>
+<article class="blog-post h-entry">
+<!-- <div id='cover-wrapper'>
+      <img src='/cherry-pick.webp' alt='cover image for article' />
+    </div> -->
+<div id="title-wrapper">
+<a class="u-url" href="https://waylonwalker.com/cherry-pick/">
+<h1 class="flair" id="title" style="text-align:right;z-index:2;padding-right:.2rem">How to use git cherry pick
+                </h1>
+</a>
+<p><time class="dt-published post-date" datetime="2021-05-13" style="text-align:right;z-index:2">2021-05-13</time>
+</p>
+<div class="h-card p-author" rel="author">
+<div class="content">
+<a class="p-name u-url" href="https://waylonwalker.com/">
+<p>
+<span class="p-given-name">Waylon</span>
+<span class="p-family-name">Walker</span>
+</p>
+</a>
+<p class="p-note">Learning in Public <a href="https://twitter.com/_WaylonWalker">@_WaylonWalker</a></p>
+</div>
+</div>
+<!-- edit -->
+<p><a alt="edit post url" href="https://github.com/WaylonWalker/waylonwalker.com/edit/main/pages/blog/cherry-pick.md" title="edit this post">edit<span aria-label="" role="img">✏️</span></a></p>
+</div>
+<!-- <h2 class='toc'>toc</h2> -->
+<!-- <div class="toc">
+<ul></ul>
+</div>
+ -->
+<div id="post-body">
+<div class="highlight"><pre><span></span><code>~/git via 🐍 v3.8.5
+❯ mkdir git-cherry-pick-learn
+
+~/git via 🐍 v3.8.5
+❯ <span class="nb">cd</span> git-cherry-pick-learn
+
+~/git/git-cherry-pick-learn
+❯ git init
+Initialized empty Git repository <span class="k">in</span> /home/walkews/git/git-cherry-pick-learn/.git/
+
+git-cherry-pick-learn on  main
+❯ touch readme.md
+
+git-cherry-pick-learn on  main <span class="o">[</span>?<span class="o">]</span>
+❯ git status
+On branch main
+
+No commits yet
+
+Untracked files:
+  <span class="o">(</span>use <span class="s2">"git add &lt;file&gt;..."</span> to include <span class="k">in</span> what will be committed<span class="o">)</span>
+        readme.md
+
+nothing added to commit but untracked files present <span class="o">(</span>use <span class="s2">"git add"</span> to track<span class="o">)</span>
+
+git-cherry-pick-learn on  main <span class="o">[</span>?<span class="o">]</span>
+❯ git add .
+
+git-cherry-pick-learn on  main <span class="o">[</span>+<span class="o">]</span>
+❯ git commit -m <span class="s2">"init readme"</span>
+<span class="o">[</span>main <span class="o">(</span>root-commit<span class="o">)</span> ebd1ff2<span class="o">]</span> init readme
+ <span class="m">1</span> file changed, <span class="m">0</span> insertions<span class="o">(</span>+<span class="o">)</span>, <span class="m">0</span> deletions<span class="o">(</span>-<span class="o">)</span>
+ create mode <span class="m">100644</span> readme.md
+
+git-cherry-pick-learn on  main
+❯ <span class="nb">echo</span> <span class="s2">"Learn Cherry Pick"</span>
+Learn Cherry Pick
+
+git-cherry-pick-learn on  main
+❯ git add .
+
+git-cherry-pick-learn on  main
+❯ git commit -m <span class="s2">"add title</span>
+
+<span class="s2">git-cherry-pick-learn on  main</span>
+<span class="s2">❯ echo "</span><span class="c1"># Learn Cherry Pick" &gt; readme.md</span>
+
+git-cherry-pick-learn on  main <span class="o">[</span>!<span class="o">]</span>
+❯ git add .
+
+git-cherry-pick-learn on  main <span class="o">[</span>+<span class="o">]</span>
+❯ git diff
+
+git-cherry-pick-learn on  main <span class="o">[</span>+<span class="o">]</span>
+❯ git diff --staged
+diff --git a/readme.md b/readme.md
+index e69de29..3490cef <span class="m">100644</span>
+--- a/readme.md
++++ b/readme.md
+@@ -0,0 +1 @@
++# Learn Cherry Pick
+
+git-cherry-pick-learn on  main <span class="o">[</span>+<span class="o">]</span>
+❯ git commit -m <span class="s2">"add title"</span>
+<span class="o">[</span>main 148264d<span class="o">]</span> add title
+ <span class="m">1</span> file changed, <span class="m">1</span> insertion<span class="o">(</span>+<span class="o">)</span>
+
+git-cherry-pick-learn on  main
+❯ git checkout -b trash-branch
+Switched to a new branch <span class="s1">'trash-branch'</span>
+
+git-cherry-pick-learn on  trash-branch
+❯ <span class="nb">echo</span> &gt;&gt; readme.md
+
+git-cherry-pick-learn on  trash-branch <span class="o">[</span>!<span class="o">]</span>
+❯ <span class="nb">echo</span> &gt;&gt; readme.md
+
+git-cherry-pick-learn on  trash-branch <span class="o">[</span>!<span class="o">]</span>
+❯ <span class="nb">echo</span> &gt;&gt; <span class="s2">"Cherry Pick is amazing"</span>
+
+git-cherry-pick-learn on  trash-branch <span class="o">[</span>!?<span class="o">]</span>
+❯ cat readme.md
+───────┬────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+       │ File: readme.md
+───────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   <span class="m">1</span>   │ <span class="c1"># Learn Cherry Pick</span>
+   <span class="m">2</span> + │
+   <span class="m">3</span> + │
+───────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+git-cherry-pick-learn on  trash-branch <span class="o">[</span>!?<span class="o">]</span>
+❯ <span class="nb">echo</span>  <span class="s2">"Cherry Pick is amazing"</span> &gt;&gt;
+
+git-cherry-pick-learn on  trash-branch <span class="o">[</span>!?<span class="o">]</span>
+❯ git commit -m <span class="s2">"add whitespace"</span>
+On branch trash-branch
+Changes not staged <span class="k">for</span> commit:
+  <span class="o">(</span>use <span class="s2">"git add &lt;file&gt;..."</span> to update what will be committed<span class="o">)</span>
+  <span class="o">(</span>use <span class="s2">"git restore &lt;file&gt;..."</span> to discard changes <span class="k">in</span> working directory<span class="o">)</span>
+        modified:   readme.md
+
+Untracked files:
+  <span class="o">(</span>use <span class="s2">"git add &lt;file&gt;..."</span> to include <span class="k">in</span> what will be committed<span class="o">)</span>
+        Cherry Pick is amazing
+
+no changes added to commit <span class="o">(</span>use <span class="s2">"git add"</span> and/or <span class="s2">"git commit -a"</span><span class="o">)</span>
+
+git-cherry-pick-learn on  trash-branch <span class="o">[</span>!?<span class="o">]</span>
+❯ git add .
+
+git-cherry-pick-learn on  trash-branch <span class="o">[</span>+<span class="o">]</span>
+❯ git commit -m <span class="s2">"add whitespace"</span>
+<span class="o">[</span>trash-branch 94f734b<span class="o">]</span> add whitespace
+ <span class="m">2</span> files changed, <span class="m">3</span> insertions<span class="o">(</span>+<span class="o">)</span>
+ create mode <span class="m">100644</span> Cherry Pick is amazing
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>git-cherry-pick-learn on  trash-branch
+❯ <span class="nb">echo</span> <span class="s2">"TRASH"</span> &gt;&gt; readme.md
+
+git-cherry-pick-learn on  trash-branch <span class="o">[</span>!<span class="o">]</span>
+❯ git add .
+
+git-cherry-pick-learn on  trash-branch <span class="o">[</span>+<span class="o">]</span>
+❯ git commit -m <span class="s2">"add trash"</span>
+<span class="o">[</span>trash-branch ec43879<span class="o">]</span> add trash
+ <span class="m">1</span> file changed, <span class="m">1</span> insertion<span class="o">(</span>+<span class="o">)</span>
+
+git-cherry-pick-learn on  trash-branch
+❯ <span class="nb">echo</span> <span class="s2">"Cherry Pick is Amazing"</span> &gt;&gt; readme.md
+
+git-cherry-pick-learn on  trash-branch <span class="o">[</span>!<span class="o">]</span>
+❯ git commit -m <span class="s2">"add cherry pick is amazing"</span>
+On branch trash-branch
+Changes not staged <span class="k">for</span> commit:
+  <span class="o">(</span>use <span class="s2">"git add &lt;file&gt;..."</span> to update what will be committed<span class="o">)</span>
+  <span class="o">(</span>use <span class="s2">"git restore &lt;file&gt;..."</span> to discard changes <span class="k">in</span> working directory<span class="o">)</span>
+        modified:   readme.md
+
+no changes added to commit <span class="o">(</span>use <span class="s2">"git add"</span> and/or <span class="s2">"git commit -a"</span><span class="o">)</span>
+
+git-cherry-pick-learn on  trash-branch <span class="o">[</span>!<span class="o">]</span>
+❯ git add .
+
+git-cherry-pick-learn on  trash-branch <span class="o">[</span>+<span class="o">]</span>
+❯ git commit -m <span class="s2">"add cherry pick is amazing"</span>
+<span class="o">[</span>trash-branch 6691a34<span class="o">]</span> add cherry pick is amazing
+ <span class="m">1</span> file changed, <span class="m">1</span> insertion<span class="o">(</span>+<span class="o">)</span>
+
+git-cherry-pick-learn on  trash-branch
+❯ cat readme.md
+───────┬────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+       │ File: readme.md
+───────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   <span class="m">1</span>   │ <span class="c1"># Learn Cherry Pick</span>
+   <span class="m">2</span>   │
+   <span class="m">3</span>   │
+   <span class="m">4</span>   │ TRASH
+   <span class="m">5</span>   │ Cherry Pick is Amazing
+───────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>git-cherry-pick-learn on  trash-branch
+❯ git log
+commit 6691a343e0ba35d0700c49ec09a99fa8f1f385b9 <span class="o">(</span>HEAD -&gt; trash-branch<span class="o">)</span>
+Author: Waylon Walker &lt;walker_waylon_s@cat.com&gt;
+Date:   Thu May <span class="m">13</span> <span class="m">08</span>:54:58 <span class="m">2021</span> -0500
+
+    add cherry pick is amazing
+
+commit ec438790af36c23aef8eee2122f0dda95313496b
+Author: Waylon Walker &lt;walker_waylon_s@cat.com&gt;
+Date:   Thu May <span class="m">13</span> <span class="m">08</span>:54:07 <span class="m">2021</span> -0500
+
+    add trash
+
+commit 94f734b1adcee0f503c818c0f6bc9da97a0066e2
+Author: Waylon Walker &lt;walker_waylon_s@cat.com&gt;
+Date:   Thu May <span class="m">13</span> <span class="m">08</span>:50:35 <span class="m">2021</span> -0500
+
+    add whitespace
+
+commit 148264da5641033caa537727c6d5199068d58a4d <span class="o">(</span>main<span class="o">)</span>
+Author: Waylon Walker &lt;walker_waylon_s@cat.com&gt;
+Date:   Thu May <span class="m">13</span> <span class="m">08</span>:48:58 <span class="m">2021</span> -0500
+
+    add title
+
+commit ebd1ff22493d860e001f2b96ec948684d496355b
+Author: Waylon Walker &lt;walker_waylon_s@cat.com&gt;
+Date:   Thu May <span class="m">13</span> <span class="m">08</span>:47:10 <span class="m">2021</span> -0500
+
+    init readme
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>git-cherry-pick-learn on  trash-branch
+❯ git checkout main
+Switched to branch <span class="s1">'main'</span>
+
+git-cherry-pick-learn on  main
+❯ cat readme.md
+───────┬────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+       │ File: readme.md
+───────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   <span class="m">1</span>   │ <span class="c1"># Learn Cherry Pick</span>
+───────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+</code></pre></div>
+<div class="prevnext">
+<style type="text/css">
+
+    :root {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="light"] {
+      --prevnext-color-text: #1f2022;
+      --prevnext-color-angle: #ffeb00;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="dark"] {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    .prevnext {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
+    }
+    .prevnext a {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      text-decoration: none;
+    }
+    a.next {
+      justify-content: flex-end;
+    }
+    .prevnext a:hover {
+      background: #00000006;
+    }
+    .prevnext-subtitle {
+      color: var(--prevnext-color-text);
+      filter: brightness(var(--prevnext-subtitle-brightness));
+      font-size: .8rem;
+    }
+    .prevnext-title {
+      color: var(--prevnext-color-text);
+      font-size: 1rem;
+    }
+    .prevnext-text {
+      max-width: 30vw;
+    }
+    </style>
+<a class="prev" href="/chrome-extensions-i-use">
+<svg fill="none" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.5 8.25L9.75 12L13.5 15.75" stroke="var(--prevnext-color-angle)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"> </path>
+</svg>
+<div class="prevnext-text">
+<p class="prevnext-subtitle">prev</p>
+<p class="prevnext-title">Chrome Extensions I use</p>
+</div>
+</a>
+<a class="next" href="/career-day-wapello-2021">
+<div class="prevnext-text">
+<p class="prevnext-subtitle">next</p>
+<p class="prevnext-title">Career Day Wapello 2021</p>
+</div>
+<svg fill="none" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.5 15.75L14.25 12L10.5 8.25" stroke="var(--prevnext-color-angle)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+</svg>
+</a>
+</div>
+</div>
+<hr/>
+<div id="show">
+</div>
+</article>
+<footer>
+<ul class="social">
+<li>
+<a href="https://twitter.com/_WaylonWalker">twitter</a>
+</li>
+<li>
+<a href="https://www.linkedin.com/in/waylonwalker/">LinkedIn</a>
+</li>
+<li>
+<a href="https://github.com/WaylonWalker">GitHub</a>
+</li>
+<li>
+<a href="https://dev.to/waylonwalker">Dev.to</a>
+</li>
+<li>
+<a href="https://www.twitch.tv/waylonwalker">twitch</a>
+</li>
+</ul>
+<p>
+      © 2021 - 2022
+    </p>
+</footer>
+</body>
+</html>

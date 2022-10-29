@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width" name="viewport"/>
+<link href="/8bitcc.ico" rel="icon" type="image/png"/>
+<link href="https://waylonwalker.com/linux-bluetoothctl/amp/" rel="amphtml"/>
+<meta content="$ilp.uphold.com/MGN2ni2YMXaQ" name="monetization" property="monetization"/>
+<!-- <link rel='stylesheet' href='/fonts.css' />
+  <link rel='stylesheet' href='/archive-styles.css' />
+  <link rel='stylesheet' href='/article.css' /> -->
+<link href="/main.min.css" rel="stylesheet"/>
+<link as="style" href="/one-dark.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<link as="style" href="/furo-purge.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<!-- <link rel="preload" href="/scroll.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
+<noscript>
+<!-- <link rel='stylesheet' href='/scroll.css' /> -->
+<link href="/one-dark.min.css" rel="stylesheet"/>
+<link href="/furo-purge.min.css" rel="stylesheet"/>
+</noscript>
+<link href="/8bitcc_48x48.png" rel="apple-touch-icon" sizes="48x48"/>
+<link href="/8bitcc_72x72.png" rel="apple-touch-icon" sizes="72x72"/>
+<link href="/8bitcc_96x96.png" rel="apple-touch-icon" sizes="96x96"/>
+<link href="/8bitcc_144x144.png" rel="apple-touch-icon" sizes="144x144"/>
+<link href="/8bitcc_192x192.png" rel="apple-touch-icon" sizes="192x192"/>
+<link href="/8bitcc_256x256.png" rel="apple-touch-icon" sizes="256x256"/>
+<link href="/8bitcc_384x384.png" rel="apple-touch-icon" sizes="384x384"/>
+<link href="/8bitcc_512x512.png" rel="apple-touch-icon" sizes="512x512"/>
+<script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js');
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+              console.log('new worker')
+              window.location.reload()
+      });
+    }
+
+    </script>
+<title>Bluetooth at the command line on Ubuntu</title>
+<meta content="Bluetooth at the command line on Ubuntu" name="twitter:title"/>
+<meta content="Bluetooth at the command line on Ubuntu" name="og:title"/>
+<meta content="One thing about moving to a tiling window manager like awesome wm or i3 is that Running  Here is what I had to do to connect my headphones. Here is the output o" name="description"/>
+<meta content="One thing about moving to a tiling window manager like awesome wm or i3 is that Running  Here is what I had to do to connect my headphones. Here is the output o" name="og:description"/>
+<meta content="One thing about moving to a tiling window manager like awesome wm or i3 is that Running  Here is what I had to do to connect my headphones. Here is the output o" name="twitter:description"/>
+<meta content="article" name="og:type"/>
+<meta content="https://waylonwalker.com/linux-bluetoothctl/" name="og:url"/>
+<meta content="https://covers.waylonwalker.com/linux-bluetoothctl.jpg" name="og:image"/>
+<meta content="1200" name="og:image:width"/>
+<meta content="600" name="og:image:height"/>
+<meta content="@_waylonwalker" name="twitter:creator"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Waylon Walker" name="og:author"/>
+<meta content="Waylon Walker" name="og:site_name"/>
+<meta content="waylon@waylonwalker.com" name="og:author_email"/>
+<meta content="markata 0.5.2" name="generator"/>
+<meta content="$ilp.uphold.com/MGN2ni2YMXaQ" name="monetization"/>
+<meta content="#322D39" name="theme-color"/>
+<link href="https://waylonwalker.com/linux-bluetoothctl/" rel="canonical"/>
+<link href="https://waylonwalker.com/linux-bluetoothctl/amp/" rel="amphtml"/>
+<link href="https://images.waylonwalker.com" rel="preconnect"/>
+<link href="https://covers.waylonwalker.com" rel="preconnect"/>
+<link href="https://stable-diffusion.waylonwalker.com" rel="preconnect"/>
+<link href="https://screenshots.waylonwalker.com" rel="preconnect"/>
+<link href="/manifest.json" rel="manifest"/></head>
+<body>
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/archive/">Archive</a></li>
+<li>
+<a aria-label="RSS" href="/rss.xml">
+<svg class="icon" height="16" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M 4 4.44 v 2.83 c 7.03 0 12.73 5.7 12.73 12.73 h 2.83 c 0 -8.59 -6.97 -15.56 -15.56 -15.56 Z m 0 5.66 v 2.83 c 3.9 0 7.07 3.17 7.07 7.07 h 2.83 c 0 -5.47 -4.43 -9.9 -9.9 -9.9 Z M 6.18 15.64 A 2.18 2.18 0 0 1 6.18 20 A 2.18 2.18 0 0 1 6.18 15.64" fill="currentColor">
+</path>
+</svg>
+</a>
+</li>
+</ul>
+</nav>
+<article class="blog-post h-entry">
+<!-- <div id='cover-wrapper'>
+      <img src='/linux-bluetoothctl.webp' alt='cover image for article' />
+    </div> -->
+<div id="title-wrapper">
+<a class="u-url" href="https://waylonwalker.com/linux-bluetoothctl/">
+<h1 class="flair" id="title" style="text-align:right;z-index:2;padding-right:.2rem">Bluetooth at the command line on Ubuntu
+                </h1>
+</a>
+<p><time class="dt-published post-date" datetime="2022-02-11" style="text-align:right;z-index:2">2022-02-11</time>
+</p>
+<div class="h-card p-author" rel="author">
+<div class="content">
+<a class="p-name u-url" href="https://waylonwalker.com/">
+<p>
+<span class="p-given-name">Waylon</span>
+<span class="p-family-name">Walker</span>
+</p>
+</a>
+<p class="p-note">Learning in Public <a href="https://twitter.com/_WaylonWalker">@_WaylonWalker</a></p>
+</div>
+</div>
+<!-- edit -->
+<p><a alt="edit post url" href="https://github.com/WaylonWalker/waylonwalker.com/edit/main/pages/blog/linux-bluetoothctl.md" title="edit this post">edit<span aria-label="" role="img">✏️</span></a></p>
+</div>
+<!-- <h2 class='toc'>toc</h2> -->
+<!-- <div class="toc">
+<ul></ul>
+</div>
+ -->
+<div id="post-body">
+<p>One thing about moving to a tiling window manager like awesome wm or i3 is that
+they are so lightweight they are all missing things like bluetooth gui's out of
+the box, and you generally bring your own.  Today I just needed to connet a new
+set of headphones, so I decided to just give the <code>bluetoothctl</code> cli a try.  It
+seems to come with Ubuntu, I don't think I did anything to get it.</p>
+<div class="highlight"><pre><span></span><code>bluetoothctl
+</code></pre></div>
+<p>Running <code>bluetoothctl</code> pops you into a repl/shell like bah, python, or ipython.
+From here you can execute <code>bluetoothctl</code> commands.</p>
+<p>Here is what I had to do to connect my headphones.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># list out the commands available</span>
+<span class="nb">help</span>
+
+<span class="c1"># scan for new devices and stop when you see your device show up</span>
+scan on
+scan off
+
+<span class="c1"># list devices</span>
+devices
+paired-devices
+
+<span class="c1"># pair the device</span>
+pair XX:XX:XX:XX:XX:XX
+
+<span class="c1"># now your device should show up in the paired list</span>
+paired-devices
+
+<span class="c1"># connet the device</span>
+connect XX:XX:XX:XX:XX:XX
+</code></pre></div>
+<h2 id="help">help<a alt="id" class="heading-permalink" href="#help" title="link to #help"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>Here is the output of the help menu on my machine, it seems pretty straight
+forward to block, and remove devices from here.</p>
+<p>note ctrl revers to the bluetooth controller on the machine you are on, and dev
+refers to a device id.</p>
+<div class="highlight"><pre><span></span><code>Menu main:
+Available commands:
+-------------------
+advertise                                         Advertise Options Submenu
+scan                                              Scan Options Submenu
+gatt                                              Generic Attribute Submenu
+list                                              List available controllers
+show <span class="o">[</span>ctrl<span class="o">]</span>                                       Controller information
+<span class="k">select</span> &lt;ctrl&gt;                                     Select default controller
+devices                                           List available devices
+paired-devices                                    List paired devices
+system-alias &lt;name&gt;                               Set controller <span class="nb">alias</span>
+reset-alias                                       Reset controller <span class="nb">alias</span>
+power &lt;on/off&gt;                                    Set controller power
+pairable &lt;on/off&gt;                                 Set controller pairable mode
+discoverable &lt;on/off&gt;                             Set controller discoverable mode
+agent &lt;on/off/capability&gt;                         Enable/disable agent with given capability
+default-agent                                     Set agent as the default one
+advertise &lt;on/off/type&gt;                           Enable/disable advertising with given <span class="nb">type</span>
+set-alias &lt;alias&gt;                                 Set device <span class="nb">alias</span>
+scan &lt;on/off&gt;                                     Scan <span class="k">for</span> devices
+info <span class="o">[</span>dev<span class="o">]</span>                                        Device information
+pair <span class="o">[</span>dev<span class="o">]</span>                                        Pair with device
+trust <span class="o">[</span>dev<span class="o">]</span>                                       Trust device
+untrust <span class="o">[</span>dev<span class="o">]</span>                                     Untrust device
+block <span class="o">[</span>dev<span class="o">]</span>                                       Block device
+unblock <span class="o">[</span>dev<span class="o">]</span>                                     Unblock device
+remove &lt;dev&gt;                                      Remove device
+connect &lt;dev&gt;                                     Connect device
+disconnect <span class="o">[</span>dev<span class="o">]</span>                                  Disconnect device
+menu &lt;name&gt;                                       Select submenu
+version                                           Display version
+quit                                              Quit program
+<span class="nb">exit</span>                                              Quit program
+<span class="nb">help</span>                                              Display <span class="nb">help</span> about this program
+</code></pre></div>
+<h2 id="final-impressions">Final Impressions<a alt="id" class="heading-permalink" href="#final-impressions" title="link to #final-impressions"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>This was something that I have never used, and thought it would be intimidating
+but it worked great first try out of the box.  It could have been my device on
+the other end, but this was one of the least frustrations I have had pairing a
+new device.</p>
+<div class="prevnext">
+<style type="text/css">
+
+    :root {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="light"] {
+      --prevnext-color-text: #1f2022;
+      --prevnext-color-angle: #ffeb00;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="dark"] {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    .prevnext {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
+    }
+    .prevnext a {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      text-decoration: none;
+    }
+    a.next {
+      justify-content: flex-end;
+    }
+    .prevnext a:hover {
+      background: #00000006;
+    }
+    .prevnext-subtitle {
+      color: var(--prevnext-color-text);
+      filter: brightness(var(--prevnext-subtitle-brightness));
+      font-size: .8rem;
+    }
+    .prevnext-title {
+      color: var(--prevnext-color-text);
+      font-size: 1rem;
+    }
+    .prevnext-text {
+      max-width: 30vw;
+    }
+    </style>
+<a class="prev" href="/linux-swap">
+<svg fill="none" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.5 8.25L9.75 12L13.5 15.75" stroke="var(--prevnext-color-angle)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"> </path>
+</svg>
+<div class="prevnext-text">
+<p class="prevnext-subtitle">prev</p>
+<p class="prevnext-title">Create a Swapfile on Your Linux Machine</p>
+</div>
+</a>
+<a class="next" href="/links">
+<div class="prevnext-text">
+<p class="prevnext-subtitle">next</p>
+<p class="prevnext-title">Links</p>
+</div>
+<svg fill="none" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.5 15.75L14.25 12L10.5 8.25" stroke="var(--prevnext-color-angle)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+</svg>
+</a>
+</div>
+</div>
+<hr/>
+<div id="show">
+</div>
+</article>
+<footer>
+<ul class="social">
+<li>
+<a href="https://twitter.com/_WaylonWalker">twitter</a>
+</li>
+<li>
+<a href="https://www.linkedin.com/in/waylonwalker/">LinkedIn</a>
+</li>
+<li>
+<a href="https://github.com/WaylonWalker">GitHub</a>
+</li>
+<li>
+<a href="https://dev.to/waylonwalker">Dev.to</a>
+</li>
+<li>
+<a href="https://www.twitch.tv/waylonwalker">twitch</a>
+</li>
+</ul>
+<p>
+      © 2022 - 2022
+    </p>
+</footer>
+</body>
+</html>

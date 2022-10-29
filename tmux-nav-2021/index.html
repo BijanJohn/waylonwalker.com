@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width" name="viewport"/>
+<link href="/8bitcc.ico" rel="icon" type="image/png"/>
+<link href="https://waylonwalker.com/tmux-nav-2021/amp/" rel="amphtml"/>
+<meta content="$ilp.uphold.com/MGN2ni2YMXaQ" name="monetization" property="monetization"/>
+<!-- <link rel='stylesheet' href='/fonts.css' />
+  <link rel='stylesheet' href='/archive-styles.css' />
+  <link rel='stylesheet' href='/article.css' /> -->
+<link href="/main.min.css" rel="stylesheet"/>
+<link as="style" href="/one-dark.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<link as="style" href="/furo-purge.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<!-- <link rel="preload" href="/scroll.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
+<noscript>
+<!-- <link rel='stylesheet' href='/scroll.css' /> -->
+<link href="/one-dark.min.css" rel="stylesheet"/>
+<link href="/furo-purge.min.css" rel="stylesheet"/>
+</noscript>
+<link href="/8bitcc_48x48.png" rel="apple-touch-icon" sizes="48x48"/>
+<link href="/8bitcc_72x72.png" rel="apple-touch-icon" sizes="72x72"/>
+<link href="/8bitcc_96x96.png" rel="apple-touch-icon" sizes="96x96"/>
+<link href="/8bitcc_144x144.png" rel="apple-touch-icon" sizes="144x144"/>
+<link href="/8bitcc_192x192.png" rel="apple-touch-icon" sizes="192x192"/>
+<link href="/8bitcc_256x256.png" rel="apple-touch-icon" sizes="256x256"/>
+<link href="/8bitcc_384x384.png" rel="apple-touch-icon" sizes="384x384"/>
+<link href="/8bitcc_512x512.png" rel="apple-touch-icon" sizes="512x512"/>
+<script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js');
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+              console.log('new worker')
+              window.location.reload()
+      });
+    }
+
+    </script>
+<title>How I navigate tmux in 2021</title>
+<meta content="How I navigate tmux in 2021" name="twitter:title"/>
+<meta content="How I navigate tmux in 2021" name="og:title"/>
+<meta content="In 2021 I changed the way I navigate between tmux sessions big time.  Now I can Since making this post, I have made ~20 other posts in short form that all have " name="description"/>
+<meta content="In 2021 I changed the way I navigate between tmux sessions big time.  Now I can Since making this post, I have made ~20 other posts in short form that all have " name="og:description"/>
+<meta content="In 2021 I changed the way I navigate between tmux sessions big time.  Now I can Since making this post, I have made ~20 other posts in short form that all have " name="twitter:description"/>
+<meta content="article" name="og:type"/>
+<meta content="https://waylonwalker.com/tmux-nav-2021/" name="og:url"/>
+<meta content="https://covers.waylonwalker.com/tmux-nav-2021.jpg" name="og:image"/>
+<meta content="1200" name="og:image:width"/>
+<meta content="600" name="og:image:height"/>
+<meta content="@_waylonwalker" name="twitter:creator"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Waylon Walker" name="og:author"/>
+<meta content="Waylon Walker" name="og:site_name"/>
+<meta content="waylon@waylonwalker.com" name="og:author_email"/>
+<meta content="markata 0.5.2" name="generator"/>
+<meta content="$ilp.uphold.com/MGN2ni2YMXaQ" name="monetization"/>
+<meta content="#322D39" name="theme-color"/>
+<link href="https://waylonwalker.com/tmux-nav-2021/" rel="canonical"/>
+<link href="https://waylonwalker.com/tmux-nav-2021/amp/" rel="amphtml"/>
+<link href="https://images.waylonwalker.com" rel="preconnect"/>
+<link href="https://covers.waylonwalker.com" rel="preconnect"/>
+<link href="https://stable-diffusion.waylonwalker.com" rel="preconnect"/>
+<link href="https://screenshots.waylonwalker.com" rel="preconnect"/>
+<link href="/manifest.json" rel="manifest"/></head>
+<body>
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/archive/">Archive</a></li>
+<li>
+<a aria-label="RSS" href="/rss.xml">
+<svg class="icon" height="16" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M 4 4.44 v 2.83 c 7.03 0 12.73 5.7 12.73 12.73 h 2.83 c 0 -8.59 -6.97 -15.56 -15.56 -15.56 Z m 0 5.66 v 2.83 c 3.9 0 7.07 3.17 7.07 7.07 h 2.83 c 0 -5.47 -4.43 -9.9 -9.9 -9.9 Z M 6.18 15.64 A 2.18 2.18 0 0 1 6.18 20 A 2.18 2.18 0 0 1 6.18 15.64" fill="currentColor">
+</path>
+</svg>
+</a>
+</li>
+</ul>
+</nav>
+<article class="blog-post h-entry">
+<!-- <div id='cover-wrapper'>
+      <img src='/tmux-nav-2021.webp' alt='cover image for article' />
+    </div> -->
+<div id="title-wrapper">
+<a class="u-url" href="https://waylonwalker.com/tmux-nav-2021/">
+<h1 class="flair" id="title" style="text-align:right;z-index:2;padding-right:.2rem">How I navigate tmux in 2021
+                </h1>
+</a>
+<p><time class="dt-published post-date" datetime="2021-05-11" style="text-align:right;z-index:2">2021-05-11</time>
+</p>
+<div class="h-card p-author" rel="author">
+<div class="content">
+<a class="p-name u-url" href="https://waylonwalker.com/">
+<p>
+<span class="p-given-name">Waylon</span>
+<span class="p-family-name">Walker</span>
+</p>
+</a>
+<p class="p-note">Learning in Public <a href="https://twitter.com/_WaylonWalker">@_WaylonWalker</a></p>
+</div>
+</div>
+<!-- edit -->
+<p><a alt="edit post url" href="https://github.com/WaylonWalker/waylonwalker.com/edit/main/pages/blog/tmux-nav-2021.md" title="edit this post">edit<span aria-label="" role="img">✏️</span></a></p>
+</div>
+<!-- <h2 class='toc'>toc</h2> -->
+<!-- <div class="toc">
+<ul></ul>
+</div>
+ -->
+<div id="post-body">
+<script>
+change_speed = (speed) => [...document.querySelectorAll('video')].map(v => v.playbackRate=v.playbackRate+speed)
+</script>
+<style>
+</style>
+<p>In 2021 I changed the way I navigate between tmux sessions big time.  Now I can
+create, kill, switch with ease, and generally keep work separated into logical
+groups.</p>
+<h2 id="update">Update<a alt="id" class="heading-permalink" href="#update" title="link to #update"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>Since making this post, I have made ~20 other posts in short form that all have a YouTube video to go along with them you can find them all on my
+<a href="https://www.youtube.com/playlist?list=PLTRNG6WIHETB4reAxbWza3CZeP9KL6Bkr">tmux-playlist</a>.</p>
+<h2 id="chris-toomeys-tmux-course"><a href="https://twitter.com/christoomey">Chris Toomey's</a> Tmux Course<a alt="id" class="heading-permalink" href="#chris-toomeys-tmux-course" title="link to #chris-toomeys-tmux-course"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>I took Chris's <a href="https://thoughtbot.com/upcase/tmux">tmux course</a> in December
+2020 and it was fantastic.  Even as a seasoned tmux user, I learned quite a bit.
+Before the course, I was proficient in navigating within each of my tmux
+sessions but rarely started more than one session.  A few months later, I have
+adopted a lot of what I learned from Chris and made it my own.</p>
+<p>I am now keeping projects to their own session and can move between them
+fluidly with just a few keystrokes.  For high-traffic projects, I have them
+bound to a single keystroke for instant switching.  This change has been a
+game-changer from the mess of windows I used to have and the nightmare it was
+to find work I was doing and end up duplicating project work in two separate
+windows.</p>
+<blockquote>
+<p>📝 <strong>NOTE:</strong> Some of my config comes straight from the course, and some of it has
+been extended to my liking.</p>
+</blockquote>
+<p>Let's take a quick look at how I am navigating through tmux on a day-to-day basis.</p>
+<!-- ![overview of how I switch and manage tmux sessions](https://images.waylonwalker.com/tmux-navigation-2021.gif "overview") -->
+<video autoplay="" controls="" loop="true" muted="" playsinline="" width="100%">
+<source src="https://images.waylonwalker.com/tmux-navigation-2021.webm" type="video/webm"/>
+<source src="https://images.waylonwalker.com/tmux-navigation-2021.mp4" type="video/mp4"/>
+    Sorry, your browser doesn't support embedded videos.
+</video>
+<div class="speed-control">
+<button onclick="change_speed(.25)">
+        speed up
+    </button>
+<button onclick="change_speed(-.25)">
+        slow down
+    </button>
+</div>
+<blockquote>
+<p>👆 Overview of how I navigate tmux</p>
+</blockquote>
+<h2 id="tmux-ls">tmux ls<a alt="id" class="heading-permalink" href="#tmux-ls" title="link to #tmux-ls"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>Throughout this article, I have several recordings showing how I use manage
+sessions with my keybindings.  I will often run a <code>tmux ls</code> command to
+highlight running sessions at various points to help guide the viewer.</p>
+<h2 id="ta">ta<a alt="id" class="heading-permalink" href="#ta" title="link to #ta"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p><em>my attach/session switch script</em></p>
+<p>At the heart of my tmux navigation is a highly customized version of Chris's
+tat script that I renamed <code>ta</code>.  Many folks add this to their bashrc <code>alias
+ta=tmux attach</code>.  Simply calling ta will do the same thing as shown below.  If
+you're in a tmux session, it does nothing, and if you're not in one, it will
+attach you to the first one.</p>
+<blockquote>
+<p>get the full <a href="https://github.com/WaylonWalker/devtainer/blob/main/bin/.local/bin/ta">script</a> from GitHub.</p>
+</blockquote>
+<!-- ![overview of how I switch and manage tmux sessions](https://images.waylonwalker.com/tmux-navigation-2021-ta.gif "overview") -->
+<video autoplay="" controls="" loop="true" muted="" playsinline="" width="100%">
+<source src="https://images.waylonwalker.com/tmux-navigation-2021-ta.webm" type="video/webm"/>
+<source src="https://images.waylonwalker.com/tmux-navigation-2021-ta.mp4" type="video/mp4"/>
+    Sorry, your browser doesn't support embedded videos.
+</video>
+<div class="speed-control">
+<button onclick="change_speed(.25)">
+        speed up
+    </button>
+<button onclick="change_speed(-.25)">
+        slow down
+    </button>
+</div>
+<blockquote>
+<p>👆 attaching to a session by default</p>
+</blockquote>
+<p>In my <code>~/.bashrc</code> or <code>~/.zshrc</code> I add the <code>ta</code> command to keep myself in a tmux
+session at all times.  Whenever I open my terminal, I am automatically dropped
+into a tmux session, but if I am opening a split while in tmux it's smart
+enough to know not to nest tmux sessions.</p>
+<div class="highlight"><pre><span></span><code>ta
+</code></pre></div>
+<p>Another article can dive into my <code>ta</code> command. This one is more about the
+methodology, workflow, and keybindings to get me there.  It's available in my
+<a href="https://github.com/WaylonWalker/devtainer/blob/main/bin/.local/bin/ta">script</a>.</p>
+<h3 id="but-theres-more">but there's more<a alt="id" class="heading-permalink" href="#but-theres-more" title="link to #but-theres-more"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h3>
+<p><em>gettin fuzzy</em></p>
+<p>Give it a directory, and a <code>fzy</code> dropdown will let you choose a subdirectory to
+start your session in, and name the session after that directory.</p>
+<div class="highlight"><pre><span></span><code>ta ~/git
+</code></pre></div>
+<blockquote>
+<p>🔥 Bonus, use direnv to automatically set settings, echo your git status,
+activate your environment or whatever else you need.</p>
+</blockquote>
+<!-- ![overview of how I switch and manage tmux sessions](https://images.waylonwalker.com/tmux-navigation-2021-ta-directory.gif "overview") -->
+<video autoplay="" controls="" loop="true" muted="" playsinline="" width="100%">
+<source src="https://images.waylonwalker.com/tmux-navigation-2021-ta-directory.webm" type="video/webm"/>
+<source src="https://images.waylonwalker.com/tmux-navigation-2021-ta-directory.mp4" type="video/mp4"/>
+    Sorry, your browser doesn't support embedded videos.
+</video>
+<div class="speed-control">
+<button onclick="change_speed(.25)">
+        speed up
+    </button>
+<button onclick="change_speed(-.25)">
+        slow down
+    </button>
+</div>
+<blockquote>
+<p>👆 give it a directory, it will ask for input to which project and start a new
+named session in that directory.</p>
+</blockquote>
+<p>Note that starting from outside currently does not start in a split layout like
+it does when starting from within tmux.  I am still playing with this, but
+generally, I want my terminal session to be plain when I first start my
+terminal. I usually am starting work after the first default session.</p>
+<blockquote>
+<p>🤔 I still use both fzy and fzf. It probably doesn't make sense to use both,
+but I am currently giving fzy a try.</p>
+</blockquote>
+<h2 id="prefixw">prefix+w<a alt="id" class="heading-permalink" href="#prefixw" title="link to #prefixw"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p><em>tmux choose-tree</em></p>
+<p>By default, tmux comes with a <code>tmux choose-tree</code> command bound to <code>prefix+w</code>,
+which opens in full screen.  The upper section of the screen will show every
+window opened.  While selected, you can show the splits in each window by
+hitting l, or fold it with h. You can search for a session name by hitting /.</p>
+<!-- ![jump to existing sessions with prefix+w](https://images.waylonwalker.com/tmux-navigation-2021-prefix+w.gif "using prefix+w") -->
+<video autoplay="" controls="" loop="true" muted="" playsinline="" width="100%">
+<source src="https://images.waylonwalker.com/tmux-navigation-2021-prefix+w.webm" type="video/webm"/>
+<source src="https://images.waylonwalker.com/tmux-navigation-2021-prefix+w.mp4" type="video/mp4"/>
+    Sorry, your browser doesn't support embedded videos.
+</video>
+<div class="speed-control">
+<button onclick="change_speed(.25)">
+        speed up
+    </button>
+<button onclick="change_speed(-.25)">
+        slow down
+    </button>
+</div>
+<div class="highlight"><pre><span></span><code><span class="c1"># ~/.tmux.conf</span>
+
+<span class="c1"># expanded to show all splits</span>
+<span class="nb">bind</span> s choose-tree
+<span class="c1"># simpler window to show only sessions</span>
+<span class="nb">bind</span> S choose-session
+</code></pre></div>
+<h3 id="keybindings-in-choose-treechoose-session">Keybindings in choose-tree/choose-session<a alt="id" class="heading-permalink" href="#keybindings-in-choose-treechoose-session" title="link to #keybindings-in-choose-treechoose-session"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h3>
+<p>The default keybindings of the tmux <code>choose-tree</code> and <code>choose-session</code> that I
+use are listed below.  J/K are very intuitive, but I just learned about h,l,/.
+When I do use one of these, the / (search) can be super helpful to find
+sessions/windows faster.</p>
+<table>
+<thead>
+<tr>
+<th>action</th>
+<th>key</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fold</td>
+<td>h</td>
+</tr>
+<tr>
+<td>unfold</td>
+<td>l</td>
+</tr>
+<tr>
+<td>up</td>
+<td>k</td>
+</tr>
+<tr>
+<td>down</td>
+<td>j</td>
+</tr>
+<tr>
+<td>search</td>
+<td>/</td>
+</tr>
+</tbody>
+</table>
+<h2 id="prefixc-w-prefixc-g">prefix+c-w prefix+c-g<a alt="id" class="heading-permalink" href="#prefixc-w-prefixc-g" title="link to #prefixc-w-prefixc-g"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p><em>open a project</em></p>
+<p>I have set up to make it easy to open my non-work projects <em>(in my ~/git directory)</em>
+and my work projects <em>(in my ~/work directory)</em>.  I bound <code>prefix+c-g</code> and
+<code>prefix+c-w</code> to open a new session in their respective directories.  I like
+mapping common prefix commands with control to keep my pinky mashed on
+that control key.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># ~/.tmux.conf</span>
+
+<span class="nb">bind</span> C-w new-window -n <span class="s2">"work-session-picker"</span> <span class="s2">"ta ~/work"</span>
+<span class="nb">bind</span> C-g new-window -n <span class="s2">"git-session-picker"</span> <span class="s2">"ta ~/git"</span>
+</code></pre></div>
+<!-- ![create a new session from my ~/git directory](https://images.waylonwalker.com/tmux-navigation-2021-prefix+c-g.gif "using prefix+c-g") -->
+<video autoplay="" controls="" loop="true" muted="" playsinline="" width="100%">
+<source src="https://images.waylonwalker.com/tmux-navigation-2021-prefix+c-g.webm" type="video/webm"/>
+<source src="https://images.waylonwalker.com/tmux-navigation-2021-prefix+c-g.mp4" type="video/mp4"/>
+    Sorry, your browser doesn't support embedded videos.
+</video>
+<div class="speed-control">
+<button onclick="change_speed(.25)">
+        speed up
+    </button>
+<button onclick="change_speed(-.25)">
+        slow down
+    </button>
+</div>
+<h2 id="prefixc-j">prefix+c-j<a alt="id" class="heading-permalink" href="#prefixc-j" title="link to #prefixc-j"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p><em>jump to session</em></p>
+<p>Now that I have <code>ta</code> rocking with a good create or attach setup, I am rarely
+toggling through a list of running sessions, but I am doing it with
+<code>prefix+c-j</code> when I do it. Keeping my finger on control and pressing <code>&lt;space&gt;+j</code>.
+This keybinding uses fzf to fuzzy match to an existing session and attach.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">bind</span> C-j new-window -n <span class="s2">"session-switcher"</span> <span class="s2">"tmux list-sessions | sed -E 's/:.*</span>$<span class="s2">//' | grep -v \"^</span><span class="k">$(</span>tmux display-message -p <span class="s1">'#S'</span><span class="k">)</span><span class="s2">\$\" | fzf --reverse | xargs tmux switch-client -t"</span>
+</code></pre></div>
+<!-- ![jump to existing sessions with prefix+c-j](https://images.waylonwalker.com/tmux-navigation-2021-prefix+c-j.gif "using prefix+c-j") -->
+<video autoplay="" controls="" loop="true" muted="" playsinline="" width="100%">
+<source src="https://images.waylonwalker.com/tmux-navigation-2021-prefix+c-j.webm" type="video/webm"/>
+<source src="https://images.waylonwalker.com/tmux-navigation-2021-prefix+c-j.mp4" type="video/mp4"/>
+    Sorry, your browser doesn't support embedded videos.
+</video>
+<div class="speed-control">
+<button onclick="change_speed(.25)">
+        speed up
+    </button>
+<button onclick="change_speed(-.25)">
+        slow down
+    </button>
+</div>
+<h2 id="m-n-m-p">M-N M-P<a alt="id" class="heading-permalink" href="#m-n-m-p" title="link to #m-n-m-p"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p><em>next/prev</em></p>
+<p>Next and Previous sessions.  This is super handy when working with under 3
+sessions to be able to cycle through sessions holding <code>shift+alt</code> and pressing
+<code>n</code> or <code>p</code>.</p>
+<!-- ![jump to next or previous sessions with m-N or m-P](https://images.waylonwalker.com/tmux-navigation-2021-m-N-M-P.gif "using m-N and m-P") -->
+<video autoplay="" controls="" loop="true" muted="" playsinline="" width="100%">
+<source src="https://images.waylonwalker.com/tmux-navigation-2021-m-N-M-P.webm" type="video/webm"/>
+<source src="https://images.waylonwalker.com/tmux-navigation-2021-m-N-M-P.mp4" type="video/mp4"/>
+    Sorry, your browser doesn't support embedded videos.
+</video>
+<div class="speed-control">
+<button onclick="change_speed(.25)">
+        speed up
+    </button>
+<button onclick="change_speed(-.25)">
+        slow down
+    </button>
+</div>
+<h2 id="tkill">tkill<a alt="id" class="heading-permalink" href="#tkill" title="link to #tkill"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p><em>time to clean up</em></p>
+<p>It's easy to get a long crufty list of sessions running throughout the day.
+Typically this is not too bad on system resources compared to running vscode in
+every working project, but it does make it more challenging to manage and wade
+through the sessions list.  I use a handy shell alias that's been in my zshrc
+for quite some time.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span> <span class="nv">tkill</span><span class="o">=</span><span class="s2">"for s in \$(tmux list-sessions | awk '{print \$1}' | rg ':' -r '' | fzy); do tmux kill-session -t \$s; done;"</span>
+</code></pre></div>
+<p>I don't have this one set up with a nice hotkey, but it works for my
+fingers.  I often pop open a lower split(<code>M-s</code>), run <code>tkill</code>, and close (<code>M-x</code>).</p>
+<!-- ![create a new session git-diff switch back to original session with prefix+c-g then use tkill to kill the git-diff session](https://images.waylonwalker.com/tmux-navigation-2021-tkill.gif "tkill example") -->
+<video autoplay="" controls="" loop="true" muted="" playsinline="" width="100%">
+<source src="https://images.waylonwalker.com/tmux-navigation-2021-tkill.webm" type="video/webm"/>
+<source src="https://images.waylonwalker.com/tmux-navigation-2021-tkill.mp4" type="video/mp4"/>
+    Sorry, your browser doesn't support embedded videos.
+</video>
+<div class="speed-control">
+<button onclick="change_speed(.25)">
+        speed up
+    </button>
+<button onclick="change_speed(-.25)">
+        slow down
+    </button>
+</div>
+<h2 id="last-session">Last Session<a alt="id" class="heading-permalink" href="#last-session" title="link to #last-session"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p><em>back</em></p>
+<p>While <code>M-n</code> and <code>M-p</code> work well with a small, focused number of sessions, I often
+end up with too many sessions open, and it's not efficient to remember a double
+<code>M-N</code> followed by a triple <code>M-P</code> to get back and forth.  Most often, I want to
+get between two sessions quickly, no matter what the order is.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">bind</span> -n M-B switch-client -l
+<span class="nb">bind</span> -n M-b switch-client -l
+</code></pre></div>
+<video autoplay="" controls="" loop="true" muted="" playsinline="" width="100%">
+<source src="https://images.waylonwalker.com/tmux-navigation-2021-m-b.webm" type="video/webm"/>
+<source src="https://images.waylonwalker.com/tmux-navigation-2021-m-b.mp4" type="video/mp4"/>
+    Sorry, your browser doesn't support embedded videos.
+</video>
+<div class="speed-control">
+<button onclick="change_speed(.25)">
+        speed up
+    </button>
+<button onclick="change_speed(-.25)">
+        slow down
+    </button>
+</div>
+<blockquote>
+<p>Once I get two sessions back to back, I can switch between them with insane
+speed and precision.</p>
+</blockquote>
+<h2 id="more-precision">More Precision<a alt="id" class="heading-permalink" href="#more-precision" title="link to #more-precision"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p><em>one keystroke</em></p>
+<p>The final layer of precision is for my most current project. I need to get
+to these with a single keystroke.  These are bound to a set of keybindings that were
+readily available, just above the home row.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">bind</span> C-t new-session -A -s todo <span class="s2">"cd ~/work/todo &amp;&amp; nvim -O backlog.md doing.md done.md"</span>
+<span class="nb">bind</span> -n M-i new-session -A -s ww3 <span class="s2">"cd ~/git/ww3/ &amp;&amp; nvim"</span>
+<span class="nb">bind</span> -n M-o new-session -A -s images_waylonwalker_com <span class="s2">"cd ~/git/images.waylonwalker.com/ &amp;&amp; nvim"</span>
+</code></pre></div>
+<video autoplay="" controls="" loop="true" muted="" playsinline="" width="100%">
+<source src="https://images.waylonwalker.com/tmux-navigation-2021-m-i-m-o.webm" type="video/webm"/>
+<source src="https://images.waylonwalker.com/tmux-navigation-2021-m-i-m-o.mp4" type="video/mp4"/>
+    Sorry, your browser doesn't support embedded videos.
+</video>
+<div class="speed-control">
+<button onclick="change_speed(.25)">
+        speed up
+    </button>
+<button onclick="change_speed(-.25)">
+        slow down
+    </button>
+</div>
+<blockquote>
+<p>These few directories are always at my fingertips, encouraging me to keep better notes</p>
+</blockquote>
+<p>And yes, I did steal this last one from <a href="https://twitter.com/ThePrimeagen">Harpoon-man</a> By The Way.</p>
+<h2 id="hub-and-spoke">Hub and Spoke<a alt="id" class="heading-permalink" href="#hub-and-spoke" title="link to #hub-and-spoke"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p><em>M-i M-b</em></p>
+<p>I have really been digging this hub and spoke workflow where I am rocking away
+on a project hit <code>M-I</code>, take some notes then hit <code>M-b</code> to get back to where I
+was.</p>
+<p><img alt="hub and spoke" src="https://images.waylonwalker.com/tmux-nav-hub-spoke.png"/></p>
+<blockquote>
+<p>Model of my current workflow</p>
+</blockquote>
+<h3 id="example">Example<a alt="id" class="heading-permalink" href="#example" title="link to #example"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h3>
+<p>Here is an example of how I use the hub and spoke model to get to notes on my
+blog and back to my project quickly.</p>
+<video autoplay="" controls="" loop="true" muted="" playsinline="" width="100%">
+<source src="https://images.waylonwalker.com/tmux-navigation-2021-quickly-access-notes.webm" type="video/webm"/>
+<source src="https://images.waylonwalker.com/tmux-navigation-2021-quickly-access-notes.mp4" type="video/mp4"/>
+    Sorry, your browser doesn't support embedded videos.
+</video>
+<div class="speed-control">
+<button onclick="change_speed(.25)">
+        speed up
+    </button>
+<button onclick="change_speed(-.25)">
+        slow down
+    </button>
+</div>
+<h2 id="example-workflow">Example workflow<a alt="id" class="heading-permalink" href="#example-workflow" title="link to #example-workflow"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<ol>
+<li>open tmux session with ta</li>
+<li><code>prefix+c-g</code> start work in a project using a fuzzy matcher</li>
+<li><code>M-t</code> over to my todo list</li>
+<li><code>M-b</code> back to my project</li>
+<li><code>M-i</code> to my blog to look up notes/make notes</li>
+<li><code>M-b</code> back to my project</li>
+<li><code>prefix+c-g</code> start work in another project using a fuzzy matcher</li>
+<li><code>M-t</code> over to my todo list</li>
+<li><code>M-b</code> back to my project</li>
+<li><code>prefix+c-j</code> fuzzy back to the first project</li>
+<li><code>M-b</code> back to the second project</li>
+</ol>
+<hr/>
+<p>Please let me know your thoughts.
+<a href="https://twitter.com/_WaylonWalker">@waylonwalker</a>, this one took me a bit
+longer to put together with all of the animated gif's, but I think it helps
+visually show how I navigate tmux every day.</p>
+<h2 id="please-give-it-a-share-if-you-liked-it">Please give it a share if you liked it<a alt="id" class="heading-permalink" href="#please-give-it-a-share-if-you-liked-it" title="link to #please-give-it-a-share-if-you-liked-it"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>If you liked it, give it a share and tag me on
+<a href="https://twitter.com/_WaylonWalker">twitter</a>.  I don't often ask but this
+article took a bit more to put together than my normal post.</p>
+<hr/>
+<h2 id="related-links">Related Links<a alt="id" class="heading-permalink" href="#related-links" title="link to #related-links"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<ul>
+<li><a href="https://twitter.com/christoomey">Chris Toomey's</a> Tmux Course</li>
+<li>my <a href="https://github.com/WaylonWalker/devtainer/blob/main/bin/.local/bin/ta">ta script</a>.</li>
+<li>my <a href="https://github.com/WaylonWalker/devtainer/blob/main/tmux/.tmux.conf">.tmux.conf</a></li>
+</ul>
+<div class="prevnext">
+<style type="text/css">
+
+    :root {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="light"] {
+      --prevnext-color-text: #1f2022;
+      --prevnext-color-angle: #ffeb00;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="dark"] {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    .prevnext {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
+    }
+    .prevnext a {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      text-decoration: none;
+    }
+    a.next {
+      justify-content: flex-end;
+    }
+    .prevnext a:hover {
+      background: #00000006;
+    }
+    .prevnext-subtitle {
+      color: var(--prevnext-color-text);
+      filter: brightness(var(--prevnext-subtitle-brightness));
+      font-size: .8rem;
+    }
+    .prevnext-title {
+      color: var(--prevnext-color-text);
+      font-size: 1rem;
+    }
+    .prevnext-text {
+      max-width: 30vw;
+    }
+    </style>
+<a class="prev" href="/tmux-new-session">
+<svg fill="none" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.5 8.25L9.75 12L13.5 15.75" stroke="var(--prevnext-color-angle)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"> </path>
+</svg>
+<div class="prevnext-text">
+<p class="prevnext-subtitle">prev</p>
+<p class="prevnext-title">tmux new-session</p>
+</div>
+</a>
+<a class="next" href="/tmux-ls">
+<div class="prevnext-text">
+<p class="prevnext-subtitle">next</p>
+<p class="prevnext-title">tmux ls</p>
+</div>
+<svg fill="none" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.5 15.75L14.25 12L10.5 8.25" stroke="var(--prevnext-color-angle)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+</svg>
+</a>
+</div>
+</div>
+<hr/>
+<div id="show">
+</div>
+</article>
+<footer>
+<ul class="social">
+<li>
+<a href="https://twitter.com/_WaylonWalker">twitter</a>
+</li>
+<li>
+<a href="https://www.linkedin.com/in/waylonwalker/">LinkedIn</a>
+</li>
+<li>
+<a href="https://github.com/WaylonWalker">GitHub</a>
+</li>
+<li>
+<a href="https://dev.to/waylonwalker">Dev.to</a>
+</li>
+<li>
+<a href="https://www.twitch.tv/waylonwalker">twitch</a>
+</li>
+</ul>
+<p>
+      © 2021 - 2022
+    </p>
+</footer>
+</body>
+</html>

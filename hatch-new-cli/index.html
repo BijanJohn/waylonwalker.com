@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width" name="viewport"/>
+<link href="/8bitcc.ico" rel="icon" type="image/png"/>
+<link href="https://waylonwalker.com/hatch-new-cli/amp/" rel="amphtml"/>
+<meta content="$ilp.uphold.com/MGN2ni2YMXaQ" name="monetization" property="monetization"/>
+<!-- <link rel='stylesheet' href='/fonts.css' />
+  <link rel='stylesheet' href='/archive-styles.css' />
+  <link rel='stylesheet' href='/article.css' /> -->
+<link href="/main.min.css" rel="stylesheet"/>
+<link as="style" href="/one-dark.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<link as="style" href="/furo-purge.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<!-- <link rel="preload" href="/scroll.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
+<noscript>
+<!-- <link rel='stylesheet' href='/scroll.css' /> -->
+<link href="/one-dark.min.css" rel="stylesheet"/>
+<link href="/furo-purge.min.css" rel="stylesheet"/>
+</noscript>
+<link href="/8bitcc_48x48.png" rel="apple-touch-icon" sizes="48x48"/>
+<link href="/8bitcc_72x72.png" rel="apple-touch-icon" sizes="72x72"/>
+<link href="/8bitcc_96x96.png" rel="apple-touch-icon" sizes="96x96"/>
+<link href="/8bitcc_144x144.png" rel="apple-touch-icon" sizes="144x144"/>
+<link href="/8bitcc_192x192.png" rel="apple-touch-icon" sizes="192x192"/>
+<link href="/8bitcc_256x256.png" rel="apple-touch-icon" sizes="256x256"/>
+<link href="/8bitcc_384x384.png" rel="apple-touch-icon" sizes="384x384"/>
+<link href="/8bitcc_512x512.png" rel="apple-touch-icon" sizes="512x512"/>
+<script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js');
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+              console.log('new worker')
+              window.location.reload()
+      });
+    }
+
+    </script>
+<title>Create a new Python Project with the Hatch Cli</title>
+<meta content="Create a new Python Project with the Hatch Cli" name="twitter:title"/>
+<meta content="Create a new Python Project with the Hatch Cli" name="og:title"/>
+<meta content="I creating new versions created by myself with stable diffusion Note Running  After running and naming the project  You can also fill in the project name ahead " name="description"/>
+<meta content="I creating new versions created by myself with stable diffusion Note Running  After running and naming the project  You can also fill in the project name ahead " name="og:description"/>
+<meta content="I creating new versions created by myself with stable diffusion Note Running  After running and naming the project  You can also fill in the project name ahead " name="twitter:description"/>
+<meta content="article" name="og:type"/>
+<meta content="https://waylonwalker.com/hatch-new-cli/" name="og:url"/>
+<meta content="https://covers.waylonwalker.com/hatch-new-cli.jpg" name="og:image"/>
+<meta content="1200" name="og:image:width"/>
+<meta content="600" name="og:image:height"/>
+<meta content="@_waylonwalker" name="twitter:creator"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Waylon Walker" name="og:author"/>
+<meta content="Waylon Walker" name="og:site_name"/>
+<meta content="waylon@waylonwalker.com" name="og:author_email"/>
+<meta content="markata 0.5.2" name="generator"/>
+<meta content="$ilp.uphold.com/MGN2ni2YMXaQ" name="monetization"/>
+<meta content="#322D39" name="theme-color"/>
+<link href="https://waylonwalker.com/hatch-new-cli/" rel="canonical"/>
+<link href="https://waylonwalker.com/hatch-new-cli/amp/" rel="amphtml"/>
+<link href="https://images.waylonwalker.com" rel="preconnect"/>
+<link href="https://covers.waylonwalker.com" rel="preconnect"/>
+<link href="https://stable-diffusion.waylonwalker.com" rel="preconnect"/>
+<link href="https://screenshots.waylonwalker.com" rel="preconnect"/>
+<link href="/manifest.json" rel="manifest"/></head>
+<body>
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/archive/">Archive</a></li>
+<li>
+<a aria-label="RSS" href="/rss.xml">
+<svg class="icon" height="16" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M 4 4.44 v 2.83 c 7.03 0 12.73 5.7 12.73 12.73 h 2.83 c 0 -8.59 -6.97 -15.56 -15.56 -15.56 Z m 0 5.66 v 2.83 c 3.9 0 7.07 3.17 7.07 7.07 h 2.83 c 0 -5.47 -4.43 -9.9 -9.9 -9.9 Z M 6.18 15.64 A 2.18 2.18 0 0 1 6.18 20 A 2.18 2.18 0 0 1 6.18 15.64" fill="currentColor">
+</path>
+</svg>
+</a>
+</li>
+</ul>
+</nav>
+<article class="blog-post h-entry">
+<!-- <div id='cover-wrapper'>
+      <img src='/hatch-new-cli.webp' alt='cover image for article' />
+    </div> -->
+<div id="title-wrapper">
+<a class="u-url" href="https://waylonwalker.com/hatch-new-cli/">
+<h1 class="flair" id="title" style="text-align:right;z-index:2;padding-right:.2rem">Create a new Python Project with the Hatch Cli
+                </h1>
+</a>
+<p><time class="dt-published post-date" datetime="2022-09-02" style="text-align:right;z-index:2">2022-09-02</time>
+</p>
+<div class="h-card p-author" rel="author">
+<div class="content">
+<a class="p-name u-url" href="https://waylonwalker.com/">
+<p>
+<span class="p-given-name">Waylon</span>
+<span class="p-family-name">Walker</span>
+</p>
+</a>
+<p class="p-note">Learning in Public <a href="https://twitter.com/_WaylonWalker">@_WaylonWalker</a></p>
+</div>
+</div>
+<!-- edit -->
+<p><a alt="edit post url" href="https://github.com/WaylonWalker/waylonwalker.com/edit/main/pages/blog/hatch-new-cli.md" title="edit this post">edit<span aria-label="" role="img">✏️</span></a></p>
+</div>
+<!-- <h2 class='toc'>toc</h2> -->
+<!-- <div class="toc">
+<ul></ul>
+</div>
+ -->
+<div id="post-body">
+<p>I'm really getting into using hatch as my go to build system, and I am really
+liking it so far.  I am slowly finding new  things that just work really well.
+<code>hatch new</code> is one of those things that I didn't realize I needed until I had
+it.</p>
+<p><img alt="Hatch new cover image" src="https://images.waylonwalker.com/hatch-new.png"/></p>
+<blockquote>
+<p>creating new versions created by myself with stable diffusion</p>
+</blockquote>
+<p><img alt="hatch-new-cli" src="https://screenshots.waylonwalker.com/hatch-new-cli.webp"/></p>
+<div class="highlight"><pre><span></span><code>❯ pipx run hatch new --help
+Usage: hatch new [OPTIONS] [NAME] [LOCATION]
+
+  Create or initialize a project.
+
+Options:
+  -i, --interactive  Interactively choose details about the project
+  --cli              Give the project a command line interface
+  --init             Initialize an existing project
+  -h, --help         Show this message and exit.
+</code></pre></div>
+<blockquote>
+<p>Note! I am running all of these commands with pipx. I like to use pipx for
+all of my system level cli applications.  To emphasis this point in the
+article I am going to use <code>pipx run hatch</code>, but you can <code>pipx install hatch</code>
+then just run <code>hatch</code> from there.</p>
+</blockquote>
+<h2 id="interacively-create-a-new-project">Interacively create a new project<a alt="id" class="heading-permalink" href="#interacively-create-a-new-project" title="link to #interacively-create-a-new-project"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>Running <code>hatch new -i</code> will ask let you interactivly choose details about the
+project, such as the project's name.</p>
+<div class="highlight"><pre><span></span><code>pipx run hatch new -i
+</code></pre></div>
+<p>After running and naming the project <strong>Hatch New</strong> we end up with the following
+filetree.</p>
+<div class="highlight"><pre><span></span><code>❯ tree .
+.
+├── hatch_new
+│   ├── __about__.py
+│   └── __init__.py
+├── LICENSE.txt
+├── pyproject.toml
+├── README.md
+└── tests
+    └── __init__.py
+</code></pre></div>
+<h2 id="non-interative">Non-Interative<a alt="id" class="heading-permalink" href="#non-interative" title="link to #non-interative"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>You can also fill in the project name ahead of time, and it will run without
+any questions.</p>
+<p><img alt="hatch-new-another-project" src="https://screenshots.waylonwalker.com/hatch-new-another-project.webp"/></p>
+<div class="highlight"><pre><span></span><code>❯ pipx run hatch new <span class="s2">"Another Project"</span>
+another-project
+├── another_project
+│   ├── __about__.py
+│   └── __init__.py
+├── tests
+│   └── __init__.py
+├── LICENSE.txt
+├── README.md
+└── pyproject.toml
+</code></pre></div>
+<blockquote>
+<p>Note! all of these examples will create a project directory within your
+current working directory.</p>
+</blockquote>
+<p><img alt='"An astronaut working in a lab, there is a series of eggs ready to hatch baby snakes on the table, experiments running, beakers, test tubes, cyberpunk, octane render, trending on artstation, neon lighting, volumetric lighting, pink lighting" -s50 -W800 -H450 -C10.0 -Ak_lms -S324995023' src="https://stable-diffusion.waylonwalker.com/000146.324995023.webp"/></p>
+<h2 id="-init">--init<a alt="id" class="heading-permalink" href="#-init" title="link to #-init"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p><em>existing project</em></p>
+<p><code>hatch new</code> has an <code>--init</code> flag in order to initialize a new hatch
+pyproject.toml in an existing project.  This feels like it would be useful if
+you are converting a project to hatch, or if like me you sometimes start making
+something before you realize it's something that you want to package.  Honestly
+this doesn't happen too much anymore I package most things, and I hope <code>hatch
+new</code> completely breaks this habbit of mine.</p>
+<p>Let's say I have the following existing project.</p>
+<div class="highlight"><pre><span></span><code>❯ tree
+.
+└── hatch_init
+    └── __init__.py
+
+<span class="m">1</span> directory, <span class="m">1</span> file
+</code></pre></div>
+<p>I can setup packaging with hatch by running.</p>
+<div class="highlight"><pre><span></span><code>pipx run hatch new --init
+</code></pre></div>
+<p><img alt="hatch-init-existing" src="https://screenshots.waylonwalker.com/hatch-init-existing.webp"/></p>
+<p>The <code>pyproject.toml</code> that comes out is pretty similar to the one that comes out
+of the normal <code>hatch new</code>, but without any other files.</p>
+<blockquote>
+<p>Note that you will need to setup a <code>__about__.py</code> yourself for the dynamic
+versioning that it has setup for you.</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="k">[build-system]</span><span class="w"></span>
+<span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">"hatchling"</span><span class="p">]</span><span class="w"></span>
+<span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"hatchling.build"</span><span class="w"></span>
+
+<span class="k">[project]</span><span class="w"></span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"hatch-init"</span><span class="w"></span>
+<span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'initialize an existing project using hatch'</span><span class="w"></span>
+<span class="n">readme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"README.md"</span><span class="w"></span>
+<span class="n">requires-python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"&gt;=3.7"</span><span class="w"></span>
+<span class="n">license</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"MIT"</span><span class="w"></span>
+<span class="n">keywords</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<span class="n">authors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Waylon S. Walker"</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"waylon@waylonwalker.com"</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+<span class="n">classifiers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">  </span><span class="s">"Development Status :: 4 - Beta"</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">"Programming Language :: Python"</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">"Programming Language :: Python :: 3.7"</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">"Programming Language :: Python :: 3.8"</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">"Programming Language :: Python :: 3.9"</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">"Programming Language :: Python :: 3.10"</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">"Programming Language :: Python :: 3.11"</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">"Programming Language :: Python :: Implementation :: CPython"</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">"Programming Language :: Python :: Implementation :: PyPy"</span><span class="p">,</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+<span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<span class="n">dynamic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">"version"</span><span class="p">]</span><span class="w"></span>
+
+<span class="k">[project.urls]</span><span class="w"></span>
+<span class="n">Documentation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"https://github.com/unknown/hatch-init#readme"</span><span class="w"></span>
+<span class="n">Issues</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"https://github.com/unknown/hatch-init/issues"</span><span class="w"></span>
+<span class="n">Source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"https://github.com/unknown/hatch-init"</span><span class="w"></span>
+
+<span class="k">[tool.hatch.version]</span><span class="w"></span>
+<span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"hatch_init/__about__.py"</span><span class="w"></span>
+
+<span class="k">[tool.hatch.envs.default]</span><span class="w"></span>
+<span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">  </span><span class="s">"pytest"</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">"pytest-cov"</span><span class="p">,</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+<span class="k">[tool.hatch.envs.default.scripts]</span><span class="w"></span>
+<span class="n">cov</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"pytest --cov-report=term-missing --cov-config=pyproject.toml --cov=hatch_init --cov=tests"</span><span class="w"></span>
+<span class="n">no-cov</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"cov --no-cov"</span><span class="w"></span>
+
+<span class="k">[[tool.hatch.envs.test.matrix]]</span><span class="w"></span>
+<span class="n">python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">"37"</span><span class="p">,</span><span class="w"> </span><span class="s">"38"</span><span class="p">,</span><span class="w"> </span><span class="s">"39"</span><span class="p">,</span><span class="w"> </span><span class="s">"310"</span><span class="p">,</span><span class="w"> </span><span class="s">"311"</span><span class="p">]</span><span class="w"></span>
+
+<span class="k">[tool.coverage.run]</span><span class="w"></span>
+<span class="n">branch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="n">parallel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="n">omit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">  </span><span class="s">"hatch_init/__about__.py"</span><span class="p">,</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+
+<span class="k">[tool.coverage.report]</span><span class="w"></span>
+<span class="n">exclude_lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">  </span><span class="s">"no cov"</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">"if __name__ == .__main__.:"</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">"if TYPE_CHECKING:"</span><span class="p">,</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</code></pre></div>
+<h2 id="cli">cli<a alt="id" class="heading-permalink" href="#cli" title="link to #cli"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p><code>hatch new</code> does not stop there, it also has a <code>--cli</code> flag to give you a cli
+out of the box as well.</p>
+<div class="highlight"><pre><span></span><code>❯ pipx run hatch new <span class="s2">"new cli"</span> --cli
+new-cli
+├── new_cli
+│   ├── cli
+│   │   └── __init__.py
+│   ├── __about__.py
+│   ├── __init__.py
+│   └── __main__.py
+├── tests
+│   └── __init__.py
+├── LICENSE.txt
+├── README.md
+└── pyproject.toml
+</code></pre></div>
+<p>When you use the <code>--cli</code> flag you also get <code>click</code> as a dependency and
+<code>project.scripts</code> setup automatically.</p>
+<div class="highlight"><pre><span></span><code>[project]
+name = "new-cli"
+
+# ...
+
+dependencies = [
+  "click",
+]
+
+# ...
+
+[project.scripts]
+new-cli = "new_cli.cli:new_cli"
+</code></pre></div>
+<p><img alt='"An astronaut working in a lab, there is a series of eggs ready to hatch baby snakes on the table, experiments running, beakers, test tubes, cyberpunk trending on artstation" -s50 -W800 -H450 -C7.5 -Ak_lms -S98801549
+' src="https://stable-diffusion.waylonwalker.com/000130.98801549.webp"/></p>
+<h2 id="whats-in-the-cli">what's in the cli<a alt="id" class="heading-permalink" href="#whats-in-the-cli" title="link to #whats-in-the-cli"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>It's a hello-world click application.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># SPDX-FileCopyrightText: 2022-present Waylon S. Walker &lt;waylon@waylonwalker.com&gt;</span>
+<span class="c1">#</span>
+<span class="c1"># SPDX-License-Identifier: MIT</span>
+<span class="kn">import</span> <span class="nn">click</span>
+
+<span class="kn">from</span> <span class="nn">..__about__</span> <span class="kn">import</span> <span class="n">__version__</span>
+
+
+<span class="nd">@click</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="n">context_settings</span><span class="o">=</span><span class="p">{</span><span class="s1">'help_option_names'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'-h'</span><span class="p">,</span> <span class="s1">'--help'</span><span class="p">]},</span> <span class="n">invoke_without_command</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">version_option</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">__version__</span><span class="p">,</span> <span class="n">prog_name</span><span class="o">=</span><span class="s1">'new cli'</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">pass_context</span>
+<span class="k">def</span> <span class="nf">new_cli</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">click</span><span class="o">.</span><span class="n">Context</span><span class="p">):</span>
+    <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="s1">'Hello world!'</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="sneak-peek">sneak peek<a alt="id" class="heading-permalink" href="#sneak-peek" title="link to #sneak-peek"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>I'll dive more into environments and the run command later, but we can run the
+cli pretty damn quick with two commands. In under 5s I was able to run this cli
+that it created.  This is a pretty incredible startup time.</p>
+<p><img alt="pipx-run-hatch-hello-world" src="https://screenshots.waylonwalker.com/pipx-run-hatch-hello-world.webp"/></p>
+<p><img alt='"An astronaut working in a lab, there is a series of eggs ready to hatch baby snakes on the table, experiments running, beakers, test tubes, cyberpunk trending on artstation, neon lighting, volumetric lighting, pink lighting" -s50 -W800 -H450 -C7.5 -Ak_lms -S2274808816' src="https://stable-diffusion.waylonwalker.com/000136.2274808816.webp"/></p>
+<div class="prevnext">
+<style type="text/css">
+
+    :root {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="light"] {
+      --prevnext-color-text: #1f2022;
+      --prevnext-color-angle: #ffeb00;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="dark"] {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    .prevnext {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
+    }
+    .prevnext a {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      text-decoration: none;
+    }
+    a.next {
+      justify-content: flex-end;
+    }
+    .prevnext a:hover {
+      background: #00000006;
+    }
+    .prevnext-subtitle {
+      color: var(--prevnext-color-text);
+      filter: brightness(var(--prevnext-subtitle-brightness));
+      font-size: .8rem;
+    }
+    .prevnext-title {
+      color: var(--prevnext-color-text);
+      font-size: 1rem;
+    }
+    .prevnext-text {
+      max-width: 30vw;
+    }
+    </style>
+<a class="prev" href="/hatch-version">
+<svg fill="none" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.5 8.25L9.75 12L13.5 15.75" stroke="var(--prevnext-color-angle)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"> </path>
+</svg>
+<div class="prevnext-text">
+<p class="prevnext-subtitle">prev</p>
+<p class="prevnext-title">Versioning Python Projects with Hatch</p>
+</div>
+</a>
+<a class="next" href="/happy">
+<div class="prevnext-text">
+<p class="prevnext-subtitle">next</p>
+<p class="prevnext-title">Do More of What Brings You Joy</p>
+</div>
+<svg fill="none" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.5 15.75L14.25 12L10.5 8.25" stroke="var(--prevnext-color-angle)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+</svg>
+</a>
+</div>
+</div>
+<hr/>
+<div id="show">
+</div>
+</article>
+<footer>
+<ul class="social">
+<li>
+<a href="https://twitter.com/_WaylonWalker">twitter</a>
+</li>
+<li>
+<a href="https://www.linkedin.com/in/waylonwalker/">LinkedIn</a>
+</li>
+<li>
+<a href="https://github.com/WaylonWalker">GitHub</a>
+</li>
+<li>
+<a href="https://dev.to/waylonwalker">Dev.to</a>
+</li>
+<li>
+<a href="https://www.twitch.tv/waylonwalker">twitch</a>
+</li>
+</ul>
+<p>
+      © 2022 - 2022
+    </p>
+</footer>
+</body>
+</html>

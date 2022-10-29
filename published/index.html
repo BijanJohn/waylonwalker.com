@@ -1,0 +1,1972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>feed</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="I write about how I use python and linux in data science.">
+  
+  
+
+
+  
+  <link href="/8bitcc.png" rel="icon" type="image/png">
+  
+
+  <script>
+    function setTheme(theme) {
+        document.documentElement.setAttribute("data-theme", theme);
+    }
+
+    function detectColorSchemeOnLoad() {
+        //local storage is used to override OS theme settings
+        if (localStorage.getItem("theme")) {
+            if (localStorage.getItem("theme") == "dark") {
+                setTheme('dark')
+            } else if (localStorage.getItem("theme") == "light") {
+                setTheme('light')
+            }
+        } else if (!window.matchMedia) {
+            //matchMedia method not supported
+            setTheme('light')
+            return false;
+        } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            //OS theme setting detected as dark
+            setTheme('dark')
+        } else {
+            setTheme('light')
+        }
+    }
+    detectColorSchemeOnLoad();
+    document.addEventListener('DOMContentLoaded', function() {
+        //identify the toggle switch HTML element
+        const toggleSwitch = document.querySelector('#theme-switch input[type="checkbox"]');
+
+        //function that changes the theme, and sets a localStorage variable to track the theme between page loads
+        function switchTheme(e) {
+            if (e.target.checked) {
+                localStorage.setItem('theme', 'dark');
+                document.documentElement.setAttribute('data-theme', 'dark');
+                toggleSwitch.checked = true;
+            } else {
+                localStorage.setItem('theme', 'light');
+                document.documentElement.setAttribute('data-theme', 'light');
+                toggleSwitch.checked = false;
+            }
+        }
+
+        //listener for changing themes
+        toggleSwitch.addEventListener('change', switchTheme, false);
+
+        //pre-check the dark-theme checkbox if dark-theme is set
+        if (document.documentElement.getAttribute("data-theme") == "dark") {
+            toggleSwitch.checked = true;
+        }
+
+    }, false);
+
+  </script>
+  <style>
+      :root {
+        --color-bg: #1f2022;
+        --color-bg-code: #1f2022;
+        --color-text: #eefbfe;
+        --color-link: #fb30c4; 
+        --color-accent: #e1bd00c9;
+        --overlay-brightness: .85;
+        --body-width: 800px;
+      }
+      [data-theme="dark"] {
+        --color-bg: #1f2022;
+        --color-bg-code: #1f2022;
+        --color-text: #eefbfe;
+        --color-link: #fb30c4; 
+        --color-accent: #e1bd00c9;
+        --overlay-brightness: .85;
+        --body-width: 800px;
+      }
+      [data-theme="light"] {
+        --color-bg: #eefbfe;
+        --color-bg-code: #eefbfe;
+        --color-text: #1f2022;
+        --color-link: #fb30c4; 
+        --color-accent: #ffeb00;
+        --overlay-brightness: .95;
+      }
+
+      html  { 
+        font-family: "Space Mono", monospace;
+        background: var(--color-bg);
+        color: var(--color-text);
+      }
+
+      a { 
+        color: var(--color-link);
+      }
+      main a { 
+        max-width: 100%;
+      }
+      .heading-permalink {
+        font-size: .7em;
+      }
+      body {
+        max-width: var(--body-width);
+        margin: 5rem auto;
+        padding: 0 .5rem;
+        font-size: 1rem;
+        line-height: 1.56;
+      }
+      blockquote {
+        background: var(--color-bg);
+        filter: brightness(var(--overlay-brightness));
+        border-left: 5px solid var(--color-accent);
+        padding-left: 1rem;
+        margin: 1rem;
+        }
+      li.post {
+        list-style-type: None;
+        padding: .2rem 0;
+      }
+      pre {
+        padding: 1rem;
+        max-width: fit-content;
+        overflow-x: auto;
+      }
+
+
+      .highlight  {
+        background: var(--color-bg-code);
+        color: var(--color-text);
+        filter: brightness(var(--overlay-brightness));
+      }
+      .highlight .c { color: #8b8b8b } /* Comment */
+      .highlight .err { color: #960050; background-color: #1e0010 } /* Error */
+      .highlight .k { color: #c678dd } /* Keyword */
+      .highlight .l { color: #ae81ff } /* Literal */
+      .highlight .n { color: #abb2bf } /* Name */
+      .highlight .o { color: #c678dd } /* Operator */
+      .highlight .p { color: #abb2bf } /* Punctuation */
+      .highlight .ch { color: #8b8b8b } /* Comment.Hashbang */
+      .highlight .cm { color: #8b8b8b } /* Comment.Multiline */
+      .highlight .cp { color: #8b8b8b } /* Comment.Preproc */
+      .highlight .cpf { color: #8b8b8b } /* Comment.PreprocFile */
+      .highlight .c1 { color: #8b8b8b } /* Comment.Single */
+      .highlight .cs { color: #8b8b8b } /* Comment.Special */
+      .highlight .gd { color: #c678dd } /* Generic.Deleted */
+      .highlight .ge { font-style: italic } /* Generic.Emph */
+      .highlight .gi { color: #a6e22e } /* Generic.Inserted */
+      .highlight .gs { font-weight: bold } /* Generic.Strong */
+      .highlight .gu { color: #8b8b8b } /* Generic.Subheading */
+      .highlight .kc { color: #c678dd } /* Keyword.Constant */
+      .highlight .kd { color: #c678dd } /* Keyword.Declaration */
+      .highlight .kn { color: #c678dd } /* Keyword.Namespace */
+      .highlight .kp { color: #c678dd } /* Keyword.Pseudo */
+      .highlight .kr { color: #c678dd } /* Keyword.Reserved */
+      .highlight .kt { color: #c678dd } /* Keyword.Type */
+      .highlight .ld { color: #e6db74 } /* Literal.Date */
+      .highlight .m { color: #ae81ff } /* Literal.Number */
+      .highlight .s { color: #e6db74 } /* Literal.String */
+      .highlight .na { color: #a6e22e } /* Name.Attribute */
+      .highlight .nb { color: #98c379 } /* Name.Builtin */
+      .highlight .nc { color: #abb2bf } /* Name.Class */
+      .highlight .no { color: #c678dd } /* Name.Constant */
+      .highlight .nd { color: #abb2bf } /* Name.Decorator */
+      .highlight .ni { color: #abb2bf } /* Name.Entity */
+      .highlight .ne { color: #a6e22e } /* Name.Exception */
+      .highlight .nf { color: #61afef } /* Name.Function */
+      .highlight .nl { color: #abb2bf } /* Name.Label */
+      .highlight .nn { color: #abb2bf } /* Name.Namespace */
+      .highlight .nx { color: #a6e22e } /* Name.Other */
+      .highlight .py { color: #abb2bf } /* Name.Property */
+      .highlight .nt { color: #c678dd } /* Name.Tag */
+      .highlight .nv { color: #abb2bf } /* Name.Variable */
+      .highlight .ow { color: #c678dd } /* Operator.Word */
+      .highlight .w { color: #abb2bf } /* Text.Whitespace */
+      .highlight .mb { color: #ae81ff } /* Literal.Number.Bin */
+      .highlight .mf { color: #ae81ff } /* Literal.Number.Float */
+      .highlight .mh { color: #ae81ff } /* Literal.Number.Hex */
+      .highlight .mi { color: #ae81ff } /* Literal.Number.Integer */
+      .highlight .mo { color: #ae81ff } /* Literal.Number.Oct */
+      .highlight .sa { color: #e6db74 } /* Literal.String.Affix */
+      .highlight .sb { color: #e6db74 } /* Literal.String.Backtick */
+      .highlight .sc { color: #e6db74 } /* Literal.String.Char */
+      .highlight .dl { color: #e6db74 } /* Literal.String.Delimiter */
+      .highlight .sd { color: #98c379 } /* Literal.String.Doc */
+      .highlight .s2 { color: #98c379 } /* Literal.String.Double */
+      .highlight .se { color: #ae81ff } /* Literal.String.Escape */
+      .highlight .sh { color: #e6db74 } /* Literal.String.Heredoc */
+      .highlight .si { color: #e6db74 } /* Literal.String.Interpol */
+      .highlight .sx { color: #e6db74 } /* Literal.String.Other */
+      .highlight .sr { color: #e6db74 } /* Literal.String.Regex */
+      .highlight .s1 { color: #e6db74 } /* Literal.String.Single */
+      .highlight .ss { color: #e6db74 } /* Literal.String.Symbol */
+      .highlight .bp { color: #abb2bf } /* Name.Builtin.Pseudo */
+      .highlight .fm { color: #61afef } /* Name.Function.Magic */
+      .highlight .vc { color: #abb2bf } /* Name.Variable.Class */
+      .highlight .vg { color: #abb2bf } /* Name.Variable.Global */
+      .highlight .vi { color: #abb2bf } /* Name.Variable.Instance */
+      .highlight .vm { color: #abb2bf } /* Name.Variable.Magic */
+      .highlight .il { color: #ae81ff } /* Literal.Number.Integer.Long */
+
+  /* Tab style starts here */
+  .tabbed-set {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1em 0;
+  border-radius: 0.1rem;
+  }
+
+  .tabbed-set > input {
+  display: none;
+  }
+
+  .tabbed-set label {
+  width: auto;
+  padding: 0.9375em 1.25em 0.78125em;
+  font-weight: 700;
+  font-size: 0.84em;
+  white-space: nowrap;
+  border-bottom: 0.15rem solid transparent;
+  border-top-left-radius: 0.1rem;
+  border-top-right-radius: 0.1rem;
+  cursor: pointer;
+  transition: background-color 250ms, color 250ms;
+  }
+
+  .tabbed-set .tabbed-content {
+  width: 100%;
+  display: none;
+  box-shadow: 0 -.05rem #ddd;
+  }
+
+  .tabbed-set input {
+  position: absolute;
+  opacity: 0;
+  }
+
+  /* fonts */
+  h1 {
+    font-weight: 700;
+  }
+
+  h1#title a {
+    font-size: 16px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 3rem;
+  }
+
+  h1 {
+    font-size: 2.5em;
+    margin-top: 5rem;
+  }
+
+  h2 {
+    font-size: 1.63rem;
+    margin-top: 5rem;
+  }
+
+
+
+  p {
+    font-size: 21px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  @media only screen and (max-width: 700px) {
+    p {
+        font-size: 18px;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    p {
+        font-size: 16px;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    p {
+        font-size: 14px;
+    }
+  }
+
+  @media only screen and (max-width: 400px) {
+    p {
+        font-size: 12px;
+    }
+  }
+
+
+  pre {
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 18.5714px; */
+  }
+
+  a {
+    font-weight: 600;
+    text-decoration-color: var(--color-accent);
+    color: var(--color-link);
+    padding: .3rem .5rem;
+    display: inline-block;
+  }
+
+  .admonition {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    text-align: left;
+  }
+
+  .admonition.note {
+    color: #79d3e6;
+    background-color: #081d28;
+    border-color: #1c7183;
+  }
+
+  .admonition.warning {
+    color: #e6ca7a;
+    background-color: #4f4409;
+    border-color: #855c0d;
+  }
+
+  .admonition.danger {
+    color: #e67471;
+    background-color: #461c1c;
+    border-color: #6e2b33;
+  }
+
+  .admonition-title {
+    font-weight: bold;
+    text-align: left;
+  }
+
+  table {
+    margin: 1rem 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    display: block;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  table thead th {
+    border: solid 1px var(--color-text);
+    padding: 10px;
+    text-align: left;
+  }
+
+  table tbody td {
+    border: solid 1px var(--color-text);
+    padding: 10px;
+  }
+  .theme-switch {
+  z-index: 10;
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 1rem;
+    margin-left: auto;
+    position: fixed;
+    right: 1rem;
+    top: 1rem;
+  }
+
+  .theme-switch input {
+  display:none;
+
+  }
+
+  .slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+  }
+
+  .slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 26px;
+  }
+
+  input:checked + .slider {
+  background-color: #343434;
+  }
+  input:checked + .slider:before {
+  background-color: #848484;
+  }
+
+  input:checked + .slider:before {
+  transform: translateX(26px);
+  }
+
+  .slider.round {
+  border-radius: 34px;
+  }
+
+  .slider.round:before {
+  border-radius: 50%;
+  }
+
+  main p img {
+    width: 100%;
+    width: -moz-available;
+    width: -webkit-fill-available;
+    width: fill-available;
+  }
+
+  </style>
+
+  
+    <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js');
+    }
+    </script>
+  
+
+  <title>{{ title|e }}</title>
+  <meta name="twitter:title"content="{{ title|e }}"/> 
+  <meta name="og:title"content="{{ title|e }}"/> 
+  <meta name="description"content="{{ description|e }}"/> 
+  <meta name="og:description"content="{{ description|e }}"/> 
+  <meta name="twitter:description"content="{{ description|e }}"/> 
+  <meta name="og:type"content="article"/> 
+  <meta name="og:url"content="{{ config.url }}/{{ slug }}/"/> 
+  <meta name="og:image"content="{{ config.get('covers_url') }}/{{ slug }}.jpg"/> 
+  <meta name="og:image:width"content="1200"/> 
+  <meta name="og:image:height"content="600"/> 
+  <meta name="twitter:creator"content="@_waylonwalker"/> 
+  <meta name="twitter:card"content="summary_large_image"/> 
+  <meta name="og:author"content="Waylon Walker"/> 
+  <meta name="og:site_name"content="Waylon Walker"/> 
+  <meta name="og:author_email"content="waylon@waylonwalker.com"/> 
+  <meta name="generator"content="markata {{ __version__ }}"/> 
+  <meta name="monetization"content="$ilp.uphold.com/MGN2ni2YMXaQ"/> 
+  <meta name="theme-color"content="#322D39"/> 
+  <link href="{{ config.url }}/{{ slug }}/"rel="canonical"/> 
+  <link href="{{ config.url }}/{{ slug }}/amp/"rel="amphtml"/> 
+  <link rel="preconnect"href="https://images.waylonwalker.com"/> 
+  <link rel="preconnect"href="https://covers.waylonwalker.com"/> 
+  <link rel="preconnect"href="https://stable-diffusion.waylonwalker.com"/> 
+  <link rel="preconnect"href="https://screenshots.waylonwalker.com"/> 
+</head>
+
+  <nav>
+    
+  </nav>
+
+<body>
+  <div>
+    <label id="theme-switch" class="theme-switch" for="checkbox-theme" title='light/dark mode toggle'>
+      <input type="checkbox" id="checkbox-theme">
+      <div class="slider round"> </div>
+    </label>
+  </div>
+  <section class='title'>
+  <h1 id='title'>
+    feed
+    
+      <a href="" alt="edit post url" title="edit this post">
+          <span role="img" aria-label="">
+            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              width="30" height="30" viewBox="0 0 494.936 494.936" style="enable-background:new 0 0 494.936 494.936;"
+              xml:space="preserve" fill='currentcolor'>
+
+            <g>
+              <g>
+                <path d="M389.844,182.85c-6.743,0-12.21,5.467-12.21,12.21v222.968c0,23.562-19.174,42.735-42.736,42.735H67.157
+                  c-23.562,0-42.736-19.174-42.736-42.735V150.285c0-23.562,19.174-42.735,42.736-42.735h267.741c6.743,0,12.21-5.467,12.21-12.21
+                  s-5.467-12.21-12.21-12.21H67.157C30.126,83.13,0,113.255,0,150.285v267.743c0,37.029,30.126,67.155,67.157,67.155h267.741
+                  c37.03,0,67.156-30.126,67.156-67.155V195.061C402.054,188.318,396.587,182.85,389.844,182.85z"/>
+                <path d="M483.876,20.791c-14.72-14.72-38.669-14.714-53.377,0L221.352,229.944c-0.28,0.28-3.434,3.559-4.251,5.396l-28.963,65.069
+                  c-2.057,4.619-1.056,10.027,2.521,13.6c2.337,2.336,5.461,3.576,8.639,3.576c1.675,0,3.362-0.346,4.96-1.057l65.07-28.963
+                  c1.83-0.815,5.114-3.97,5.396-4.25L483.876,74.169c7.131-7.131,11.06-16.61,11.06-26.692
+                  C494.936,37.396,491.007,27.915,483.876,20.791z M466.61,56.897L257.457,266.05c-0.035,0.036-0.055,0.078-0.089,0.107
+                  l-33.989,15.131L238.51,247.3c0.03-0.036,0.071-0.055,0.107-0.09L447.765,38.058c5.038-5.039,13.819-5.033,18.846,0.005
+                  c2.518,2.51,3.905,5.855,3.905,9.414C470.516,51.036,469.127,54.38,466.61,56.897z"/>
+              </g>
+            </g>
+            </svg>
+          </span>
+      </a>
+    
+  </h1>
+  </section>
+  <main>
+  <ul>
+<li class='post'>
+<a href="/2018-retrospective/">
+    2018 Retrospective 2019-1-5
+</a>
+</li>
+
+<li class='post'>
+<a href="/2020-rebrand/">
+    2020 waylonwalker.com rebrand 2020-2-17
+</a>
+</li>
+
+<li class='post'>
+<a href="/2021-content-strategy/">
+    My Content Strategy For 2021 2021-1-19
+</a>
+</li>
+
+<li class='post'>
+<a href="/3-things-to-automate-with-python/">
+    Three things to Automate with Python using Pandas 2020-8-11
+</a>
+</li>
+
+<li class='post'>
+<a href="/adding-google-fonts-to-a-gatsbyjs-site/">
+    Adding google fonts to a gatsbyjs site 2020-5-17
+</a>
+</li>
+
+<li class='post'>
+<a href="/audio-for-blog/">
+    Adding Audio to my blog posts 2020-11-25
+</a>
+</li>
+
+<li class='post'>
+<a href="/automating-my-post-starter/">
+    Automating my Post Starter 2020-12-11
+</a>
+</li>
+
+<li class='post'>
+<a href="/autoreload-ipython/">
+    Autoreload in Ipython 2019-9-8
+</a>
+</li>
+
+<li class='post'>
+<a href="/bash/">
+    📝 Bash Notes 2019-9-8
+</a>
+</li>
+
+<li class='post'>
+<a href="/bind-dynamic-lambdas/">
+    TIL: Bind arguments to dynamically generated lambdas in python 2020-4-27
+</a>
+</li>
+
+<li class='post'>
+<a href="/blogging-for-me/">
+    Blogging For Me 2021-1-21
+</a>
+</li>
+
+<li class='post'>
+<a href="/brainstorming-kedro-hooks/">
+    Brainstorming Kedro Hooks 2020-5-22
+</a>
+</li>
+
+<li class='post'>
+<a href="/break-pane/">
+    tmux break-pane 2021-7-26
+</a>
+</li>
+
+<li class='post'>
+<a href="/building-cli-apps-in-python/">
+    Building Cli apps in Python 2019-11-11
+</a>
+</li>
+
+<li class='post'>
+<a href="/building-kedro-dev/">
+    Building kedro.dev 2020-6-5
+</a>
+</li>
+
+<li class='post'>
+<a href="/chrome-extensions-i-use/">
+    Chrome Extensions I use 2020-9-13
+</a>
+</li>
+
+<li class='post'>
+<a href="/cmd-exe-tips/">
+    cmd.exe tips 2020-1-23
+</a>
+</li>
+
+<li class='post'>
+<a href="/codeit-bro-interview/">
+    Codeit Bro Interview 2020-11-2
+</a>
+</li>
+
+<li class='post'>
+<a href="/copier-slugify/">
+    Copier Slugify | python templating | using cookiecutter 2022-6-11
+</a>
+</li>
+
+<li class='post'>
+<a href="/create-custom-kedro-dataset/">
+    Create Custom Kedro Dataset 2020-5-15
+</a>
+</li>
+
+<li class='post'>
+<a href="/create-new-kedro-project/">
+    Create New Kedro Project 2020-3-2
+</a>
+</li>
+
+<li class='post'>
+<a href="/creating-the-kedro-preflight-hook/">
+    creating the kedro-preflight hook 2020-5-10
+</a>
+</li>
+
+<li class='post'>
+<a href="/crush-dev-to-posts/">
+    How to crush amazing posts on DEV 2020-8-7
+</a>
+</li>
+
+<li class='post'>
+<a href="/custom-ipython-prompt/">
+    Custom Ipython Prompt 2020-12-20
+</a>
+</li>
+
+<li class='post'>
+<a href="/custom-python-exceptions/">
+    Custom Python Exceptions 2019-9-25
+</a>
+</li>
+
+<li class='post'>
+<a href="/custom-scrollbar-design/">
+    Custom Scrollbar Design 2020-2-21
+</a>
+</li>
+
+<li class='post'>
+<a href="/d3-day-5/">
+    D3 Day 5 2018-5-8
+</a>
+</li>
+
+<li class='post'>
+<a href="/d3-day3/">
+    D3 Day 3 2018-5-5
+</a>
+</li>
+
+<li class='post'>
+<a href="/d3-day4/">
+    D3 Day 4 2018-5-6
+</a>
+</li>
+
+<li class='post'>
+<a href="/data-scientist-advice/">
+    What is YOUR Advice for New Data Scientists 2020-2-26
+</a>
+</li>
+
+<li class='post'>
+<a href="/debugging-python/">
+    Debugging Python 2019-10-1
+</a>
+</li>
+
+<li class='post'>
+<a href="/designing-kedro-router/">
+    Designing a "Router" for kedro 2020-10-8
+</a>
+</li>
+
+<li class='post'>
+<a href="/devto-comments-from-url/">
+    How to get Dev Comments from an article Url 2020-5-20
+</a>
+</li>
+
+<li class='post'>
+<a href="/diffurcate/">
+    Code Review from the comfort of vim | Diffurcate 2021-12-4
+</a>
+</li>
+
+<li class='post'>
+<a href="/digital-gardening-stream-6-6-2021/">
+    🌱 Digital Gardening | gif to Mp4 | Stream replay June 4, 2021 2021-6-6
+</a>
+</li>
+
+<li class='post'>
+<a href="/digital-ocean/">
+    Digital Ocean 2019-9-22
+</a>
+</li>
+
+<li class='post'>
+<a href="/django-create-superuser/">
+    django create superuser 2022-9-26
+</a>
+</li>
+
+<li class='post'>
+<a href="/django-disallowed-host/">
+    django disallowed host 2022-9-26
+</a>
+</li>
+
+<li class='post'>
+<a href="/django-rest-framework-getting-started/">
+    Getting Started with Django REST framework 2022-10-9
+</a>
+</li>
+
+<li class='post'>
+<a href="/do-you-hoist/">
+    Do You Hoist 2020-2-25
+</a>
+</li>
+
+<li class='post'>
+<a href="/don-t-waste-your-time-learning-everything/">
+    Don’t waste your time learning everything 2020-2-19
+</a>
+</li>
+
+<li class='post'>
+<a href="/dotfile-rice-challenge-intro/">
+    30 days dotfile ricing 2021-11-29
+</a>
+</li>
+
+<li class='post'>
+<a href="/drawing-ascii-boxes/">
+    drawing ascii boxes 2020-5-12
+</a>
+</li>
+
+<li class='post'>
+<a href="/edit-on-github/">
+    Edit On GitHub 2020-7-18
+</a>
+</li>
+
+<li class='post'>
+<a href="/eight-years-cat/">
+    My first eight years as a working professional. 2020-6-19
+</a>
+</li>
+
+<li class='post'>
+<a href="/expand-one-line-links/">
+    Expand One Line Links 2020-11-18
+</a>
+</li>
+
+<li class='post'>
+<a href="/explain-twitter-cards/">
+    🙋‍♂️ Can Anyone Explain Twitter Cards to me? 2020-7-11
+</a>
+</li>
+
+<li class='post'>
+<a href="/explicit-vs-implicit-returns-in-javascript/">
+    Explicit vs Implicit Returns in Javascript 2020-5-3
+</a>
+</li>
+
+<li class='post'>
+<a href="/filtering-pandas/">
+    Filtering Pandas 2019-9-24
+</a>
+</li>
+
+<li class='post'>
+<a href="/find-kedro-release/">
+    📢 Announcing find-kedro 2020-5-4
+</a>
+</li>
+
+<li class='post'>
+<a href="/find-replace/">
+    Find and Replace in the Terminal. 2020-11-12
+</a>
+</li>
+
+<li class='post'>
+<a href="/fix-git-commit-author/">
+    Fix git commit author 2020-10-17
+</a>
+</li>
+
+<li class='post'>
+<a href="/fix-styled-components-in-gatsby/">
+    I finally fixed my Styled-Components in gatsby.js 2020-2-8
+</a>
+</li>
+
+<li class='post'>
+<a href="/flexbox-zombies/">
+    FlexBox 2018-4-22
+</a>
+</li>
+
+<li class='post'>
+<a href="/forestry-io/">
+    Forestry.io 2019-4-23
+</a>
+</li>
+
+<li class='post'>
+<a href="/four-github-actions-python/">
+    Four Github Actions for Python 2020-4-13
+</a>
+</li>
+
+<li class='post'>
+<a href="/four-github-actions-website/">
+    Four github actions for your website 2020-5-18
+</a>
+</li>
+
+<li class='post'>
+<a href="/from-markdown-to-blog-with-markata/">
+    From Markdown to Blog with Markata | lightning talk | python web conf 2022 2022-8-31
+</a>
+</li>
+
+<li class='post'>
+<a href="/fuzzy-edit-zsh/">
+    Open files FAST from zsh | or bash if thats your thing 2021-12-2
+</a>
+</li>
+
+<li class='post'>
+<a href="/gatsby-remark-embedder/">
+    gatsby-remark-embedder 2020-11-18
+</a>
+</li>
+
+<li class='post'>
+<a href="/gatsby-scripts-with-onload/">
+    Gatsby Scripts with onload 2020-5-22
+</a>
+</li>
+
+<li class='post'>
+<a href="/get-python-package-versions/">
+    get the version of any python package | python api 2022-7-29
+</a>
+</li>
+
+<li class='post'>
+<a href="/gh-rm-workflow-runs/">
+    GitHub Actions Delete all Workflow Runs 2022-9-1
+</a>
+</li>
+
+<li class='post'>
+<a href="/git-auto-commit-action-review/">
+    Review of the git-auto-commit-action 2020-8-3
+</a>
+</li>
+
+<li class='post'>
+<a href="/git-diff-branches/">
+    Today I learned `git diff feature..main` 2020-3-3
+</a>
+</li>
+
+<li class='post'>
+<a href="/git-in-depth/">
+    Git in Depth Notes 2021-7-31
+</a>
+</li>
+
+<li class='post'>
+<a href="/git-push-without-setting-upstream/">
+    git push without setting upstream 2020-2-4
+</a>
+</li>
+
+<li class='post'>
+<a href="/git-rewrite-history/">
+    Rewrite History with Git 2019-2-5
+</a>
+</li>
+
+<li class='post'>
+<a href="/git-rewrite-history/">
+    Rewrite History with Git 2019-2-5
+</a>
+</li>
+
+<li class='post'>
+<a href="/git-update-user/">
+    Update Git User 2019-1-21
+</a>
+</li>
+
+<li class='post'>
+<a href="/github-actions-syntax/">
+    Getting Started with GitHub Actions 2020-3-16
+</a>
+</li>
+
+<li class='post'>
+<a href="/gitui/">
+    Gitui is a blazing fast terminal git interface 2021-1-17
+</a>
+</li>
+
+<li class='post'>
+<a href="/goals-2019/">
+    2019 goals 2019-1-12
+</a>
+</li>
+
+<li class='post'>
+<a href="/graceful-kedro-catalog/">
+    Gracefully adopt kedro, the catalog 2020-6-29
+</a>
+</li>
+
+<li class='post'>
+<a href="/gracefully-redirect/">
+    Refactoring your blog urls 2020-6-11
+</a>
+</li>
+
+<li class='post'>
+<a href="/happy/">
+    Do More of What Brings You Joy 2019-1-1
+</a>
+</li>
+
+<li class='post'>
+<a href="/hatch-new-cli/">
+    Create a new Python Project with the Hatch Cli 2022-9-2
+</a>
+</li>
+
+<li class='post'>
+<a href="/hatch-version/">
+    Versioning Python Projects with Hatch 2022-9-1
+</a>
+</li>
+
+<li class='post'>
+<a href="/how-i-kedro/">
+    How I Kedro 2021-8-16
+</a>
+</li>
+
+<li class='post'>
+<a href="/how-python-tools-config/">
+    How python tools configure 2020-7-21
+</a>
+</li>
+
+<li class='post'>
+<a href="/i-spoke-at-python-web-conf-2022/">
+    I spoke at Python Web Conf 2022 2022-8-30
+</a>
+</li>
+
+<li class='post'>
+<a href="/if-name-main/">
+    What is if __name__ == "__main___", and how do I use it. 2021-5-7
+</a>
+</li>
+
+<li class='post'>
+<a href="/if-tmux/">
+    If Tmux 2021-1-9
+</a>
+</li>
+
+<li class='post'>
+<a href="/install-micromamba/">
+    How to Install micromamba on linux (from the comamnd line only) 2021-4-21
+</a>
+</li>
+
+<li class='post'>
+<a href="/install-miniconda/">
+    How to Install miniconda on linux (from the command line only) 2020-8-10
+</a>
+</li>
+
+<li class='post'>
+<a href="/install-nvim-skit/">
+    How linux users install a text editor 2021-11-30
+</a>
+</li>
+
+<li class='post'>
+<a href="/interrogate/">
+    Interrogate is a pretty awesome, brand new, cli for Python packages 2020-5-15
+</a>
+</li>
+
+<li class='post'>
+<a href="/ipython-config/">
+    Ipython-Config 2020-12-20
+</a>
+</li>
+
+<li class='post'>
+<a href="/ipython-help/">
+    Just Ask Ipython for help 2021-10-10
+</a>
+</li>
+
+<li class='post'>
+<a href="/ipython-q-exit/">
+    IPython q to exit 2022-6-13
+</a>
+</li>
+
+<li class='post'>
+<a href="/jinja2-escape/">
+    how to escape variables in jinja templates 2022-9-24
+</a>
+</li>
+
+<li class='post'>
+<a href="/journey/">
+    It's not all about winning 2019-2-2
+</a>
+</li>
+
+<li class='post'>
+<a href="/just-use-pathlib/">
+    Just Use Pathlib 2019-9-26
+</a>
+</li>
+
+<li class='post'>
+<a href="/jut/">
+    JUT | Read Notebooks in the Terminal 2021-11-20
+</a>
+</li>
+
+<li class='post'>
+<a href="/kedro/">
+    Kedro 2019-11-2
+</a>
+</li>
+
+<li class='post'>
+<a href="/kedro-basics/">
+    Kedro Basics 2020-8-8
+</a>
+</li>
+
+<li class='post'>
+<a href="/kedro-catalog/">
+    Kedro Catalog 2020-7-24
+</a>
+</li>
+
+<li class='post'>
+<a href="/kedro-catalog-create-cli/">
+    kedro catalog create 2021-11-15
+</a>
+</li>
+
+<li class='post'>
+<a href="/kedro-catalog-search/">
+    How to find things in your kedro catalog 2020-6-22
+</a>
+</li>
+
+<li class='post'>
+<a href="/kedro-class-hooks/">
+    Create Configurable Kedro Hooks 2020-5-23
+</a>
+</li>
+
+<li class='post'>
+<a href="/kedro-environment/">
+    kedro Virtual Environment 2021-8-23
+</a>
+</li>
+
+<li class='post'>
+<a href="/kedro-git-init/">
+    Kedro Git Init 2021-8-20
+</a>
+</li>
+
+<li class='post'>
+<a href="/kedro-in-scripts/">
+    Using Kedro In Scripts 2021-5-23
+</a>
+</li>
+
+<li class='post'>
+<a href="/kedro-incremental-versioned-datasets/">
+    Incremental Versioned Datasets in Kedro 2021-7-8
+</a>
+</li>
+
+<li class='post'>
+<a href="/kedro-inputs/">
+    How Kedro handles your inputs 2020-6-19
+</a>
+</li>
+
+<li class='post'>
+<a href="/kedro-install/">
+    Kedro Install 2021-8-21
+</a>
+</li>
+
+<li class='post'>
+<a href="/kedro-new/">
+    Kedro New 2021-8-18
+</a>
+</li>
+
+<li class='post'>
+<a href="/kedro-parameters/">
+    Setting Parameters in kedro 2021-9-19
+</a>
+</li>
+
+<li class='post'>
+<a href="/kedro-pickle/">
+    Kedro - My Data Is Not A Table 2021-1-14
+</a>
+</li>
+
+<li class='post'>
+<a href="/kedro-pipeline-registry/">
+    Kedro pipeline_registry.py 2021-3-20
+</a>
+</li>
+
+<li class='post'>
+<a href="/kedro-preflight/">
+    📝 Kedro Preflight Notes 2020-5-9
+</a>
+</li>
+
+<li class='post'>
+<a href="/kedro-run/">
+    Running your Kedro Pipeline from the command line 2021-8-24
+</a>
+</li>
+
+<li class='post'>
+<a href="/kedro-silence/">
+    Silence Kedro Logs 2021-5-20
+</a>
+</li>
+
+<li class='post'>
+<a href="/kedro-spaceflights-stream1/">
+    Kedro Spaceflights - part 1 | Stream replay June 4, 2021 2021-6-4
+</a>
+</li>
+
+<li class='post'>
+<a href="/kedro-spaceflights-stream2/">
+    Kedro Spaceflights - part 2 | Stream replay June 7, 2021 2021-6-7
+</a>
+</li>
+
+<li class='post'>
+<a href="/kedro-static-viz-0-3-0/">
+    Kedro Static Viz 0.3.0 is out with Hooks Support 2020-5-28
+</a>
+</li>
+
+<li class='post'>
+<a href="/kedro-your-first-nodes/">
+    Writing your first kedro Nodes 2021-9-13
+</a>
+</li>
+
+<li class='post'>
+<a href="/kedro172-replit/">
+    kedro replit 2021-4-15
+</a>
+</li>
+
+<li class='post'>
+<a href="/keep-location-list-closed/">
+    Keep Location List Closed 2020-1-1
+</a>
+</li>
+
+<li class='post'>
+<a href="/keyboard-driven-vscode/">
+    Keyboard Driven VSCode 2019-7-7
+</a>
+</li>
+
+<li class='post'>
+<a href="/learn-early/">
+    What is something you should have learned or understood earlier? 2020-1-10
+</a>
+</li>
+
+<li class='post'>
+<a href="/localstack-status-permission/">
+    localstack status permission 2022-10-17
+</a>
+</li>
+
+<li class='post'>
+<a href="/maintianing-multiple-git-remotes/">
+    Maintianing multiple git remotes 2020-5-7
+</a>
+</li>
+
+<li class='post'>
+<a href="/markata-0-3-0/">
+    markata 0.3.0 is 15-20% faster 2022-8-21
+</a>
+</li>
+
+<li class='post'>
+<a href="/markata-configure-head/">
+    markata extend <head> in configuration 2022-9-11
+</a>
+</li>
+
+<li class='post'>
+<a href="/markata-dev-server/">
+    Building Rich a Dev Server 2021-3-27
+</a>
+</li>
+
+<li class='post'>
+<a href="/markata-now-uses-hatch/">
+    Markata now uses hatch 2022-10-8
+</a>
+</li>
+
+<li class='post'>
+<a href="/markata-supports-jinja-plugins-0-5-0-dev2/">
+    Markata Supports Jinja Plugins 0.5.0.dev2 2022-10-11
+</a>
+</li>
+
+<li class='post'>
+<a href="/markata-todoui-live-replay-4-6-2022/">
+    LIVE-REPLAY - Python dev | Markata todoui | 4/6/2022 2022-5-12
+</a>
+</li>
+
+<li class='post'>
+<a href="/markdown-cli/">
+    Markdown Cli 2021-1-20
+</a>
+</li>
+
+<li class='post'>
+<a href="/master-no-more/">
+    Master No More 2020-6-11
+</a>
+</li>
+
+<li class='post'>
+<a href="/minimal-kedro-pipeline/">
+    Minimal Kedro Pipeline 2021-1-20
+</a>
+</li>
+
+<li class='post'>
+<a href="/minimal-python-package/">
+    Minimal Python Package 2021-1-10
+</a>
+</li>
+
+<li class='post'>
+<a href="/more-itertools-windowed/">
+    Windowing Python Lists 2020-12-10
+</a>
+</li>
+
+<li class='post'>
+<a href="/my-github-profile/">
+    How I Built My GitHub Profile 2020-7-10
+</a>
+</li>
+
+<li class='post'>
+<a href="/named-tuples-data-science/">
+    Clean up Your Data Science with Named Tuples 2019-9-11
+</a>
+</li>
+
+<li class='post'>
+<a href="/neovim-live-substitution/">
+    Live Substitution In Neovim 2021-1-4
+</a>
+</li>
+
+<li class='post'>
+<a href="/new-machine-tpio/">
+    New Machine for developing Tests with TestProject.io 2020-7-25
+</a>
+</li>
+
+<li class='post'>
+<a href="/newsboat/">
+    Newsboat 2021-1-2
+</a>
+</li>
+
+<li class='post'>
+<a href="/nvim-ides-are-slow/">
+    nvim conf 2021 | IDE's are slow | Waylon Walker 2021-10-29
+</a>
+</li>
+
+<li class='post'>
+<a href="/nvim-navic/">
+    nvim navic 2022-10-27
+</a>
+</li>
+
+<li class='post'>
+<a href="/obs-virtual-camera-on-boot/">
+    obs virtual camera on boot 2022-10-18
+</a>
+</li>
+
+<li class='post'>
+<a href="/out-of-space/">
+    Out of Space 2020-2-1
+</a>
+</li>
+
+<li class='post'>
+<a href="/packages-i-maintain/">
+    Packages I Maintain 2022-8-30
+</a>
+</li>
+
+<li class='post'>
+<a href="/packages-to-investigate/">
+    📝 Packages to Investigate Notes 2019-10-14
+</a>
+</li>
+
+<li class='post'>
+<a href="/pariss-athena-on-black-tech-pipeline/">
+    Black Tech Pipeline 2020-8-3
+</a>
+</li>
+
+<li class='post'>
+<a href="/parsing-rss-python/">
+    🐍 Parsing RSS feeds with Python 2020-7-13
+</a>
+</li>
+
+<li class='post'>
+<a href="/personal-url-shortener/">
+    Personal URL shortener with Netlify Redirects 2020-1-29
+</a>
+</li>
+
+<li class='post'>
+<a href="/pipx-textual-devtools/">
+    pipx textual devtools 2022-10-24
+</a>
+</li>
+
+<li class='post'>
+<a href="/practice-python-online/">
+    🐍 Practice Python Online 2020-7-25
+</a>
+</li>
+
+<li class='post'>
+<a href="/pre-commit-is-awesome/">
+    pre-commit is awesome 2020-6-5
+</a>
+</li>
+
+<li class='post'>
+<a href="/pyflyby/">
+    Smoother Python with automatic imports | pyflyby 2021-12-20
+</a>
+</li>
+
+<li class='post'>
+<a href="/pypi-2fa/">
+    I turned on 2FA for all of my pypi packages 2022-8-29
+</a>
+</li>
+
+<li class='post'>
+<a href="/pytest-capsys/">
+    Pytest capsys 2021-4-5
+</a>
+</li>
+
+<li class='post'>
+<a href="/python-args-kwargs/">
+    understanding python \*args and \*\*kwargs 2020-6-10
+</a>
+</li>
+
+<li class='post'>
+<a href="/python-args-kwargs-slides/">
+    SLIDES - understanding python \*args and \*\*kwargs 2020-7-2
+</a>
+</li>
+
+<li class='post'>
+<a href="/python-data-science-background/">
+    Background Tasks in Python for Data Science 2019-9-10
+</a>
+</li>
+
+<li class='post'>
+<a href="/python-deepwatch/">
+    python-deepwatch 2020-4-27
+</a>
+</li>
+
+<li class='post'>
+<a href="/quick-progress-bars-in-python-using-tqdm/">
+    Quick Progress Bars in python using TQDM 2019-9-18
+</a>
+</li>
+
+<li class='post'>
+<a href="/quickly-change-conda-env-with-fzf/">
+    Quickly Change Conda Env With Fzf 2021-1-11
+</a>
+</li>
+
+<li class='post'>
+<a href="/quickly-edit-posts/">
+    Quickly Edit Posts 2021-1-18
+</a>
+</li>
+
+<li class='post'>
+<a href="/react-headroom/">
+    I just added react-headroom to my site 2020-2-11
+</a>
+</li>
+
+<li class='post'>
+<a href="/reader/">
+    Reader 2020-7-12
+</a>
+</li>
+
+<li class='post'>
+<a href="/reading-list/">
+    Reading List 2020-10-28
+</a>
+</li>
+
+<li class='post'>
+<a href="/realistic-git-workflow/">
+    Realistic Git Workflow 2019-5-27
+</a>
+</li>
+
+<li class='post'>
+<a href="/reasons-to-kedro/">
+    reasons-to-kedro 2020-11-1
+</a>
+</li>
+
+<li class='post'>
+<a href="/reasons-to-kedro-notes/">
+    Reasons to Kedro 2020-10-31
+</a>
+</li>
+
+<li class='post'>
+<a href="/refactor-in-cli/">
+    Large Refactor At The Command Line 2020-12-30
+</a>
+</li>
+
+<li class='post'>
+<a href="/reset-ipython/">
+    Reclaim memory usage in Jupyter 2020-10-1
+</a>
+</li>
+
+<li class='post'>
+<a href="/resume-tips/">
+    Resume Tips 2020-11-6
+</a>
+</li>
+
+<li class='post'>
+<a href="/reusable-bash/">
+    Creating Reusable Bash Scripts 2020-8-13
+</a>
+</li>
+
+<li class='post'>
+<a href="/rich-syntax-range-style/">
+    Highlighting text ranges with Rich | python 2022-8-24
+</a>
+</li>
+
+<li class='post'>
+<a href="/save-vim-macro/">
+    Save Vim Macro 2021-1-4
+</a>
+</li>
+
+<li class='post'>
+<a href="/send-email-with-github-actions/">
+    Send Emails with GitHub Actions 2020-3-31
+</a>
+</li>
+
+<li class='post'>
+<a href="/serverless-things-to-investigate/">
+    Serverless things to investigate 2020-2-10
+</a>
+</li>
+
+<li class='post'>
+<a href="/setup-yamlls/">
+    Setup a yaml schema | yamlls for a silky smooth setup 2021-12-3
+</a>
+</li>
+
+<li class='post'>
+<a href="/should-i-switch-to-zeit-now/">
+    Should I switch to Zeit Now 2020-2-6
+</a>
+</li>
+
+<li class='post'>
+<a href="/simple-click/">
+    simple click 2020-1-29
+</a>
+</li>
+
+<li class='post'>
+<a href="/sqlalchemy-models/">
+    SqlAlchemy Models 2019-12-21
+</a>
+</li>
+
+<li class='post'>
+<a href="/stand-with-your-team/">
+    Stand With Your Team 2021-1-22
+</a>
+</li>
+
+<li class='post'>
+<a href="/start-streaming/">
+    I Started Streaming on Twitch 2021-6-12
+</a>
+</li>
+
+<li class='post'>
+<a href="/stories-10-10-2020-10-21-2020/">
+    A brain dump of stories 2020-10-21
+</a>
+</li>
+
+<li class='post'>
+<a href="/strip-trailing-whitespace/">
+    Strip Trailing Whitespace from Git projects 2020-9-30
+</a>
+</li>
+
+<li class='post'>
+<a href="/supercharge-zsh-startup/">
+    Supercharge Zsh Startup 2020-1-3
+</a>
+</li>
+
+<li class='post'>
+<a href="/switched-to-arch/">
+    The one reason I switched to arch 2022-7-23
+</a>
+</li>
+
+<li class='post'>
+<a href="/symlink-gallery/">
+    Create a Virtual File Gallery with Symlinks 2021-5-5
+</a>
+</li>
+
+<li class='post'>
+<a href="/talk-python-kedro/">
+    I was on Talk Python 2022-8-27
+</a>
+</li>
+
+<li class='post'>
+<a href="/telegraph-release/">
+    I made a neovim plugin 2021-10-5
+</a>
+</li>
+
+<li class='post'>
+<a href="/testproject-io-py-actions/">
+    Integration testing with Python, TestProject.io, and GitHub Actions 2020-7-27
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-attach/">
+    tmux attach 2021-7-31
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-choose-tree/">
+    tmux choose-tree 2021-7-19
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-command-line/">
+    tmux command line 2021-7-29
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-copy-mode/">
+    tmux copy-mode 2021-7-28
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-display-message/">
+    tmux display-message 2021-8-12
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-floating-popups/">
+    tmux floating popups 2021-7-15
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-fzf-session-jump/">
+    tmux fzf session jumper 2021-8-5
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-has-session/">
+    tmux has-session 2021-8-9
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-join-pane/">
+    tmux join-pane 2021-7-27
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-killing-tmux/">
+    killing tmux 2021-8-11
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-last-session/">
+    tmux last session 2021-7-16
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-list-keys/">
+    tmux list-keys 2021-8-8
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-ls/">
+    tmux ls 2021-7-30
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-nav-2021/">
+    How I navigate tmux in 2021 2021-5-11
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-new-session/">
+    tmux new-session 2021-8-1
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-new-window/">
+    tmux new-window 2021-7-24
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-next-prev-session/">
+    tmux next/prev session 2021-8-4
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-popups/">
+    tmux popups 2021-7-14
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-prefix/">
+    tmux prefix 2021-7-18
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-rename-session/">
+    tmux rename session 2021-8-3
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-resize-panes/">
+    tmux resize-panes 2021-7-20
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-rotate-window/">
+    tmux rotate-window 2021-7-22
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-select-layout/">
+    tmux select-layout 2021-7-21
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-select-pane/">
+    tmux slect-pane 2021-7-23
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-show-messages/">
+    tmux show-messages 2021-8-14
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-source-file/">
+    tmux source-file 2021-8-6
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-splitting-panes/">
+    tmux splitting panes 2021-7-17
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-start-application/">
+    tmux start application 2021-8-3
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-status-bar/">
+    tmux status-bar 2021-8-7
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-ta/">
+    tmux ta 2021-8-13
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-targeted-session/">
+    tmux targeted session 2021-8-2
+</a>
+</li>
+
+<li class='post'>
+<a href="/tmux-zoom/">
+    tmux zoom 2021-7-25
+</a>
+</li>
+
+<li class='post'>
+<a href="/trim-branches/">
+    Trim unused git branches 2021-5-7
+</a>
+</li>
+
+<li class='post'>
+<a href="/trying-out-django/">
+    Trying out django 2022-9-25
+</a>
+</li>
+
+<li class='post'>
+<a href="/twitter-deepdives/">
+    Twitter deepdives 2020-5-1
+</a>
+</li>
+
+<li class='post'>
+<a href="/two-new-aliases-for-git/">
+    Two new shell aliases for git 2022-6-28
+</a>
+</li>
+
+<li class='post'>
+<a href="/update-copier/">
+    Copier < 6.0.0b0 considered dangerous 2022-4-30
+</a>
+</li>
+
+<li class='post'>
+<a href="/use-ipython-extensions/">
+    I've made my ipython config too complicated, let's fix it. 2022-9-20
+</a>
+</li>
+
+<li class='post'>
+<a href="/variable-names-don-t-need-their-type/">
+    Variables names don't need their type 2020-4-8
+</a>
+</li>
+
+<li class='post'>
+<a href="/vim-augroup/">
+    You must use augroup with autocmd in vim | Here's how 2021-12-8
+</a>
+</li>
+
+<li class='post'>
+<a href="/vim-replace-visual-star/">
+    Vim Replace Visual Star 2021-1-10
+</a>
+</li>
+
+<li class='post'>
+<a href="/vim-sort-u/">
+    use vim to remove duplicates 2022-8-25
+</a>
+</li>
+
+<li class='post'>
+<a href="/vim-wsl-clipboard/">
+    Vim Wsl Clipboard 2021-4-17
+</a>
+</li>
+
+<li class='post'>
+<a href="/vimgrep-open-buffers/">
+    vimgrep open buffers 2022-8-22
+</a>
+</li>
+
+<li class='post'>
+<a href="/what-are-github-actions/">
+    What Are GitHub Actions 2020-3-16
+</a>
+</li>
+
+<li class='post'>
+<a href="/what-is-kedro/">
+    What is Kedro 2021-8-17
+</a>
+</li>
+
+<li class='post'>
+<a href="/what-is-kedro-1/">
+    What is Kedro 2020-2-24
+</a>
+</li>
+
+<li class='post'>
+<a href="/whats-new-in-kedro-0164/">
+    What's New in Kedro 0.16.4 2020-8-1
+</a>
+</li>
+
+<li class='post'>
+<a href="/whats-new-in-kedro-0166/">
+    What's New in Kedro 0.16.6 2020-10-25
+</a>
+</li>
+
+<li class='post'>
+<a href="/whats-on-your-github-profile/">
+    🤓 What's on your GitHub Profile 2020-7-11
+</a>
+</li>
+
+<li class='post'>
+<a href="/why-use-cms/">
+    Why use a cms 2020-7-14
+</a>
+</li>
+</ul>
+  </main>
+  <footer>
+    © 2022
+  </footer>
+</body>
+</html>

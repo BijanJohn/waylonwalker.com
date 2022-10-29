@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width" name="viewport"/>
+<link href="/8bitcc.ico" rel="icon" type="image/png"/>
+<link href="https://waylonwalker.com/fix-git-commit-author/amp/" rel="amphtml"/>
+<meta content="$ilp.uphold.com/MGN2ni2YMXaQ" name="monetization" property="monetization"/>
+<!-- <link rel='stylesheet' href='/fonts.css' />
+  <link rel='stylesheet' href='/archive-styles.css' />
+  <link rel='stylesheet' href='/article.css' /> -->
+<link href="/main.min.css" rel="stylesheet"/>
+<link as="style" href="/one-dark.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<link as="style" href="/furo-purge.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<!-- <link rel="preload" href="/scroll.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
+<noscript>
+<!-- <link rel='stylesheet' href='/scroll.css' /> -->
+<link href="/one-dark.min.css" rel="stylesheet"/>
+<link href="/furo-purge.min.css" rel="stylesheet"/>
+</noscript>
+<link href="/8bitcc_48x48.png" rel="apple-touch-icon" sizes="48x48"/>
+<link href="/8bitcc_72x72.png" rel="apple-touch-icon" sizes="72x72"/>
+<link href="/8bitcc_96x96.png" rel="apple-touch-icon" sizes="96x96"/>
+<link href="/8bitcc_144x144.png" rel="apple-touch-icon" sizes="144x144"/>
+<link href="/8bitcc_192x192.png" rel="apple-touch-icon" sizes="192x192"/>
+<link href="/8bitcc_256x256.png" rel="apple-touch-icon" sizes="256x256"/>
+<link href="/8bitcc_384x384.png" rel="apple-touch-icon" sizes="384x384"/>
+<link href="/8bitcc_512x512.png" rel="apple-touch-icon" sizes="512x512"/>
+<script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js');
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+              console.log('new worker')
+              window.location.reload()
+      });
+    }
+
+    </script>
+<title>Fix git commit author</title>
+<meta content="Fix git commit author" name="twitter:title"/>
+<meta content="Fix git commit author" name="og:title"/>
+<meta content="I was 20 commits into a hackoberfest PR when I suddenly realized they they all had my work email on them instead of my personal email 😱." name="description"/>
+<meta content="I was 20 commits into a hackoberfest PR when I suddenly realized they they all had my work email on them instead of my personal email 😱." name="og:description"/>
+<meta content="I was 20 commits into a hackoberfest PR when I suddenly realized they they all had my work email on them instead of my personal email 😱." name="twitter:description"/>
+<meta content="article" name="og:type"/>
+<meta content="https://waylonwalker.com/fix-git-commit-author/" name="og:url"/>
+<meta content="https://covers.waylonwalker.com/fix-git-commit-author.jpg" name="og:image"/>
+<meta content="1200" name="og:image:width"/>
+<meta content="600" name="og:image:height"/>
+<meta content="@_waylonwalker" name="twitter:creator"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Waylon Walker" name="og:author"/>
+<meta content="Waylon Walker" name="og:site_name"/>
+<meta content="waylon@waylonwalker.com" name="og:author_email"/>
+<meta content="markata 0.5.2" name="generator"/>
+<meta content="$ilp.uphold.com/MGN2ni2YMXaQ" name="monetization"/>
+<meta content="#322D39" name="theme-color"/>
+<link href="https://waylonwalker.com/fix-git-commit-author/" rel="canonical"/>
+<link href="https://waylonwalker.com/fix-git-commit-author/amp/" rel="amphtml"/>
+<link href="https://images.waylonwalker.com" rel="preconnect"/>
+<link href="https://covers.waylonwalker.com" rel="preconnect"/>
+<link href="https://stable-diffusion.waylonwalker.com" rel="preconnect"/>
+<link href="https://screenshots.waylonwalker.com" rel="preconnect"/>
+<link href="/manifest.json" rel="manifest"/></head>
+<body>
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/archive/">Archive</a></li>
+<li>
+<a aria-label="RSS" href="/rss.xml">
+<svg class="icon" height="16" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M 4 4.44 v 2.83 c 7.03 0 12.73 5.7 12.73 12.73 h 2.83 c 0 -8.59 -6.97 -15.56 -15.56 -15.56 Z m 0 5.66 v 2.83 c 3.9 0 7.07 3.17 7.07 7.07 h 2.83 c 0 -5.47 -4.43 -9.9 -9.9 -9.9 Z M 6.18 15.64 A 2.18 2.18 0 0 1 6.18 20 A 2.18 2.18 0 0 1 6.18 15.64" fill="currentColor">
+</path>
+</svg>
+</a>
+</li>
+</ul>
+</nav>
+<article class="blog-post h-entry">
+<!-- <div id='cover-wrapper'>
+      <img src='/fix-git-commit-author.webp' alt='cover image for article' />
+    </div> -->
+<div id="title-wrapper">
+<a class="u-url" href="https://waylonwalker.com/fix-git-commit-author/">
+<h1 class="flair" id="title" style="text-align:right;z-index:2;padding-right:.2rem">Fix git commit author
+                </h1>
+</a>
+<p><time class="dt-published post-date" datetime="2020-10-17" style="text-align:right;z-index:2">2020-10-17</time>
+</p>
+<div class="h-card p-author" rel="author">
+<div class="content">
+<a class="p-name u-url" href="https://waylonwalker.com/">
+<p>
+<span class="p-given-name">Waylon</span>
+<span class="p-family-name">Walker</span>
+</p>
+</a>
+<p class="p-note">Learning in Public <a href="https://twitter.com/_WaylonWalker">@_WaylonWalker</a></p>
+</div>
+</div>
+<!-- edit -->
+<p><a alt="edit post url" href="https://github.com/WaylonWalker/waylonwalker.com/edit/main/pages/blog/fix-git-commit-author.md" title="edit this post">edit<span aria-label="" role="img">✏️</span></a></p>
+</div>
+<!-- <h2 class='toc'>toc</h2> -->
+<!-- <div class="toc">
+<ul></ul>
+</div>
+ -->
+<div id="post-body">
+<p>I was 20 commits into a hackoberfest PR when I suddenly realized they they all had my work email on them instead of my personal email 😱.  This is the story of how I corrected my email address on 19 individual commits after already submitting for a PR.</p>
+<ol>
+<li><a href="#change-the-email-for-this-repo">Change the email for this repo</a></li>
+<li><a href="#prepare-for-rebasing">Prepare for rebasing</a></li>
+<li><a href="#start-the-rebase">start the rebase</a></li>
+<li><a href="#fix-first-wrong-commit">🛠 Fix First wrong Commit</a></li>
+<li><a href="#fix-all-commits">Fix all commits</a></li>
+<li><a href="#done">Done</a></li>
+<li><a href="#recap">ReCap</a></li>
+</ol>
+<h2 id="change-the-email-for-this-repo">Change the email for this repo<a alt="id" class="heading-permalink" href="#change-the-email-for-this-repo" title="link to #change-the-email-for-this-repo"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p><em>stop the bleeding</em></p>
+<p>Before anything else set the email correctly!</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> kedro
+git config user.name <span class="s2">"Waylon Walker"</span>
+git config user.email quadmx08@gmail.com
+</code></pre></div>
+<h2 id="prepare-for-rebasing">Prepare for rebasing<a alt="id" class="heading-permalink" href="#prepare-for-rebasing" title="link to #prepare-for-rebasing"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>First thing is to find how many commits back this mistake goes.  I opened up the git log, and saw mine went back 19 commits.  I rolled back 20 just to be sure.</p>
+<div class="highlight"><pre><span></span><code>$ git log
+...
+commit a355926b9d7ec4c05659adaa254beefbdb036332
+Author: WaylonWalker &lt;email@work.com&gt;
+Date:   Sat Oct <span class="m">17</span> <span class="m">10</span>:28:59 <span class="m">2020</span> -0500
+
+    give name of <span class="k">function</span> inside incorrect parameters error
+
+commit 1756f5d121bd06c459560b2e982e0d7b6879e9ca
+Author: Kiyohito Kunii <span class="o">(</span>Kiyo<span class="o">)</span> &lt;<span class="m">8097799</span>+921kiyo@users.noreply.github.com&gt;
+Date:   Fri Oct <span class="m">2</span> <span class="m">15</span>:33:09 <span class="m">2020</span> +0100
+
+    Fix docs reference <span class="k">for</span> registering <span class="sb">`</span>pipelines<span class="sb">`</span>
+</code></pre></div>
+<h2 id="start-the-rebase">start the rebase<a alt="id" class="heading-permalink" href="#start-the-rebase" title="link to #start-the-rebase"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>Now I start the rebase 20 commits back from HEAD.  THis will pop you into a text file with a list of commits, for this change simply replace all <code>pick</code> with <code>edit</code>.</p>
+<div class="highlight"><pre><span></span><code>git rebase -i HEAD~20
+</code></pre></div>
+<h2 id="note-for-the-first-commit">Note for the first commit<a alt="id" class="heading-permalink" href="#note-for-the-first-commit" title="link to #note-for-the-first-commit"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>If you want to rebase back to the start of the repo use the <code>--root</code> flag.</p>
+<div class="highlight"><pre><span></span><code>git rebase -i --root
+</code></pre></div>
+<p>Run git log to see where we ended up.</p>
+<div class="highlight"><pre><span></span><code>$ git log
+commit 1756f5d121bd06c459560b2e982e0d7b6879e9ca
+Author: Kiyohito Kunii <span class="o">(</span>Kiyo<span class="o">)</span> &lt;<span class="m">8097799</span>+921kiyo@users.noreply.github.com&gt;
+Date:   Fri Oct <span class="m">2</span> <span class="m">15</span>:33:09 <span class="m">2020</span> +0100
+
+    Fix docs reference <span class="k">for</span> registering <span class="sb">`</span>pipelines<span class="sb">`</span>
+</code></pre></div>
+<p>As expected we ended up on Kiyo's commit. So we can simply move forward without any edits.</p>
+<div class="highlight"><pre><span></span><code>$ git rebase --continue
+Stopped at e162ca7...  correct <span class="k">function</span> name <span class="k">in</span> tests
+You can amend the commit now, with
+
+  git commit --amend
+
+Once you are satisfied with your changes, run
+
+  git rebase --continue
+</code></pre></div>
+<h2 id="fix-first-wrong-commit">🛠 Fix First wrong Commit<a alt="id" class="heading-permalink" href="#fix-first-wrong-commit" title="link to #fix-first-wrong-commit"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>Checking the log again I an now on my first commit with a mistake.</p>
+<div class="highlight"><pre><span></span><code>$ git log
+commit 95c209a740d6d0340e19a8fc36298cbf874f8bf7 <span class="o">(</span>HEAD<span class="o">)</span>
+Author: WaylonWalker &lt;email@work.com&gt;
+Date:   Sat Oct <span class="m">3</span> <span class="m">11</span>:59:44 <span class="m">2020</span> -0500
+
+    correct <span class="k">function</span> name <span class="k">in</span> tests
+
+commit cde2e8baa3c1c4a9f1da4135258381466b1da40a
+Author: Waylon Walker &lt;quadmx08@gmail.com&gt;
+Date:   Sat Oct <span class="m">17</span> <span class="m">10</span>:30:07 <span class="m">2020</span> -0500
+
+    update tests
+
+commit a355926b9d7ec4c05659adaa254beefbdb036332
+Author: Waylon Walker &lt;quadmx08@gmail.com&gt;
+Date:   Sat Oct <span class="m">17</span> <span class="m">10</span>:28:59 <span class="m">2020</span> -0500
+
+    give name of <span class="k">function</span> inside incorrect parameters error
+
+commit 1756f5d121bd06c459560b2e982e0d7b6879e9ca
+Author: Kiyohito Kunii <span class="o">(</span>Kiyo<span class="o">)</span> &lt;<span class="m">8097799</span>+921kiyo@users.noreply.github.com&gt;
+Date:   Fri Oct <span class="m">2</span> <span class="m">15</span>:33:09 <span class="m">2020</span> +0100
+
+    Fix docs reference <span class="k">for</span> registering <span class="sb">`</span>pipelines<span class="sb">`</span>
+</code></pre></div>
+<p>Running the following command will reset the author on the current commit.</p>
+<div class="highlight"><pre><span></span><code>git commit --amend --reset-author
+</code></pre></div>
+<p>Double check with a quick <code>git log</code> that the author was fixed.</p>
+<div class="highlight"><pre><span></span><code>commit ccaaa56059ee4554731fa83297ca9e8e387a7592 <span class="o">(</span>HEAD<span class="o">)</span>
+Author: Waylon Walker &lt;quadmx08@gmail.com&gt;
+Date:   Sat Oct <span class="m">17</span> <span class="m">10</span>:35:40 <span class="m">2020</span> -0500
+
+    correct <span class="k">function</span> name <span class="k">in</span> tests
+
+commit cde2e8baa3c1c4a9f1da4135258381466b1da40a
+Author: Waylon Walker &lt;quadmx08@gmail.com&gt;
+Date:   Sat Oct <span class="m">17</span> <span class="m">10</span>:30:07 <span class="m">2020</span> -0500
+
+    update tests
+
+commit a355926b9d7ec4c05659adaa254beefbdb036332
+Author: Waylon Walker &lt;quadmx08@gmail.com&gt;
+Date:   Sat Oct <span class="m">17</span> <span class="m">10</span>:28:59 <span class="m">2020</span> -0500
+
+    give name of <span class="k">function</span> inside incorrect parameters error
+
+commit 1756f5d121bd06c459560b2e982e0d7b6879e9ca
+Author: Kiyohito Kunii <span class="o">(</span>Kiyo<span class="o">)</span> &lt;<span class="m">8097799</span>+921kiyo@users.noreply.github.com&gt;
+Date:   Fri Oct <span class="m">2</span> <span class="m">15</span>:33:09 <span class="m">2020</span> +0100
+
+    Fix docs reference <span class="k">for</span> registering <span class="sb">`</span>pipelines<span class="sb">`</span>
+</code></pre></div>
+<h2 id="fix-all-commits">Fix all commits<a alt="id" class="heading-permalink" href="#fix-all-commits" title="link to #fix-all-commits"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>Now to do this for 18 other commits.  I found that chaining the three commands into a bash one-liner was quite helpful.  I turned off pre-commit hooks with <code>--no-verify</code>.  I also turned off the <code>log</code> pager by adding <code>--no-pager</code>.</p>
+<div class="highlight"><pre><span></span><code>git rebase --continue <span class="o">&amp;&amp;</span> <span class="se">\</span>
+git commit --amend --reset-author --no-edit --no-verify <span class="o">&amp;&amp;</span> <span class="se">\</span>
+git --no-pager log -n <span class="m">3</span>
+</code></pre></div>
+<h2 id="done">Done<a alt="id" class="heading-permalink" href="#done" title="link to #done"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>This was quick and easy for 19 commits.  I have tried to loop through changes like this in the past, and it does get a bit hairy.  I find its easier to just setup a one-liner and crank through them one by one.</p>
+<h2 id="a-note-on-changing-history">A note on changing history...<a alt="id" class="heading-permalink" href="#a-note-on-changing-history" title="link to #a-note-on-changing-history"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>Since this was done in a rebase it has changed the history of the repo.  This is ok to do only when you are the only person or are in close communication with everyone using the repo.  One thing I have ran into is that if you do this after you submit a PR, but before its completed it duplicates your commits in a merge.  For this particular change I simply closed the first PR and opened a second.  If someone has a better suggestion, I would be glad to know a better way.</p>
+<h2 id="recap">ReCap<a alt="id" class="heading-permalink" href="#recap" title="link to #recap"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> kedro
+git config user.name <span class="s2">"Waylon Walker"</span>
+git config user.email quadmx08@gmail.com
+git log
+git rebase -i HEAD~20
+git log
+git rebase --continue
+git log
+git rebase --continue <span class="o">&amp;&amp;</span> git commit --amend --reset-author --no-edit --no-verify <span class="o">&amp;&amp;</span> git --no-pager log -n <span class="m">3</span>
+</code></pre></div>
+<div class="prevnext">
+<style type="text/css">
+
+    :root {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="light"] {
+      --prevnext-color-text: #1f2022;
+      --prevnext-color-angle: #ffeb00;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="dark"] {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    .prevnext {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
+    }
+    .prevnext a {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      text-decoration: none;
+    }
+    a.next {
+      justify-content: flex-end;
+    }
+    .prevnext a:hover {
+      background: #00000006;
+    }
+    .prevnext-subtitle {
+      color: var(--prevnext-color-text);
+      filter: brightness(var(--prevnext-subtitle-brightness));
+      font-size: .8rem;
+    }
+    .prevnext-title {
+      color: var(--prevnext-color-text);
+      font-size: 1rem;
+    }
+    .prevnext-text {
+      max-width: 30vw;
+    }
+    </style>
+<a class="prev" href="/fix-styled-components-in-gatsby">
+<svg fill="none" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.5 8.25L9.75 12L13.5 15.75" stroke="var(--prevnext-color-angle)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"> </path>
+</svg>
+<div class="prevnext-text">
+<p class="prevnext-subtitle">prev</p>
+<p class="prevnext-title">I finally fixed my Styled-Components in gatsby.js</p>
+</div>
+</a>
+<a class="next" href="/find-replace">
+<div class="prevnext-text">
+<p class="prevnext-subtitle">next</p>
+<p class="prevnext-title">Find and Replace in the Terminal.</p>
+</div>
+<svg fill="none" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.5 15.75L14.25 12L10.5 8.25" stroke="var(--prevnext-color-angle)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+</svg>
+</a>
+</div>
+</div>
+<hr/>
+<div id="show">
+</div>
+</article>
+<footer>
+<ul class="social">
+<li>
+<a href="https://twitter.com/_WaylonWalker">twitter</a>
+</li>
+<li>
+<a href="https://www.linkedin.com/in/waylonwalker/">LinkedIn</a>
+</li>
+<li>
+<a href="https://github.com/WaylonWalker">GitHub</a>
+</li>
+<li>
+<a href="https://dev.to/waylonwalker">Dev.to</a>
+</li>
+<li>
+<a href="https://www.twitch.tv/waylonwalker">twitch</a>
+</li>
+</ul>
+<p>
+      © 2020 - 2022
+    </p>
+</footer>
+</body>
+</html>

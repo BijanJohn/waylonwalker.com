@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html ⚡ lang='en'>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/8bitcc.ico" type="image/png">
+    <meta property="monetization" name="monetization" content="$ilp.uphold.com/MGN2ni2YMXaQ">
+
+    <link href='8bitcc_48x48.png' rel='apple-touch-icon' sizes='48x48' />
+    <link href='8bitcc_72x72.png' rel='apple-touch-icon' sizes='72x72' />
+    <link href='8bitcc_96x96.png' rel='apple-touch-icon' sizes='96x96' />
+    <link href='8bitcc_144x144.png' rel='apple-touch-icon' sizes='144x144' />
+    <link href='8bitcc_192x192.png' rel='apple-touch-icon' sizes='192x192' />
+    <link href='8bitcc_256x256.png' rel='apple-touch-icon' sizes='256x256' />
+    <link href='8bitcc_384x384.png' rel='apple-touch-icon' sizes='384x384' />
+    <link href='8bitcc_512x512.png' rel='apple-touch-icon' sizes='512x512' />
+
+    <title>⚙ How Python Tools Are Configured</title>
+
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <style amp-custom>
+        h1{font-weight:700}h1,h2,h3,h4,h5,h6{font-family:"Space Mono",monospace}h1{font-size:2.5em;font-family:"Space Mono",monospace;color:#6a65ca;color:#ff66c4}h2{font-size:1.63rem;color:#d68eba}h3{font-family:"Space Mono",monospace}p{font-family:"Space Mono",monospace;color:rgba(255,255,255,.6);font-size:21px;font-style:normal;font-variant:normal;font-weight:400;line-height:1.5}@media only screen and (max-width:700px){p{font-size:18px}}@media only screen and (max-width:600px){p{font-size:16px}}@media only screen and (max-width:500px){p{font-size:14px}}@media only screen and (max-width:400px){p{font-size:12px}}blockquote{font-family:"Space Mono",monospace}code{font-family:"Space Mono",monospace}pre{font-family:"Segoe UI",Frutiger,"Frutiger Linotype","Dejavu Sans","Helvetica Neue",Arial,sans-serif;font-family:"Space Mono",monospace;font-family:"Space Mono",monospace}a{font-family:"Space Mono",monospace;color:#6f6bae;text-decoration-color:goldenrod}*{box-sizing:border-box}*{font-family:"SF Mono",Monaco,Inconsolata,"Fira Mono","Droid Sans Mono","Source Code Pro",monospace}article,body,div,footer,header,hgroup,html,nav,section{position:relative;display:flex;align-items:center;flex-direction:column;flex-shrink:0}li,p,ul{margin:0;padding:0}p{margin-bottom:1rem}body,html{min-height:100vh;max-width:100%;width:100%;margin:0;padding:2rem;overflow-x:hidden;color:#fafafa;display:flex;padding:0;background-size:800px;min-height:100vh;background:#282c34;background:linear-gradient(81deg,#282c34 0,#3a2e3d 100%)}section{margin-bottom:5rem}h1{color:#ff66c4}ul.archive-list{box-shadow:0 0 2rem rgba(0,0,0,.3),-8rem -6rem 8rem -6rem rgba(253,221,88,.2),4rem 0 8rem rgba(88,82,185,.3),0 0 2rem -1.6rem rgba(255,215,70,.8);margin:0;padding:0;list-style-type:none;margin-top:1rem}li.post{margin:0;width:100%;list-style-type:none;border-width:1px;border-style:solid;border-image:linear-gradient(to right,#ff66c4,rgba(255,102,196,.2)) 1 0 0 0}li.post:nth-child(2n-1){background-color:rgba(255,255,255,.01);background-image:linear-gradient(22deg,rgba(255,255,255,0),rgba(255,255,255,.03))}li.post:nth-child(2n){background-color:rgba(0,0,0,.02);background-image:linear-gradient(22deg,rgba(0,0,0,0),rgba(0,0,0,.03))}li.post a{color:#fafafa;text-decoration:none}li.post h2,li.post p{max-width:800px;width:calc(100vw - 100px)}li.post h2,li.post p{margin-left:2rem;margin-right:2rem}li.post a:focus-visible h2,li.post:hover h2{color:#ff66c4}p{color:#d3d3d3}li.post a:focus-visible p,li.post:hover p{color:#fafafa}nav{padding:1rem 0;align-items:flex-end;max-width:1000px;width:100%}nav ul{list-style-type:none;display:flex}nav ul li{margin:0 .4rem}nav ul li a{text-align:center;color:#dcdcdc;text-decoration:none;padding:.5rem;margin-left:.1rem;margin-right:.1rem;align-items:flex-end}nav ul li a:focus-visible,nav ul li:hover a,ul.archive-tags li a:focus-visible,ul.archive-tags li:hover a{color:#ff66c4}ul.archive-tags{display:flex;justify-content:center;list-style-type:none;color:#dcdcdc;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:2rem;width:100%}ul.archive-tags li{padding:.2rem 1rem}ul.archive-tags li a{text-decoration:none;color:#fafafa}.social{display:flex}.social li{list-style-type:None}.social a{color:#daa520;padding:1rem .2rem}#cover-wrapper{z-index:2;width:100%;min-height:min(420px,100vw / 2.38)}#cover-wrapper img{width:calc(100% + 2rem);margin:-2rem}#title-wrapper{display:flex;justify-content:flex-end;align-items:flex-end;width:calc(100% + 2rem);left:-1rem;padding:8rem 1rem 0;margin-top:-8rem;margin-bottom:2.2rem;background:linear-gradient(149deg,#282c34 0,rgba(58,46,61,0) 100%);border-bottom:1px solid #daa520}#title-wrapper h1{margin-top:8rem;margin-bottom:0;word-break:break-all}#title-wrapper p{text-align:right;padding-left:0;margin-bottom:0;margin-top:0}#title-wrapper a{color:#daa520;text-decoration:none}#title-wrapper .h-card .content{display:flex;flex-direction:column;align-items:flex-end;margin:1rem 0}.p-note,.post-date{color:rgba(255,255,255,.2)}#title-wrapper a:focus-visible,#title-wrapper a:hover{color:#ff66c4}article.blog-post,div#post-body{display:block}article.blog-post .toc a{padding:.5rem}article.blog-post .toc li{margin:1rem}article.blog-post .toc ul{list-style-type:none;border:none;padding:0;margin:0 0 .5rem}article.blog-post div.toc{margin-bottom:1rem}article.blog-post div.toc:after{content:'';display:block;width:50%;border-bottom:1px solid #daa520}h2.toc{margin-bottom:1rem;text-align:center;color:rgba(255,255,255,.8)}.toc li{margin:1rem}.toc a{color:rgba(255,255,255,.5)}.toc a:focus-visible,.toc a:hover{color:#ff66c4}article.blog-post li>code,article.blog-post p>code{background:rgba(255,20,147,.075);padding:0 .2rem}article.blog-post{overflow:hidden;background:rgba(51,0,38,.13);background:hsla(234,33%,15%,.66);display:block;margin:.2rem;width:min(95vw,1000px);position:relative;margin:2rem 0;padding:1rem;padding-bottom:5rem;border-radius:2px;box-shadow:.2rem .2rem 1rem rgba(0,0,0,.2);flex-direction:column;align-items:flex-start;color:#f5f5f5}@media (max-width:650px){article.blog-post{width:100vw;width:min(100vw,1000px)}}@media (max-width:1200px){article.blog-post h1{font-size:2.5rem;padding:1rem}}@media (max-width:1200px){article.blog-post h2{padding-left:1rem}}@media (max-width:1200px){article.blog-post h3{padding-left:1.4rem}}@media (max-width:1200px){article.blog-post h4,article.blog-post h5,article.blog-post h6{padding-left:1.6rem}}@media (max-width:1200px){article.blog-post{margin:0;padding:0;margin:0}}article.blog-post p{margin:2rem .8rem}@media (max-width:1200px){article.blog-post p{margin:2rem .8rem}article.blog-post ol,article.blog-post ul{padding:1.2rem}}article.blog-post pre{margin-bottom:1rem;align-self:flex-start;max-width:calc(100vw - 20px);padding:10px;overflow-x:auto}article.blog-post .highlight{background:#282c34;padding:1rem;margin:0 -1rem;width:calc(100% + 2rem)}article.blog-post a{color:#6f6bae;text-decoration-color:#330026;text-decoration-color:goldenrod}@media (max-width:1200px){p>img{left:-.8rem}}p>img{position:relative;box-shadow:.2rem .2rem 1rem rgba(51,0,38,.4);max-width:1000px;width:95vw;align-self:center;justify-self:center;align-items:center;justify-items:center;margin:auto;left:-1.6rem}.center-img>img{max-width:600px;margin:.5rem}.center-img{display:flex;justify-content:center}strong{color:#d68fbb;display:inline-block;transform:rotate(-2deg)}em{color:#6f6bae;display:inline-block;transform:rotate(.2deg);background:rgba(255,255,255,.04);padding:.1rem .8rem}h2{margin-top:5rem}article.blog-post ul{border-left:1px solid #ff66c4;padding:.5rem 0 .025rem 3rem;margin:2rem}blockquote{color:#777;background:rgba(255,20,147,.05);border-left:2px solid #daa520;font-size:1rem;padding:1rem 0 1rem .5rem;margin:2rem 0}hr{border:none;border-top:1px solid #daa520;margin:5rem auto;background:0 0;width:min(600px,80%)}h1{margin-top:5rem}.tweet{display:flex;justify-content:flex-end;margin:1rem 0}.tweet a{display:inline-block;border-radius:5px;padding:.5rem 1rem;background:#645fc4;color:#fedd58;text-decoration:none;vertical-align:center}.share{max-width:800px;margin:.8rem auto;padding:1rem 2rem;display:flex;align-items:center;border:1px solid #d68fbb;background-color:rgba(214,143,187,.1);border-radius:5px}.share a{padding:.2rem .5rem}.share p{margin:0;padding:0;padding-right:.2rem}.share ul li{margin:0;padding:0}.shrare ul{display:flex;list-style-type:none;margin:0;padding:0;border:none;font-size:1.3rem}.post-body hr{border-top:2px solid rgba(218,165,32,.2);margin:3rem 40%}.h-card{border-radius:5px;display:flex;align-items:center;justify-content:flex-end}.h-card img{width:50px;border-radius:50%;margin:.2rem;display:none}.h-card ul.social{list-style-type:none;border:none;margin:0;padding:0}.social{display:flex}.social li{list-style-type:None}.social a{color:#daa520;padding:1rem .2rem}.h-card li{margin:0;padding:0}.toc{width:min(90vw,600px);margin:auto;position:initial;font-size:.8rem;line-height:1.1rem}.toc li{padding:0;margin:0}.toc li.H1,.toc li.H2{padding-top:.8rem}.toc li.H3{padding-left:.5rem}.toc li.H4{padding-left:1rem}.toc li.H5{padding-left:1.25rem}.toc li.H6{padding-left:1.5rem}@media (min-width:1500px){.toc{display:none}}.twitter-tweet{margin:10px auto}.onelinelink-wrapper{max-width:100vw}a.onelinelink{position:relative;left:2rem;background:#262236;margin:-6rem auto 1rem;border:2px solid rgba(255,50,50,.1);max-width:300px;border-radius:15px/45px;display:block;flex-direction:row}@media (max-width:350px){a.onelinelink{left:0;margin-left:.4rem;margin-right:.4rem}}@media (min-width:800px){a.onelinelink{max-width:600px;margin:auto}}@media (min-width:900px){a.onelinelink{max-width:700px}}@media (min-width:1000px){a.onelinelink{max-width:800px}}a.onelinelink{position:relative;z-index:2;margin:4rem;overflow:hidden;display:flex;border:2px solid rgba(255,50,50,.1);background:rgba(255,50,50,.015);background:#262236;text-decoration:none;border-radius:8px;max-height:126px}@media (max-width:800px){a.onelinelink{flex-direction:column;max-height:800px;max-width:300px;margin:4rem auto}}a.onelinelink h2{top:-1.2rem;postition:relative;margin:0;padding:0;font-size:.8rem;font-weight:400}a.onelinelink .right{width:calc(100% - 250px - 4rem);padding:5px 15px}@media (max-width:800px){a.onelinelink .right{width:auto}}a.onelinelink .description{font-size:1rem;line-height:1.2rem;height:calc(100% - 31px - 1rem);padding:0;padding-bottom:1rem;padding-top:.1rem;margin:0}a.onelinelink .url{padding-right:30px;color:rgba(255,255,255,.1);text-align:right;position:relative;z-index:2;background:#262236}a.onelinelink img{max-width:300px;max-height:126px;padding:0;margin:0;border-radius:8px 0 0 8px}a.onelinelink .read-more{font-size:.6rem;color:rgba(255,255,255,.08)}table{border-collapse:collapse;margin:auto}table,td,th{border:1px solid rgba(255,255,255,.4);min-width:5rem;padding:.2rem}.speed-control{display:flex;flex-direction:row;justify-content:center;margin-top:-.2rem;padding:1rem 0 .5rem;background:rgba(0,0,0,.3)}.speed-control button{margin:.4;transition:all .2s;border:.1rem solid #d3d3d3;color:#d3d3d3;background:0 0;text-align:center;padding:.35rem 1.2rem;margin:.1rem .5rem;border-radius:.12rem}.speed-control button:hover{color:#000;background:#d3d3d3}body::-webkit-scrollbar{width:1rem}@media (max-width:1000px){body::-webkit-scrollbar{width:.5rem}}@media (max-width:425px){body::-webkit-scrollbar{width:.25rem}}html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:#5651B7}body::-webkit-scrollbar-track{background:#392e3d}body::-webkit-scrollbar-thumb{background-color:#5651b7;border-radius:.25rem;background:#706bd0;background:linear-gradient(180deg,#706bd0 0,#5651b7 100%);border:1px solid rgba(86j,81,183,.5)}
+    </style>
+    <link href="https://waylonwalker.com/python-tool-config/" rel="canonical">
+
+
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href='/'>Home</a></li>
+            <li><a href='/archive/'>Archive</a></li>
+            <li>
+                <a href='/rss.xml' aria-label='RSS'>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="16" width="16">
+            <path fill="currentColor"
+              d="M 4 4.44 v 2.83 c 7.03 0 12.73 5.7 12.73 12.73 h 2.83 c 0 -8.59 -6.97 -15.56 -15.56 -15.56 Z m 0 5.66 v 2.83 c 3.9 0 7.07 3.17 7.07 7.07 h 2.83 c 0 -5.47 -4.43 -9.9 -9.9 -9.9 Z M 6.18 15.64 A 2.18 2.18 0 0 1 6.18 20 A 2.18 2.18 0 0 1 6.18 15.64">
+            </path>
+          </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <article class="blog-post h-entry">
+        <!-- <div id='cover-wrapper'>
+      <img src='/python-tool-config.webp' alt='cover image for article' />
+    </div> -->
+        <div id='title-wrapper'>
+            <a class="u-url" href="https://waylonwalker.com/python-tool-config/">
+                <h1 class='flair' id="title" style="text-align:right;z-index:2;padding-right:.2rem" class="blog title no-link">⚙ How Python Tools Are Configured
+                </h1>
+            </a>
+            <p><time class="dt-published post-date" datetime="2021-01-21" style="text-align:right;z-index:2">2021-01-21</time>
+            </p>
+            <div class="h-card p-author" rel="author">
+                <div class="content">
+                    <a class="p-name u-url" href="https://waylonwalker.com/">
+                        <p>
+                            <span class="p-given-name">Waylon</span>
+                            <span class="p-family-name">Walker</span>
+                        </p>
+                    </a>
+                    <p class="p-note">Learning in Public <a href="https://twitter.com/_WaylonWalker">@waylonwalker</a></p>
+                </div>
+            </div>
+
+            <!-- edit -->
+            <p><a href="https://github.com/WaylonWalker/waylonwalker.com/edit/main/pages/blog/python-tool-config.md" title="edit this post">edit<span role="img" aria-label="">✏️</span></a></p>
+        </div>
+
+        <!-- <h2 class='toc'>toc</h2> -->
+        <!--  -->
+        <div id='amp-message'>
+          <p style='background: rgba(0,0,0,0.1); padding: .5rem 3rem; margin: 2rem 0rem;'>
+          ⚡ You've discovered an amp page, if you bump into any issues such as
+          syntax highlighting feel free to jump to the <a href="https://waylonwalker.com/python-tool-config/">normal page</a>
+          </p>
+        </div>
+        <div id='post-body'>
+            <p>There are various ways to configure python tools, config files, code, or
+environment variables.  Let's look at a few projects that allow users to
+configure them through the use of config files and how they do it.</p>
+<h2 id="motivation">Motivation</h2>
+<p>This will not include how they are implemented, I've looked at a few and its
+not simple.  This will focus on where config is placed and the order in which
+duplicates are resolved.</p>
+<p>The motivation of this article is to serve as a bit of a reference guide for
+those who may want to create their own package that needs configuration.</p>
+<h2 id="flake8">Flake8</h2>
+<h3 id="global">Global</h3>
+<p>User settings can exist in the users <code>~/.config/flake8</code> file to configure how
+flake8 runs on their machine.</p>
+<ul>
+<li><code>~/.config/flake8</code></li>
+</ul>
+<h3 id="per-project">Per-Project</h3>
+<p>Only One project config file will be considered, but allows for several
+options.  These files all use the <code>ini</code> format and must have a <code>[flake8]</code>
+section  header to be consideered.</p>
+<p>Selection of the config file can also be overridden by the <code>--config</code> cli option.</p>
+<p>An extra config file may be selected as <code>--append-config</code>.  It will be read in
+last and take highest precedence.</p>
+<ul>
+<li><code>tox.ini</code></li>
+<li><code>setup.cfg</code></li>
+<li><code>.pep8</code></li>
+<li><code>.flake8</code></li>
+</ul>
+<h2 id="example-config">Example Config</h2>
+<p><em>valid in any of the supported files</em></p>
+<div class="highlight"><pre><span></span><code><span class="k">[flake8]</span><span class="w"></span>
+<span class="na">max-line-length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">88</span><span class="w"></span>
+<span class="na">extend-ignore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">E203, W503</span><span class="w"></span>
+</code></pre></div>
+<h3 id="options">Options</h3>
+<p>The number of options configured through config files is fairly short for <code>flake8</code>.</p>
+<ul>
+<li>exclude</li>
+<li>filename</li>
+<li>select</li>
+<li>ignore</li>
+<li>max-line-length</li>
+<li>format</li>
+<li>max-complexity</li>
+</ul>
+<h2 id="black">Black</h2>
+<p>Black only supports <code>TOML</code> file formats for configuration.</p>
+<h3 id="global_1">Global</h3>
+<p>Black provides no global config support.  If you really needed one I guess you
+could make a cli alias.</p>
+<h3 id="per-project_1">Per-Project</h3>
+<p>Black states that it includes sane defaults that do not need configured, but if
+you need to do so it only supports <code>pyproject.toml</code> or cli arguments.</p>
+<p>Personally I believe that a lot of work went into making these sane defaults
+really good.  I personally do not make any configuration changes to black.</p>
+<ul>
+<li>pyproject.toml</li>
+</ul>
+<h2 id="example">Example</h2>
+<p><em>pyproject.toml</em></p>
+<div class="highlight"><pre><span></span><code><span class="k">[tool.black]</span><span class="w"></span>
+<span class="n">line-length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">88</span><span class="w"></span>
+<span class="n">target-version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&#39;py37&#39;</span><span class="p">]</span><span class="w"></span>
+<span class="n">include</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;\.pyi?$&#39;</span><span class="w"></span>
+<span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;&#39;&#39;</span>
+
+<span class="s">(</span>
+<span class="s">  /(</span>
+<span class="s">      \.eggs         # exclude a few common directories in the</span>
+<span class="s">    | \.git          # root of the project</span>
+<span class="s">    | \.hg</span>
+<span class="s">    | \.mypy_cache</span>
+<span class="s">    | \.tox</span>
+<span class="s">    | \.venv</span>
+<span class="s">    | _build</span>
+<span class="s">    | buck-out</span>
+<span class="s">    | build</span>
+<span class="s">    | dist</span>
+<span class="s">  )/</span>
+<span class="s">  | foo.py           # also separately exclude a file named foo.py in</span>
+<span class="s">                     # the root of the project</span>
+<span class="s">)</span>
+<span class="s">&#39;&#39;&#39;</span><span class="w"></span>
+</code></pre></div>
+<h2 id="resolution">Resolution</h2>
+<p>Black will use teh <code>pyproject.toml</code> file for configuration, then make any
+addional overrides through the use of command line arguments.</p>
+<h2 id="mypy">MyPy</h2>
+<p><code>mypy</code> takes the cake for the most complex configuration.  Primarily because
+you can configure how it treats different modules specifically.  These modules
+may be inside your codebase or installed and imported in.</p>
+<h3 id="per-project_2">Per-Project</h3>
+<ul>
+<li>--config-file</li>
+<li>mypy.ini</li>
+<li>.mypy.ini</li>
+</ul>
+<h3 id="global_2">Global</h3>
+<ul>
+<li>$XDG_CONFIG_HOME/mypy/config</li>
+<li>~/.config/mypy/config</li>
+<li>~/.mypy.ini</li>
+</ul>
+<h3 id="resolution_1">Resolution</h3>
+<ul>
+<li>--config-file</li>
+<li>mypy.ini</li>
+<li>.mypy.ini</li>
+<li>setup.cfg</li>
+<li>$XDG_CONFIG_HOME/mypy/config</li>
+<li>~/.config/mypy/config</li>
+<li>~/.mypy.ini</li>
+</ul>
+<h3 id="example_1">Example</h3>
+<p><em>mypy.ini</em></p>
+<div class="highlight"><pre><span></span><code># Global options:
+
+[mypy]
+python_version = 2.7
+warn_return_any = True
+warn_unused_configs = True
+
+# Per-module options:
+
+[mypy-mycode.foo.*]
+disallow_untyped_defs = True
+
+[mypy-mycode.bar]
+warn_return_any = False
+
+[mypy-somelibrary]
+ignore_missing_imports = True
+</code></pre></div>
+<h2 id="kedro-framework">Kedro - framework</h2>
+<p>Kedro is a unique one here.  It offers two distinctly different configurations,
+one for how the framework behaves and the other for actual project config.</p>
+<p>Kedro does utilizes a <code>settings.py</code> and <code>pyproject.toml</code> to define a bit more
+of the framework settings.  These are the outter layer of your project.</p>
+<p>These files sit at the root of the project.</p>
+<h3 id="pyprojecttoml"><a href="https://github.com/quantumblacklabs/kedro/blob/fb88cc2504ddbfc93b9b859ca436130b396b93c4/docs/source/12_faq/02_architecture_overview.md#pyprojecttoml">pyproject.toml</a></h3>
+<p>This replaces much of what used to be specified in run.py.</p>
+<ul>
+<li>package_name</li>
+<li>project_name</li>
+<li>project_version</li>
+<li>source_dir</li>
+</ul>
+<h3 id="settingspy"><a href="https://github.com/quantumblacklabs/kedro/blob/fb88cc2504ddbfc93b9b859ca436130b396b93c4/docs/source/12_faq/02_architecture_overview.md#settingspy">Settings.py</a></h3>
+<ul>
+<li>DISABLE_HOOKS_FOR_PLUGINS</li>
+<li>HOOKS</li>
+<li>SESSION_STORE_CLASS</li>
+<li>SESSION_STORE_ARGS</li>
+<li>CONTEXT_CLASS</li>
+</ul>
+<h2 id="kedro-project">Kedro - project</h2>
+<p>Within the project generally in the <code>src/conf</code> directory kedro allows you to
+set both local and base configurations.  Local configurations will be git
+ignored and most commonly used for credentials.</p>
+<ul>
+<li>catalog</li>
+<li>logging</li>
+<li>credentials</li>
+</ul>
+<h3 id="config-loader">Config Loader</h3>
+<p>Kedro lets you setup the config loader if you choose to do so.  You can
+configure the directories to look in as well as the glob pattern for files.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">kedro.config</span> <span class="kn">import</span> <span class="n">ConfigLoader</span>
+
+<span class="n">conf_paths</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;conf/base&quot;</span><span class="p">,</span> <span class="s2">&quot;conf/local&quot;</span><span class="p">]</span>
+<span class="n">conf_loader</span> <span class="o">=</span> <span class="n">ConfigLoader</span><span class="p">(</span><span class="n">conf_paths</span><span class="p">)</span>
+<span class="n">conf_catalog</span> <span class="o">=</span> <span class="n">conf_loader</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;catalog*&quot;</span><span class="p">,</span> <span class="s2">&quot;catalog*/**&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="additional-envs">additional envs</h3>
+<p>Additional to the <code>base</code> and <code>local</code> config, kedro lets you specify an env at
+runtime through a <code>--env</code> argumet or a <code>KEDRO_ENV</code> variable.  setting this will
+additionally tell kedro to reach into <code>conf/&lt;env-name&gt;</code> for configuration.</p>
+<h3 id="resolution-order">Resolution Order</h3>
+<p>kedro will load each config starting from <code>base</code>, <code>local</code>, then <code>env</code> and will
+overrite any colllisions along the way.</p>
+<p><strong>precedence heirarchy</strong></p>
+<ul>
+<li>env</li>
+<li>local</li>
+<li>base</li>
+</ul>
+<h3 id="jinja-support">Jinja Support</h3>
+<p>As of <code>0.17.0</code> kedro supports jinja2 templates in its yml configuration files.
+This is quite beneficial as catalogs can become incredebly repetative.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">fast-trains</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MemoryDataSet</span><span class="w"></span>
+
+<span class="nt">fast-cars</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pandas.CSVDataSet</span><span class="w"></span>
+<span class="w">    </span><span class="nt">filepath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">s3://${bucket_name}/fast-cars.csv</span><span class="w"></span>
+<span class="w">    </span><span class="nt">save_args</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+
+
+<span class="nt">slow-trains</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MemoryDataSet</span><span class="w"></span>
+
+<span class="nt">slow-cars</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pandas.CSVDataSet</span><span class="w"></span>
+<span class="w">    </span><span class="nt">filepath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">s3://${bucket_name}/slow-cars.csv</span><span class="w"></span>
+<span class="w">    </span><span class="nt">save_args</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+</code></pre></div>
+<h2 id="pytest">pytest</h2>
+<p>Currently pytest is configured </p>
+<h2 id="resolution-order_1">resolution order</h2>
+<p><code>pytest</code> will look for the existence of each of these files, if its a match it
+will stop looking for new files, even if the file is empty.</p>
+<ul>
+<li><code>pytest.ini</code></li>
+<li><code>pyproject.toml</code> with <code>[tool.pytest.ini_options]</code></li>
+<li><code>tox.ini</code> with <code>[pytest]</code></li>
+<li><code>setup.cfg</code> with <code>[tool:pytest]</code></li>
+</ul>
+<h2 id="multiple-config">Multiple Config</h2>
+<p><code>pytest</code> is a bit unique here in that it allows for multiple configs.  There is
+a complex resolution for module specific configuration, but essentially it does
+the resolution highlighted above through a number of directories and returns
+the config closest to the test module.</p>
+<h2 id="example-pytest-config">Example pytest config</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># pytest.ini</span><span class="w"></span>
+<span class="k">[pytest]</span><span class="w"></span>
+<span class="na">minversion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">6.0</span><span class="w"></span>
+<span class="na">addopts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">-ra -q</span><span class="w"></span>
+<span class="na">testpaths</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="na">tests</span><span class="w"></span>
+<span class="w">    </span><span class="na">integration</span><span class="w"></span>
+</code></pre></div>
+<h2 id="command-line-options">Command Line Options</h2>
+<p>As far as I am aware every option specified in a config file can also be
+configured or overridden at the command line.</p>
+<h2 id="ipython">ipython</h2>
+<p><code>Ipython</code> is configured completely at a system level with python scripts within
+the users <code>~/.ipython/</code> directory.  The user may have multiple profiles that
+can be created by running <code>ipython profile create [profilename]</code> or specified
+by running <code>ipython --profile=[profilename]</code></p>
+<h3 id="config-directory">Config Directory</h3>
+<p>By default this is <code>~/.ipython</code>, but an be configured by setting the
+<code>IPYTHONDIR</code> environment variable or <code>--ipython-dir=&lt;path&gt;</code> command line
+option.</p>
+<h3 id="example-config_1">Example Config</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># sample ipython_config.py</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">get_config</span><span class="p">()</span>
+
+<span class="n">c</span><span class="o">.</span><span class="n">TerminalIPythonApp</span><span class="o">.</span><span class="n">display_banner</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">c</span><span class="o">.</span><span class="n">InteractiveShellApp</span><span class="o">.</span><span class="n">log_level</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">c</span><span class="o">.</span><span class="n">InteractiveShellApp</span><span class="o">.</span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;myextension&#39;</span>
+<span class="p">]</span>
+<span class="n">c</span><span class="o">.</span><span class="n">InteractiveShellApp</span><span class="o">.</span><span class="n">exec_lines</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;import numpy&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;import scipy&#39;</span>
+<span class="p">]</span>
+<span class="n">c</span><span class="o">.</span><span class="n">InteractiveShellApp</span><span class="o">.</span><span class="n">exec_files</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;mycode.py&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;fancy.ipy&#39;</span>
+<span class="p">]</span>
+<span class="n">c</span><span class="o">.</span><span class="n">InteractiveShell</span><span class="o">.</span><span class="n">autoindent</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">c</span><span class="o">.</span><span class="n">InteractiveShell</span><span class="o">.</span><span class="n">colors</span> <span class="o">=</span> <span class="s1">&#39;LightBG&#39;</span>
+<span class="n">c</span><span class="o">.</span><span class="n">InteractiveShell</span><span class="o">.</span><span class="n">confirm_exit</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">c</span><span class="o">.</span><span class="n">InteractiveShell</span><span class="o">.</span><span class="n">deep_reload</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">c</span><span class="o">.</span><span class="n">InteractiveShell</span><span class="o">.</span><span class="n">editor</span> <span class="o">=</span> <span class="s1">&#39;nano&#39;</span>
+<span class="n">c</span><span class="o">.</span><span class="n">InteractiveShell</span><span class="o">.</span><span class="n">xmode</span> <span class="o">=</span> <span class="s1">&#39;Context&#39;</span>
+
+<span class="n">c</span><span class="o">.</span><span class="n">PromptManager</span><span class="o">.</span><span class="n">in_template</span>  <span class="o">=</span> <span class="s1">&#39;In [\#]: &#39;</span>
+<span class="n">c</span><span class="o">.</span><span class="n">PromptManager</span><span class="o">.</span><span class="n">in2_template</span> <span class="o">=</span> <span class="s1">&#39;   .\D.: &#39;</span>
+<span class="n">c</span><span class="o">.</span><span class="n">PromptManager</span><span class="o">.</span><span class="n">out_template</span> <span class="o">=</span> <span class="s1">&#39;Out[\#]: &#39;</span>
+<span class="n">c</span><span class="o">.</span><span class="n">PromptManager</span><span class="o">.</span><span class="n">justify</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="n">c</span><span class="o">.</span><span class="n">PrefilterManager</span><span class="o">.</span><span class="n">multi_line_specials</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="n">c</span><span class="o">.</span><span class="n">AliasManager</span><span class="o">.</span><span class="n">user_aliases</span> <span class="o">=</span> <span class="p">[</span>
+ <span class="p">(</span><span class="s1">&#39;la&#39;</span><span class="p">,</span> <span class="s1">&#39;ls -al&#39;</span><span class="p">)</span>
+<span class="p">]</span>
+</code></pre></div>
+<h3 id="commandline-overrides">CommandLine Overrides</h3>
+<p>Every configurable value can be overridden from the command line.</p>
+<div class="highlight"><pre><span></span><code>ipython --ClassName.attribute<span class="o">=</span>value
+</code></pre></div>
+<h3 id="config-magic">Config Magic</h3>
+<p>Configuration can be overridden at runtime with the <code>%config</code> magic.</p>
+<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">config</span> <span class="n">IPCompleter</span><span class="o">.</span><span class="n">greedy</span> <span class="o">=</span> <span class="kc">True</span>
+</code></pre></div>
+<h3 id="startup">Startup</h3>
+<p>Every ipython profile has a startup directory where it will execute each <code>.py</code>
+and <code>.ipy</code> file on startup.  You can make additional configuration here, import
+modules you want readily available, execute literally any python code you want
+to at the startup of that particular profile.</p>
+<div class='prevnext'>
+
+    <style type='text/css'>
+
+    :root {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="light"] {
+      --prevnext-color-text: #1f2022;
+      --prevnext-color-angle: #ffeb00;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="dark"] {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    .prevnext {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
+    }
+    .prevnext a {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      text-decoration: none;
+    }
+    a.next {
+      justify-content: flex-end;
+    }
+    .prevnext a:hover {
+      background: #00000006;
+    }
+    .prevnext-subtitle {
+      color: var(--prevnext-color-text);
+      filter: brightness(var(--prevnext-subtitle-brightness));
+      font-size: .8rem;
+    }
+    .prevnext-title {
+      color: var(--prevnext-color-text);
+      font-size: 1rem;
+    }
+    .prevnext-text {
+      max-width: 30vw;
+    }
+    </style>
+
+    <a class='prev' href='/quick-progress-bars-in-python-using-tqdm'>
+
+
+        <svg width="50px" height="50px" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.5 8.25L9.75 12L13.5 15.75" stroke="var(--prevnext-color-angle)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"> </path>
+        </svg>
+        <div class='prevnext-text'>
+            <p class='prevnext-subtitle'>prev</p>
+            <p class='prevnext-title'>Quick Progress Bars in python using TQDM</p>
+        </div>
+    </a>
+
+    <a class='next' href='/python-tips'>
+
+        <div class='prevnext-text'>
+            <p class='prevnext-subtitle'>next</p>
+            <p class='prevnext-title'>Python Tips</p>
+        </div>
+        <svg width="50px" height="50px" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.5 15.75L14.25 12L10.5 8.25" stroke="var(--prevnext-color-angle)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+    </a>
+  </div>
+        </div>
+        <hr>
+        <div id='show'>
+        </div>
+    </article>
+    <h2>Socials</h2>
+    <ul class='social'>
+      <li>
+        <a href="https://twitter.com/_WaylonWalker">twitter</a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/waylonwalker/">LinkedIn</a>
+      </li>
+      <li>
+        <a href="https://github.com/WaylonWalker">GitHub</a>
+      </li>
+      <li>
+        <a href="https://dev.to/waylonwalker">Dev.to</a>
+      </li>
+      <li>
+        <a href="https://www.twitch.tv/waylonwalker">twitch</a>
+      </li>
+    </ul>
+</body>
+
+</html>

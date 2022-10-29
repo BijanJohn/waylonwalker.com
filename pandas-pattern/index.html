@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width" name="viewport"/>
+<link href="/8bitcc.ico" rel="icon" type="image/png"/>
+<link href="https://waylonwalker.com/pandas-pattern/amp/" rel="amphtml"/>
+<meta content="$ilp.uphold.com/MGN2ni2YMXaQ" name="monetization" property="monetization"/>
+<!-- <link rel='stylesheet' href='/fonts.css' />
+  <link rel='stylesheet' href='/archive-styles.css' />
+  <link rel='stylesheet' href='/article.css' /> -->
+<link href="/main.min.css" rel="stylesheet"/>
+<link as="style" href="/one-dark.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<link as="style" href="/furo-purge.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<!-- <link rel="preload" href="/scroll.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
+<noscript>
+<!-- <link rel='stylesheet' href='/scroll.css' /> -->
+<link href="/one-dark.min.css" rel="stylesheet"/>
+<link href="/furo-purge.min.css" rel="stylesheet"/>
+</noscript>
+<link href="/8bitcc_48x48.png" rel="apple-touch-icon" sizes="48x48"/>
+<link href="/8bitcc_72x72.png" rel="apple-touch-icon" sizes="72x72"/>
+<link href="/8bitcc_96x96.png" rel="apple-touch-icon" sizes="96x96"/>
+<link href="/8bitcc_144x144.png" rel="apple-touch-icon" sizes="144x144"/>
+<link href="/8bitcc_192x192.png" rel="apple-touch-icon" sizes="192x192"/>
+<link href="/8bitcc_256x256.png" rel="apple-touch-icon" sizes="256x256"/>
+<link href="/8bitcc_384x384.png" rel="apple-touch-icon" sizes="384x384"/>
+<link href="/8bitcc_512x512.png" rel="apple-touch-icon" sizes="512x512"/>
+<script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js');
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+              console.log('new worker')
+              window.location.reload()
+      });
+    }
+
+    </script>
+<title>My favorite pandas pattern</title>
+<meta content="My favorite pandas pattern" name="twitter:title"/>
+<meta content="My favorite pandas pattern" name="og:title"/>
+<meta content="none" name="description"/>
+<meta content="none" name="og:description"/>
+<meta content="none" name="twitter:description"/>
+<meta content="article" name="og:type"/>
+<meta content="https://waylonwalker.com/pandas-pattern/" name="og:url"/>
+<meta content="https://covers.waylonwalker.com/pandas-pattern.jpg" name="og:image"/>
+<meta content="1200" name="og:image:width"/>
+<meta content="600" name="og:image:height"/>
+<meta content="@_waylonwalker" name="twitter:creator"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Waylon Walker" name="og:author"/>
+<meta content="Waylon Walker" name="og:site_name"/>
+<meta content="waylon@waylonwalker.com" name="og:author_email"/>
+<meta content="markata 0.5.2" name="generator"/>
+<meta content="$ilp.uphold.com/MGN2ni2YMXaQ" name="monetization"/>
+<meta content="#322D39" name="theme-color"/>
+<link href="https://waylonwalker.com/pandas-pattern/" rel="canonical"/>
+<link href="https://waylonwalker.com/pandas-pattern/amp/" rel="amphtml"/>
+<link href="https://images.waylonwalker.com" rel="preconnect"/>
+<link href="https://covers.waylonwalker.com" rel="preconnect"/>
+<link href="https://stable-diffusion.waylonwalker.com" rel="preconnect"/>
+<link href="https://screenshots.waylonwalker.com" rel="preconnect"/>
+<link href="/manifest.json" rel="manifest"/></head>
+<body>
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/archive/">Archive</a></li>
+<li>
+<a aria-label="RSS" href="/rss.xml">
+<svg class="icon" height="16" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M 4 4.44 v 2.83 c 7.03 0 12.73 5.7 12.73 12.73 h 2.83 c 0 -8.59 -6.97 -15.56 -15.56 -15.56 Z m 0 5.66 v 2.83 c 3.9 0 7.07 3.17 7.07 7.07 h 2.83 c 0 -5.47 -4.43 -9.9 -9.9 -9.9 Z M 6.18 15.64 A 2.18 2.18 0 0 1 6.18 20 A 2.18 2.18 0 0 1 6.18 15.64" fill="currentColor">
+</path>
+</svg>
+</a>
+</li>
+</ul>
+</nav>
+<article class="blog-post h-entry">
+<!-- <div id='cover-wrapper'>
+      <img src='/pandas-pattern.webp' alt='cover image for article' />
+    </div> -->
+<div id="title-wrapper">
+<a class="u-url" href="https://waylonwalker.com/pandas-pattern/">
+<h1 class="flair" id="title" style="text-align:right;z-index:2;padding-right:.2rem">My favorite pandas pattern
+                </h1>
+</a>
+<p><time class="dt-published post-date" datetime="2018-03-01" style="text-align:right;z-index:2">2018-03-01</time>
+</p>
+<div class="h-card p-author" rel="author">
+<div class="content">
+<a class="p-name u-url" href="https://waylonwalker.com/">
+<p>
+<span class="p-given-name">Waylon</span>
+<span class="p-family-name">Walker</span>
+</p>
+</a>
+<p class="p-note">Learning in Public <a href="https://twitter.com/_WaylonWalker">@_WaylonWalker</a></p>
+</div>
+</div>
+<!-- edit -->
+<p><a alt="edit post url" href="https://github.com/WaylonWalker/waylonwalker.com/edit/main/pages/blog/pandas-pattern.md" title="edit this post">edit<span aria-label="" role="img">✏️</span></a></p>
+</div>
+<!-- <h2 class='toc'>toc</h2> -->
+<!-- <div class="toc">
+<ul></ul>
+</div>
+ -->
+<div id="post-body">
+<h1 id="my-favorite-pandas-pattern">My favorite pandas pattern<a alt="id" class="heading-permalink" href="#my-favorite-pandas-pattern" title="link to #my-favorite-pandas-pattern"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h1>
+<p>I work with a lot of transactional timeseries data that includes categories.  I often want to create timeseries plots with each category as its own line.  This is the method that I use almost data to achieve this result.  Typically the data that am working with changes very slowly and trends happen over years not days or weeks.  Plotting daily/weekly data tends to be noisy and hides the trend.  I use this pattern because it works well with my data and is easy to explain to my stakeholders.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="o">%</span> <span class="n">matplotlib</span> <span class="n">inline</span>
+</code></pre></div>
+<h2 id="lets-fake-some-data">Lets Fake some data<a alt="id" class="heading-permalink" href="#lets-fake-some-data" title="link to #lets-fake-some-data"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>Here I am trying to simulate a subset of a large transactional data set. This could be something like sales data, production data, hourly billing, anything that has a date, category, and value.  Since we generated this data we know that it is clean.  I am still going to assume that it contains some nulls, and an irregular date range.</p>
+<div class="highlight"><pre><span></span><code><span class="n">n</span> <span class="o">=</span> <span class="mi">365</span><span class="o">*</span><span class="mi">5</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'level_0'</span><span class="p">:</span> <span class="s1">'date'</span><span class="p">,</span>
+        <span class="s1">'level_1'</span><span class="p">:</span> <span class="s1">'item'</span><span class="p">,</span>
+        <span class="mi">0</span><span class="p">:</span> <span class="s1">'qty'</span><span class="p">,</span> <span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">4</span><span class="p">)),</span>
+                     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'paper'</span><span class="p">,</span> <span class="s1">'pencils'</span><span class="p">,</span> <span class="s1">'note cards'</span><span class="p">,</span> <span class="s1">'markers'</span><span class="p">],</span>
+                     <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">'1/1/2017'</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">'d'</span><span class="p">),</span>
+                     <span class="p">)</span>
+        <span class="o">.</span><span class="n">stack</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">cols</span><span class="p">))</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>date</th>
+<th>item</th>
+<th>qty</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>2017-01-01</td>
+<td>paper</td>
+<td>1</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2017-01-01</td>
+<td>pencils</td>
+<td>4</td>
+</tr>
+<tr>
+<th>2</th>
+<td>2017-01-01</td>
+<td>note cards</td>
+<td>5</td>
+</tr>
+<tr>
+<th>3</th>
+<td>2017-01-01</td>
+<td>markers</td>
+<td>9</td>
+</tr>
+<tr>
+<th>4</th>
+<td>2017-01-02</td>
+<td>paper</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="the-pattern">The pattern<a alt="id" class="heading-permalink" href="#the-pattern" title="link to #the-pattern"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>Here I am going to take my groupby date and item, this will take care of duplicate entries with the same time stamp.  Select the value I want to sum on. unstack the items index into columns.  Resample the data by month.  I could easily use any of the <a href="https://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases">available rules</a>. Fill any missing months with 0, since there wasnt a transaction during that month. Apply a rolling window to get the annual sum.  I find that this helps to ground values in values that my stakeholders are used to seeing on a regular basis and reduces the need for them to recalculate in their head.  Then I am going to drop the nulls created by the rolling window for the first 11 rows.</p>
+<div class="highlight"><pre><span></span><code><span class="n">plot_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span>
+             <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'date'</span><span class="p">,</span> <span class="s1">'item'</span><span class="p">])</span>
+             <span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+             <span class="p">[</span><span class="s1">'qty'</span><span class="p">]</span>
+             <span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+             <span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">'m'</span><span class="p">)</span>
+             <span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+             <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+             <span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+             <span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+             <span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+             <span class="p">)</span>
+<span class="n">plot_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>item</th>
+<th>markers</th>
+<th>note cards</th>
+<th>paper</th>
+<th>pencils</th>
+</tr>
+<tr>
+<th>date</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>2017-12-31</th>
+<td>1543.0</td>
+<td>1739.0</td>
+<td>1613.0</td>
+<td>1657.0</td>
+</tr>
+<tr>
+<th>2018-01-31</th>
+<td>1572.0</td>
+<td>1744.0</td>
+<td>1635.0</td>
+<td>1635.0</td>
+</tr>
+<tr>
+<th>2018-02-28</th>
+<td>1563.0</td>
+<td>1717.0</td>
+<td>1645.0</td>
+<td>1645.0</td>
+</tr>
+<tr>
+<th>2018-03-31</th>
+<td>1596.0</td>
+<td>1703.0</td>
+<td>1629.0</td>
+<td>1600.0</td>
+</tr>
+<tr>
+<th>2018-04-30</th>
+<td>1557.0</td>
+<td>1693.0</td>
+<td>1648.0</td>
+<td>1581.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="highlight"><pre><span></span><code><span class="n">plot_data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'Rolling annual sum of Categorical Random Data'</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="for-the-visual-learners">For the Visual Learners<a alt="id" class="heading-permalink" href="#for-the-visual-learners" title="link to #for-the-visual-learners"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<h3 id="groupby">Groupby<a alt="id" class="heading-permalink" href="#groupby" title="link to #groupby"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">plot_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span>
+             <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'date'</span><span class="p">,</span> <span class="s1">'item'</span><span class="p">])</span>
+             <span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+             <span class="p">)</span>
+<span class="n">plot_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th></th>
+<th>qty</th>
+</tr>
+<tr>
+<th>date</th>
+<th>item</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th rowspan="4" valign="top">2017-01-01</th>
+<th>markers</th>
+<td>9</td>
+</tr>
+<tr>
+<th>note cards</th>
+<td>5</td>
+</tr>
+<tr>
+<th>paper</th>
+<td>1</td>
+</tr>
+<tr>
+<th>pencils</th>
+<td>4</td>
+</tr>
+<tr>
+<th>2017-01-02</th>
+<th>markers</th>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="select-values">Select Values<a alt="id" class="heading-permalink" href="#select-values" title="link to #select-values"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h3>
+<p>In this case I chose to do this to avoid working with a multiple levels in the columns that would be created in the unstack() step.</p>
+<div class="highlight"><pre><span></span><code><span class="n">plot_data</span> <span class="o">=</span> <span class="n">plot_data</span><span class="p">[</span><span class="s1">'qty'</span><span class="p">]</span>
+
+<span class="n">plot_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+<div class="codehilite"><pre><span></span><code>date        item
+2017-01-01  markers       9
+            note cards    5
+            paper         1
+            pencils       4
+2017-01-02  markers       4
+Name: qty, dtype: int32
+</code></pre></div>
+<h3 id="unstack">unstack<a alt="id" class="heading-permalink" href="#unstack" title="link to #unstack"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h3>
+<p>transform the last column in the index ('item') into rows.</p>
+<div class="highlight"><pre><span></span><code><span class="n">plot_data</span> <span class="o">=</span> <span class="n">plot_data</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+
+<span class="n">plot_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>item</th>
+<th>markers</th>
+<th>note cards</th>
+<th>paper</th>
+<th>pencils</th>
+</tr>
+<tr>
+<th>date</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>2017-01-01</th>
+<td>9</td>
+<td>5</td>
+<td>1</td>
+<td>4</td>
+</tr>
+<tr>
+<th>2017-01-02</th>
+<td>4</td>
+<td>2</td>
+<td>3</td>
+<td>7</td>
+</tr>
+<tr>
+<th>2017-01-03</th>
+<td>9</td>
+<td>5</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<th>2017-01-04</th>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>5</td>
+</tr>
+<tr>
+<th>2017-01-05</th>
+<td>0</td>
+<td>1</td>
+<td>6</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="resample">resample<a alt="id" class="heading-permalink" href="#resample" title="link to #resample"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h3>
+<p>This step is important for irregular data in order to get the data into regular intervals.</p>
+<div class="highlight"><pre><span></span><code><span class="n">plot_data</span> <span class="o">=</span> <span class="n">plot_data</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">'m'</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="n">plot_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>item</th>
+<th>markers</th>
+<th>note cards</th>
+<th>paper</th>
+<th>pencils</th>
+</tr>
+<tr>
+<th>date</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>2017-01-31</th>
+<td>145</td>
+<td>128</td>
+<td>117</td>
+<td>146</td>
+</tr>
+<tr>
+<th>2017-02-28</th>
+<td>136</td>
+<td>140</td>
+<td>133</td>
+<td>135</td>
+</tr>
+<tr>
+<th>2017-03-31</th>
+<td>112</td>
+<td>145</td>
+<td>125</td>
+<td>163</td>
+</tr>
+<tr>
+<th>2017-04-30</th>
+<td>143</td>
+<td>148</td>
+<td>112</td>
+<td>147</td>
+</tr>
+<tr>
+<th>2017-05-31</th>
+<td>86</td>
+<td>134</td>
+<td>139</td>
+<td>141</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="rolling">rolling<a alt="id" class="heading-permalink" href="#rolling" title="link to #rolling"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h3>
+<p>I like to use rolling because it get the data into annual numbers, and reduces noise.  I have found that most of my datasets have patterns and trends that are greater than 1y.  This  is just due to the industry that I am in.  Play with the resample and rolling rules to fit the need of your own data.</p>
+<div class="highlight"><pre><span></span><code><span class="n">plot_data</span> <span class="o">=</span> <span class="n">plot_data</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="n">plot_data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</code></pre></div>
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>item</th>
+<th>markers</th>
+<th>note cards</th>
+<th>paper</th>
+<th>pencils</th>
+</tr>
+<tr>
+<th>date</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>2017-01-31</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>2017-02-28</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>2017-03-31</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>2017-04-30</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>2017-05-31</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>2017-06-30</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>2017-07-31</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>2017-08-31</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>2017-09-30</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>2017-10-31</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>2017-11-30</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>2017-12-31</th>
+<td>1543.0</td>
+<td>1739.0</td>
+<td>1613.0</td>
+<td>1657.0</td>
+</tr>
+<tr>
+<th>2018-01-31</th>
+<td>1572.0</td>
+<td>1744.0</td>
+<td>1635.0</td>
+<td>1635.0</td>
+</tr>
+<tr>
+<th>2018-02-28</th>
+<td>1563.0</td>
+<td>1717.0</td>
+<td>1645.0</td>
+<td>1645.0</td>
+</tr>
+<tr>
+<th>2018-03-31</th>
+<td>1596.0</td>
+<td>1703.0</td>
+<td>1629.0</td>
+<td>1600.0</td>
+</tr>
+<tr>
+<th>2018-04-30</th>
+<td>1557.0</td>
+<td>1693.0</td>
+<td>1648.0</td>
+<td>1581.0</td>
+</tr>
+<tr>
+<th>2018-05-31</th>
+<td>1624.0</td>
+<td>1674.0</td>
+<td>1632.0</td>
+<td>1592.0</td>
+</tr>
+<tr>
+<th>2018-06-30</th>
+<td>1582.0</td>
+<td>1645.0</td>
+<td>1657.0</td>
+<td>1593.0</td>
+</tr>
+<tr>
+<th>2018-07-31</th>
+<td>1662.0</td>
+<td>1654.0</td>
+<td>1680.0</td>
+<td>1613.0</td>
+</tr>
+<tr>
+<th>2018-08-31</th>
+<td>1654.0</td>
+<td>1617.0</td>
+<td>1650.0</td>
+<td>1616.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="dropna">dropna<a alt="id" class="heading-permalink" href="#dropna" title="link to #dropna"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h3>
+<p>get rid of the first 11 null rows</p>
+<div class="highlight"><pre><span></span><code><span class="n">plot_data</span> <span class="o">=</span> <span class="n">plot_data</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="n">plot_data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>item</th>
+<th>markers</th>
+<th>note cards</th>
+<th>paper</th>
+<th>pencils</th>
+</tr>
+<tr>
+<th>date</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>2017-12-31</th>
+<td>1543.0</td>
+<td>1739.0</td>
+<td>1613.0</td>
+<td>1657.0</td>
+</tr>
+<tr>
+<th>2018-01-31</th>
+<td>1572.0</td>
+<td>1744.0</td>
+<td>1635.0</td>
+<td>1635.0</td>
+</tr>
+<tr>
+<th>2018-02-28</th>
+<td>1563.0</td>
+<td>1717.0</td>
+<td>1645.0</td>
+<td>1645.0</td>
+</tr>
+<tr>
+<th>2018-03-31</th>
+<td>1596.0</td>
+<td>1703.0</td>
+<td>1629.0</td>
+<td>1600.0</td>
+</tr>
+<tr>
+<th>2018-04-30</th>
+<td>1557.0</td>
+<td>1693.0</td>
+<td>1648.0</td>
+<td>1581.0</td>
+</tr>
+<tr>
+<th>2018-05-31</th>
+<td>1624.0</td>
+<td>1674.0</td>
+<td>1632.0</td>
+<td>1592.0</td>
+</tr>
+<tr>
+<th>2018-06-30</th>
+<td>1582.0</td>
+<td>1645.0</td>
+<td>1657.0</td>
+<td>1593.0</td>
+</tr>
+<tr>
+<th>2018-07-31</th>
+<td>1662.0</td>
+<td>1654.0</td>
+<td>1680.0</td>
+<td>1613.0</td>
+</tr>
+<tr>
+<th>2018-08-31</th>
+<td>1654.0</td>
+<td>1617.0</td>
+<td>1650.0</td>
+<td>1616.0</td>
+</tr>
+<tr>
+<th>2018-09-30</th>
+<td>1669.0</td>
+<td>1648.0</td>
+<td>1638.0</td>
+<td>1634.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="prevnext">
+<style type="text/css">
+
+    :root {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="light"] {
+      --prevnext-color-text: #1f2022;
+      --prevnext-color-angle: #ffeb00;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="dark"] {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    .prevnext {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
+    }
+    .prevnext a {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      text-decoration: none;
+    }
+    a.next {
+      justify-content: flex-end;
+    }
+    .prevnext a:hover {
+      background: #00000006;
+    }
+    .prevnext-subtitle {
+      color: var(--prevnext-color-text);
+      filter: brightness(var(--prevnext-subtitle-brightness));
+      font-size: .8rem;
+    }
+    .prevnext-title {
+      color: var(--prevnext-color-text);
+      font-size: 1rem;
+    }
+    .prevnext-text {
+      max-width: 30vw;
+    }
+    </style>
+<a class="prev" href="/pandas-read-csv-user-agent">
+<svg fill="none" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.5 8.25L9.75 12L13.5 15.75" stroke="var(--prevnext-color-angle)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"> </path>
+</svg>
+<div class="prevnext-text">
+<p class="prevnext-subtitle">prev</p>
+<p class="prevnext-title">Set User Agent on pandas read_csv</p>
+</div>
+</a>
+<a class="next" href="/packages-to-investigate">
+<div class="prevnext-text">
+<p class="prevnext-subtitle">next</p>
+<p class="prevnext-title">📝 Packages to Investigate Notes</p>
+</div>
+<svg fill="none" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.5 15.75L14.25 12L10.5 8.25" stroke="var(--prevnext-color-angle)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+</svg>
+</a>
+</div>
+</div>
+<hr/>
+<div id="show">
+</div>
+</article>
+<footer>
+<ul class="social">
+<li>
+<a href="https://twitter.com/_WaylonWalker">twitter</a>
+</li>
+<li>
+<a href="https://www.linkedin.com/in/waylonwalker/">LinkedIn</a>
+</li>
+<li>
+<a href="https://github.com/WaylonWalker">GitHub</a>
+</li>
+<li>
+<a href="https://dev.to/waylonwalker">Dev.to</a>
+</li>
+<li>
+<a href="https://www.twitch.tv/waylonwalker">twitch</a>
+</li>
+</ul>
+<p>
+      © 2018 - 2022
+    </p>
+</footer>
+</body>
+</html>

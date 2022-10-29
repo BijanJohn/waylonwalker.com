@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html ⚡ lang='en'>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/8bitcc.ico" type="image/png">
+    <meta property="monetization" name="monetization" content="$ilp.uphold.com/MGN2ni2YMXaQ">
+
+    <link href='8bitcc_48x48.png' rel='apple-touch-icon' sizes='48x48' />
+    <link href='8bitcc_72x72.png' rel='apple-touch-icon' sizes='72x72' />
+    <link href='8bitcc_96x96.png' rel='apple-touch-icon' sizes='96x96' />
+    <link href='8bitcc_144x144.png' rel='apple-touch-icon' sizes='144x144' />
+    <link href='8bitcc_192x192.png' rel='apple-touch-icon' sizes='192x192' />
+    <link href='8bitcc_256x256.png' rel='apple-touch-icon' sizes='256x256' />
+    <link href='8bitcc_384x384.png' rel='apple-touch-icon' sizes='384x384' />
+    <link href='8bitcc_512x512.png' rel='apple-touch-icon' sizes='512x512' />
+
+    <title>Comprehensive guide to creating kedro nodes</title>
+
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <style amp-custom>
+        h1{font-weight:700}h1,h2,h3,h4,h5,h6{font-family:"Space Mono",monospace}h1{font-size:2.5em;font-family:"Space Mono",monospace;color:#6a65ca;color:#ff66c4}h2{font-size:1.63rem;color:#d68eba}h3{font-family:"Space Mono",monospace}p{font-family:"Space Mono",monospace;color:rgba(255,255,255,.6);font-size:21px;font-style:normal;font-variant:normal;font-weight:400;line-height:1.5}@media only screen and (max-width:700px){p{font-size:18px}}@media only screen and (max-width:600px){p{font-size:16px}}@media only screen and (max-width:500px){p{font-size:14px}}@media only screen and (max-width:400px){p{font-size:12px}}blockquote{font-family:"Space Mono",monospace}code{font-family:"Space Mono",monospace}pre{font-family:"Segoe UI",Frutiger,"Frutiger Linotype","Dejavu Sans","Helvetica Neue",Arial,sans-serif;font-family:"Space Mono",monospace;font-family:"Space Mono",monospace}a{font-family:"Space Mono",monospace;color:#6f6bae;text-decoration-color:goldenrod}*{box-sizing:border-box}*{font-family:"SF Mono",Monaco,Inconsolata,"Fira Mono","Droid Sans Mono","Source Code Pro",monospace}article,body,div,footer,header,hgroup,html,nav,section{position:relative;display:flex;align-items:center;flex-direction:column;flex-shrink:0}li,p,ul{margin:0;padding:0}p{margin-bottom:1rem}body,html{min-height:100vh;max-width:100%;width:100%;margin:0;padding:2rem;overflow-x:hidden;color:#fafafa;display:flex;padding:0;background-size:800px;min-height:100vh;background:#282c34;background:linear-gradient(81deg,#282c34 0,#3a2e3d 100%)}section{margin-bottom:5rem}h1{color:#ff66c4}ul.archive-list{box-shadow:0 0 2rem rgba(0,0,0,.3),-8rem -6rem 8rem -6rem rgba(253,221,88,.2),4rem 0 8rem rgba(88,82,185,.3),0 0 2rem -1.6rem rgba(255,215,70,.8);margin:0;padding:0;list-style-type:none;margin-top:1rem}li.post{margin:0;width:100%;list-style-type:none;border-width:1px;border-style:solid;border-image:linear-gradient(to right,#ff66c4,rgba(255,102,196,.2)) 1 0 0 0}li.post:nth-child(2n-1){background-color:rgba(255,255,255,.01);background-image:linear-gradient(22deg,rgba(255,255,255,0),rgba(255,255,255,.03))}li.post:nth-child(2n){background-color:rgba(0,0,0,.02);background-image:linear-gradient(22deg,rgba(0,0,0,0),rgba(0,0,0,.03))}li.post a{color:#fafafa;text-decoration:none}li.post h2,li.post p{max-width:800px;width:calc(100vw - 100px)}li.post h2,li.post p{margin-left:2rem;margin-right:2rem}li.post a:focus-visible h2,li.post:hover h2{color:#ff66c4}p{color:#d3d3d3}li.post a:focus-visible p,li.post:hover p{color:#fafafa}nav{padding:1rem 0;align-items:flex-end;max-width:1000px;width:100%}nav ul{list-style-type:none;display:flex}nav ul li{margin:0 .4rem}nav ul li a{text-align:center;color:#dcdcdc;text-decoration:none;padding:.5rem;margin-left:.1rem;margin-right:.1rem;align-items:flex-end}nav ul li a:focus-visible,nav ul li:hover a,ul.archive-tags li a:focus-visible,ul.archive-tags li:hover a{color:#ff66c4}ul.archive-tags{display:flex;justify-content:center;list-style-type:none;color:#dcdcdc;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:2rem;width:100%}ul.archive-tags li{padding:.2rem 1rem}ul.archive-tags li a{text-decoration:none;color:#fafafa}.social{display:flex}.social li{list-style-type:None}.social a{color:#daa520;padding:1rem .2rem}#cover-wrapper{z-index:2;width:100%;min-height:min(420px,100vw / 2.38)}#cover-wrapper img{width:calc(100% + 2rem);margin:-2rem}#title-wrapper{display:flex;justify-content:flex-end;align-items:flex-end;width:calc(100% + 2rem);left:-1rem;padding:8rem 1rem 0;margin-top:-8rem;margin-bottom:2.2rem;background:linear-gradient(149deg,#282c34 0,rgba(58,46,61,0) 100%);border-bottom:1px solid #daa520}#title-wrapper h1{margin-top:8rem;margin-bottom:0;word-break:break-all}#title-wrapper p{text-align:right;padding-left:0;margin-bottom:0;margin-top:0}#title-wrapper a{color:#daa520;text-decoration:none}#title-wrapper .h-card .content{display:flex;flex-direction:column;align-items:flex-end;margin:1rem 0}.p-note,.post-date{color:rgba(255,255,255,.2)}#title-wrapper a:focus-visible,#title-wrapper a:hover{color:#ff66c4}article.blog-post,div#post-body{display:block}article.blog-post .toc a{padding:.5rem}article.blog-post .toc li{margin:1rem}article.blog-post .toc ul{list-style-type:none;border:none;padding:0;margin:0 0 .5rem}article.blog-post div.toc{margin-bottom:1rem}article.blog-post div.toc:after{content:'';display:block;width:50%;border-bottom:1px solid #daa520}h2.toc{margin-bottom:1rem;text-align:center;color:rgba(255,255,255,.8)}.toc li{margin:1rem}.toc a{color:rgba(255,255,255,.5)}.toc a:focus-visible,.toc a:hover{color:#ff66c4}article.blog-post li>code,article.blog-post p>code{background:rgba(255,20,147,.075);padding:0 .2rem}article.blog-post{overflow:hidden;background:rgba(51,0,38,.13);background:hsla(234,33%,15%,.66);display:block;margin:.2rem;width:min(95vw,1000px);position:relative;margin:2rem 0;padding:1rem;padding-bottom:5rem;border-radius:2px;box-shadow:.2rem .2rem 1rem rgba(0,0,0,.2);flex-direction:column;align-items:flex-start;color:#f5f5f5}@media (max-width:650px){article.blog-post{width:100vw;width:min(100vw,1000px)}}@media (max-width:1200px){article.blog-post h1{font-size:2.5rem;padding:1rem}}@media (max-width:1200px){article.blog-post h2{padding-left:1rem}}@media (max-width:1200px){article.blog-post h3{padding-left:1.4rem}}@media (max-width:1200px){article.blog-post h4,article.blog-post h5,article.blog-post h6{padding-left:1.6rem}}@media (max-width:1200px){article.blog-post{margin:0;padding:0;margin:0}}article.blog-post p{margin:2rem .8rem}@media (max-width:1200px){article.blog-post p{margin:2rem .8rem}article.blog-post ol,article.blog-post ul{padding:1.2rem}}article.blog-post pre{margin-bottom:1rem;align-self:flex-start;max-width:calc(100vw - 20px);padding:10px;overflow-x:auto}article.blog-post .highlight{background:#282c34;padding:1rem;margin:0 -1rem;width:calc(100% + 2rem)}article.blog-post a{color:#6f6bae;text-decoration-color:#330026;text-decoration-color:goldenrod}@media (max-width:1200px){p>img{left:-.8rem}}p>img{position:relative;box-shadow:.2rem .2rem 1rem rgba(51,0,38,.4);max-width:1000px;width:95vw;align-self:center;justify-self:center;align-items:center;justify-items:center;margin:auto;left:-1.6rem}.center-img>img{max-width:600px;margin:.5rem}.center-img{display:flex;justify-content:center}strong{color:#d68fbb;display:inline-block;transform:rotate(-2deg)}em{color:#6f6bae;display:inline-block;transform:rotate(.2deg);background:rgba(255,255,255,.04);padding:.1rem .8rem}h2{margin-top:5rem}article.blog-post ul{border-left:1px solid #ff66c4;padding:.5rem 0 .025rem 3rem;margin:2rem}blockquote{color:#777;background:rgba(255,20,147,.05);border-left:2px solid #daa520;font-size:1rem;padding:1rem 0 1rem .5rem;margin:2rem 0}hr{border:none;border-top:1px solid #daa520;margin:5rem auto;background:0 0;width:min(600px,80%)}h1{margin-top:5rem}.tweet{display:flex;justify-content:flex-end;margin:1rem 0}.tweet a{display:inline-block;border-radius:5px;padding:.5rem 1rem;background:#645fc4;color:#fedd58;text-decoration:none;vertical-align:center}.share{max-width:800px;margin:.8rem auto;padding:1rem 2rem;display:flex;align-items:center;border:1px solid #d68fbb;background-color:rgba(214,143,187,.1);border-radius:5px}.share a{padding:.2rem .5rem}.share p{margin:0;padding:0;padding-right:.2rem}.share ul li{margin:0;padding:0}.shrare ul{display:flex;list-style-type:none;margin:0;padding:0;border:none;font-size:1.3rem}.post-body hr{border-top:2px solid rgba(218,165,32,.2);margin:3rem 40%}.h-card{border-radius:5px;display:flex;align-items:center;justify-content:flex-end}.h-card img{width:50px;border-radius:50%;margin:.2rem;display:none}.h-card ul.social{list-style-type:none;border:none;margin:0;padding:0}.social{display:flex}.social li{list-style-type:None}.social a{color:#daa520;padding:1rem .2rem}.h-card li{margin:0;padding:0}.toc{width:min(90vw,600px);margin:auto;position:initial;font-size:.8rem;line-height:1.1rem}.toc li{padding:0;margin:0}.toc li.H1,.toc li.H2{padding-top:.8rem}.toc li.H3{padding-left:.5rem}.toc li.H4{padding-left:1rem}.toc li.H5{padding-left:1.25rem}.toc li.H6{padding-left:1.5rem}@media (min-width:1500px){.toc{display:none}}.twitter-tweet{margin:10px auto}.onelinelink-wrapper{max-width:100vw}a.onelinelink{position:relative;left:2rem;background:#262236;margin:-6rem auto 1rem;border:2px solid rgba(255,50,50,.1);max-width:300px;border-radius:15px/45px;display:block;flex-direction:row}@media (max-width:350px){a.onelinelink{left:0;margin-left:.4rem;margin-right:.4rem}}@media (min-width:800px){a.onelinelink{max-width:600px;margin:auto}}@media (min-width:900px){a.onelinelink{max-width:700px}}@media (min-width:1000px){a.onelinelink{max-width:800px}}a.onelinelink{position:relative;z-index:2;margin:4rem;overflow:hidden;display:flex;border:2px solid rgba(255,50,50,.1);background:rgba(255,50,50,.015);background:#262236;text-decoration:none;border-radius:8px;max-height:126px}@media (max-width:800px){a.onelinelink{flex-direction:column;max-height:800px;max-width:300px;margin:4rem auto}}a.onelinelink h2{top:-1.2rem;postition:relative;margin:0;padding:0;font-size:.8rem;font-weight:400}a.onelinelink .right{width:calc(100% - 250px - 4rem);padding:5px 15px}@media (max-width:800px){a.onelinelink .right{width:auto}}a.onelinelink .description{font-size:1rem;line-height:1.2rem;height:calc(100% - 31px - 1rem);padding:0;padding-bottom:1rem;padding-top:.1rem;margin:0}a.onelinelink .url{padding-right:30px;color:rgba(255,255,255,.1);text-align:right;position:relative;z-index:2;background:#262236}a.onelinelink img{max-width:300px;max-height:126px;padding:0;margin:0;border-radius:8px 0 0 8px}a.onelinelink .read-more{font-size:.6rem;color:rgba(255,255,255,.08)}table{border-collapse:collapse;margin:auto}table,td,th{border:1px solid rgba(255,255,255,.4);min-width:5rem;padding:.2rem}.speed-control{display:flex;flex-direction:row;justify-content:center;margin-top:-.2rem;padding:1rem 0 .5rem;background:rgba(0,0,0,.3)}.speed-control button{margin:.4;transition:all .2s;border:.1rem solid #d3d3d3;color:#d3d3d3;background:0 0;text-align:center;padding:.35rem 1.2rem;margin:.1rem .5rem;border-radius:.12rem}.speed-control button:hover{color:#000;background:#d3d3d3}body::-webkit-scrollbar{width:1rem}@media (max-width:1000px){body::-webkit-scrollbar{width:.5rem}}@media (max-width:425px){body::-webkit-scrollbar{width:.25rem}}html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:#5651B7}body::-webkit-scrollbar-track{background:#392e3d}body::-webkit-scrollbar-thumb{background-color:#5651b7;border-radius:.25rem;background:#706bd0;background:linear-gradient(180deg,#706bd0 0,#5651b7 100%);border:1px solid rgba(86j,81,183,.5)}
+    </style>
+    <link href="https://waylonwalker.com/kedro-node/" rel="canonical">
+
+
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href='/'>Home</a></li>
+            <li><a href='/archive/'>Archive</a></li>
+            <li>
+                <a href='/rss.xml' aria-label='RSS'>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="16" width="16">
+            <path fill="currentColor"
+              d="M 4 4.44 v 2.83 c 7.03 0 12.73 5.7 12.73 12.73 h 2.83 c 0 -8.59 -6.97 -15.56 -15.56 -15.56 Z m 0 5.66 v 2.83 c 3.9 0 7.07 3.17 7.07 7.07 h 2.83 c 0 -5.47 -4.43 -9.9 -9.9 -9.9 Z M 6.18 15.64 A 2.18 2.18 0 0 1 6.18 20 A 2.18 2.18 0 0 1 6.18 15.64">
+            </path>
+          </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <article class="blog-post h-entry">
+        <!-- <div id='cover-wrapper'>
+      <img src='/kedro-node.webp' alt='cover image for article' />
+    </div> -->
+        <div id='title-wrapper'>
+            <a class="u-url" href="https://waylonwalker.com/kedro-node/">
+                <h1 class='flair' id="title" style="text-align:right;z-index:2;padding-right:.2rem" class="blog title no-link">Comprehensive guide to creating kedro nodes
+                </h1>
+            </a>
+            <p><time class="dt-published post-date" datetime="2021-06-03" style="text-align:right;z-index:2">2021-06-03</time>
+            </p>
+            <div class="h-card p-author" rel="author">
+                <div class="content">
+                    <a class="p-name u-url" href="https://waylonwalker.com/">
+                        <p>
+                            <span class="p-given-name">Waylon</span>
+                            <span class="p-family-name">Walker</span>
+                        </p>
+                    </a>
+                    <p class="p-note">Learning in Public <a href="https://twitter.com/_WaylonWalker">@waylonwalker</a></p>
+                </div>
+            </div>
+
+            <!-- edit -->
+            <p><a href="https://github.com/WaylonWalker/waylonwalker.com/edit/main/pages/blog/kedro-node.md" title="edit this post">edit<span role="img" aria-label="">✏️</span></a></p>
+        </div>
+
+        <!-- <h2 class='toc'>toc</h2> -->
+        <!--  -->
+        <div id='amp-message'>
+          <p style='background: rgba(0,0,0,0.1); padding: .5rem 3rem; margin: 2rem 0rem;'>
+          ⚡ You've discovered an amp page, if you bump into any issues such as
+          syntax highlighting feel free to jump to the <a href="https://waylonwalker.com/kedro-node/">normal page</a>
+          </p>
+        </div>
+        <div id='post-body'>
+            <p>The Kedro node is an essential part of the pipeline.  It defines what catalog
+entries get passed in, what function gets ran, and the catalog entry to save
+the results under.</p>
+<div class="onelinelink-wrapper">
+    <a class="onelinelink" href="https://waylonwalker.com/what-is-kedro/">
+        <img style="float: right;" align='right' src="https://covers.waylonwalker.com/what-is-kedro.jpg" alt="article cover for What is Kedro"/>
+        <p><strong>What is Kedro</strong></p>
+    </a>
+</div>
+
+<blockquote>
+<p>👆 Unsure what kedro is?  Check out this post.</p>
+</blockquote>
+<h2 id="the-node-function">The node function</h2>
+<p>The node function is the most common and reccomended way to define kedro nodes.
+It is a function that constructs and returns <code>Node</code> objects for you.</p>
+<h2 id="creating-your-first-kedro-node">Creating your first kedro node</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">kedro.pipeline</span> <span class="kn">import</span> <span class="n">node</span>
+
+<span class="k">def</span> <span class="nf">identity</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="s2">&quot;a function that returns itself&quot;</span>
+    <span class="k">return</span> <span class="n">df</span>
+
+<span class="n">my_first_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span>
+   <span class="n">func</span><span class="o">=</span><span class="n">identity</span><span class="p">,</span>
+   <span class="n">inputs</span><span class="o">=</span><span class="s1">&#39;raw_cars&#39;</span><span class="p">,</span>
+   <span class="n">output</span><span class="o">=</span><span class="s1">&#39;int_cars&#39;</span><span class="p">,</span>
+   <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;int&#39;</span><span class="p">,]</span>
+   <span class="p">)</span>
+</code></pre></div>
+<h3 id="function">function</h3>
+<p>The <code>func</code> passed into node can be any callable that accepts the inputs yout
+have specified, and returns the correct output that you specify as your output.</p>
+<ul>
+<li>any callable</li>
+<li>a function you write</li>
+<li>a function from a library</li>
+<li>class constructor</li>
+<li>lambda function</li>
+<li>partial function</li>
+<li>literally any callable</li>
+</ul>
+<div class="onelinelink-wrapper">
+    <a class="onelinelink" href="https://waylonwalker.com/kedro-inputs/">
+        <img style="float: right;" align='right' src="https://covers.waylonwalker.com/kedro-inputs.jpg" alt="article cover for How Kedro handles your inputs"/>
+        <p><strong>How Kedro handles your inputs</strong></p>
+    </a>
+</div>
+
+<blockquote>
+<p>For more information on how kedro passes inputs into your functions check out
+this post</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">kedro.pipeline</span> <span class="kn">import</span> <span class="n">node</span>
+
+<span class="n">range_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;range&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;range&quot;</span><span class="p">),</span>
+<span class="n">dataframe_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="s2">&quot;range&quot;</span><span class="p">,</span> <span class="s2">&quot;df&quot;</span><span class="p">),</span>
+</code></pre></div>
+<h4 id="using-a-lambda-as-a-function">Using a lambda as a function</h4>
+<p>I keep my nodes short and sweet.  They do one thing and do it well. I turn
+almost every DataFrame transformation into its own node.  It makes it must
+easier to pull catalog entries, than firing up the pipeline, running it,
+and starting a debugger.  For this reason many of my nodes are build from
+inline lambdas.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">kedro.pipeline</span> <span class="kn">import</span> <span class="n">node</span>
+
+<span class="n">my_first_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span>
+   <span class="n">func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span>
+   <span class="n">inputs</span><span class="o">=</span><span class="s1">&#39;raw_cars&#39;</span><span class="p">,</span>
+   <span class="n">output</span><span class="o">=</span><span class="s1">&#39;int_cars&#39;</span><span class="p">,</span>
+   <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;int&#39;</span><span class="p">,]</span>
+   <span class="p">)</span>
+
+<span class="n">my_first_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span>
+   <span class="n">func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">cars</span><span class="p">:</span> <span class="n">cars</span><span class="p">[[</span><span class="s1">&#39;mpg&#39;</span><span class="p">,</span> <span class="s1">&#39;cyl&#39;</span><span class="p">,</span> <span class="s1">&#39;disp&#39;</span><span class="p">,]]</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;disp&gt;200&#39;</span><span class="p">),</span>
+   <span class="n">inputs</span><span class="o">=</span><span class="s1">&#39;raw_cars&#39;</span><span class="p">,</span>
+   <span class="n">output</span><span class="o">=</span><span class="s1">&#39;int_cars&#39;</span><span class="p">,</span>
+   <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pri&#39;</span><span class="p">,]</span>
+   <span class="p">)</span>
+</code></pre></div>
+<h4 id="using-a-partial-function">Using a partial function</h4>
+<p>I prefer the simplicity of lambdas, but many others prefer using a partial as
+it can yield a better docstring, node name, and easier to reuse.  I name all of
+my nodes anyways, never look at the docstring of a partial, and almost always
+only use them on a single node or set of nodes constructed together.  So I
+prefer the readablility of the lambda most of the time, but if you like
+partials better, or need to assign it to a variable and reuse it, here are some
+partial examples.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">kedro.pipeline</span> <span class="kn">import</span> <span class="n">node</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span><span class="p">,</span> <span class="n">update_wrapper</span>
+
+<span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">by</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">i</span><span class="o">/</span><span class="n">by</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">array</span><span class="p">]</span>
+
+<span class="n">halfer</span> <span class="o">=</span> <span class="n">update_wrapper</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="n">divide</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span> <span class="n">divide</span><span class="p">)</span>
+
+<span class="n">my_halfer_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span>
+   <span class="n">func</span><span class="o">=</span><span class="n">halfer</span><span class="p">,</span>
+   <span class="n">inputs</span><span class="o">=</span><span class="s1">&#39;raw_cars&#39;</span><span class="p">,</span>
+   <span class="n">output</span><span class="o">=</span><span class="s1">&#39;int_cars&#39;</span><span class="p">,</span>
+   <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;int&#39;</span><span class="p">,]</span>
+   <span class="p">)</span>
+</code></pre></div>
+<p>We can achieve the same results that the partial gave with this lambda.</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_halfer_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span>
+   <span class="n">func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">array</span><span class="p">:</span> <span class="n">divide</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+   <span class="n">inputs</span><span class="o">=</span><span class="s1">&#39;raw_cars&#39;</span><span class="p">,</span>
+   <span class="n">output</span><span class="o">=</span><span class="s1">&#39;int_cars&#39;</span><span class="p">,</span>
+   <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;int&#39;</span><span class="p">,]</span>
+   <span class="p">)</span>
+</code></pre></div>
+<p>To further show the point that any callable can be out node's <code>func</code>, I have
+made a partial from the <code>pd.DataFrame</code> class that has column names pre
+populated.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">kedro.pipeline</span> <span class="kn">import</span> <span class="n">node</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span><span class="p">,</span> <span class="n">update_wrapper</span>
+
+<span class="n">MyDataFrame</span> <span class="o">=</span> <span class="n">update_wrapper</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;mycol&quot;</span><span class="p">]),</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
+
+<span class="n">range_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;range&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;range&quot;</span><span class="p">),</span>
+<span class="n">dataframe_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span><span class="n">MyDataFrame</span><span class="p">,</span> <span class="s2">&quot;range&quot;</span><span class="p">,</span> <span class="s2">&quot;df&quot;</span><span class="p">),</span>
+</code></pre></div>
+<h3 id="inputsoutputs">inputs/outputs</h3>
+<p>kedro inputs and outputs can be <code>None</code>, a catalog entry, or a dict mapping the functions
+keyword arguments to catalog entries.  Catalog entries are always represented
+as a string matching the key of the catalog entry you want to load.</p>
+<h4 id="none">None</h4>
+<p><em>no catalog entries</em></p>
+<p>Sometimes you may want to have a node without any inputs.  This node may be
+used to generate some data from scratch, or fetch some data that does not have
+an existing DataSet type setup.  DataSets are easy to setup, simply fork one of
+kedros built in ones and use it, but for one or two nodes the setup may not be
+worth it.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">kedro.pipeline</span> <span class="kn">import</span> <span class="n">node</span>
+
+<span class="n">random_100_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span>
+   <span class="n">func</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="mi">100</span><span class="p">),</span>
+   <span class="n">inputs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+   <span class="n">output</span><span class="o">=</span><span class="s1">&#39;random_100&#39;</span><span class="p">,</span>
+   <span class="n">name</span><span class="o">=</span><span class="s1">&#39;create_random_100&#39;</span><span class="p">,</span>
+   <span class="p">)</span>
+</code></pre></div>
+<h4 id="str">str</h4>
+<p><em>one catalog entry</em></p>
+<p>This is by far the most common input that you will use.  This will simply tell
+kedro what dataset to load behind the scenes and passin to the function that
+you provide.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">kedro.pipeline</span> <span class="kn">import</span> <span class="n">node</span>
+
+<span class="n">random_100_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span>
+   <span class="n">func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">random_100</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">random_100</span><span class="p">],</span>
+   <span class="n">inputs</span><span class="o">=</span><span class="s1">&#39;random_100&#39;</span><span class="p">,</span>
+   <span class="n">output</span><span class="o">=</span><span class="s1">&#39;random_squared&#39;</span><span class="p">,</span>
+   <span class="n">name</span><span class="o">=</span><span class="s1">&#39;create_random_squared&#39;</span><span class="p">,</span>
+   <span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Note, I am using a lot of lambdas here for simplicity as each function so far
+is a simple one-liner.  These could also be a regular function if you are
+uncomfortable with lambdas.</p>
+</blockquote>
+<h4 id="list">list</h4>
+<p><em>several catalog entries, passed in by position</em></p>
+<p>In order to start passing in more than one DataSet into a kedro node you need
+to use a list or dictionary as the input.  Using a list is convenient for a
+small number of inputs.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">kedro.pipeline</span> <span class="kn">import</span> <span class="n">node</span>
+
+<span class="n">random_100_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span>
+   <span class="n">func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">random_100</span><span class="p">,</span> <span class="n">random_squared</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">random_100</span><span class="p">,</span> <span class="n">random_squared</span><span class="p">)</span>
+   <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;random_100&#39;</span><span class="p">,</span> <span class="s1">&#39;random_squared&#39;</span><span class="p">],</span>
+   <span class="n">output</span><span class="o">=</span><span class="s1">&#39;random_join&#39;</span><span class="p">,</span>
+   <span class="n">name</span><span class="o">=</span><span class="s1">&#39;create_random_join&#39;</span><span class="p">,</span>
+   <span class="p">)</span>
+</code></pre></div>
+<h4 id="dict">dict</h4>
+<p><em>several catalog entries, passed in by name</em></p>
+<p>kedro will unpack dictionaries into your function if you pass in a dictionary.
+In code review I start suggesting converting from a list to dict at 3 and
+require it above 5.  It gets way too hard to refactor and move things while
+keeping track of the order of really long sets of inputs.  Passing them in by
+name, as a dictionary, makes it such that order no longer matters.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">kedro.pipeline</span> <span class="kn">import</span> <span class="n">node</span>
+
+<span class="n">random_100_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span>
+   <span class="n">func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)),</span>
+   <span class="n">inputs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="s1">&#39;random_100&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span><span class="s1">&#39;random_squared&#39;</span><span class="p">},</span>
+   <span class="n">output</span><span class="o">=</span><span class="s1">&#39;random_join&#39;</span><span class="p">,</span>
+   <span class="n">name</span><span class="o">=</span><span class="s1">&#39;create_random_join&#39;</span><span class="p">,</span>
+   <span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Switch from list to dict inputs between 3 and five inputs to improve
+readability and prevent ordering mistakes.</p>
+</blockquote>
+<h3 id="tags">tags</h3>
+<p>Tags provide an easy way to add a label nodes for something to interact with
+them.  This may be a node that we want a plugin to modify or a set of nodes
+that we want quick access to during development.</p>
+<p>Tags are always passed in as a list of strings.  They must be a 1-d data
+structure.  You may create that data structure however you want, but its still
+just a list of strings.  Below I have set a global variable <code>TAGS</code> that I want
+to apply to every node within a given module, then I splat it into every nodes
+tags.  This lets me easily apply a whole set of tags to an entire module of
+nodes.  I can easily modify that list of nodes if I wanted to, but its acually
+rare that I do.</p>
+<div class="highlight"><pre><span></span><code><span class="n">TAGS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cars&#39;</span><span class="p">]</span>
+
+<span class="n">my_first_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span>
+   <span class="n">func</span><span class="o">=</span><span class="n">identity</span><span class="p">,</span>
+   <span class="n">inputs</span><span class="o">=</span><span class="s1">&#39;raw_cars&#39;</span><span class="p">,</span>
+   <span class="n">output</span><span class="o">=</span><span class="s1">&#39;int_cars&#39;</span><span class="p">,</span>
+   <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;int&#39;</span><span class="p">,</span> <span class="o">*</span><span class="n">TAGS</span><span class="p">]</span>
+   <span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># get a pipeline of one node</span>
+<span class="n">one_node</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">only_nodes_with_tags</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
+
+<span class="c1"># get a pipeline of a few nodes</span>
+<span class="n">one_node</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">only_nodes_with_tags</span><span class="p">(</span><span class="s1">&#39;raw&#39;</span><span class="p">,</span> <span class="s1">&#39;int&#39;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="name">name</h3>
+<p>The name attribute is simple, it's the name of the node.  Later you can use the
+name to find the node or all nodes named a particular way.  This name will also
+show up in the logs provided by kedro or a plugin so naming things well makes
+everything much easier to read.</p>
+<p>Consistent naming makes it easier to do things like extracting nodes out of a
+pipeline, running them, and making pipelines from them.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># get a pipeline of one node</span>
+<span class="n">one_node</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">only_nodes</span><span class="p">(</span><span class="s1">&#39;a_raw_cars&#39;</span><span class="p">)</span>
+
+<span class="c1"># get a pipeline of a few nodes</span>
+<span class="n">one_node</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">only_nodes</span><span class="p">(</span><span class="s1">&#39;a_raw_cars&#39;</span><span class="p">,</span> <span class="s1">&#39;a_raw_trains&#39;</span><span class="p">)</span>
+
+<span class="c1"># create a pipeline by nodes that contain &#39;raw&#39; in the name</span>
+<span class="n">raw_nodes</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span><span class="n">node</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">nodes</span> <span class="k">if</span> <span class="s1">&#39;raw&#39;</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">name</span><span class="p">])</span>
+</code></pre></div>
+<blockquote>
+<p>⚠️ filtering by name requires a bit of diligence and consistency by the team,
+its a fantastic way to grab some nodes adhoc, but for production you probably
+want something a bit more robust.</p>
+</blockquote>
+<h2 id="using-partitioneddatasets">Using PartitionedDataSets</h2>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">timeseries_partitioned</span><span class="p">(</span><span class="n">cars</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">car</span><span class="p">())</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">car</span> <span class="ow">in</span> <span class="n">cars</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+<span class="n">nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">node</span><span class="p">(</span>
+            <span class="n">func</span><span class="o">=</span><span class="n">timeseries_partitioned</span><span class="p">,</span>
+            <span class="n">inputs</span><span class="o">=</span><span class="s1">&#39;int_cars_partitioned&#39;</span><span class="p">,</span>
+            <span class="n">outputs</span><span class="o">=</span><span class="s1">&#39;int_cars_timeseries_partitioned&#39;</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;create_int_cars_timeseries_partitioned&#39;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+</code></pre></div>
+<h2 id="using-incrementaldatasets">Using IncrementalDataSets</h2>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">timeseries_incremental</span><span class="p">(</span><span class="n">cars</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">car</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">car</span> <span class="ow">in</span> <span class="n">cars</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+<span class="n">nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">node</span><span class="p">(</span>
+            <span class="n">func</span><span class="o">=</span><span class="n">timeseries_incremental</span><span class="p">,</span>
+            <span class="n">inputs</span><span class="o">=</span><span class="s1">&#39;int_cars_incremental&#39;</span><span class="p">,</span>
+            <span class="n">outputs</span><span class="o">=</span><span class="s1">&#39;int_cars_timeseries_incremental&#39;</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;create_int_cars_timeseries_incremental&#39;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+</code></pre></div>
+<div class="onelinelink-wrapper">
+    <a class="onelinelink" href="https://waylonwalker.com/kedro-incremental-versioned-datasets/">
+        <img style="float: right;" align='right' src="https://covers.waylonwalker.com/kedro-incremental-versioned-datasets.jpg" alt="article cover for Incremental Versioned Datasets in Kedro"/>
+        <p><strong>Incremental Versioned Datasets in Kedro</strong></p>
+    </a>
+</div>
+
+<blockquote>
+<p>for more information in incremental and partitioned datasets see this post</p>
+</blockquote>
+<hr />
+<p>This may be a separate post on the pipeline object</p>
+<h2 id="execution-order">Execution order</h2>
+<p>Execution order is set by resolving catalog dependencies.  I imagine kedro
+taking a razer blade tool and slicing out all nodes with completed
+dependencies, throwing those in a bag drawing them out one by one randomly,
+then when the bag is full it slices more out and repeats until there are no
+more nodes.  This idea of randomness can be really maddening when there are two separate issues on your pipeline.  If you are debugging an error in your pipeline run the erroring node by itself.</p>
+<blockquote>
+<p>🔥  If you are debugging an error in your pipeline run the erroring node by itself.</p>
+</blockquote>
+<h2 id="running-specific-nodes">Running specific nodes</h2>
+<p><em>the power of the DAG</em></p>
+<p>One of the greatest benefits of using kedro is that it gives you a Pipeline
+object that is a DAG.  This is a powerful object that can quickly pull decide a
+set of nodes to run when you tell it to run to or from somewhere.  Somewhere
+being either a catalog entry or node.</p>
+<blockquote>
+<p>DAG (directed acyclic graph) is a fancy word for a data structure that may
+branch and join, but may not loop</p>
+</blockquote>
+<h3 id="by-name">by name</h3>
+<h3 id="by-tag">by tag</h3>
+<h3 id="to_inputs">to_inputs</h3>
+<h3 id="to_outputs">to_outputs</h3>
+<h3 id="from_inputs">from_inputs</h3>
+<h3 id="from-outputs">from outputs</h3>
+<div class='prevnext'>
+
+    <style type='text/css'>
+
+    :root {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="light"] {
+      --prevnext-color-text: #1f2022;
+      --prevnext-color-angle: #ffeb00;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="dark"] {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    .prevnext {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
+    }
+    .prevnext a {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      text-decoration: none;
+    }
+    a.next {
+      justify-content: flex-end;
+    }
+    .prevnext a:hover {
+      background: #00000006;
+    }
+    .prevnext-subtitle {
+      color: var(--prevnext-color-text);
+      filter: brightness(var(--prevnext-subtitle-brightness));
+      font-size: .8rem;
+    }
+    .prevnext-title {
+      color: var(--prevnext-color-text);
+      font-size: 1rem;
+    }
+    .prevnext-text {
+      max-width: 30vw;
+    }
+    </style>
+
+    <a class='prev' href='/kedro-parameters'>
+
+
+        <svg width="50px" height="50px" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.5 8.25L9.75 12L13.5 15.75" stroke="var(--prevnext-color-angle)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"> </path>
+        </svg>
+        <div class='prevnext-text'>
+            <p class='prevnext-subtitle'>prev</p>
+            <p class='prevnext-title'>Setting Parameters in kedro</p>
+        </div>
+    </a>
+
+    <a class='next' href='/kedro-new-dependencies'>
+
+        <div class='prevnext-text'>
+            <p class='prevnext-subtitle'>next</p>
+            <p class='prevnext-title'>Add New Dependencies to Your Kedro Project</p>
+        </div>
+        <svg width="50px" height="50px" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.5 15.75L14.25 12L10.5 8.25" stroke="var(--prevnext-color-angle)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+    </a>
+  </div>
+        </div>
+        <hr>
+        <div id='show'>
+        </div>
+    </article>
+    <h2>Socials</h2>
+    <ul class='social'>
+      <li>
+        <a href="https://twitter.com/_WaylonWalker">twitter</a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/waylonwalker/">LinkedIn</a>
+      </li>
+      <li>
+        <a href="https://github.com/WaylonWalker">GitHub</a>
+      </li>
+      <li>
+        <a href="https://dev.to/waylonwalker">Dev.to</a>
+      </li>
+      <li>
+        <a href="https://www.twitch.tv/waylonwalker">twitch</a>
+      </li>
+    </ul>
+</body>
+
+</html>

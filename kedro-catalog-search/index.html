@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width" name="viewport"/>
+<link href="/8bitcc.ico" rel="icon" type="image/png"/>
+<link href="https://waylonwalker.com/kedro-catalog-search/amp/" rel="amphtml"/>
+<meta content="$ilp.uphold.com/MGN2ni2YMXaQ" name="monetization" property="monetization"/>
+<!-- <link rel='stylesheet' href='/fonts.css' />
+  <link rel='stylesheet' href='/archive-styles.css' />
+  <link rel='stylesheet' href='/article.css' /> -->
+<link href="/main.min.css" rel="stylesheet"/>
+<link as="style" href="/one-dark.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<link as="style" href="/furo-purge.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<!-- <link rel="preload" href="/scroll.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
+<noscript>
+<!-- <link rel='stylesheet' href='/scroll.css' /> -->
+<link href="/one-dark.min.css" rel="stylesheet"/>
+<link href="/furo-purge.min.css" rel="stylesheet"/>
+</noscript>
+<link href="/8bitcc_48x48.png" rel="apple-touch-icon" sizes="48x48"/>
+<link href="/8bitcc_72x72.png" rel="apple-touch-icon" sizes="72x72"/>
+<link href="/8bitcc_96x96.png" rel="apple-touch-icon" sizes="96x96"/>
+<link href="/8bitcc_144x144.png" rel="apple-touch-icon" sizes="144x144"/>
+<link href="/8bitcc_192x192.png" rel="apple-touch-icon" sizes="192x192"/>
+<link href="/8bitcc_256x256.png" rel="apple-touch-icon" sizes="256x256"/>
+<link href="/8bitcc_384x384.png" rel="apple-touch-icon" sizes="384x384"/>
+<link href="/8bitcc_512x512.png" rel="apple-touch-icon" sizes="512x512"/>
+<script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js');
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+              console.log('new worker')
+              window.location.reload()
+      });
+    }
+
+    </script>
+<title>How to find things in your kedro catalog</title>
+<meta content="How to find things in your kedro catalog" name="twitter:title"/>
+<meta content="How to find things in your kedro catalog" name="og:title"/>
+<meta content="kedro 0.16.2 just dropped last week with a long-awaited feature...  The kedro data catalog is a key component to the kedro framework.  It handles all data loadi" name="description"/>
+<meta content="kedro 0.16.2 just dropped last week with a long-awaited feature...  The kedro data catalog is a key component to the kedro framework.  It handles all data loadi" name="og:description"/>
+<meta content="kedro 0.16.2 just dropped last week with a long-awaited feature...  The kedro data catalog is a key component to the kedro framework.  It handles all data loadi" name="twitter:description"/>
+<meta content="article" name="og:type"/>
+<meta content="https://waylonwalker.com/kedro-catalog-search/" name="og:url"/>
+<meta content="https://covers.waylonwalker.com/kedro-catalog-search.jpg" name="og:image"/>
+<meta content="1200" name="og:image:width"/>
+<meta content="600" name="og:image:height"/>
+<meta content="@_waylonwalker" name="twitter:creator"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Waylon Walker" name="og:author"/>
+<meta content="Waylon Walker" name="og:site_name"/>
+<meta content="waylon@waylonwalker.com" name="og:author_email"/>
+<meta content="markata 0.5.2" name="generator"/>
+<meta content="$ilp.uphold.com/MGN2ni2YMXaQ" name="monetization"/>
+<meta content="#322D39" name="theme-color"/>
+<link href="https://waylonwalker.com/kedro-catalog-search/" rel="canonical"/>
+<link href="https://waylonwalker.com/kedro-catalog-search/amp/" rel="amphtml"/>
+<link href="https://images.waylonwalker.com" rel="preconnect"/>
+<link href="https://covers.waylonwalker.com" rel="preconnect"/>
+<link href="https://stable-diffusion.waylonwalker.com" rel="preconnect"/>
+<link href="https://screenshots.waylonwalker.com" rel="preconnect"/>
+<link href="/manifest.json" rel="manifest"/></head>
+<body>
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/archive/">Archive</a></li>
+<li>
+<a aria-label="RSS" href="/rss.xml">
+<svg class="icon" height="16" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M 4 4.44 v 2.83 c 7.03 0 12.73 5.7 12.73 12.73 h 2.83 c 0 -8.59 -6.97 -15.56 -15.56 -15.56 Z m 0 5.66 v 2.83 c 3.9 0 7.07 3.17 7.07 7.07 h 2.83 c 0 -5.47 -4.43 -9.9 -9.9 -9.9 Z M 6.18 15.64 A 2.18 2.18 0 0 1 6.18 20 A 2.18 2.18 0 0 1 6.18 15.64" fill="currentColor">
+</path>
+</svg>
+</a>
+</li>
+</ul>
+</nav>
+<article class="blog-post h-entry">
+<!-- <div id='cover-wrapper'>
+      <img src='/kedro-catalog-search.webp' alt='cover image for article' />
+    </div> -->
+<div id="title-wrapper">
+<a class="u-url" href="https://waylonwalker.com/kedro-catalog-search/">
+<h1 class="flair" id="title" style="text-align:right;z-index:2;padding-right:.2rem">How to find things in your kedro catalog
+                </h1>
+</a>
+<p><time class="dt-published post-date" datetime="2020-06-22" style="text-align:right;z-index:2">2020-06-22</time>
+</p>
+<div class="h-card p-author" rel="author">
+<div class="content">
+<a class="p-name u-url" href="https://waylonwalker.com/">
+<p>
+<span class="p-given-name">Waylon</span>
+<span class="p-family-name">Walker</span>
+</p>
+</a>
+<p class="p-note">Learning in Public <a href="https://twitter.com/_WaylonWalker">@_WaylonWalker</a></p>
+</div>
+</div>
+<!-- edit -->
+<p><a alt="edit post url" href="https://github.com/WaylonWalker/waylonwalker.com/edit/main/pages/blog/kedro-catalog-search.md" title="edit this post">edit<span aria-label="" role="img">✏️</span></a></p>
+</div>
+<!-- <h2 class='toc'>toc</h2> -->
+<!-- <div class="toc">
+<ul></ul>
+</div>
+ -->
+<div id="post-body">
+<p>kedro 0.16.2 just dropped last week with a long-awaited feature... <strong>catalog search</strong>!  I went as far as monkey patching this into each of my projects.  I work jump between a few really big projects that have tons of datasets.  Being able to quickly search for what I need is so useful.</p>
+<h2 id="the-catalog">The Catalog<a alt="id" class="heading-permalink" href="#the-catalog" title="link to #the-catalog"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>The kedro data catalog is a key component to the kedro framework.  It handles all data loading and saving for you.  It is configurable and hackable.  Having all your data connections listed in one place make it so easy to pick your project up and move it to a completely new environment.  That sweet imperative loading style saves so much read/write overhead.  I can load all my data with a single command whether it's in amazon s3, google cloud platform, or a local file.</p>
+<h2 id="kick-start-a-toy-project">Kick start a toy project<a alt="id" class="heading-permalink" href="#kick-start-a-toy-project" title="link to #kick-start-a-toy-project"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>Just like with most of these articles, I am going to create a conda environment so that I don't break any existing projects and scaffold up a toy project to learn from.</p>
+<div class="highlight"><pre><span></span><code>conda create -n kedro0162 <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.8 -y
+activate kedro0162
+pip install kedro
+kedro new <span class="c1"># call it Kedro 0162 and click-through</span>
+<span class="nb">cd</span> kedro-0162
+kedro install
+</code></pre></div>
+<p>Expect this set of commands to take a few minutes depending on your system, connection speed, and amount of packages already in your local cache.</p>
+<h2 id="create-some-catalog">Create some catalog<a alt="id" class="heading-permalink" href="#create-some-catalog" title="link to #create-some-catalog"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>Now the power of the catalog search really starts to shine when your projects grow legs.  You have groups of many datasets containing patterns of data including <code>layer</code>, or <code>source</code> among other things.</p>
+<div class="highlight"><pre><span></span><code>vim conf/base/catalog.yml
+</code></pre></div>
+<p>In the catalog, you will see a few lines of instructions followed by</p>
+<div class="highlight"><pre><span></span><code>example_iris_data:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/iris.csv
+</code></pre></div>
+<p>This gives us one stored catalog entry called <code>example_iris_data</code>, it is a CSV file stored in <code>data/01_raw/iris.csv</code>.</p>
+<p>Let's make up a transportation company that is siloed into three different divisions and it is our job to bring their sales and product metadata into a single report.  This company makes <code>lifted-trucks</code>, <code>primium-scoots</code>, and <code>luxy-yahts</code>.  and we know that we will want <code>raw</code>, <code>int</code>, <code>pri</code> and <code>modin</code> layers to start our project so let's scaffold up that catalog real quick.</p>
+<div class="highlight"><pre><span></span><code># ――――――――― lifted-truck ―――――――――
+
+raw_lifted_truck_sales:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/sales/lifted-truck.csv
+
+int_lifted_truck_sales:
+  type: pandas.CSVDataSet
+  filepath: data/01_int/sales/lifted-truck.csv
+
+pri_lifted_truck_sales:
+  type: pandas.CSVDataSet
+  filepath: data/01_pri/sales/lifted-truck.csv
+
+raw_lifted_truck_info:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/info/lifted-truck.csv
+
+int_lifted_truck_info:
+  type: pandas.CSVDataSet
+  filepath: data/01_int/info/lifted-truck.csv
+
+pri_lifted_truck_info:
+  type: pandas.CSVDataSet
+  filepath: data/01_pri/info/lifted-truck.csv
+
+# ――――――――― primium-scoot ―――――――――
+
+raw_primium_scoot_sales:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/sales/primium-scoot.csv
+
+int_primium_scoot_sales:
+  type: pandas.CSVDataSet
+  filepath: data/01_int/sales/primium-scoot.csv
+
+pri_primium_scoot_sales:
+  type: pandas.CSVDataSet
+  filepath: data/01_pri/sales/primium-scoot.csv
+
+raw_primium_scoot_info:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/info/primium-scoot.csv
+
+int_primium_scoot_info:
+  type: pandas.CSVDataSet
+  filepath: data/01_int/info/primium-scoot.csv
+
+pri_primium_scoot_info:
+  type: pandas.CSVDataSet
+  filepath: data/01_pri/info/primium-scoot.csv
+
+# ――――――――― luxy-yaht ―――――――――
+
+raw_luxy_yaht_sales:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/sales/luxy-yaht.csv
+
+int_luxy_yaht_sales:
+  type: pandas.CSVDataSet
+  filepath: data/01_int/sales/luxy-yaht.csv
+
+pri_luxy_yaht_sales:
+  type: pandas.CSVDataSet
+  filepath: data/01_pri/sales/luxy-yaht.csv
+
+raw_luxy_yaht_info:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/info/luxy-yaht.csv
+
+int_luxy_yaht_info:
+  type: pandas.CSVDataSet
+  filepath: data/01_int/info/luxy-yaht.csv
+
+pri_luxy_yaht_info:
+  type: pandas.CSVDataSet
+  filepath: data/01_pri/info/luxy-yaht.csv
+
+
+# ――――――――― combined ―――――――――
+pri_combined_sales:
+  type: pandas.CSVDataSet
+  filepath: data/01_pri/sales/combined.csv
+
+pri_combined_info:
+  type: pandas.CSVDataSet
+  filepath: data/01_pri/info/combined.csv
+
+# ――――――――― modin ―――――――――
+
+modin_main:
+  type: pandas.CSVDataSet
+  filepath: data/01_pri/info/combined.csv
+</code></pre></div>
+<h2 id="some-examples-of-common-regex-uses">Some examples of common regex uses<a alt="id" class="heading-permalink" href="#some-examples-of-common-regex-uses" title="link to #some-examples-of-common-regex-uses"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p><code>regex</code> gets really complicated fast, but these basic examples are very common use cases and will get you a long way without being very complicated.</p>
+<ul>
+<li><code>term</code> - all catalog entries that include <code>term</code> in the catalog entry</li>
+<li><code>^term</code> - all catalog entries that include <code>term</code> at the <strong>beginning</strong> of the catalog entry</li>
+<li><code>term$</code> - all catalog entries that include <code>term</code> at the <strong>end</strong> of the catalog entry</li>
+<li><code>term1.*term2</code> - include anything in between <code>term1</code> and <code>term2</code>.</li>
+<li><code>term1|term2</code> - all catalog entries that include <code>term1</code> or <code>term2</code></li>
+</ul>
+<h2 id="lets-search-this-thing">Let's Search this thing<a alt="id" class="heading-permalink" href="#lets-search-this-thing" title="link to #lets-search-this-thing"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>kedro has long included the <code>catalog.list()</code> feature that returns a list of all datasets.  Now the <code>list</code> command takes in a <code>regex_search</code> keyword argument.  By default, it is empty and returns the entire catalog.</p>
+<div class="highlight"><pre><span></span><code>kedro ipython
+</code></pre></div>
+<h2 id="list-out-all-of-the-luxy-yahts">list out all of the luxy-yahts<a alt="id" class="heading-permalink" href="#list-out-all-of-the-luxy-yahts" title="link to #list-out-all-of-the-luxy-yahts"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">catalog</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="s1">'luxy_yaht`)</span>
+<span class="p">[</span><span class="s1">'raw_luxy_yaht_sales'</span><span class="p">,</span>
+ <span class="s1">'int_luxy_yaht_sales'</span><span class="p">,</span>
+ <span class="s1">'pri_luxy_yaht_sales'</span><span class="p">,</span>
+ <span class="s1">'raw_luxy_yaht_info'</span><span class="p">,</span>
+ <span class="s1">'int_luxy_yaht_info'</span><span class="p">,</span>
+ <span class="s1">'pri_luxy_yaht_info'</span><span class="p">]</span>
+ <span class="err">```</span>
+
+<span class="c1">## List out data by layer</span>
+
+<span class="n">Easy</span> <span class="n">just</span> <span class="n">search</span> <span class="k">for</span> <span class="n">the</span> <span class="n">layer</span> <span class="n">name</span><span class="o">.</span>
+
+<span class="c1">### raw</span>
+
+<span class="err">```</span> <span class="n">python</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">catalog</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="s1">'raw'</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">'raw_lifted_truck_sales'</span><span class="p">,</span>
+ <span class="s1">'raw_lifted_truck_info'</span><span class="p">,</span>
+ <span class="s1">'raw_primium_scoot_sales'</span><span class="p">,</span>
+ <span class="s1">'raw_primium_scoot_info'</span><span class="p">,</span>
+ <span class="s1">'raw_luxy_yaht_sales'</span><span class="p">,</span>
+ <span class="s1">'raw_luxy_yaht_info'</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="pri">pri<a alt="id" class="heading-permalink" href="#pri" title="link to #pri"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h3>
+<div class="highlight"><pre><span></span><code> <span class="o">&gt;&gt;&gt;</span> <span class="n">catalog</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="s1">'pri'</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">'pri_lifted_truck_sales'</span><span class="p">,</span>
+ <span class="s1">'pri_lifted_truck_info'</span><span class="p">,</span>
+ <span class="s1">'raw_primium_scoot_sales'</span><span class="p">,</span>
+ <span class="s1">'int_primium_scoot_sales'</span><span class="p">,</span>
+ <span class="s1">'pri_primium_scoot_sales'</span><span class="p">,</span>
+ <span class="s1">'raw_primium_scoot_info'</span><span class="p">,</span>
+ <span class="s1">'int_primium_scoot_info'</span><span class="p">,</span>
+ <span class="s1">'pri_primium_scoot_info'</span><span class="p">,</span>
+ <span class="s1">'pri_luxy_yaht_sales'</span><span class="p">,</span>
+ <span class="s1">'pri_luxy_yaht_info'</span><span class="p">,</span>
+ <span class="s1">'pri_combined_sales'</span><span class="p">,</span>
+ <span class="s1">'pri_combined_info'</span><span class="p">]</span>
+</code></pre></div>
+<p>😲 We just included every <code>primium-scoot</code> dataset!</p>
+<p>Here we just encountered our first need for <code>regex</code>.  I'll be the first to admit that I am really bad at regex, it's incredibly confusing, becomes read-only with much complexity, but is super powerful and used in a lot of places.</p>
+<h2 id="term"><code>^term</code><a alt="id" class="heading-permalink" href="#term" title="link to #term"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p><em>beginning of catalog entry</em></p>
+<p>The <code>^</code> regex operator searches for catalog entries that include the search term at the very beginning.</p>
+<div class="highlight"><pre><span></span><code> <span class="o">&gt;&gt;&gt;</span> <span class="n">catalog</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="s1">'^pri'</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">'pri_lifted_truck_sales'</span><span class="p">,</span>
+ <span class="s1">'pri_lifted_truck_info'</span><span class="p">,</span>
+ <span class="s1">'pri_primium_scoot_sales'</span><span class="p">,</span>
+ <span class="s1">'pri_primium_scoot_info'</span><span class="p">,</span>
+ <span class="s1">'pri_luxy_yaht_sales'</span><span class="p">,</span>
+ <span class="s1">'pri_luxy_yaht_info'</span><span class="p">,</span>
+ <span class="s1">'pri_combined_sales'</span><span class="p">,</span>
+ <span class="s1">'pri_combined_info'</span><span class="p">]</span>
+</code></pre></div>
+<h2 id="term_1"><code>term$</code><a alt="id" class="heading-permalink" href="#term_1" title="link to #term_1"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p><em>end of catalog entry</em></p>
+<p>The <code>$</code> operator is the opposite of the <code>^</code> operator.  It means give me all that matches that occur at the end of the catalog entry.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">catalog</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="s1">'info$'</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">'raw_lifted_truck_info'</span><span class="p">,</span>
+ <span class="s1">'int_lifted_truck_info'</span><span class="p">,</span>
+ <span class="s1">'pri_lifted_truck_info'</span><span class="p">,</span>
+ <span class="s1">'raw_primium_scoot_info'</span><span class="p">,</span>
+ <span class="s1">'int_primium_scoot_info'</span><span class="p">,</span>
+ <span class="s1">'pri_primium_scoot_info'</span><span class="p">,</span>
+ <span class="s1">'raw_luxy_yaht_info'</span><span class="p">,</span>
+ <span class="s1">'int_luxy_yaht_info'</span><span class="p">,</span>
+ <span class="s1">'pri_luxy_yaht_info'</span><span class="p">,</span>
+ <span class="s1">'pri_combined_info'</span><span class="p">]</span>
+</code></pre></div>
+<h2 id="term1term2"><code>term1.*term2</code><a alt="id" class="heading-permalink" href="#term1term2" title="link to #term1term2"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>The <code>.*</code> operator in regex means give me all the datasets that include the two terms no matter what is between them.  There is also a <code>.?</code> to only allow one character between them.  More often than not I really just want the two patterns to exist in the dataset entry.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">catalog</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="s1">'raw.*info$'</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">'raw_lifted_truck_info'</span><span class="p">,</span>
+ <span class="s1">'raw_primium_scoot_info'</span><span class="p">,</span>
+  <span class="s1">'raw_luxy_yaht_info'</span><span class="p">]</span>
+</code></pre></div>
+<h2 id="some-real-things-that-we-can-do-with-search">Some real things that we can do with search<a alt="id" class="heading-permalink" href="#some-real-things-that-we-can-do-with-search" title="link to #some-real-things-that-we-can-do-with-search"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>Let's look at a few examples beyond the obvious of just searching for the dataset that we want to load.</p>
+<h2 id="check-raw-data">Check Raw Data<a alt="id" class="heading-permalink" href="#check-raw-data" title="link to #check-raw-data"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>While migrating pipelines between environments it's important to know if your raw datasets are available.  I will argue that you should also consider looking at <code>pipeline.inputs</code> as it cannot lie and gives you a true reading of the pipeline inputs.  But another easy check might be to check all the datasets that the Data Engineers have labeled raw.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="p">{</span><span class="n">dataset</span><span class="p">:</span> <span class="n">catalog</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span> <span class="k">for</span> <span class="n">dataset</span> <span class="ow">in</span> <span class="n">catalog</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="s1">'^raw'</span><span class="p">)}</span>
+<span class="p">{</span><span class="s1">'raw_lifted_truck_sales'</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+ <span class="s1">'raw_lifted_truck_info'</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+ <span class="s1">'raw_primium_scoot_sales'</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+ <span class="s1">'raw_primium_scoot_info'</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+ <span class="s1">'raw_luxy_yaht_sales'</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+ <span class="s1">'raw_luxy_yaht_info'</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+</code></pre></div>
+<p>Since we just created a dummy catalog the data does not exist in this example.</p>
+<h2 id="create-a-new-catalog">Create a new catalog<a alt="id" class="heading-permalink" href="#create-a-new-catalog" title="link to #create-a-new-catalog"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>Let's say that we have someone on the team who is from the land division of our company and they want a simplified catalog readily available that does not include any marine data.</p>
+<p>To do this we will need to reach a bit into the kedro internals for the <code>DataCatalog</code> class and utilize a new regex operator <code>|</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">kedro.io</span> <span class="kn">import</span> <span class="n">DataCatalog</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">land_catalog</span> <span class="o">=</span> <span class="n">DataCatalog</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="n">dataset</span><span class="p">:</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">catalog</span><span class="o">.</span><span class="n">datasets</span><span class="p">,</span> <span class="n">dataset</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">dataset</span> <span class="ow">in</span> <span class="n">catalog</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="s1">'truck|scoot'</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">land_catalog</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
+<span class="p">[</span><span class="s1">'raw_lifted_truck_sales'</span><span class="p">,</span>
+ <span class="s1">'int_lifted_truck_sales'</span><span class="p">,</span>
+ <span class="s1">'pri_lifted_truck_sales'</span><span class="p">,</span>
+ <span class="s1">'raw_lifted_truck_info'</span><span class="p">,</span>
+ <span class="s1">'int_lifted_truck_info'</span><span class="p">,</span>
+ <span class="s1">'pri_lifted_truck_info'</span><span class="p">,</span>
+ <span class="s1">'raw_primium_scoot_sales'</span><span class="p">,</span>
+ <span class="s1">'int_primium_scoot_sales'</span><span class="p">,</span>
+ <span class="s1">'pri_primium_scoot_sales'</span><span class="p">,</span>
+ <span class="s1">'raw_primium_scoot_info'</span><span class="p">,</span>
+ <span class="s1">'int_primium_scoot_info'</span><span class="p">,</span>
+ <span class="s1">'pri_primium_scoot_info'</span><span class="p">]</span>
+</code></pre></div>
+<h2 id="regex-recap">regex recap<a alt="id" class="heading-permalink" href="#regex-recap" title="link to #regex-recap"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<ul>
+<li><code>^term</code> - beginning</li>
+<li><code>term$</code> - end</li>
+<li><code>term1.*term2</code> - anything in between</li>
+<li><code>term1|term2</code> - or</li>
+</ul>
+<div class="prevnext">
+<style type="text/css">
+
+    :root {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="light"] {
+      --prevnext-color-text: #1f2022;
+      --prevnext-color-angle: #ffeb00;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="dark"] {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    .prevnext {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
+    }
+    .prevnext a {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      text-decoration: none;
+    }
+    a.next {
+      justify-content: flex-end;
+    }
+    .prevnext a:hover {
+      background: #00000006;
+    }
+    .prevnext-subtitle {
+      color: var(--prevnext-color-text);
+      filter: brightness(var(--prevnext-subtitle-brightness));
+      font-size: .8rem;
+    }
+    .prevnext-title {
+      color: var(--prevnext-color-text);
+      font-size: 1rem;
+    }
+    .prevnext-text {
+      max-width: 30vw;
+    }
+    </style>
+<a class="prev" href="/kedro-class-hooks">
+<svg fill="none" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.5 8.25L9.75 12L13.5 15.75" stroke="var(--prevnext-color-angle)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"> </path>
+</svg>
+<div class="prevnext-text">
+<p class="prevnext-subtitle">prev</p>
+<p class="prevnext-title">Create Configurable Kedro Hooks</p>
+</div>
+</a>
+<a class="next" href="/kedro-catalog-create-cli">
+<div class="prevnext-text">
+<p class="prevnext-subtitle">next</p>
+<p class="prevnext-title">kedro catalog create</p>
+</div>
+<svg fill="none" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.5 15.75L14.25 12L10.5 8.25" stroke="var(--prevnext-color-angle)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+</svg>
+</a>
+</div>
+</div>
+<hr/>
+<div id="show">
+</div>
+</article>
+<footer>
+<ul class="social">
+<li>
+<a href="https://twitter.com/_WaylonWalker">twitter</a>
+</li>
+<li>
+<a href="https://www.linkedin.com/in/waylonwalker/">LinkedIn</a>
+</li>
+<li>
+<a href="https://github.com/WaylonWalker">GitHub</a>
+</li>
+<li>
+<a href="https://dev.to/waylonwalker">Dev.to</a>
+</li>
+<li>
+<a href="https://www.twitch.tv/waylonwalker">twitch</a>
+</li>
+</ul>
+<p>
+      © 2020 - 2022
+    </p>
+</footer>
+</body>
+</html>

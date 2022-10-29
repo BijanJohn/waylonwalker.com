@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html ⚡ lang='en'>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/8bitcc.ico" type="image/png">
+    <meta property="monetization" name="monetization" content="$ilp.uphold.com/MGN2ni2YMXaQ">
+
+    <link href='8bitcc_48x48.png' rel='apple-touch-icon' sizes='48x48' />
+    <link href='8bitcc_72x72.png' rel='apple-touch-icon' sizes='72x72' />
+    <link href='8bitcc_96x96.png' rel='apple-touch-icon' sizes='96x96' />
+    <link href='8bitcc_144x144.png' rel='apple-touch-icon' sizes='144x144' />
+    <link href='8bitcc_192x192.png' rel='apple-touch-icon' sizes='192x192' />
+    <link href='8bitcc_256x256.png' rel='apple-touch-icon' sizes='256x256' />
+    <link href='8bitcc_384x384.png' rel='apple-touch-icon' sizes='384x384' />
+    <link href='8bitcc_512x512.png' rel='apple-touch-icon' sizes='512x512' />
+
+    <title>Pycon 2018 Roundup</title>
+
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <style amp-custom>
+        h1{font-weight:700}h1,h2,h3,h4,h5,h6{font-family:"Space Mono",monospace}h1{font-size:2.5em;font-family:"Space Mono",monospace;color:#6a65ca;color:#ff66c4}h2{font-size:1.63rem;color:#d68eba}h3{font-family:"Space Mono",monospace}p{font-family:"Space Mono",monospace;color:rgba(255,255,255,.6);font-size:21px;font-style:normal;font-variant:normal;font-weight:400;line-height:1.5}@media only screen and (max-width:700px){p{font-size:18px}}@media only screen and (max-width:600px){p{font-size:16px}}@media only screen and (max-width:500px){p{font-size:14px}}@media only screen and (max-width:400px){p{font-size:12px}}blockquote{font-family:"Space Mono",monospace}code{font-family:"Space Mono",monospace}pre{font-family:"Segoe UI",Frutiger,"Frutiger Linotype","Dejavu Sans","Helvetica Neue",Arial,sans-serif;font-family:"Space Mono",monospace;font-family:"Space Mono",monospace}a{font-family:"Space Mono",monospace;color:#6f6bae;text-decoration-color:goldenrod}*{box-sizing:border-box}*{font-family:"SF Mono",Monaco,Inconsolata,"Fira Mono","Droid Sans Mono","Source Code Pro",monospace}article,body,div,footer,header,hgroup,html,nav,section{position:relative;display:flex;align-items:center;flex-direction:column;flex-shrink:0}li,p,ul{margin:0;padding:0}p{margin-bottom:1rem}body,html{min-height:100vh;max-width:100%;width:100%;margin:0;padding:2rem;overflow-x:hidden;color:#fafafa;display:flex;padding:0;background-size:800px;min-height:100vh;background:#282c34;background:linear-gradient(81deg,#282c34 0,#3a2e3d 100%)}section{margin-bottom:5rem}h1{color:#ff66c4}ul.archive-list{box-shadow:0 0 2rem rgba(0,0,0,.3),-8rem -6rem 8rem -6rem rgba(253,221,88,.2),4rem 0 8rem rgba(88,82,185,.3),0 0 2rem -1.6rem rgba(255,215,70,.8);margin:0;padding:0;list-style-type:none;margin-top:1rem}li.post{margin:0;width:100%;list-style-type:none;border-width:1px;border-style:solid;border-image:linear-gradient(to right,#ff66c4,rgba(255,102,196,.2)) 1 0 0 0}li.post:nth-child(2n-1){background-color:rgba(255,255,255,.01);background-image:linear-gradient(22deg,rgba(255,255,255,0),rgba(255,255,255,.03))}li.post:nth-child(2n){background-color:rgba(0,0,0,.02);background-image:linear-gradient(22deg,rgba(0,0,0,0),rgba(0,0,0,.03))}li.post a{color:#fafafa;text-decoration:none}li.post h2,li.post p{max-width:800px;width:calc(100vw - 100px)}li.post h2,li.post p{margin-left:2rem;margin-right:2rem}li.post a:focus-visible h2,li.post:hover h2{color:#ff66c4}p{color:#d3d3d3}li.post a:focus-visible p,li.post:hover p{color:#fafafa}nav{padding:1rem 0;align-items:flex-end;max-width:1000px;width:100%}nav ul{list-style-type:none;display:flex}nav ul li{margin:0 .4rem}nav ul li a{text-align:center;color:#dcdcdc;text-decoration:none;padding:.5rem;margin-left:.1rem;margin-right:.1rem;align-items:flex-end}nav ul li a:focus-visible,nav ul li:hover a,ul.archive-tags li a:focus-visible,ul.archive-tags li:hover a{color:#ff66c4}ul.archive-tags{display:flex;justify-content:center;list-style-type:none;color:#dcdcdc;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:2rem;width:100%}ul.archive-tags li{padding:.2rem 1rem}ul.archive-tags li a{text-decoration:none;color:#fafafa}.social{display:flex}.social li{list-style-type:None}.social a{color:#daa520;padding:1rem .2rem}#cover-wrapper{z-index:2;width:100%;min-height:min(420px,100vw / 2.38)}#cover-wrapper img{width:calc(100% + 2rem);margin:-2rem}#title-wrapper{display:flex;justify-content:flex-end;align-items:flex-end;width:calc(100% + 2rem);left:-1rem;padding:8rem 1rem 0;margin-top:-8rem;margin-bottom:2.2rem;background:linear-gradient(149deg,#282c34 0,rgba(58,46,61,0) 100%);border-bottom:1px solid #daa520}#title-wrapper h1{margin-top:8rem;margin-bottom:0;word-break:break-all}#title-wrapper p{text-align:right;padding-left:0;margin-bottom:0;margin-top:0}#title-wrapper a{color:#daa520;text-decoration:none}#title-wrapper .h-card .content{display:flex;flex-direction:column;align-items:flex-end;margin:1rem 0}.p-note,.post-date{color:rgba(255,255,255,.2)}#title-wrapper a:focus-visible,#title-wrapper a:hover{color:#ff66c4}article.blog-post,div#post-body{display:block}article.blog-post .toc a{padding:.5rem}article.blog-post .toc li{margin:1rem}article.blog-post .toc ul{list-style-type:none;border:none;padding:0;margin:0 0 .5rem}article.blog-post div.toc{margin-bottom:1rem}article.blog-post div.toc:after{content:'';display:block;width:50%;border-bottom:1px solid #daa520}h2.toc{margin-bottom:1rem;text-align:center;color:rgba(255,255,255,.8)}.toc li{margin:1rem}.toc a{color:rgba(255,255,255,.5)}.toc a:focus-visible,.toc a:hover{color:#ff66c4}article.blog-post li>code,article.blog-post p>code{background:rgba(255,20,147,.075);padding:0 .2rem}article.blog-post{overflow:hidden;background:rgba(51,0,38,.13);background:hsla(234,33%,15%,.66);display:block;margin:.2rem;width:min(95vw,1000px);position:relative;margin:2rem 0;padding:1rem;padding-bottom:5rem;border-radius:2px;box-shadow:.2rem .2rem 1rem rgba(0,0,0,.2);flex-direction:column;align-items:flex-start;color:#f5f5f5}@media (max-width:650px){article.blog-post{width:100vw;width:min(100vw,1000px)}}@media (max-width:1200px){article.blog-post h1{font-size:2.5rem;padding:1rem}}@media (max-width:1200px){article.blog-post h2{padding-left:1rem}}@media (max-width:1200px){article.blog-post h3{padding-left:1.4rem}}@media (max-width:1200px){article.blog-post h4,article.blog-post h5,article.blog-post h6{padding-left:1.6rem}}@media (max-width:1200px){article.blog-post{margin:0;padding:0;margin:0}}article.blog-post p{margin:2rem .8rem}@media (max-width:1200px){article.blog-post p{margin:2rem .8rem}article.blog-post ol,article.blog-post ul{padding:1.2rem}}article.blog-post pre{margin-bottom:1rem;align-self:flex-start;max-width:calc(100vw - 20px);padding:10px;overflow-x:auto}article.blog-post .highlight{background:#282c34;padding:1rem;margin:0 -1rem;width:calc(100% + 2rem)}article.blog-post a{color:#6f6bae;text-decoration-color:#330026;text-decoration-color:goldenrod}@media (max-width:1200px){p>img{left:-.8rem}}p>img{position:relative;box-shadow:.2rem .2rem 1rem rgba(51,0,38,.4);max-width:1000px;width:95vw;align-self:center;justify-self:center;align-items:center;justify-items:center;margin:auto;left:-1.6rem}.center-img>img{max-width:600px;margin:.5rem}.center-img{display:flex;justify-content:center}strong{color:#d68fbb;display:inline-block;transform:rotate(-2deg)}em{color:#6f6bae;display:inline-block;transform:rotate(.2deg);background:rgba(255,255,255,.04);padding:.1rem .8rem}h2{margin-top:5rem}article.blog-post ul{border-left:1px solid #ff66c4;padding:.5rem 0 .025rem 3rem;margin:2rem}blockquote{color:#777;background:rgba(255,20,147,.05);border-left:2px solid #daa520;font-size:1rem;padding:1rem 0 1rem .5rem;margin:2rem 0}hr{border:none;border-top:1px solid #daa520;margin:5rem auto;background:0 0;width:min(600px,80%)}h1{margin-top:5rem}.tweet{display:flex;justify-content:flex-end;margin:1rem 0}.tweet a{display:inline-block;border-radius:5px;padding:.5rem 1rem;background:#645fc4;color:#fedd58;text-decoration:none;vertical-align:center}.share{max-width:800px;margin:.8rem auto;padding:1rem 2rem;display:flex;align-items:center;border:1px solid #d68fbb;background-color:rgba(214,143,187,.1);border-radius:5px}.share a{padding:.2rem .5rem}.share p{margin:0;padding:0;padding-right:.2rem}.share ul li{margin:0;padding:0}.shrare ul{display:flex;list-style-type:none;margin:0;padding:0;border:none;font-size:1.3rem}.post-body hr{border-top:2px solid rgba(218,165,32,.2);margin:3rem 40%}.h-card{border-radius:5px;display:flex;align-items:center;justify-content:flex-end}.h-card img{width:50px;border-radius:50%;margin:.2rem;display:none}.h-card ul.social{list-style-type:none;border:none;margin:0;padding:0}.social{display:flex}.social li{list-style-type:None}.social a{color:#daa520;padding:1rem .2rem}.h-card li{margin:0;padding:0}.toc{width:min(90vw,600px);margin:auto;position:initial;font-size:.8rem;line-height:1.1rem}.toc li{padding:0;margin:0}.toc li.H1,.toc li.H2{padding-top:.8rem}.toc li.H3{padding-left:.5rem}.toc li.H4{padding-left:1rem}.toc li.H5{padding-left:1.25rem}.toc li.H6{padding-left:1.5rem}@media (min-width:1500px){.toc{display:none}}.twitter-tweet{margin:10px auto}.onelinelink-wrapper{max-width:100vw}a.onelinelink{position:relative;left:2rem;background:#262236;margin:-6rem auto 1rem;border:2px solid rgba(255,50,50,.1);max-width:300px;border-radius:15px/45px;display:block;flex-direction:row}@media (max-width:350px){a.onelinelink{left:0;margin-left:.4rem;margin-right:.4rem}}@media (min-width:800px){a.onelinelink{max-width:600px;margin:auto}}@media (min-width:900px){a.onelinelink{max-width:700px}}@media (min-width:1000px){a.onelinelink{max-width:800px}}a.onelinelink{position:relative;z-index:2;margin:4rem;overflow:hidden;display:flex;border:2px solid rgba(255,50,50,.1);background:rgba(255,50,50,.015);background:#262236;text-decoration:none;border-radius:8px;max-height:126px}@media (max-width:800px){a.onelinelink{flex-direction:column;max-height:800px;max-width:300px;margin:4rem auto}}a.onelinelink h2{top:-1.2rem;postition:relative;margin:0;padding:0;font-size:.8rem;font-weight:400}a.onelinelink .right{width:calc(100% - 250px - 4rem);padding:5px 15px}@media (max-width:800px){a.onelinelink .right{width:auto}}a.onelinelink .description{font-size:1rem;line-height:1.2rem;height:calc(100% - 31px - 1rem);padding:0;padding-bottom:1rem;padding-top:.1rem;margin:0}a.onelinelink .url{padding-right:30px;color:rgba(255,255,255,.1);text-align:right;position:relative;z-index:2;background:#262236}a.onelinelink img{max-width:300px;max-height:126px;padding:0;margin:0;border-radius:8px 0 0 8px}a.onelinelink .read-more{font-size:.6rem;color:rgba(255,255,255,.08)}table{border-collapse:collapse;margin:auto}table,td,th{border:1px solid rgba(255,255,255,.4);min-width:5rem;padding:.2rem}.speed-control{display:flex;flex-direction:row;justify-content:center;margin-top:-.2rem;padding:1rem 0 .5rem;background:rgba(0,0,0,.3)}.speed-control button{margin:.4;transition:all .2s;border:.1rem solid #d3d3d3;color:#d3d3d3;background:0 0;text-align:center;padding:.35rem 1.2rem;margin:.1rem .5rem;border-radius:.12rem}.speed-control button:hover{color:#000;background:#d3d3d3}body::-webkit-scrollbar{width:1rem}@media (max-width:1000px){body::-webkit-scrollbar{width:.5rem}}@media (max-width:425px){body::-webkit-scrollbar{width:.25rem}}html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:#5651B7}body::-webkit-scrollbar-track{background:#392e3d}body::-webkit-scrollbar-thumb{background-color:#5651b7;border-radius:.25rem;background:#706bd0;background:linear-gradient(180deg,#706bd0 0,#5651b7 100%);border:1px solid rgba(86j,81,183,.5)}
+    </style>
+    <link href="https://waylonwalker.com/pycon-2018-roundup/" rel="canonical">
+
+
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href='/'>Home</a></li>
+            <li><a href='/archive/'>Archive</a></li>
+            <li>
+                <a href='/rss.xml' aria-label='RSS'>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="16" width="16">
+            <path fill="currentColor"
+              d="M 4 4.44 v 2.83 c 7.03 0 12.73 5.7 12.73 12.73 h 2.83 c 0 -8.59 -6.97 -15.56 -15.56 -15.56 Z m 0 5.66 v 2.83 c 3.9 0 7.07 3.17 7.07 7.07 h 2.83 c 0 -5.47 -4.43 -9.9 -9.9 -9.9 Z M 6.18 15.64 A 2.18 2.18 0 0 1 6.18 20 A 2.18 2.18 0 0 1 6.18 15.64">
+            </path>
+          </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <article class="blog-post h-entry">
+        <!-- <div id='cover-wrapper'>
+      <img src='/pycon-2018-roundup.webp' alt='cover image for article' />
+    </div> -->
+        <div id='title-wrapper'>
+            <a class="u-url" href="https://waylonwalker.com/pycon-2018-roundup/">
+                <h1 class='flair' id="title" style="text-align:right;z-index:2;padding-right:.2rem" class="blog title no-link">Pycon 2018 Roundup
+                </h1>
+            </a>
+            <p><time class="dt-published post-date" datetime="2018-05-12" style="text-align:right;z-index:2">2018-05-12</time>
+            </p>
+            <div class="h-card p-author" rel="author">
+                <div class="content">
+                    <a class="p-name u-url" href="https://waylonwalker.com/">
+                        <p>
+                            <span class="p-given-name">Waylon</span>
+                            <span class="p-family-name">Walker</span>
+                        </p>
+                    </a>
+                    <p class="p-note">Learning in Public <a href="https://twitter.com/_WaylonWalker">@waylonwalker</a></p>
+                </div>
+            </div>
+
+            <!-- edit -->
+            <p><a href="https://github.com/WaylonWalker/waylonwalker.com/edit/main/pages/blog/pycon-2018-roundup.md" title="edit this post">edit<span role="img" aria-label="">✏️</span></a></p>
+        </div>
+
+        <!-- <h2 class='toc'>toc</h2> -->
+        <!--  -->
+        <div id='amp-message'>
+          <p style='background: rgba(0,0,0,0.1); padding: .5rem 3rem; margin: 2rem 0rem;'>
+          ⚡ You've discovered an amp page, if you bump into any issues such as
+          syntax highlighting feel free to jump to the <a href="https://waylonwalker.com/pycon-2018-roundup/">normal page</a>
+          </p>
+        </div>
+        <div id='post-body'>
+            <p>These are my notes from pycon 2018 videos.  I love the python community and especially the conference talks.  This year I am going to take some notes from my favorite talks and post them here.</p>
+<p>This is an <strong>Incomplete</strong> working post.</p>
+<h2 id="jake-vanderplas-performance-python-seven-strategies-for-optimizing-your-numerical-code"><a href="https://www.youtube.com/watch?v=zQeYx87mfyw">Jake VanderPlas - Performance Python: Seven Strategies for Optimizing Your Numerical Code</a></h2>
+<ul>
+<li><strong>Always</strong> profile <strong>before</strong> making any optimizations.</li>
+<li>Vectorize with Numpy<ul>
+<li>Looping in python can be slow</li>
+</ul>
+</li>
+<li>Use specialized data structures.<ul>
+<li>scipy.spacial</li>
+<li>pandas</li>
+<li>xarray</li>
+<li>scipy.sparse</li>
+<li>sparse package</li>
+<li>scipy.sparce.csgraph</li>
+</ul>
+</li>
+<li>Cython<ul>
+<li>Add types</li>
+</ul>
+</li>
+<li>Numba<ul>
+<li>jit</li>
+<li>Fortran Like Speed</li>
+<li>heavy dependencies</li>
+</ul>
+</li>
+<li>Dask<ul>
+<li>distributed tasks</li>
+<li>Can be executed locally or on a cluster</li>
+</ul>
+</li>
+<li>Look for an existing package<ul>
+<li><strong>resist the urge to reinvent the wheel</strong></li>
+</ul>
+</li>
+</ul>
+<p><a href="https://www.youtube.com/watch?v=zQeYx87mfyw">https://www.youtube.com/watch?v=zQeYx87mfyw</a></p>
+<h2 id="justin-crown-what-is-this-mess-writing-tests-for-pre-existing-code-bases-pycon-2018"><a href="https://www.youtube.com/watch?v=LDdUuoI_lIg">Justin Crown - "WHAT IS THIS MESS?" - Writing tests for pre-existing code bases - PyCon 2018</a></h2>
+<p>This was a great talk about not only test driven development on existing code bases, but how to be a good steward of code.  Justin talks about how to clean up an existing code base, and leave it better than you found it.  Start by improving the parts that you touch, write tests, and improve docstrings whenever you make a change to a particular feature.  As you clean up the code base and it matures consider taking a sprint day to write tests and imporove documentation.  Doing it after you have familiarity with the project will make it much easier to do.  You will also improve your understanding of the parts that you have not touched along the way.</p>
+<p>One of the biggest takeaways that I heard in this talk, was do not assume that last person to touch the code was any less than yourself.  They likely did what they did for a reason, so before you have strong test coverage accross the project take it easy with rewriting everything they did, and only make the necessary changes.  Your changes could have an impact on other parts of the code base that you are not familiar with.</p>
+<p>https://.youtube.com/watch?v=zQeYx87mfyw</p>
+<h2 id="jason-huggins-keynote"><a href="https://www.youtube.com/watch?v=q-x7jK72E6E">Jason Huggins - Keynote </a></h2>
+<p>Jason had a great talk about teaching kids to code through his experiences with First Lego League.  He found that the event has the best of intentions, but does lend itself to schools with a larger budget that is able to order many different kits.  He has found himself deep down a rabbit hole of finding an affordable alternative that can be done with the inexpensive raspbery pi zero, and controlled  with the cheapest tablets.  He is currently working on a programming language called wildcard, that can be programmed with paper.  This really reminds me of a game that I play with my 5 year old son <a href="https://www.robotturtles.com">Robot Turtles</a>.  He really likes to play it.  I will definitely be following this project to see if this is something that I can do with him when its ready.</p>
+<p><a href="https://www.youtube.com/watch?v=q-x7jK72E6E">https://www.youtube.com/watch?v=q-x7jK72E6E</a></p>
+<h2 id="dan-callahan-keynote-pycon-2018"><a href="https://www.youtube.com/watch?v=ITksU31c1WY">Dan Callahan - Keynote - PyCon 2018</a></h2>
+<p>I was a bit sad when I was looking through the list of PyCon 2018 talks and did not see anything that appeared to talk about web assembly, but hidden in Dan Callagan's keynote was a great story about web assembly and what it means to python.  Dan's keynote was a great story about using the best tools available to you.  He goes back to his childhood where he programmed in basic because thats what he could take with him away from the desktop on his TI-82.  In modern times we have so many platforms other than desktop, and new ones comming out so frequently that its impossible to see what the next one will be.  There are even computers in refrigerators today.  The one thing that seems to be common is that they all have a web browser.  With that we can write web apps with python, but we are still missing the JavaScript dominated client side story.  Dan shows that this is changing with web assembly.  He showed examples where Autodesk compiled Autocad to wasm, and can run it in the browser!!  He showed versions of windows 3 running completely inside of firefox.  While it is currenly not realistic to compile python to web assembly as it creates large file sizes, it is possible and he sees a bright future for python in the browser.</p>
+<p><a href="https://www.youtube.com/watch?v=ITksU31c1WY">https://www.youtube.com/watch?v=ITksU31c1WY</a></p>
+<h2 id="alex-petralia-analyzing-data-what-pandas-and-sql-taught-me-about-taking-an-average"><a href="https://www.youtube.com/watch?v=DlgG0QdrqAU">Alex Petralia - Analyzing Data: What pandas and SQL Taught Me About Taking an Average</a></h2>
+<p>Asks the right questions before writing the first line of code.  Even the simplest questions such as averages have many possible pitfalls along the way.  Alex discusses how to prepare your data before averaging in this talk.  He brings some new <em>"Jargon"</em> .  I am not sure that this jargon made this any easier for me to understand or discuss.  It may take some time for this one to sink in to become effective.  I feel like using plain english is more effective as it is more easily understood by anyone.  "find the <strong>daily</strong> average <strong>sales</strong> by <strong>seller</strong>"</p>
+<h3 id="jargon">Jargon</h3>
+<p><strong>Collapsing key:</strong>
+* the collapsed/aggregated data relevant to this analysis
+* <em>we are overriding the primary key (i.e. what a table defines as an observation)</em>
+* the original number of rows</p>
+<p><strong>Grouping key:</strong> the key defining a group**
+* <em>eg. "for each Seller" is (seller), "for each Country and city is (Country, City)</em>
+* this defines how many rows are in the result</p>
+<p>** Obvervation key: a unit of observation for this analysis**
+* <em>eg. "daily average" is (Date), "across regions" is (Region)</em>
+* this defines how many rows are in the denominator</p>
+<h3 id="formula">Formula</h3>
+<p>Collapsing Key - Grouping Key = Observation Key</p>
+<h3 id="example-question">Example Question</h3>
+<p>Calculate the Average Daily Sales for each Seller.</p>
+<p><strong>Collapsing Key:</strong> (Date, Seller)
+<strong>Grouping Key:</strong> (Seller)
+<strong>Observation Key:</strong> (Date)</p>
+<h3 id="data-set">data set</h3>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>Date</th>
+<th>Seller</th>
+<th>ApplesSold</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Monday</td>
+<td>Mary</td>
+<td>5</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Monday</td>
+<td>Bob</td>
+<td>4</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Tuesday</td>
+<td>Bob</td>
+<td>8</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Thursday</td>
+<td>Jane</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Thursday</td>
+<td>Jane</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sql-example">SQL Example</h3>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"></span>
+<span class="w">    </span><span class="n">Seller</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="k">AVG</span><span class="p">(</span><span class="n">total</span><span class="p">)</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"></span>
+<span class="w">       </span><span class="nb">DATE</span><span class="p">,</span><span class="w"></span>
+<span class="w">       </span><span class="n">SELLER</span><span class="p">,</span><span class="w"></span>
+<span class="w">       </span><span class="k">SUM</span><span class="p">(</span><span class="n">ApplesSold</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">total</span><span class="w"></span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"></span>
+<span class="w">       </span><span class="n">Apples</span><span class="w"></span>
+<span class="w">    </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"></span>
+<span class="w">       </span><span class="nb">DATE</span><span class="p">,</span><span class="w"></span>
+<span class="w">       </span><span class="n">SELLER</span><span class="w"> </span><span class="c1">-- Collapsing Key</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">t</span><span class="w"></span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"></span>
+<span class="w">    </span><span class="n">Seller</span><span class="w"> </span><span class="c1">-- Grouping Key</span>
+</code></pre></div>
+<h3 id="pandas-example">Pandas Example</h3>
+<p>I am interested in trying out this technique of using the second groupby.  I typically use an unstack instead, but that relies on having the order of the Collapsing key correct.
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">pd</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="s1">&#39;Seller&#39;</span><span class="p">])</span> <span class="c1"># Collapsing Key</span>
+    <span class="p">[</span><span class="s1">&#39;ApplesSold&#39;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s1">&#39;Seller&#39;</span><span class="p">)</span> <span class="c1"># Grouping Key</span>
+    <span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="p">)</span>
+</code></pre></div></p>
+<p><a href="https://www.youtube.com/watch?v=DlgG0QdrqAU">https://www.youtube.com/watch?v=DlgG0QdrqAU</a></p>
+<h2 id="devishi-jha-teaching-python-101-pycon-2018"><a href="https://www.youtube.com/watch?v=s36GwDng904&amp;t=1113s">Devishi Jha - Teaching Python 101 - PyCon 2018</a></h2>
+<p>I was really impresssed by the professional level of presentation from Devishi from such a young age!  She had a great talk about teaching python to young people.  This talk really resonated with me as a father of two young children. She was advocating for python to be taught more frequently and earlier in schools.  In her opion onece students have a basic grasp of algebra they should be starting to use python over a higher level abstraction like scratch.  She also advocated that on the other Java tends to make computer science unaproachable and too difficult for students.  It is too large of a jump and tends to steer students away.</p>
+<p><a href="https://www.youtube.com/watch?v=s36GwDng904">https://www.youtube.com/watch?v=s36GwDng904</a></p>
+<div class='prevnext'>
+
+    <style type='text/css'>
+
+    :root {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="light"] {
+      --prevnext-color-text: #1f2022;
+      --prevnext-color-angle: #ffeb00;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="dark"] {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    .prevnext {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
+    }
+    .prevnext a {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      text-decoration: none;
+    }
+    a.next {
+      justify-content: flex-end;
+    }
+    .prevnext a:hover {
+      background: #00000006;
+    }
+    .prevnext-subtitle {
+      color: var(--prevnext-color-text);
+      filter: brightness(var(--prevnext-subtitle-brightness));
+      font-size: .8rem;
+    }
+    .prevnext-title {
+      color: var(--prevnext-color-text);
+      font-size: 1rem;
+    }
+    .prevnext-text {
+      max-width: 30vw;
+    }
+    </style>
+
+    <a class='prev' href='/pyenv-first-impressions'>
+
+
+        <svg width="50px" height="50px" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.5 8.25L9.75 12L13.5 15.75" stroke="var(--prevnext-color-angle)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"> </path>
+        </svg>
+        <div class='prevnext-text'>
+            <p class='prevnext-subtitle'>prev</p>
+            <p class='prevnext-title'>My first impressions with pyenv</p>
+        </div>
+    </a>
+
+    <a class='next' href='/pycon-2017-roundup'>
+
+        <div class='prevnext-text'>
+            <p class='prevnext-subtitle'>next</p>
+            <p class='prevnext-title'>Pycon 2017 Roundup</p>
+        </div>
+        <svg width="50px" height="50px" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.5 15.75L14.25 12L10.5 8.25" stroke="var(--prevnext-color-angle)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+    </a>
+  </div>
+        </div>
+        <hr>
+        <div id='show'>
+        </div>
+    </article>
+    <h2>Socials</h2>
+    <ul class='social'>
+      <li>
+        <a href="https://twitter.com/_WaylonWalker">twitter</a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/waylonwalker/">LinkedIn</a>
+      </li>
+      <li>
+        <a href="https://github.com/WaylonWalker">GitHub</a>
+      </li>
+      <li>
+        <a href="https://dev.to/waylonwalker">Dev.to</a>
+      </li>
+      <li>
+        <a href="https://www.twitch.tv/waylonwalker">twitch</a>
+      </li>
+    </ul>
+</body>
+
+</html>

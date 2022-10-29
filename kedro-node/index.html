@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width" name="viewport"/>
+<link href="/8bitcc.ico" rel="icon" type="image/png"/>
+<link href="https://waylonwalker.com/kedro-node/amp/" rel="amphtml"/>
+<meta content="$ilp.uphold.com/MGN2ni2YMXaQ" name="monetization" property="monetization"/>
+<!-- <link rel='stylesheet' href='/fonts.css' />
+  <link rel='stylesheet' href='/archive-styles.css' />
+  <link rel='stylesheet' href='/article.css' /> -->
+<link href="/main.min.css" rel="stylesheet"/>
+<link as="style" href="/one-dark.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<link as="style" href="/furo-purge.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<!-- <link rel="preload" href="/scroll.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
+<noscript>
+<!-- <link rel='stylesheet' href='/scroll.css' /> -->
+<link href="/one-dark.min.css" rel="stylesheet"/>
+<link href="/furo-purge.min.css" rel="stylesheet"/>
+</noscript>
+<link href="/8bitcc_48x48.png" rel="apple-touch-icon" sizes="48x48"/>
+<link href="/8bitcc_72x72.png" rel="apple-touch-icon" sizes="72x72"/>
+<link href="/8bitcc_96x96.png" rel="apple-touch-icon" sizes="96x96"/>
+<link href="/8bitcc_144x144.png" rel="apple-touch-icon" sizes="144x144"/>
+<link href="/8bitcc_192x192.png" rel="apple-touch-icon" sizes="192x192"/>
+<link href="/8bitcc_256x256.png" rel="apple-touch-icon" sizes="256x256"/>
+<link href="/8bitcc_384x384.png" rel="apple-touch-icon" sizes="384x384"/>
+<link href="/8bitcc_512x512.png" rel="apple-touch-icon" sizes="512x512"/>
+<script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js');
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+              console.log('new worker')
+              window.location.reload()
+      });
+    }
+
+    </script>
+<title>Comprehensive guide to creating kedro nodes</title>
+<meta content="Comprehensive guide to creating kedro nodes" name="twitter:title"/>
+<meta content="Comprehensive guide to creating kedro nodes" name="og:title"/>
+<meta content="The Kedro node is an essential part of the pipeline.  It defines what catalog https://waylonwalker.com/what-is-kedro/ 👆 Unsure what kedro is?  Check out this po" name="description"/>
+<meta content="The Kedro node is an essential part of the pipeline.  It defines what catalog https://waylonwalker.com/what-is-kedro/ 👆 Unsure what kedro is?  Check out this po" name="og:description"/>
+<meta content="The Kedro node is an essential part of the pipeline.  It defines what catalog https://waylonwalker.com/what-is-kedro/ 👆 Unsure what kedro is?  Check out this po" name="twitter:description"/>
+<meta content="article" name="og:type"/>
+<meta content="https://waylonwalker.com/kedro-node/" name="og:url"/>
+<meta content="https://covers.waylonwalker.com/kedro-node.jpg" name="og:image"/>
+<meta content="1200" name="og:image:width"/>
+<meta content="600" name="og:image:height"/>
+<meta content="@_waylonwalker" name="twitter:creator"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Waylon Walker" name="og:author"/>
+<meta content="Waylon Walker" name="og:site_name"/>
+<meta content="waylon@waylonwalker.com" name="og:author_email"/>
+<meta content="markata 0.5.2" name="generator"/>
+<meta content="$ilp.uphold.com/MGN2ni2YMXaQ" name="monetization"/>
+<meta content="#322D39" name="theme-color"/>
+<link href="https://waylonwalker.com/kedro-node/" rel="canonical"/>
+<link href="https://waylonwalker.com/kedro-node/amp/" rel="amphtml"/>
+<link href="https://images.waylonwalker.com" rel="preconnect"/>
+<link href="https://covers.waylonwalker.com" rel="preconnect"/>
+<link href="https://stable-diffusion.waylonwalker.com" rel="preconnect"/>
+<link href="https://screenshots.waylonwalker.com" rel="preconnect"/>
+<link href="/manifest.json" rel="manifest"/></head>
+<body>
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/archive/">Archive</a></li>
+<li>
+<a aria-label="RSS" href="/rss.xml">
+<svg class="icon" height="16" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M 4 4.44 v 2.83 c 7.03 0 12.73 5.7 12.73 12.73 h 2.83 c 0 -8.59 -6.97 -15.56 -15.56 -15.56 Z m 0 5.66 v 2.83 c 3.9 0 7.07 3.17 7.07 7.07 h 2.83 c 0 -5.47 -4.43 -9.9 -9.9 -9.9 Z M 6.18 15.64 A 2.18 2.18 0 0 1 6.18 20 A 2.18 2.18 0 0 1 6.18 15.64" fill="currentColor">
+</path>
+</svg>
+</a>
+</li>
+</ul>
+</nav>
+<article class="blog-post h-entry">
+<!-- <div id='cover-wrapper'>
+      <img src='/kedro-node.webp' alt='cover image for article' />
+    </div> -->
+<div id="title-wrapper">
+<a class="u-url" href="https://waylonwalker.com/kedro-node/">
+<h1 class="flair" id="title" style="text-align:right;z-index:2;padding-right:.2rem">Comprehensive guide to creating kedro nodes
+                </h1>
+</a>
+<p><time class="dt-published post-date" datetime="2021-06-03" style="text-align:right;z-index:2">2021-06-03</time>
+</p>
+<div class="h-card p-author" rel="author">
+<div class="content">
+<a class="p-name u-url" href="https://waylonwalker.com/">
+<p>
+<span class="p-given-name">Waylon</span>
+<span class="p-family-name">Walker</span>
+</p>
+</a>
+<p class="p-note">Learning in Public <a href="https://twitter.com/_WaylonWalker">@_WaylonWalker</a></p>
+</div>
+</div>
+<!-- edit -->
+<p><a alt="edit post url" href="https://github.com/WaylonWalker/waylonwalker.com/edit/main/pages/blog/kedro-node.md" title="edit this post">edit<span aria-label="" role="img">✏️</span></a></p>
+</div>
+<!-- <h2 class='toc'>toc</h2> -->
+<!-- <div class="toc">
+<ul></ul>
+</div>
+ -->
+<div id="post-body">
+<p>The Kedro node is an essential part of the pipeline.  It defines what catalog
+entries get passed in, what function gets ran, and the catalog entry to save
+the results under.</p>
+<div class="onelinelink-wrapper">
+<a class="onelinelink" href="https://waylonwalker.com/what-is-kedro/">
+<img align="right" alt="article cover for What is Kedro" src="https://covers.waylonwalker.com/what-is-kedro.jpg" style="float: right;"/>
+<p><strong>What is Kedro</strong></p>
+</a>
+</div>
+<blockquote>
+<p>👆 Unsure what kedro is?  Check out this post.</p>
+</blockquote>
+<h2 id="the-node-function">The node function<a alt="id" class="heading-permalink" href="#the-node-function" title="link to #the-node-function"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>The node function is the most common and reccomended way to define kedro nodes.
+It is a function that constructs and returns <code>Node</code> objects for you.</p>
+<h2 id="creating-your-first-kedro-node">Creating your first kedro node<a alt="id" class="heading-permalink" href="#creating-your-first-kedro-node" title="link to #creating-your-first-kedro-node"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">kedro.pipeline</span> <span class="kn">import</span> <span class="n">node</span>
+
+<span class="k">def</span> <span class="nf">identity</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="s2">"a function that returns itself"</span>
+    <span class="k">return</span> <span class="n">df</span>
+
+<span class="n">my_first_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span>
+   <span class="n">func</span><span class="o">=</span><span class="n">identity</span><span class="p">,</span>
+   <span class="n">inputs</span><span class="o">=</span><span class="s1">'raw_cars'</span><span class="p">,</span>
+   <span class="n">output</span><span class="o">=</span><span class="s1">'int_cars'</span><span class="p">,</span>
+   <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">'int'</span><span class="p">,]</span>
+   <span class="p">)</span>
+</code></pre></div>
+<h3 id="function">function<a alt="id" class="heading-permalink" href="#function" title="link to #function"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h3>
+<p>The <code>func</code> passed into node can be any callable that accepts the inputs yout
+have specified, and returns the correct output that you specify as your output.</p>
+<ul>
+<li>any callable</li>
+<li>a function you write</li>
+<li>a function from a library</li>
+<li>class constructor</li>
+<li>lambda function</li>
+<li>partial function</li>
+<li>literally any callable</li>
+</ul>
+<div class="onelinelink-wrapper">
+<a class="onelinelink" href="https://waylonwalker.com/kedro-inputs/">
+<img align="right" alt="article cover for How Kedro handles your inputs" src="https://covers.waylonwalker.com/kedro-inputs.jpg" style="float: right;"/>
+<p><strong>How Kedro handles your inputs</strong></p>
+</a>
+</div>
+<blockquote>
+<p>For more information on how kedro passes inputs into your functions check out
+this post</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">kedro.pipeline</span> <span class="kn">import</span> <span class="n">node</span>
+
+<span class="n">range_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">"range"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"range"</span><span class="p">),</span>
+<span class="n">dataframe_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="s2">"range"</span><span class="p">,</span> <span class="s2">"df"</span><span class="p">),</span>
+</code></pre></div>
+<h4 id="using-a-lambda-as-a-function">Using a lambda as a function<a alt="id" class="heading-permalink" href="#using-a-lambda-as-a-function" title="link to #using-a-lambda-as-a-function"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h4>
+<p>I keep my nodes short and sweet.  They do one thing and do it well. I turn
+almost every DataFrame transformation into its own node.  It makes it must
+easier to pull catalog entries, than firing up the pipeline, running it,
+and starting a debugger.  For this reason many of my nodes are build from
+inline lambdas.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">kedro.pipeline</span> <span class="kn">import</span> <span class="n">node</span>
+
+<span class="n">my_first_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span>
+   <span class="n">func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span>
+   <span class="n">inputs</span><span class="o">=</span><span class="s1">'raw_cars'</span><span class="p">,</span>
+   <span class="n">output</span><span class="o">=</span><span class="s1">'int_cars'</span><span class="p">,</span>
+   <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">'int'</span><span class="p">,]</span>
+   <span class="p">)</span>
+
+<span class="n">my_first_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span>
+   <span class="n">func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">cars</span><span class="p">:</span> <span class="n">cars</span><span class="p">[[</span><span class="s1">'mpg'</span><span class="p">,</span> <span class="s1">'cyl'</span><span class="p">,</span> <span class="s1">'disp'</span><span class="p">,]]</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'disp&gt;200'</span><span class="p">),</span>
+   <span class="n">inputs</span><span class="o">=</span><span class="s1">'raw_cars'</span><span class="p">,</span>
+   <span class="n">output</span><span class="o">=</span><span class="s1">'int_cars'</span><span class="p">,</span>
+   <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">'pri'</span><span class="p">,]</span>
+   <span class="p">)</span>
+</code></pre></div>
+<h4 id="using-a-partial-function">Using a partial function<a alt="id" class="heading-permalink" href="#using-a-partial-function" title="link to #using-a-partial-function"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h4>
+<p>I prefer the simplicity of lambdas, but many others prefer using a partial as
+it can yield a better docstring, node name, and easier to reuse.  I name all of
+my nodes anyways, never look at the docstring of a partial, and almost always
+only use them on a single node or set of nodes constructed together.  So I
+prefer the readablility of the lambda most of the time, but if you like
+partials better, or need to assign it to a variable and reuse it, here are some
+partial examples.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">kedro.pipeline</span> <span class="kn">import</span> <span class="n">node</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span><span class="p">,</span> <span class="n">update_wrapper</span>
+
+<span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">by</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">i</span><span class="o">/</span><span class="n">by</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">array</span><span class="p">]</span>
+
+<span class="n">halfer</span> <span class="o">=</span> <span class="n">update_wrapper</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="n">divide</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span> <span class="n">divide</span><span class="p">)</span>
+
+<span class="n">my_halfer_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span>
+   <span class="n">func</span><span class="o">=</span><span class="n">halfer</span><span class="p">,</span>
+   <span class="n">inputs</span><span class="o">=</span><span class="s1">'raw_cars'</span><span class="p">,</span>
+   <span class="n">output</span><span class="o">=</span><span class="s1">'int_cars'</span><span class="p">,</span>
+   <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">'int'</span><span class="p">,]</span>
+   <span class="p">)</span>
+</code></pre></div>
+<p>We can achieve the same results that the partial gave with this lambda.</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_halfer_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span>
+   <span class="n">func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">array</span><span class="p">:</span> <span class="n">divide</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+   <span class="n">inputs</span><span class="o">=</span><span class="s1">'raw_cars'</span><span class="p">,</span>
+   <span class="n">output</span><span class="o">=</span><span class="s1">'int_cars'</span><span class="p">,</span>
+   <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">'int'</span><span class="p">,]</span>
+   <span class="p">)</span>
+</code></pre></div>
+<p>To further show the point that any callable can be out node's <code>func</code>, I have
+made a partial from the <code>pd.DataFrame</code> class that has column names pre
+populated.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">kedro.pipeline</span> <span class="kn">import</span> <span class="n">node</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span><span class="p">,</span> <span class="n">update_wrapper</span>
+
+<span class="n">MyDataFrame</span> <span class="o">=</span> <span class="n">update_wrapper</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"mycol"</span><span class="p">]),</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
+
+<span class="n">range_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">"range"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"range"</span><span class="p">),</span>
+<span class="n">dataframe_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span><span class="n">MyDataFrame</span><span class="p">,</span> <span class="s2">"range"</span><span class="p">,</span> <span class="s2">"df"</span><span class="p">),</span>
+</code></pre></div>
+<h3 id="inputsoutputs">inputs/outputs<a alt="id" class="heading-permalink" href="#inputsoutputs" title="link to #inputsoutputs"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h3>
+<p>kedro inputs and outputs can be <code>None</code>, a catalog entry, or a dict mapping the functions
+keyword arguments to catalog entries.  Catalog entries are always represented
+as a string matching the key of the catalog entry you want to load.</p>
+<h4 id="none">None<a alt="id" class="heading-permalink" href="#none" title="link to #none"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h4>
+<p><em>no catalog entries</em></p>
+<p>Sometimes you may want to have a node without any inputs.  This node may be
+used to generate some data from scratch, or fetch some data that does not have
+an existing DataSet type setup.  DataSets are easy to setup, simply fork one of
+kedros built in ones and use it, but for one or two nodes the setup may not be
+worth it.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">kedro.pipeline</span> <span class="kn">import</span> <span class="n">node</span>
+
+<span class="n">random_100_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span>
+   <span class="n">func</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="mi">100</span><span class="p">),</span>
+   <span class="n">inputs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+   <span class="n">output</span><span class="o">=</span><span class="s1">'random_100'</span><span class="p">,</span>
+   <span class="n">name</span><span class="o">=</span><span class="s1">'create_random_100'</span><span class="p">,</span>
+   <span class="p">)</span>
+</code></pre></div>
+<h4 id="str">str<a alt="id" class="heading-permalink" href="#str" title="link to #str"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h4>
+<p><em>one catalog entry</em></p>
+<p>This is by far the most common input that you will use.  This will simply tell
+kedro what dataset to load behind the scenes and passin to the function that
+you provide.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">kedro.pipeline</span> <span class="kn">import</span> <span class="n">node</span>
+
+<span class="n">random_100_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span>
+   <span class="n">func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">random_100</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">random_100</span><span class="p">],</span>
+   <span class="n">inputs</span><span class="o">=</span><span class="s1">'random_100'</span><span class="p">,</span>
+   <span class="n">output</span><span class="o">=</span><span class="s1">'random_squared'</span><span class="p">,</span>
+   <span class="n">name</span><span class="o">=</span><span class="s1">'create_random_squared'</span><span class="p">,</span>
+   <span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Note, I am using a lot of lambdas here for simplicity as each function so far
+is a simple one-liner.  These could also be a regular function if you are
+uncomfortable with lambdas.</p>
+</blockquote>
+<h4 id="list">list<a alt="id" class="heading-permalink" href="#list" title="link to #list"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h4>
+<p><em>several catalog entries, passed in by position</em></p>
+<p>In order to start passing in more than one DataSet into a kedro node you need
+to use a list or dictionary as the input.  Using a list is convenient for a
+small number of inputs.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">kedro.pipeline</span> <span class="kn">import</span> <span class="n">node</span>
+
+<span class="n">random_100_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span>
+   <span class="n">func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">random_100</span><span class="p">,</span> <span class="n">random_squared</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">random_100</span><span class="p">,</span> <span class="n">random_squared</span><span class="p">)</span>
+   <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="s1">'random_100'</span><span class="p">,</span> <span class="s1">'random_squared'</span><span class="p">],</span>
+   <span class="n">output</span><span class="o">=</span><span class="s1">'random_join'</span><span class="p">,</span>
+   <span class="n">name</span><span class="o">=</span><span class="s1">'create_random_join'</span><span class="p">,</span>
+   <span class="p">)</span>
+</code></pre></div>
+<h4 id="dict">dict<a alt="id" class="heading-permalink" href="#dict" title="link to #dict"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h4>
+<p><em>several catalog entries, passed in by name</em></p>
+<p>kedro will unpack dictionaries into your function if you pass in a dictionary.
+In code review I start suggesting converting from a list to dict at 3 and
+require it above 5.  It gets way too hard to refactor and move things while
+keeping track of the order of really long sets of inputs.  Passing them in by
+name, as a dictionary, makes it such that order no longer matters.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">kedro.pipeline</span> <span class="kn">import</span> <span class="n">node</span>
+
+<span class="n">random_100_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span>
+   <span class="n">func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)),</span>
+   <span class="n">inputs</span><span class="o">=</span><span class="p">{</span><span class="s1">'x'</span><span class="p">:</span> <span class="s1">'random_100'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">:</span><span class="s1">'random_squared'</span><span class="p">},</span>
+   <span class="n">output</span><span class="o">=</span><span class="s1">'random_join'</span><span class="p">,</span>
+   <span class="n">name</span><span class="o">=</span><span class="s1">'create_random_join'</span><span class="p">,</span>
+   <span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Switch from list to dict inputs between 3 and five inputs to improve
+readability and prevent ordering mistakes.</p>
+</blockquote>
+<h3 id="tags">tags<a alt="id" class="heading-permalink" href="#tags" title="link to #tags"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h3>
+<p>Tags provide an easy way to add a label nodes for something to interact with
+them.  This may be a node that we want a plugin to modify or a set of nodes
+that we want quick access to during development.</p>
+<p>Tags are always passed in as a list of strings.  They must be a 1-d data
+structure.  You may create that data structure however you want, but its still
+just a list of strings.  Below I have set a global variable <code>TAGS</code> that I want
+to apply to every node within a given module, then I splat it into every nodes
+tags.  This lets me easily apply a whole set of tags to an entire module of
+nodes.  I can easily modify that list of nodes if I wanted to, but its acually
+rare that I do.</p>
+<div class="highlight"><pre><span></span><code><span class="n">TAGS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'cars'</span><span class="p">]</span>
+
+<span class="n">my_first_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span>
+   <span class="n">func</span><span class="o">=</span><span class="n">identity</span><span class="p">,</span>
+   <span class="n">inputs</span><span class="o">=</span><span class="s1">'raw_cars'</span><span class="p">,</span>
+   <span class="n">output</span><span class="o">=</span><span class="s1">'int_cars'</span><span class="p">,</span>
+   <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">'int'</span><span class="p">,</span> <span class="o">*</span><span class="n">TAGS</span><span class="p">]</span>
+   <span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># get a pipeline of one node</span>
+<span class="n">one_node</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">only_nodes_with_tags</span><span class="p">(</span><span class="s1">'int'</span><span class="p">)</span>
+
+<span class="c1"># get a pipeline of a few nodes</span>
+<span class="n">one_node</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">only_nodes_with_tags</span><span class="p">(</span><span class="s1">'raw'</span><span class="p">,</span> <span class="s1">'int'</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="name">name<a alt="id" class="heading-permalink" href="#name" title="link to #name"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h3>
+<p>The name attribute is simple, it's the name of the node.  Later you can use the
+name to find the node or all nodes named a particular way.  This name will also
+show up in the logs provided by kedro or a plugin so naming things well makes
+everything much easier to read.</p>
+<p>Consistent naming makes it easier to do things like extracting nodes out of a
+pipeline, running them, and making pipelines from them.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># get a pipeline of one node</span>
+<span class="n">one_node</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">only_nodes</span><span class="p">(</span><span class="s1">'a_raw_cars'</span><span class="p">)</span>
+
+<span class="c1"># get a pipeline of a few nodes</span>
+<span class="n">one_node</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">only_nodes</span><span class="p">(</span><span class="s1">'a_raw_cars'</span><span class="p">,</span> <span class="s1">'a_raw_trains'</span><span class="p">)</span>
+
+<span class="c1"># create a pipeline by nodes that contain 'raw' in the name</span>
+<span class="n">raw_nodes</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span><span class="n">node</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">nodes</span> <span class="k">if</span> <span class="s1">'raw'</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">name</span><span class="p">])</span>
+</code></pre></div>
+<blockquote>
+<p>⚠️ filtering by name requires a bit of diligence and consistency by the team,
+its a fantastic way to grab some nodes adhoc, but for production you probably
+want something a bit more robust.</p>
+</blockquote>
+<h2 id="using-partitioneddatasets">Using PartitionedDataSets<a alt="id" class="heading-permalink" href="#using-partitioneddatasets" title="link to #using-partitioneddatasets"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">timeseries_partitioned</span><span class="p">(</span><span class="n">cars</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">car</span><span class="p">())</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">car</span> <span class="ow">in</span> <span class="n">cars</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+<span class="n">nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">node</span><span class="p">(</span>
+            <span class="n">func</span><span class="o">=</span><span class="n">timeseries_partitioned</span><span class="p">,</span>
+            <span class="n">inputs</span><span class="o">=</span><span class="s1">'int_cars_partitioned'</span><span class="p">,</span>
+            <span class="n">outputs</span><span class="o">=</span><span class="s1">'int_cars_timeseries_partitioned'</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="s1">'create_int_cars_timeseries_partitioned'</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+</code></pre></div>
+<h2 id="using-incrementaldatasets">Using IncrementalDataSets<a alt="id" class="heading-permalink" href="#using-incrementaldatasets" title="link to #using-incrementaldatasets"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">timeseries_incremental</span><span class="p">(</span><span class="n">cars</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">car</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">car</span> <span class="ow">in</span> <span class="n">cars</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+<span class="n">nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">node</span><span class="p">(</span>
+            <span class="n">func</span><span class="o">=</span><span class="n">timeseries_incremental</span><span class="p">,</span>
+            <span class="n">inputs</span><span class="o">=</span><span class="s1">'int_cars_incremental'</span><span class="p">,</span>
+            <span class="n">outputs</span><span class="o">=</span><span class="s1">'int_cars_timeseries_incremental'</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="s1">'create_int_cars_timeseries_incremental'</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+</code></pre></div>
+<div class="onelinelink-wrapper">
+<a class="onelinelink" href="https://waylonwalker.com/kedro-incremental-versioned-datasets/">
+<img align="right" alt="article cover for Incremental Versioned Datasets in Kedro" src="https://covers.waylonwalker.com/kedro-incremental-versioned-datasets.jpg" style="float: right;"/>
+<p><strong>Incremental Versioned Datasets in Kedro</strong></p>
+</a>
+</div>
+<blockquote>
+<p>for more information in incremental and partitioned datasets see this post</p>
+</blockquote>
+<hr/>
+<p>This may be a separate post on the pipeline object</p>
+<h2 id="execution-order">Execution order<a alt="id" class="heading-permalink" href="#execution-order" title="link to #execution-order"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p>Execution order is set by resolving catalog dependencies.  I imagine kedro
+taking a razer blade tool and slicing out all nodes with completed
+dependencies, throwing those in a bag drawing them out one by one randomly,
+then when the bag is full it slices more out and repeats until there are no
+more nodes.  This idea of randomness can be really maddening when there are two separate issues on your pipeline.  If you are debugging an error in your pipeline run the erroring node by itself.</p>
+<blockquote>
+<p>🔥  If you are debugging an error in your pipeline run the erroring node by itself.</p>
+</blockquote>
+<h2 id="running-specific-nodes">Running specific nodes<a alt="id" class="heading-permalink" href="#running-specific-nodes" title="link to #running-specific-nodes"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h2>
+<p><em>the power of the DAG</em></p>
+<p>One of the greatest benefits of using kedro is that it gives you a Pipeline
+object that is a DAG.  This is a powerful object that can quickly pull decide a
+set of nodes to run when you tell it to run to or from somewhere.  Somewhere
+being either a catalog entry or node.</p>
+<blockquote>
+<p>DAG (directed acyclic graph) is a fancy word for a data structure that may
+branch and join, but may not loop</p>
+</blockquote>
+<h3 id="by-name">by name<a alt="id" class="heading-permalink" href="#by-name" title="link to #by-name"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h3>
+<h3 id="by-tag">by tag<a alt="id" class="heading-permalink" href="#by-tag" title="link to #by-tag"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h3>
+<h3 id="to_inputs">to_inputs<a alt="id" class="heading-permalink" href="#to_inputs" title="link to #to_inputs"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h3>
+<h3 id="to_outputs">to_outputs<a alt="id" class="heading-permalink" href="#to_outputs" title="link to #to_outputs"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h3>
+<h3 id="from_inputs">from_inputs<a alt="id" class="heading-permalink" href="#from_inputs" title="link to #from_inputs"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h3>
+<h3 id="from-outputs">from outputs<a alt="id" class="heading-permalink" href="#from-outputs" title="link to #from-outputs"><span class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z"></path></svg></a></h3>
+<div class="prevnext">
+<style type="text/css">
+
+    :root {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="light"] {
+      --prevnext-color-text: #1f2022;
+      --prevnext-color-angle: #ffeb00;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="dark"] {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    .prevnext {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
+    }
+    .prevnext a {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      text-decoration: none;
+    }
+    a.next {
+      justify-content: flex-end;
+    }
+    .prevnext a:hover {
+      background: #00000006;
+    }
+    .prevnext-subtitle {
+      color: var(--prevnext-color-text);
+      filter: brightness(var(--prevnext-subtitle-brightness));
+      font-size: .8rem;
+    }
+    .prevnext-title {
+      color: var(--prevnext-color-text);
+      font-size: 1rem;
+    }
+    .prevnext-text {
+      max-width: 30vw;
+    }
+    </style>
+<a class="prev" href="/kedro-parameters">
+<svg fill="none" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.5 8.25L9.75 12L13.5 15.75" stroke="var(--prevnext-color-angle)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"> </path>
+</svg>
+<div class="prevnext-text">
+<p class="prevnext-subtitle">prev</p>
+<p class="prevnext-title">Setting Parameters in kedro</p>
+</div>
+</a>
+<a class="next" href="/kedro-new-dependencies">
+<div class="prevnext-text">
+<p class="prevnext-subtitle">next</p>
+<p class="prevnext-title">Add New Dependencies to Your Kedro Project</p>
+</div>
+<svg fill="none" height="50px" viewbox="0 0 24 24" width="50px" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.5 15.75L14.25 12L10.5 8.25" stroke="var(--prevnext-color-angle)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+</svg>
+</a>
+</div>
+</div>
+<hr/>
+<div id="show">
+</div>
+</article>
+<footer>
+<ul class="social">
+<li>
+<a href="https://twitter.com/_WaylonWalker">twitter</a>
+</li>
+<li>
+<a href="https://www.linkedin.com/in/waylonwalker/">LinkedIn</a>
+</li>
+<li>
+<a href="https://github.com/WaylonWalker">GitHub</a>
+</li>
+<li>
+<a href="https://dev.to/waylonwalker">Dev.to</a>
+</li>
+<li>
+<a href="https://www.twitch.tv/waylonwalker">twitch</a>
+</li>
+</ul>
+<p>
+      © 2021 - 2022
+    </p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,317 @@
+---
+cover: https://images.waylonwalker.com/hatch-version.png
+date: 2022-09-01
+datetime: 2022-09-01 00:00:00+00:00
+description: Hatch has an amazing versioning cli for python packages that just works.  It
+  creating new versions created by myself with stable diffusion For trying out the  T
+edit_link: https://github.com/edit/main/pages/til/hatch-version.md
+jinja: false
+long_description: Hatch has an amazing versioning cli for python packages that just
+  works.  It creating new versions created by myself with stable diffusion For trying
+  out the  The main hero of this post is the  It is possible to set the version number
+  inside the  Sta
+now: 2022-10-29 15:54:38.066227
+path: pages/til/hatch-version.md
+slug: hatch-version
+status: published
+super_description: 'Hatch has an amazing versioning cli for python packages that just
+  works.  It creating new versions created by myself with stable diffusion For trying
+  out the  The main hero of this post is the  It is possible to set the version number
+  inside the  Statically versioning in pyproject.toml will not work with  Setting
+  the project verion dynamically can be done by changing up the following If you really
+  need to set it in more places use a package like bump2version. Note: you can configure
+  hatch to use'
+tags:
+- python
+templateKey: til
+title: Versioning Python Projects with Hatch
+today: 2022-10-29
+year: 2022
+---
+
+Hatch has an amazing versioning cli for python packages that just works.  It
+takes very little config to get going and you can start bumping versions
+without worry.
+
+![Hatch version cover image](https://images.waylonwalker.com/hatch-version.png)
+
+> creating new versions created by myself with stable diffusion
+
+## project layout
+
+For trying out the `hatch version` cli let's make a simple project with the
+terrible name `pkg`.
+
+``` bash
+❯ tree .
+.
+├── pkg
+│   ├── __about__.py
+│   └── __init__.py
+├── pyproject.toml
+└── README.md
+
+1 directory, 4 files
+```
+
+## pyproject.toml
+
+The main hero of this post is the `pyproject.toml`.  This is what defines all
+of our [PEP 517](https://peps.python.org/pep-0517/) style project setup.
+
+``` toml
+[project]
+name = "pkg"
+description = "Show how to version packages with hatch"
+readme = "README.md"
+dynamic = [
+ "version",
+]
+
+[build-system]
+requires = [
+ "hatchling>=1.4.1",
+]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "pkg/__about__.py"
+```
+
+## statically versioning
+_project.version_
+
+It is possible to set the version number inside the `pyproject.toml`
+statically.  This is fine if you just want to version your package manually,
+and not through the `hatch` cli.
+
+``` toml
+[project]
+name = "pkg"
+version = "0.0.0"
+# ...
+```
+
+> Statically versioning in pyproject.toml will not work with `hatch version`
+
+![hatch-static-version-error](https://screenshots.waylonwalker.com/hatch-static-version-error.webp)
+
+``` bash
+Cannot set version when it is statically defined by the `project.version` field
+```
+
+## dynamically Versioning
+_project.dynamic_
+
+Setting the project verion dynamically can be done by changing up the following
+to your `pyproject.toml`.  Hatch only accepts a path to store your version.  If
+you need to reference  it elsewhere in your project you can grab it from the
+package metadata for that file.  I would not put anything else that could
+possibly clash with the version, as you might accidently change both things.
+
+If you really need to set it in more places use a package like bump2version.
+
+``` toml
+[project]
+name = "pkg"
+dynamic = [
+  "version"
+]
+# ...
+[tool.hatch.version]
+path = "pkg/__about__.py"
+```
+
+> Note: you can configure hatch to use a different pattern
+> https://hatch.pypa.io/1.2/version/#configuration, but I have not found it to
+> be something that I need.
+
+## __about__.py
+
+The [hatch](https://github.com/pypa/hatch/) project itself uses a
+[__about__.py](https://github.com/pypa/hatch/blob/master/src/hatch/__about__.py)
+to store it's version. It's sole content is a single `__version__` variable.  I
+don't have any personal issues with this so I am going to be following this in
+my projects that use hatch.
+
+
+``` python
+__version__ = "0.0.0"
+```
+
+## versioning
+_[hatch version docs](https://hatch.pypa.io/1.2/version/#updating)_
+
+Hatch has a pretty intuitive versioning api.  `hatch version` gives you the
+version.  If you pass in a version like `hatch version "0.0.1"` it will set it
+to that version as long as it is in the future, otherwise it will error.
+
+``` bash
+# print the current version
+hatch version
+
+# set the version to 0.0.1
+hatch version "0.0.1"
+```
+
+## bumping
+
+You can bump parts of the [semver](https://semver.org/) version.
+
+``` bash
+# minor bump
+hatch version minor
+
+# beta pre-release bump
+# If published to pypi this can be installed with the --pre flag to pip
+hatch version b
+
+# bump minor and beta
+hatch version minor,b
+
+# release all of the --pre-release flags such as alpha beta rc
+hatch release
+```
+
+## Example
+
+Here is a screenshot of bumping a projet along.
+
+![hatch-version-cli](https://screenshots.waylonwalker.com/hatch-version-cli.webp)
+
+## GitOps
+
+In my github actions flow I will be utilizing this to automate my versions. In
+my side projects I use the `develop` branch to release --pre releases.  I have
+all of my own dependent projets running on these --pre releases, this allows me
+to cut myself in my own projects before anyone else.  Then on main I
+automatically release this beta version.
+
+## GitHub Actions
+
+Here is what the ci/cd for `markata` looks like. There  might be a better
+workflow strategy, but I use a single github actions workflow and cut branches
+to release --pre releases and full release.  These steps will bump, tag,
+commit, and deploy for me.
+
+``` yaml
+      - name: automatically pre-release develop branch
+        if: github.ref == 'refs/heads/develop'
+        run: |
+          git config --global user.name 'autobump'
+          git config --global user.email 'autobump@markata.dev'
+          VERSION=`hatch version`
+          # if current version is not already beta then bump minor and beta
+          [ -z "${b##*`hatch version`*}" ] && hatch version b || hatch version minor,b
+          NEW_VERSION=`hatch version`
+          git add markta/__about__.py
+          git commit -m "Bump version: $VERSION → $NEW_VERSION"
+          git tag $VERSION
+          git push
+          git push --tags
+
+      - name: automatically release main branch
+        if: github.ref == 'refs/heads/main'
+        run: |
+          git config --global user.name 'autobump'
+          git config --global user.email 'autobump@markata.dev'
+          VERSION=`hatch version`
+          hatch version release
+          NEW_VERSION=`hatch version`
+          git add markta/__about__.py
+          git commit -m "Bump version: $VERSION → $NEW_VERSION"
+          git tag $VERSION
+          git push
+          git push --tags
+
+      - name: build
+        run: |
+          python -m build
+
+      - name: pypi-publish
+        if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/main'
+        uses: pypa/gh-action-pypi-publish@v1.1.0
+        with:
+          password: ${{ secrets.pypi_password }}
+```
+
+## Hatch Version Action
+
+I am setting up a github custom action
+[waylonwalker/hatch-version-action](https://github.com/WaylonWalker/hatch-version-action)
+that will lint, test, bump, and publish for me in one step.  More on that in
+the future.
+<div class='prevnext'>
+
+    <style type='text/css'>
+
+    :root {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="light"] {
+      --prevnext-color-text: #1f2022;
+      --prevnext-color-angle: #ffeb00;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="dark"] {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    .prevnext {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
+    }
+    .prevnext a {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      text-decoration: none;
+    }
+    a.next {
+      justify-content: flex-end;
+    }
+    .prevnext a:hover {
+      background: #00000006;
+    }
+    .prevnext-subtitle {
+      color: var(--prevnext-color-text);
+      filter: brightness(var(--prevnext-subtitle-brightness));
+      font-size: .8rem;
+    }
+    .prevnext-title {
+      color: var(--prevnext-color-text);
+      font-size: 1rem;
+    }
+    .prevnext-text {
+      max-width: 30vw;
+    }
+    </style>
+    
+    <a class='prev' href='/how-i-kedro'>
+    
+
+        <svg width="50px" height="50px" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.5 8.25L9.75 12L13.5 15.75" stroke="var(--prevnext-color-angle)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"> </path>
+        </svg>
+        <div class='prevnext-text'>
+            <p class='prevnext-subtitle'>prev</p>
+            <p class='prevnext-title'>How I Kedro</p>
+        </div>
+    </a>
+    
+    <a class='next' href='/hatch-new-cli'>
+    
+        <div class='prevnext-text'>
+            <p class='prevnext-subtitle'>next</p>
+            <p class='prevnext-title'>Create a new Python Project with the Hatch Cli</p>
+        </div>
+        <svg width="50px" height="50px" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.5 15.75L14.25 12L10.5 8.25" stroke="var(--prevnext-color-angle)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+    </a>
+  </div>

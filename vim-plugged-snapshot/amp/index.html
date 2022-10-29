@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html ⚡ lang='en'>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/8bitcc.ico" type="image/png">
+    <meta property="monetization" name="monetization" content="$ilp.uphold.com/MGN2ni2YMXaQ">
+
+    <link href='8bitcc_48x48.png' rel='apple-touch-icon' sizes='48x48' />
+    <link href='8bitcc_72x72.png' rel='apple-touch-icon' sizes='72x72' />
+    <link href='8bitcc_96x96.png' rel='apple-touch-icon' sizes='96x96' />
+    <link href='8bitcc_144x144.png' rel='apple-touch-icon' sizes='144x144' />
+    <link href='8bitcc_192x192.png' rel='apple-touch-icon' sizes='192x192' />
+    <link href='8bitcc_256x256.png' rel='apple-touch-icon' sizes='256x256' />
+    <link href='8bitcc_384x384.png' rel='apple-touch-icon' sizes='384x384' />
+    <link href='8bitcc_512x512.png' rel='apple-touch-icon' sizes='512x512' />
+
+    <title>vim plugged snapshot</title>
+
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <style amp-custom>
+        h1{font-weight:700}h1,h2,h3,h4,h5,h6{font-family:"Space Mono",monospace}h1{font-size:2.5em;font-family:"Space Mono",monospace;color:#6a65ca;color:#ff66c4}h2{font-size:1.63rem;color:#d68eba}h3{font-family:"Space Mono",monospace}p{font-family:"Space Mono",monospace;color:rgba(255,255,255,.6);font-size:21px;font-style:normal;font-variant:normal;font-weight:400;line-height:1.5}@media only screen and (max-width:700px){p{font-size:18px}}@media only screen and (max-width:600px){p{font-size:16px}}@media only screen and (max-width:500px){p{font-size:14px}}@media only screen and (max-width:400px){p{font-size:12px}}blockquote{font-family:"Space Mono",monospace}code{font-family:"Space Mono",monospace}pre{font-family:"Segoe UI",Frutiger,"Frutiger Linotype","Dejavu Sans","Helvetica Neue",Arial,sans-serif;font-family:"Space Mono",monospace;font-family:"Space Mono",monospace}a{font-family:"Space Mono",monospace;color:#6f6bae;text-decoration-color:goldenrod}*{box-sizing:border-box}*{font-family:"SF Mono",Monaco,Inconsolata,"Fira Mono","Droid Sans Mono","Source Code Pro",monospace}article,body,div,footer,header,hgroup,html,nav,section{position:relative;display:flex;align-items:center;flex-direction:column;flex-shrink:0}li,p,ul{margin:0;padding:0}p{margin-bottom:1rem}body,html{min-height:100vh;max-width:100%;width:100%;margin:0;padding:2rem;overflow-x:hidden;color:#fafafa;display:flex;padding:0;background-size:800px;min-height:100vh;background:#282c34;background:linear-gradient(81deg,#282c34 0,#3a2e3d 100%)}section{margin-bottom:5rem}h1{color:#ff66c4}ul.archive-list{box-shadow:0 0 2rem rgba(0,0,0,.3),-8rem -6rem 8rem -6rem rgba(253,221,88,.2),4rem 0 8rem rgba(88,82,185,.3),0 0 2rem -1.6rem rgba(255,215,70,.8);margin:0;padding:0;list-style-type:none;margin-top:1rem}li.post{margin:0;width:100%;list-style-type:none;border-width:1px;border-style:solid;border-image:linear-gradient(to right,#ff66c4,rgba(255,102,196,.2)) 1 0 0 0}li.post:nth-child(2n-1){background-color:rgba(255,255,255,.01);background-image:linear-gradient(22deg,rgba(255,255,255,0),rgba(255,255,255,.03))}li.post:nth-child(2n){background-color:rgba(0,0,0,.02);background-image:linear-gradient(22deg,rgba(0,0,0,0),rgba(0,0,0,.03))}li.post a{color:#fafafa;text-decoration:none}li.post h2,li.post p{max-width:800px;width:calc(100vw - 100px)}li.post h2,li.post p{margin-left:2rem;margin-right:2rem}li.post a:focus-visible h2,li.post:hover h2{color:#ff66c4}p{color:#d3d3d3}li.post a:focus-visible p,li.post:hover p{color:#fafafa}nav{padding:1rem 0;align-items:flex-end;max-width:1000px;width:100%}nav ul{list-style-type:none;display:flex}nav ul li{margin:0 .4rem}nav ul li a{text-align:center;color:#dcdcdc;text-decoration:none;padding:.5rem;margin-left:.1rem;margin-right:.1rem;align-items:flex-end}nav ul li a:focus-visible,nav ul li:hover a,ul.archive-tags li a:focus-visible,ul.archive-tags li:hover a{color:#ff66c4}ul.archive-tags{display:flex;justify-content:center;list-style-type:none;color:#dcdcdc;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:2rem;width:100%}ul.archive-tags li{padding:.2rem 1rem}ul.archive-tags li a{text-decoration:none;color:#fafafa}.social{display:flex}.social li{list-style-type:None}.social a{color:#daa520;padding:1rem .2rem}#cover-wrapper{z-index:2;width:100%;min-height:min(420px,100vw / 2.38)}#cover-wrapper img{width:calc(100% + 2rem);margin:-2rem}#title-wrapper{display:flex;justify-content:flex-end;align-items:flex-end;width:calc(100% + 2rem);left:-1rem;padding:8rem 1rem 0;margin-top:-8rem;margin-bottom:2.2rem;background:linear-gradient(149deg,#282c34 0,rgba(58,46,61,0) 100%);border-bottom:1px solid #daa520}#title-wrapper h1{margin-top:8rem;margin-bottom:0;word-break:break-all}#title-wrapper p{text-align:right;padding-left:0;margin-bottom:0;margin-top:0}#title-wrapper a{color:#daa520;text-decoration:none}#title-wrapper .h-card .content{display:flex;flex-direction:column;align-items:flex-end;margin:1rem 0}.p-note,.post-date{color:rgba(255,255,255,.2)}#title-wrapper a:focus-visible,#title-wrapper a:hover{color:#ff66c4}article.blog-post,div#post-body{display:block}article.blog-post .toc a{padding:.5rem}article.blog-post .toc li{margin:1rem}article.blog-post .toc ul{list-style-type:none;border:none;padding:0;margin:0 0 .5rem}article.blog-post div.toc{margin-bottom:1rem}article.blog-post div.toc:after{content:'';display:block;width:50%;border-bottom:1px solid #daa520}h2.toc{margin-bottom:1rem;text-align:center;color:rgba(255,255,255,.8)}.toc li{margin:1rem}.toc a{color:rgba(255,255,255,.5)}.toc a:focus-visible,.toc a:hover{color:#ff66c4}article.blog-post li>code,article.blog-post p>code{background:rgba(255,20,147,.075);padding:0 .2rem}article.blog-post{overflow:hidden;background:rgba(51,0,38,.13);background:hsla(234,33%,15%,.66);display:block;margin:.2rem;width:min(95vw,1000px);position:relative;margin:2rem 0;padding:1rem;padding-bottom:5rem;border-radius:2px;box-shadow:.2rem .2rem 1rem rgba(0,0,0,.2);flex-direction:column;align-items:flex-start;color:#f5f5f5}@media (max-width:650px){article.blog-post{width:100vw;width:min(100vw,1000px)}}@media (max-width:1200px){article.blog-post h1{font-size:2.5rem;padding:1rem}}@media (max-width:1200px){article.blog-post h2{padding-left:1rem}}@media (max-width:1200px){article.blog-post h3{padding-left:1.4rem}}@media (max-width:1200px){article.blog-post h4,article.blog-post h5,article.blog-post h6{padding-left:1.6rem}}@media (max-width:1200px){article.blog-post{margin:0;padding:0;margin:0}}article.blog-post p{margin:2rem .8rem}@media (max-width:1200px){article.blog-post p{margin:2rem .8rem}article.blog-post ol,article.blog-post ul{padding:1.2rem}}article.blog-post pre{margin-bottom:1rem;align-self:flex-start;max-width:calc(100vw - 20px);padding:10px;overflow-x:auto}article.blog-post .highlight{background:#282c34;padding:1rem;margin:0 -1rem;width:calc(100% + 2rem)}article.blog-post a{color:#6f6bae;text-decoration-color:#330026;text-decoration-color:goldenrod}@media (max-width:1200px){p>img{left:-.8rem}}p>img{position:relative;box-shadow:.2rem .2rem 1rem rgba(51,0,38,.4);max-width:1000px;width:95vw;align-self:center;justify-self:center;align-items:center;justify-items:center;margin:auto;left:-1.6rem}.center-img>img{max-width:600px;margin:.5rem}.center-img{display:flex;justify-content:center}strong{color:#d68fbb;display:inline-block;transform:rotate(-2deg)}em{color:#6f6bae;display:inline-block;transform:rotate(.2deg);background:rgba(255,255,255,.04);padding:.1rem .8rem}h2{margin-top:5rem}article.blog-post ul{border-left:1px solid #ff66c4;padding:.5rem 0 .025rem 3rem;margin:2rem}blockquote{color:#777;background:rgba(255,20,147,.05);border-left:2px solid #daa520;font-size:1rem;padding:1rem 0 1rem .5rem;margin:2rem 0}hr{border:none;border-top:1px solid #daa520;margin:5rem auto;background:0 0;width:min(600px,80%)}h1{margin-top:5rem}.tweet{display:flex;justify-content:flex-end;margin:1rem 0}.tweet a{display:inline-block;border-radius:5px;padding:.5rem 1rem;background:#645fc4;color:#fedd58;text-decoration:none;vertical-align:center}.share{max-width:800px;margin:.8rem auto;padding:1rem 2rem;display:flex;align-items:center;border:1px solid #d68fbb;background-color:rgba(214,143,187,.1);border-radius:5px}.share a{padding:.2rem .5rem}.share p{margin:0;padding:0;padding-right:.2rem}.share ul li{margin:0;padding:0}.shrare ul{display:flex;list-style-type:none;margin:0;padding:0;border:none;font-size:1.3rem}.post-body hr{border-top:2px solid rgba(218,165,32,.2);margin:3rem 40%}.h-card{border-radius:5px;display:flex;align-items:center;justify-content:flex-end}.h-card img{width:50px;border-radius:50%;margin:.2rem;display:none}.h-card ul.social{list-style-type:none;border:none;margin:0;padding:0}.social{display:flex}.social li{list-style-type:None}.social a{color:#daa520;padding:1rem .2rem}.h-card li{margin:0;padding:0}.toc{width:min(90vw,600px);margin:auto;position:initial;font-size:.8rem;line-height:1.1rem}.toc li{padding:0;margin:0}.toc li.H1,.toc li.H2{padding-top:.8rem}.toc li.H3{padding-left:.5rem}.toc li.H4{padding-left:1rem}.toc li.H5{padding-left:1.25rem}.toc li.H6{padding-left:1.5rem}@media (min-width:1500px){.toc{display:none}}.twitter-tweet{margin:10px auto}.onelinelink-wrapper{max-width:100vw}a.onelinelink{position:relative;left:2rem;background:#262236;margin:-6rem auto 1rem;border:2px solid rgba(255,50,50,.1);max-width:300px;border-radius:15px/45px;display:block;flex-direction:row}@media (max-width:350px){a.onelinelink{left:0;margin-left:.4rem;margin-right:.4rem}}@media (min-width:800px){a.onelinelink{max-width:600px;margin:auto}}@media (min-width:900px){a.onelinelink{max-width:700px}}@media (min-width:1000px){a.onelinelink{max-width:800px}}a.onelinelink{position:relative;z-index:2;margin:4rem;overflow:hidden;display:flex;border:2px solid rgba(255,50,50,.1);background:rgba(255,50,50,.015);background:#262236;text-decoration:none;border-radius:8px;max-height:126px}@media (max-width:800px){a.onelinelink{flex-direction:column;max-height:800px;max-width:300px;margin:4rem auto}}a.onelinelink h2{top:-1.2rem;postition:relative;margin:0;padding:0;font-size:.8rem;font-weight:400}a.onelinelink .right{width:calc(100% - 250px - 4rem);padding:5px 15px}@media (max-width:800px){a.onelinelink .right{width:auto}}a.onelinelink .description{font-size:1rem;line-height:1.2rem;height:calc(100% - 31px - 1rem);padding:0;padding-bottom:1rem;padding-top:.1rem;margin:0}a.onelinelink .url{padding-right:30px;color:rgba(255,255,255,.1);text-align:right;position:relative;z-index:2;background:#262236}a.onelinelink img{max-width:300px;max-height:126px;padding:0;margin:0;border-radius:8px 0 0 8px}a.onelinelink .read-more{font-size:.6rem;color:rgba(255,255,255,.08)}table{border-collapse:collapse;margin:auto}table,td,th{border:1px solid rgba(255,255,255,.4);min-width:5rem;padding:.2rem}.speed-control{display:flex;flex-direction:row;justify-content:center;margin-top:-.2rem;padding:1rem 0 .5rem;background:rgba(0,0,0,.3)}.speed-control button{margin:.4;transition:all .2s;border:.1rem solid #d3d3d3;color:#d3d3d3;background:0 0;text-align:center;padding:.35rem 1.2rem;margin:.1rem .5rem;border-radius:.12rem}.speed-control button:hover{color:#000;background:#d3d3d3}body::-webkit-scrollbar{width:1rem}@media (max-width:1000px){body::-webkit-scrollbar{width:.5rem}}@media (max-width:425px){body::-webkit-scrollbar{width:.25rem}}html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:#5651B7}body::-webkit-scrollbar-track{background:#392e3d}body::-webkit-scrollbar-thumb{background-color:#5651b7;border-radius:.25rem;background:#706bd0;background:linear-gradient(180deg,#706bd0 0,#5651b7 100%);border:1px solid rgba(86j,81,183,.5)}
+    </style>
+    <link href="https://waylonwalker.com/vim-plugged-snapshot/" rel="canonical">
+
+
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href='/'>Home</a></li>
+            <li><a href='/archive/'>Archive</a></li>
+            <li>
+                <a href='/rss.xml' aria-label='RSS'>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="16" width="16">
+            <path fill="currentColor"
+              d="M 4 4.44 v 2.83 c 7.03 0 12.73 5.7 12.73 12.73 h 2.83 c 0 -8.59 -6.97 -15.56 -15.56 -15.56 Z m 0 5.66 v 2.83 c 3.9 0 7.07 3.17 7.07 7.07 h 2.83 c 0 -5.47 -4.43 -9.9 -9.9 -9.9 Z M 6.18 15.64 A 2.18 2.18 0 0 1 6.18 20 A 2.18 2.18 0 0 1 6.18 15.64">
+            </path>
+          </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <article class="blog-post h-entry">
+        <!-- <div id='cover-wrapper'>
+      <img src='/vim-plugged-snapshot.webp' alt='cover image for article' />
+    </div> -->
+        <div id='title-wrapper'>
+            <a class="u-url" href="https://waylonwalker.com/vim-plugged-snapshot/">
+                <h1 class='flair' id="title" style="text-align:right;z-index:2;padding-right:.2rem" class="blog title no-link">vim plugged snapshot
+                </h1>
+            </a>
+            <p><time class="dt-published post-date" datetime="2022-05-13" style="text-align:right;z-index:2">2022-05-13</time>
+            </p>
+            <div class="h-card p-author" rel="author">
+                <div class="content">
+                    <a class="p-name u-url" href="https://waylonwalker.com/">
+                        <p>
+                            <span class="p-given-name">Waylon</span>
+                            <span class="p-family-name">Walker</span>
+                        </p>
+                    </a>
+                    <p class="p-note">Learning in Public <a href="https://twitter.com/_WaylonWalker">@waylonwalker</a></p>
+                </div>
+            </div>
+
+            <!-- edit -->
+            <p><a href="https://github.com/WaylonWalker/waylonwalker.com/edit/main/pages/blog/vim-plugged-snapshot.md" title="edit this post">edit<span role="img" aria-label="">✏️</span></a></p>
+        </div>
+
+        <!-- <h2 class='toc'>toc</h2> -->
+        <!--  -->
+        <div id='amp-message'>
+          <p style='background: rgba(0,0,0,0.1); padding: .5rem 3rem; margin: 2rem 0rem;'>
+          ⚡ You've discovered an amp page, if you bump into any issues such as
+          syntax highlighting feel free to jump to the <a href="https://waylonwalker.com/vim-plugged-snapshot/">normal page</a>
+          </p>
+        </div>
+        <div id='post-body'>
+            <p>A few of my friends and I all just borked our neovim configs during a plug
+update, and because none of us were using <code>:PlugSnapshot</code> it was painful to
+recover from.</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Upgraded all <a href="https://twitter.com/hashtag/neovim?src=hash&amp;ref_src=twsrc%5Etfw">#neovim</a> plugins at once like an idiot and now everything&#39;s all borked.... nice excuse to clean up my config I guess?</p>&mdash; PypeADay🐍 (@pypeaday) <a href="https://twitter.com/pypeaday/status/1524882893914398732?ref_src=twsrc%5Etfw">May 12, 2022</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote>
+<p>Lucky for me I did it on a home machine that I only occasionally edit from,
+so I could still take the snapshot from a working machine before taking the
+plunge into fixing everying.</p>
+</blockquote>
+<h2 id="why-snapshot">Why snapshot</h2>
+<p>Snapshotting ensures that you install the same git sha on every single plugin.
+This way when you have multiple machines running your same vim config, they are
+all on the same sha of each plugin, and you dont end up with weird things
+happening on one machine.  And then you get to decide when you are ready to
+update, rather than when it breaks.</p>
+<ul>
+<li>same config everywhere</li>
+<li>you control the update</li>
+<li>in case of a borked update you have a good working place to rever to</li>
+</ul>
+<h2 id="lets-snapshot">Let's snapshot</h2>
+<p>Running <code>:PlugSnapshot</code> will generate the following content in a buffer that
+you can save.  I chose to save mine in <code>~/.config/nvim/snapshot.vim</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; Generated by vim-plug</span>
+<span class="c">&quot; Fri 13 May 2022 08:01:39 PM CDT</span>
+<span class="c">&quot; :source this file in vim to restore the snapshot</span>
+<span class="c">&quot; or execute: vim -S snapshot.vim</span>
+
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;Telegraph.nvim&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;92e472f4e83acd60eb3766168e66d02718bfefe0&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;black&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;8ed3e3d07ea3e6d62e3e533e69f96a0ff148cd5d&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;bufutils.vim&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;4634feb1312fd73fab66cfaa860e7af3abde935b&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;cmp-buffer&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;d66c4c2d376e5be99db68d2362cd94d250987525&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;cmp-calc&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;970fd5f97b4bd363260365b217f694dd6a1182cb&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;cmp-nvim-lsp&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;ebdfc204afb87f15ce3d3d3f5df0b8181443b5ba&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;cmp-path&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;466b6b8270f7ba89abd59f402c73f63c7331ff6e&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;cmp-rg&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;fd92d70ff36b30924401b0cf7d4ce7344c8235f7&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;cmp-vsnip&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;0abfa1860f5e095a07c477da940cfcb0d273b700&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;colorbuddy.nvim&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;cdb5b0654d3cafe61d2a845e15b2b4b0e78e752a&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;compe-tmux&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;3c16f7e73abee43b3ea3e919e8b34c24427d9530&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;coverage-highlight.vim&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;864e03679ea4168661501246147893cc82020917&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;diffurcate.vim&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;b804675072220ff7c7ebcd24a028aa4aa35f09cc&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;friendly-snippets&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;5fd8b920a3497dec9a3ef939595186b362d041b4&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;fzf&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;a91a67668e0830a8cf9a792c4949e03b4189f097&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;fzf.vim&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;d5f1f8641b24c0fd5b10a299824362a2a1b20ae0&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;gitsigns.nvim&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;ead0d48df801431b990d6b91fa210f7efa30ac38&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;gruvbox-flat.nvim&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;756dbdd3dfd3ed84acb2f9649724df19ae41f904&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;harpoon&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;28762aa04d6395538e26e1efff5213b26720e68f&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;impatient.nvim&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;2337df7d778e17a58d8709f651653b9039946d8d&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;instant.nvim&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;c02d72267b12130609b7ad39b76cf7f4a3bc9554&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;lsp_extensions.nvim&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;4011f4aec61ba59c734f5dbf52e91f258b99d985&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;lsp_signature.nvim&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;a351509512687293fd659ba4ee7e34412c3a8f70&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;lspsaga.nvim&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;cb0e35d2e594ff7a9c408d2e382945d56336c040&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;lualine.nvim&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;18a07f790ed7ed1f11d1b130c02782e9dfd8dd7d&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;nvim-cmp&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;433af3dffce64cbd3f99bdac9734768a6cc41951&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;nvim-compe&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;d186d739c54823e0b010feb205c6f97792322c08&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;nvim-dap&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;d6d8317ce9e096029150bc5844916347a9af6f45&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;nvim-dap-python&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;4c7ea25f8ff6de6fa00bf5625d2e76753cced70f&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;nvim-lspconfig&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;ad9903c66bac88f344890acb6532f63f1cd4dac3&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;nvim-lspinstall&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;79ec2425d6b39cdcb69d379f3e56847f49be73eb&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;nvim-lsputils&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;ae1a4a62449863ad82c70713d5b6108f3a07917c&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;nvim-spectre&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;345e5dd57773e2b4b425a2515c831108b9808a0f&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;nvim-tree.lua&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;ce463a53ae269544697c3dedd3d5beae05937405&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;nvim-treesitter&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;3c50297eca950b4b1a7c07b28e586b0576c0a796&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;nvim-web-devicons&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;4febe73506268a02ff15a240abcd7bf3eb9234da&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;onebuddy&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;7e16006e7dde15e3cb72889f736c49409db6ff42&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;onedark.nvim&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;e520a0c81a5a1997ecffd846ccd9c6e63b7859c6&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;playground&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;13e2d2d63ce7bc5d875e8bdf89cb070bc8cc7a00&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;plenary.nvim&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;9069d14a120cadb4f6825f76821533f2babcab92&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;popfix&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;ea262861ce3905b90c2c203b74a7be2539f1aba4&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;popup.nvim&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;b7404d35d5d3548a82149238289fa71f7f6de4ac&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;refactoring.nvim&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;94eaa199ad892f26d2c8594dbbc5656314cf5bdb&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;stylua-nvim&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;8bd7fa127367178dddb9ee06fdce1d7c622d2feb&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;targets.vim&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;8d6ff2984cdfaebe5b7a6eee8f226a6dd1226f2d&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;telescope-dap.nvim&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;b4134fff5cbaf3b876e6011212ed60646e56f060&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;telescope.nvim&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;8b02088743c07c2f82aec2772fbd2b3774195448&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;termopen.vim&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;3194a991a18a9be2fd9fcf8c4c55fe990c04b2bd&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;undotree&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;08e259be24d4476c1ee745dc735eefd44f90efdc&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;vim-be-good&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;bc499a06c14c729b22a6cc7e730a9fbc44d4e737&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;vim-commentary&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;3654775824337f466109f00eaf6759760f65be34&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;vim-dispatch&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;00e77d90452e3c710014b26dc61ea919bc895e92&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;vim-doge&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;88d8dfacc3a5f3dfce82ef5221e5e6943e627d85&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;vim-floaterm&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;6244d1739aad6682c6c1d5db18c846c342af6e3e&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;vim-fugitive&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;b5bbd0d181ebc3cea5c42bdaed13141850432ba1&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;vim-indent-object&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;5c5b24c959478929b54a9e831a8e2e651a465965&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;vim-ipython-cell&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;f0548d9a8d5e31d5c7f73e8729b55e8eb402852f&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;vim-log-highlighting&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;1037e26f3120e6a6a2c0c33b14a84336dee2a78f&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;vim-quicklink&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;021167741588555501594e1fc31f130b16acefa0&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;vim-repeat&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;24afe922e6a05891756ecf331f39a1f6743d3d5a&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;vim-signify&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;69498f6d49f3eeac06870012416dd9bf867b84f3&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;vim-slime&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;0ea9b35882155996171fd15a5227e673ce2d2c60&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;vim-sneak&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;94c2de47ab301d476a2baec9ffda07367046bec9&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;vim-surround&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;81fc0ec460dd8b25a76346e09aecdbca2677f1a7&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;vim-test&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;2240d7a4b868cb594b7d83544e1b6db4df806e5e&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;vim-tmux-runner&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;54767911fd5e6e2d8e493847149e315ac2e6531a&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;vim-ultest&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;a99eb0bdf7d901d538b5dd724e2ab3a958c1799c&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;vim-visualstar&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;a18cd0e7a03311ac709595c1d261ed44b45c9098&#39;</span>
+<span class="k">silent</span><span class="p">!</span> <span class="k">let</span> <span class="k">g</span>:plugs[<span class="s1">&#39;vim-vsnip&#39;</span>].commit <span class="p">=</span> <span class="s1">&#39;8f199ef690ed26dcbb8973d9a6760d1332449ac9&#39;</span>
+
+PlugUpdate<span class="p">!</span>
+</code></pre></div>
+<blockquote>
+<p>NOTE! the <code>PlugUpdate!</code> at the end.  I did not catch this at first, if you
+are like me and automatically source <code>*.vim</code> files on save, this will
+immediately run the update when you save it.  If you just took the snapshot
+though I don't think it will actually do anything.</p>
+</blockquote>
+<h2 id="lets-update">Let's Update</h2>
+<p>Now without the snapshot sourced, I will not have any of my plugins pinned.
+When I run <code>:PlugUpdate</code> it will update all of my plugins to the latest
+versions.  Then I can <code>:PlugSnapshot</code> again, and this will kick out an updated
+list of sha's.  I will yank this file <code>yyG</code> and paste it into my snapshot.vim
+file <code>vGp</code>.</p>
+<h2 id="look-at-these-updates">Look at these updates</h2>
+<p>We can see these updates with a little <code>:G diff %</code> on the file.</p>
+<div class="highlight"><pre><span></span><code><span class="gh">diff --git a/nvim/.config/nvim/snapshot.vim b/nvim/.config/nvim/snapshot.vim</span><span class="w"></span>
+<span class="gh">index 88db2b0..837c8e4 100644</span><span class="w"></span>
+<span class="gd">--- a/nvim/.config/nvim/snapshot.vim</span><span class="w"></span>
+<span class="gi">+++ b/nvim/.config/nvim/snapshot.vim</span><span class="w"></span>
+<span class="gu">@@ -1,14 +1,14 @@</span><span class="w"></span>
+<span class="w"> </span>&quot; Generated by vim-plug<span class="w"></span>
+<span class="gd">-&quot; Fri 13 May 2022 08:01:39 PM CDT</span><span class="w"></span>
+<span class="gi">+&quot; Fri 13 May 2022 08:22:17 PM CDT</span><span class="w"></span>
+<span class="w"> </span>&quot; :source this file in vim to restore the snapshot<span class="w"></span>
+<span class="w"> </span>&quot; or execute: vim -S snapshot.vim<span class="w"></span>
+
+<span class="w"> </span>silent! let g:plugs[&#39;Telegraph.nvim&#39;].commit = &#39;92e472f4e83acd60eb3766168e66d02718bfefe0&#39;<span class="w"></span>
+<span class="gd">-silent! let g:plugs[&#39;black&#39;].commit = &#39;8ed3e3d07ea3e6d62e3e533e69f96a0ff148cd5d&#39;</span><span class="w"></span>
+<span class="gi">+silent! let g:plugs[&#39;black&#39;].commit = &#39;7f033136ac5e0e5bf6cf322dd60b4a92050eedc4&#39;</span><span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;bufutils.vim&#39;].commit = &#39;4634feb1312fd73fab66cfaa860e7af3abde935b&#39;<span class="w"></span>
+<span class="gd">-silent! let g:plugs[&#39;cmp-buffer&#39;].commit = &#39;d66c4c2d376e5be99db68d2362cd94d250987525&#39;</span><span class="w"></span>
+<span class="gd">-silent! let g:plugs[&#39;cmp-calc&#39;].commit = &#39;970fd5f97b4bd363260365b217f694dd6a1182cb&#39;</span><span class="w"></span>
+<span class="gd">-silent! let g:plugs[&#39;cmp-nvim-lsp&#39;].commit = &#39;ebdfc204afb87f15ce3d3d3f5df0b8181443b5ba&#39;</span><span class="w"></span>
+<span class="gi">+silent! let g:plugs[&#39;cmp-buffer&#39;].commit = &#39;12463cfcd9b14052f9effccbf1d84caa7a2d57f0&#39;</span><span class="w"></span>
+<span class="gi">+silent! let g:plugs[&#39;cmp-calc&#39;].commit = &#39;f7efc20768603bd9f9ae0ed073b1c129f63eb312&#39;</span><span class="w"></span>
+<span class="gi">+silent! let g:plugs[&#39;cmp-nvim-lsp&#39;].commit = &#39;e6b5feb2e6560b61f31c756fb9231a0d7b10c73d&#39;</span><span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;cmp-path&#39;].commit = &#39;466b6b8270f7ba89abd59f402c73f63c7331ff6e&#39;<span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;cmp-rg&#39;].commit = &#39;fd92d70ff36b30924401b0cf7d4ce7344c8235f7&#39;<span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;cmp-vsnip&#39;].commit = &#39;0abfa1860f5e095a07c477da940cfcb0d273b700&#39;<span class="w"></span>
+<span class="gu">@@ -16,60 +16,60 @@ silent! let g:plugs[&#39;colorbuddy.nvim&#39;].commit = &#39;cdb5b0654d3cafe61d2a845e15b2b4b</span><span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;compe-tmux&#39;].commit = &#39;3c16f7e73abee43b3ea3e919e8b34c24427d9530&#39;<span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;coverage-highlight.vim&#39;].commit = &#39;864e03679ea4168661501246147893cc82020917&#39;<span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;diffurcate.vim&#39;].commit = &#39;b804675072220ff7c7ebcd24a028aa4aa35f09cc&#39;<span class="w"></span>
+<span class="gd">-silent! let g:plugs[&#39;friendly-snippets&#39;].commit = &#39;5fd8b920a3497dec9a3ef939595186b362d041b4&#39;</span><span class="w"></span>
+<span class="gd">-silent! let g:plugs[&#39;fzf&#39;].commit = &#39;a91a67668e0830a8cf9a792c4949e03b4189f097&#39;</span><span class="w"></span>
+<span class="gi">+silent! let g:plugs[&#39;friendly-snippets&#39;].commit = &#39;627dea2ff1ee8d8a7e6ad365acb3e335c8b25574&#39;</span><span class="w"></span>
+<span class="gi">+silent! let g:plugs[&#39;fzf&#39;].commit = &#39;6dcf5c3d7d6c321b17e6a5673f1533d6e8350462&#39;</span><span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;fzf.vim&#39;].commit = &#39;d5f1f8641b24c0fd5b10a299824362a2a1b20ae0&#39;<span class="w"></span>
+<span class="gd">-silent! let g:plugs[&#39;gitsigns.nvim&#39;].commit = &#39;ead0d48df801431b990d6b91fa210f7efa30ac38&#39;</span><span class="w"></span>
+<span class="gi">+silent! let g:plugs[&#39;gitsigns.nvim&#39;].commit = &#39;ffd06e36f6067935d8cb9793905dd2e84e291310&#39;</span><span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;gruvbox-flat.nvim&#39;].commit = &#39;756dbdd3dfd3ed84acb2f9649724df19ae41f904&#39;<span class="w"></span>
+<span class="gd">-silent! let g:plugs[&#39;harpoon&#39;].commit = &#39;28762aa04d6395538e26e1efff5213b26720e68f&#39;</span><span class="w"></span>
+<span class="gi">+silent! let g:plugs[&#39;harpoon&#39;].commit = &#39;d3d3d22b6207f46f8ca64946f4d781e975aec0fc&#39;</span><span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;impatient.nvim&#39;].commit = &#39;2337df7d778e17a58d8709f651653b9039946d8d&#39;<span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;instant.nvim&#39;].commit = &#39;c02d72267b12130609b7ad39b76cf7f4a3bc9554&#39;<span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;lsp_extensions.nvim&#39;].commit = &#39;4011f4aec61ba59c734f5dbf52e91f258b99d985&#39;<span class="w"></span>
+<span class="gd">-silent! let g:plugs[&#39;lsp_signature.nvim&#39;].commit = &#39;a351509512687293fd659ba4ee7e34412c3a8f70&#39;</span><span class="w"></span>
+<span class="gi">+silent! let g:plugs[&#39;lsp_signature.nvim&#39;].commit = &#39;db324e2ada5bb795d0016ec0ef2b4ae7f11d8904&#39;</span><span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;lspsaga.nvim&#39;].commit = &#39;cb0e35d2e594ff7a9c408d2e382945d56336c040&#39;<span class="w"></span>
+<span class="gd">-silent! let g:plugs[&#39;lualine.nvim&#39;].commit = &#39;18a07f790ed7ed1f11d1b130c02782e9dfd8dd7d&#39;</span><span class="w"></span>
+<span class="gd">-silent! let g:plugs[&#39;nvim-cmp&#39;].commit = &#39;433af3dffce64cbd3f99bdac9734768a6cc41951&#39;</span><span class="w"></span>
+<span class="gi">+silent! let g:plugs[&#39;lualine.nvim&#39;].commit = &#39;a4e4517ac32441dd92ba869944741f0b5f468531&#39;</span><span class="w"></span>
+<span class="gi">+silent! let g:plugs[&#39;nvim-cmp&#39;].commit = &#39;9a0c639ac2324e6e9ecc54dc22b1d32bb6c42ab9&#39;</span><span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;nvim-compe&#39;].commit = &#39;d186d739c54823e0b010feb205c6f97792322c08&#39;<span class="w"></span>
+<span class="gd">-silent! let g:plugs[&#39;nvim-dap&#39;].commit = &#39;d6d8317ce9e096029150bc5844916347a9af6f45&#39;</span><span class="w"></span>
+<span class="gd">-silent! let g:plugs[&#39;nvim-dap-python&#39;].commit = &#39;4c7ea25f8ff6de6fa00bf5625d2e76753cced70f&#39;</span><span class="w"></span>
+<span class="gd">-silent! let g:plugs[&#39;nvim-lspconfig&#39;].commit = &#39;ad9903c66bac88f344890acb6532f63f1cd4dac3&#39;</span><span class="w"></span>
+<span class="gi">+silent! let g:plugs[&#39;nvim-dap&#39;].commit = &#39;2249fcfd09cdc27c08e9d2f3be5268ba81db3378&#39;</span><span class="w"></span>
+<span class="gi">+silent! let g:plugs[&#39;nvim-dap-python&#39;].commit = &#39;d96bcbf3803283456c900cf25ab0995e8d2f00c0&#39;</span><span class="w"></span>
+<span class="gi">+silent! let g:plugs[&#39;nvim-lspconfig&#39;].commit = &#39;9ff2a06cebd4c8c3af5259d713959ab310125bec&#39;</span><span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;nvim-lspinstall&#39;].commit = &#39;79ec2425d6b39cdcb69d379f3e56847f49be73eb&#39;<span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;nvim-lsputils&#39;].commit = &#39;ae1a4a62449863ad82c70713d5b6108f3a07917c&#39;<span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;nvim-spectre&#39;].commit = &#39;345e5dd57773e2b4b425a2515c831108b9808a0f&#39;<span class="w"></span>
+<span class="gd">-silent! let g:plugs[&#39;nvim-tree.lua&#39;].commit = &#39;ce463a53ae269544697c3dedd3d5beae05937405&#39;</span><span class="w"></span>
+<span class="gd">-silent! let g:plugs[&#39;nvim-treesitter&#39;].commit = &#39;3c50297eca950b4b1a7c07b28e586b0576c0a796&#39;</span><span class="w"></span>
+<span class="gd">-silent! let g:plugs[&#39;nvim-web-devicons&#39;].commit = &#39;4febe73506268a02ff15a240abcd7bf3eb9234da&#39;</span><span class="w"></span>
+<span class="gi">+silent! let g:plugs[&#39;nvim-tree.lua&#39;].commit = &#39;82ec79aac5557c05728d88195fb0d008cacbf565&#39;</span><span class="w"></span>
+<span class="gi">+silent! let g:plugs[&#39;nvim-treesitter&#39;].commit = &#39;f1373051e554cc4642cda719c8023e4e8508eb2d&#39;</span><span class="w"></span>
+<span class="gi">+silent! let g:plugs[&#39;nvim-web-devicons&#39;].commit = &#39;bdd43421437f2ef037e0dafeaaaa62b31d35ef2f&#39;</span><span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;onebuddy&#39;].commit = &#39;7e16006e7dde15e3cb72889f736c49409db6ff42&#39;<span class="w"></span>
+<span class="gd">-silent! let g:plugs[&#39;onedark.nvim&#39;].commit = &#39;e520a0c81a5a1997ecffd846ccd9c6e63b7859c6&#39;</span><span class="w"></span>
+<span class="gd">-silent! let g:plugs[&#39;playground&#39;].commit = &#39;13e2d2d63ce7bc5d875e8bdf89cb070bc8cc7a00&#39;</span><span class="w"></span>
+<span class="gd">-silent! let g:plugs[&#39;plenary.nvim&#39;].commit = &#39;9069d14a120cadb4f6825f76821533f2babcab92&#39;</span><span class="w"></span>
+<span class="gi">+silent! let g:plugs[&#39;onedark.nvim&#39;].commit = &#39;08cde8acf181b3278dafb9c8284726104a11cc0f&#39;</span><span class="w"></span>
+<span class="gi">+silent! let g:plugs[&#39;playground&#39;].commit = &#39;71b00a3c665298e5155ad64a9020135808d4e3e8&#39;</span><span class="w"></span>
+<span class="gi">+silent! let g:plugs[&#39;plenary.nvim&#39;].commit = &#39;0a907364b5cd6e3438e230df7add8b9bb5ef6fd3&#39;</span><span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;popfix&#39;].commit = &#39;ea262861ce3905b90c2c203b74a7be2539f1aba4&#39;<span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;popup.nvim&#39;].commit = &#39;b7404d35d5d3548a82149238289fa71f7f6de4ac&#39;<span class="w"></span>
+<span class="gd">-silent! let g:plugs[&#39;refactoring.nvim&#39;].commit = &#39;94eaa199ad892f26d2c8594dbbc5656314cf5bdb&#39;</span><span class="w"></span>
+<span class="gd">-silent! let g:plugs[&#39;stylua-nvim&#39;].commit = &#39;8bd7fa127367178dddb9ee06fdce1d7c622d2feb&#39;</span><span class="w"></span>
+<span class="gi">+silent! let g:plugs[&#39;refactoring.nvim&#39;].commit = &#39;33ac6f3bcfe97447037ded20291d40de34d8912c&#39;</span><span class="w"></span>
+<span class="gi">+silent! let g:plugs[&#39;stylua-nvim&#39;].commit = &#39;ce59a353f02938cba3e0285e662fcd3901cd270f&#39;</span><span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;targets.vim&#39;].commit = &#39;8d6ff2984cdfaebe5b7a6eee8f226a6dd1226f2d&#39;<span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;telescope-dap.nvim&#39;].commit = &#39;b4134fff5cbaf3b876e6011212ed60646e56f060&#39;<span class="w"></span>
+<span class="gd">-silent! let g:plugs[&#39;telescope.nvim&#39;].commit = &#39;8b02088743c07c2f82aec2772fbd2b3774195448&#39;</span><span class="w"></span>
+<span class="gi">+silent! let g:plugs[&#39;telescope.nvim&#39;].commit = &#39;39b12d84e86f5054e2ed98829b367598ae53ab41&#39;</span><span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;termopen.vim&#39;].commit = &#39;3194a991a18a9be2fd9fcf8c4c55fe990c04b2bd&#39;<span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;undotree&#39;].commit = &#39;08e259be24d4476c1ee745dc735eefd44f90efdc&#39;<span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;vim-be-good&#39;].commit = &#39;bc499a06c14c729b22a6cc7e730a9fbc44d4e737&#39;<span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;vim-commentary&#39;].commit = &#39;3654775824337f466109f00eaf6759760f65be34&#39;<span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;vim-dispatch&#39;].commit = &#39;00e77d90452e3c710014b26dc61ea919bc895e92&#39;<span class="w"></span>
+<span class="gd">-silent! let g:plugs[&#39;vim-doge&#39;].commit = &#39;88d8dfacc3a5f3dfce82ef5221e5e6943e627d85&#39;</span><span class="w"></span>
+<span class="gd">-silent! let g:plugs[&#39;vim-floaterm&#39;].commit = &#39;6244d1739aad6682c6c1d5db18c846c342af6e3e&#39;</span><span class="w"></span>
+<span class="gd">-silent! let g:plugs[&#39;vim-fugitive&#39;].commit = &#39;b5bbd0d181ebc3cea5c42bdaed13141850432ba1&#39;</span><span class="w"></span>
+<span class="gi">+silent! let g:plugs[&#39;vim-doge&#39;].commit = &#39;d5b08d01f64396557d9912b3830717d45671764b&#39;</span><span class="w"></span>
+<span class="gi">+silent! let g:plugs[&#39;vim-floaterm&#39;].commit = &#39;ab7876f86c05c1935eb23a193f4f276132902ac1&#39;</span><span class="w"></span>
+<span class="gi">+silent! let g:plugs[&#39;vim-fugitive&#39;].commit = &#39;a8139d37b242c5bc5ceeddc4fcd7dddf2b2c2650&#39;</span><span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;vim-indent-object&#39;].commit = &#39;5c5b24c959478929b54a9e831a8e2e651a465965&#39;<span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;vim-ipython-cell&#39;].commit = &#39;f0548d9a8d5e31d5c7f73e8729b55e8eb402852f&#39;<span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;vim-log-highlighting&#39;].commit = &#39;1037e26f3120e6a6a2c0c33b14a84336dee2a78f&#39;<span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;vim-quicklink&#39;].commit = &#39;021167741588555501594e1fc31f130b16acefa0&#39;<span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;vim-repeat&#39;].commit = &#39;24afe922e6a05891756ecf331f39a1f6743d3d5a&#39;<span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;vim-signify&#39;].commit = &#39;69498f6d49f3eeac06870012416dd9bf867b84f3&#39;<span class="w"></span>
+<span class="gd">-silent! let g:plugs[&#39;vim-slime&#39;].commit = &#39;0ea9b35882155996171fd15a5227e673ce2d2c60&#39;</span><span class="w"></span>
+<span class="gi">+silent! let g:plugs[&#39;vim-slime&#39;].commit = &#39;6e4b81303968f37346925d6907b96ef07788cc82&#39;</span><span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;vim-sneak&#39;].commit = &#39;94c2de47ab301d476a2baec9ffda07367046bec9&#39;<span class="w"></span>
+<span class="gd">-silent! let g:plugs[&#39;vim-surround&#39;].commit = &#39;81fc0ec460dd8b25a76346e09aecdbca2677f1a7&#39;</span><span class="w"></span>
+<span class="gi">+silent! let g:plugs[&#39;vim-surround&#39;].commit = &#39;bf3480dc9ae7bea34c78fbba4c65b4548b5b1fea&#39;</span><span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;vim-test&#39;].commit = &#39;2240d7a4b868cb594b7d83544e1b6db4df806e5e&#39;<span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;vim-tmux-runner&#39;].commit = &#39;54767911fd5e6e2d8e493847149e315ac2e6531a&#39;<span class="w"></span>
+<span class="gd">-silent! let g:plugs[&#39;vim-ultest&#39;].commit = &#39;a99eb0bdf7d901d538b5dd724e2ab3a958c1799c&#39;</span><span class="w"></span>
+<span class="gi">+silent! let g:plugs[&#39;vim-ultest&#39;].commit = &#39;6978fd32e3ca2c1c5591884eea0d57a7ee43d212&#39;</span><span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;vim-visualstar&#39;].commit = &#39;a18cd0e7a03311ac709595c1d261ed44b45c9098&#39;<span class="w"></span>
+<span class="w"> </span>silent! let g:plugs[&#39;vim-vsnip&#39;].commit = &#39;8f199ef690ed26dcbb8973d9a6760d1332449ac9&#39;<span class="w"></span>
+</code></pre></div>
+<h2 id="commits">Commits</h2>
+<p>Now I can look through all the versions of my <code>snapshot.vim</code> by opening it,
+running <code>:0Gclog</code> and navigating the quickfix list with <code>:cnext</code> and <code>:cprev</code>.
+If I want to install one of the old versions while its open in a buffer, all I
+need to do is run <code>:source %</code>.</p>
+<h2 id="log">Log</h2>
+<p>Now the log of my <code>snapshots.vim</code> looks like this.  I saved the working
+version, and successfully updated to the latest versions of all plugins, with a
+save point I can revert back to.</p>
+<div class="highlight"><pre><span></span><code>commit 20e901196b0d9633a42176f1fe1757e45f709fd3
+Author: Waylon S. Walker &lt;waylon@waylonwalker.com&gt;
+Date:   Fri May 13 20:37:03 2022 -0500
+
+    plugupdate
+
+commit f9d76368697b4c4427c0fa8ccd5e2449b6e5a9ff
+Author: Waylon S. Walker &lt;waylon@waylonwalker.com&gt;
+Date:   Fri May 13 20:16:11 2022 -0500
+
+    commit my plugin snapshot
+</code></pre></div>
+<div class='prevnext'>
+
+    <style type='text/css'>
+
+    :root {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="light"] {
+      --prevnext-color-text: #1f2022;
+      --prevnext-color-angle: #ffeb00;
+      --prevnext-subtitle-brightness: 3;
+    }
+    [data-theme="dark"] {
+      --prevnext-color-text: #eefbfe;
+      --prevnext-color-angle: #e1bd00c9;
+      --prevnext-subtitle-brightness: 3;
+    }
+    .prevnext {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
+    }
+    .prevnext a {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      text-decoration: none;
+    }
+    a.next {
+      justify-content: flex-end;
+    }
+    .prevnext a:hover {
+      background: #00000006;
+    }
+    .prevnext-subtitle {
+      color: var(--prevnext-color-text);
+      filter: brightness(var(--prevnext-subtitle-brightness));
+      font-size: .8rem;
+    }
+    .prevnext-title {
+      color: var(--prevnext-color-text);
+      font-size: 1rem;
+    }
+    .prevnext-text {
+      max-width: 30vw;
+    }
+    </style>
+
+    <a class='prev' href='/vim-replace-visual-star'>
+
+
+        <svg width="50px" height="50px" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.5 8.25L9.75 12L13.5 15.75" stroke="var(--prevnext-color-angle)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"> </path>
+        </svg>
+        <div class='prevnext-text'>
+            <p class='prevnext-subtitle'>prev</p>
+            <p class='prevnext-title'>Vim Replace Visual Star</p>
+        </div>
+    </a>
+
+    <a class='next' href='/vim-notes'>
+
+        <div class='prevnext-text'>
+            <p class='prevnext-subtitle'>next</p>
+            <p class='prevnext-title'>Vim Notes</p>
+        </div>
+        <svg width="50px" height="50px" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.5 15.75L14.25 12L10.5 8.25" stroke="var(--prevnext-color-angle)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+    </a>
+  </div>
+        </div>
+        <hr>
+        <div id='show'>
+        </div>
+    </article>
+    <h2>Socials</h2>
+    <ul class='social'>
+      <li>
+        <a href="https://twitter.com/_WaylonWalker">twitter</a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/waylonwalker/">LinkedIn</a>
+      </li>
+      <li>
+        <a href="https://github.com/WaylonWalker">GitHub</a>
+      </li>
+      <li>
+        <a href="https://dev.to/waylonwalker">Dev.to</a>
+      </li>
+      <li>
+        <a href="https://www.twitch.tv/waylonwalker">twitch</a>
+      </li>
+    </ul>
+</body>
+
+</html>
