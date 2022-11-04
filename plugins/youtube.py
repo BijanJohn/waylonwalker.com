@@ -32,10 +32,7 @@ def is_valid_youtube(youtube: "Tag") -> bool:
 def swap_youtube(youtube: "Tag") -> "Tag":
     "Swap"
 
-    if is_valid_youtube(youtube):
-        return render_youtube(youtube)
-    else:
-        return youtube
+    return render_youtube(youtube) if is_valid_youtube(youtube) else youtube
 
 
 def swap_youtubes(soup: BeautifulSoup) -> None:
@@ -66,10 +63,7 @@ def post_render(markata):
             if html_from_cache is None:
                 soup = BeautifulSoup(article.html, "html.parser")
                 swap_youtubes(soup)
-                if should_prettify:
-                    html = soup.prettify()
-                else:
-                    html = str(soup)
+                html = soup.prettify() if should_prettify else str(soup)
                 cache.add(key, html)
 
             else:

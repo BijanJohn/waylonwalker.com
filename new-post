@@ -57,13 +57,15 @@ with open(path, "w+") as f:
     f.write(frontmatter)
 
 gadd = subprocess.Popen(
-    f'cd {directory} && git add {str(path).replace(str(directory) + "/", "")} ',
+    f'cd {directory} && git add {str(path).replace(f"{str(directory)}/", "")} ',
     shell=True,
 )
+
 gadd.wait()
 
 nvim = subprocess.Popen(
-    f'cd {directory} && nvim +12 +star {str(path).replace(str(directory) + "/", "")} ',
+    f'cd {directory} && nvim +12 +star {str(path).replace(f"{str(directory)}/", "")} ',
     shell=True,
 )
+
 nvim.wait()

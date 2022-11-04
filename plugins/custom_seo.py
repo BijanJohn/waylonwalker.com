@@ -13,19 +13,18 @@ if TYPE_CHECKING:
 def _create_seo(
     markata: Markata, soup: BeautifulSoup, article: "frontmatter.Post"
 ) -> List:
-    if article.metadata["description"] == "" or None:
+    if article.metadata["description"] == "":
         article.metadata["description"] = " ".join(
             [p.text for p in soup.find(id="post-body").find_all("p")]
         ).strip()[:120]
 
-    seo = [
+    return [
         {
             "name": "og:sm_image",
             "property": "og:sm_image",
             "content": f'{markata.config["images_url"]}/{article.metadata["slug"]}-og_250x140.png',
         },
     ]
-    return seo
 
 
 def _add_seo_tags(seo: List, article: "frontmatter.Post", soup: BeautifulSoup) -> None:
@@ -60,10 +59,7 @@ def post_render(markata: Markata) -> None:
                 soup = BeautifulSoup(article.html, features="lxml")
                 seo = _create_seo(markata, soup, article)
                 _add_seo_tags(seo, article, soup)
-                if should_prettify:
-                    html = soup.prettify()
-                else:
-                    html = str(soup)
+                html = soup.prettify() if should_prettify else str(soup)
                 cache.add(key, html, expire=config["cache_expire"])
             else:
                 html = html_from_cache

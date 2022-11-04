@@ -53,12 +53,12 @@ def getsizes(uri, default_height=500, default_width=500):
 def _create_seo(
     markata: Markata, soup: BeautifulSoup, article: "frontmatter.Post"
 ) -> List:
-    if article.metadata["description"] == "" or None:
+    if article.metadata["description"] == "":
         article.metadata["description"] = " ".join(
             [p.text for p in soup.find(id="post-body").find_all("p")]
         ).strip()[:120]
 
-    seo = [
+    return [
         *markata.config["seo"],
         {
             "name": "og:author",
@@ -150,7 +150,6 @@ def _create_seo(
             "content": f"markata {__version__}",
         },
     ]
-    return seo
 
 
 def _add_seo_tags(seo: List, article: "frontmatter.Post", soup: BeautifulSoup) -> None:
@@ -233,7 +232,7 @@ def render(markata: Markata) -> None:
     url = markata.get_config("url") or ""
     site_name = markata.get_config("site_name") or ""
     twitter_card = markata.get_config("twitter_card") or "summary_large_image"
-    config_seo = markata.get_config("seo", warn=False) or dict()
+    config_seo = markata.get_config("seo", warn=False) or {}
 
     with markata.cache as cache:
         for article in markata.iter_articles("add amp seo tags from seo_amp.py"):

@@ -24,11 +24,11 @@ def create_page(
     card_template=None,
     filter=None,
 ):
-    all_posts = reversed(sorted(markata.articles, key=lambda x: x["date"]))
-
     description = markata.config["description"]
 
     if filter is not None:
+        all_posts = reversed(sorted(markata.articles, key=lambda x: x["date"]))
+
         posts = reversed(sorted(markata.articles, key=lambda x: x["date"]))
         try:
             posts = [post for post in posts if eval(filter, post.to_dict(), {})]

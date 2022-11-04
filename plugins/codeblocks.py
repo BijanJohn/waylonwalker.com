@@ -27,15 +27,15 @@ FENCED_BLOCK_RE = re.compile(
 
 
 def find_codeblocks(article) -> List[Dict[str, str]]:
-    codeblocks: List[Dict[str, str]] = []
-    for block in FENCED_BLOCK_RE.findall(article):
-        codeblocks.append(
-            {
-                "language": block[1],
-                "code": block[9],
-                "hash": hashlib.md5(block[9].encode("utf-8")).hexdigest(),
-            }
-        )
+    codeblocks: List[Dict[str, str]] = [
+        {
+            "language": block[1],
+            "code": block[9],
+            "hash": hashlib.md5(block[9].encode("utf-8")).hexdigest(),
+        }
+        for block in FENCED_BLOCK_RE.findall(article)
+    ]
+
     return codeblocks
 
 

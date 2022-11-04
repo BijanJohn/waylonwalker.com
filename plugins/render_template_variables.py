@@ -10,10 +10,10 @@ def pre_render(markata) -> None:
     for article in markata.iter_articles("rendering markdown"):
 
         if "date" not in article.keys():
-            article["date"] = datetime.datetime.today().min
+            article["date"] = datetime.datetime.now().min
 
         if article["date"] is None:
-            article["date"] = datetime.datetime.today().min
+            article["date"] = datetime.datetime.now().min
 
         if "datetime" not in article.keys():
             # all dates get cohersed to datetime later
@@ -36,5 +36,5 @@ def pre_render(markata) -> None:
         try:
             article["year"] = article["date"].year
         except KeyError:
-            article["year"] = datetime.datetime.today().year
-            article["date"] = datetime.datetime.today().min
+            article["year"] = datetime.datetime.now().year
+            article["date"] = datetime.datetime.now().min
