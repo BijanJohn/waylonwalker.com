@@ -20,11 +20,7 @@ def expand_line(line, markata):
         if r and " " not in line:
             return get_one_line_link(line, markata=markata)
         r = RE_TWEET.match(line)
-        if r and " " not in line:
-            html = API.GetStatusOembed(url=line)["html"]
-            return html
-
-        return line
+        return API.GetStatusOembed(url=line)["html"] if r and " " not in line else line
     except BaseException as e:
         import warnings
 

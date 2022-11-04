@@ -62,10 +62,7 @@ def is_valid_gif(gif: "Tag") -> bool:
 
 def swap_gif(gif: "Tag") -> "Tag":
     "Swap"
-    if is_valid_gif(gif):
-        return render_mp4(gif)
-    else:
-        return gif
+    return render_mp4(gif) if is_valid_gif(gif) else gif
 
 
 def swap_gifs(soup: BeautifulSoup) -> None:
@@ -89,10 +86,7 @@ def post_render(markata):
             if html_from_cache is None:
                 soup = BeautifulSoup(article.html, "html.parser")
                 swap_gifs(soup)
-                if should_prettify:
-                    html = soup.prettify()
-                else:
-                    html = str(soup)
+                html = soup.prettify() if should_prettify else str(soup)
                 cache.add(key, html, expire=markata.config["default_cache_expire"])
 
             else:
